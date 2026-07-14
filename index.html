@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIZSHIFT AI｜面倒な定型業務をAIで効率化</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #f7f3ec; }
+  .lp { max-width: 860px; margin: 0 auto; background: #fff; }
+  .lp img { display: block; width: 100%; height: auto; }
+
+  /* 画像の上に重ねる「透明な当たり判定」。
+     位置は画像に対する%指定なので、スマホでもPCでも自動でついてくる */
+  .sec { position: relative; }
+  .hotspot {
+    position: absolute; display: block; z-index: 10;
+    border-radius: 40px; cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* スマホ標準の灰色フラッシュを消す */
+    transition: transform .06s ease, background .06s ease;
+    overflow: hidden; /* シャインをボタンの形で切り抜く */
+  }
+  /* 数秒おきにボタンの上を光が走る */
+  .hotspot::after {
+    content: ""; position: absolute; top: 0; left: -80%;
+    width: 45%; height: 100%;
+    background: linear-gradient(115deg, transparent, rgba(255,255,255,.5), transparent);
+    transform: skewX(-20deg);
+    animation: shine 3.8s ease-in-out infinite;
+  }
+  @keyframes shine {
+    0%   { left: -80%; }
+    38%  { left: 130%; }
+    100% { left: 130%; }
+  }
+  /* 目の疲れ・酔いに配慮した設定のユーザーには動きを止める */
+  @media (prefers-reduced-motion: reduce) {
+    .hotspot::after, .floating-cta { animation: none; }
+  }
+  .hotspot:hover { box-shadow: 0 0 0 3px rgba(46,158,82,.55); }
+  /* 押した瞬間：うっすら暗くして少し縮める＝ボタンが沈んで見える */
+  .hotspot:active {
+    background: rgba(0,0,0,.14);
+    transform: scale(.97);
+    box-shadow: inset 0 2px 6px rgba(0,0,0,.25);
+  }
+
+  /* 画面下に追従するCTAボタン */
+  .floating-cta {
+    position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%);
+    width: min(92%, 480px); z-index: 100;
+    background: linear-gradient(135deg, #1a7a3a, #2e9e52);
+    color: #fff; text-align: center; text-decoration: none;
+    font-size: 17px; font-weight: bold; font-family: sans-serif;
+    padding: 16px 8px; border-radius: 40px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.25);
+  }
+  .floating-cta:active { transform: translateX(-50%) scale(.97); }
+  /* ページ最下部のフッター（法的表記へのリンク） */
+  .footer {
+    background: #2b2b2b; color: #ccc; font-family: sans-serif;
+    text-align: center; font-size: 12px;
+    padding: 28px 12px 90px; /* 下は追従バーと重ならない余白 */
+  }
+  .footer a { color: #ccc; text-decoration: none; margin: 0 10px; }
+  .footer a:hover { color: #fff; text-decoration: underline; }
+  .footer .copy { margin-top: 14px; color: #888; }
+</style>
+</head>
+<body>
+
+<!-- ▼ CTAリンク先はここを差し替える（4か所とも同じURLに） -->
+
+<div class="lp">
+
+  <div class="sec">
+    <img src="images/lp_01_hero.png" alt="面倒な定型業務をAIで効率化。BIZSHIFT AI">
+    <a class="hotspot" href="https://example.com/contact" aria-label="無料でAI活用について相談する"
+       style="left:5.5%; top:82.9%; width:89%; height:8%;"></a>
+  </div>
+
+  <img src="images/lp_02_pain_points.png" alt="よくある悩み">
+  <img src="images/lp_03_service.png" alt="サービス紹介：御社専用のAI活用方法を設計します">
+  <img src="images/lp_04_reasons.png" alt="選ばれる理由">
+  <img src="images/lp_05_before_after.png" alt="導入前と導入後の変化">
+  <img src="images/lp_06_cases.png" alt="導入事例">
+  <img src="images/lp_07_flow.png" alt="ご利用の流れ">
+  <div class="sec">
+    <img src="images/lp_08_pricing.png" alt="料金プラン">
+    <a class="hotspot" href="https://example.com/contact" aria-label="ライトプランについて相談する"
+       style="left:16.5%; top:33.8%; width:67%; height:3.8%;"></a>
+    <a class="hotspot" href="https://example.com/contact" aria-label="スタンダードプランについて相談する"
+       style="left:16.5%; top:66.7%; width:67%; height:3.7%;"></a>
+    <a class="hotspot" href="https://example.com/contact" aria-label="見積もりを依頼する"
+       style="left:16.5%; top:93.5%; width:67%; height:3.5%;"></a>
+  </div>
+
+  <div class="sec">
+    <img src="images/lp_09_cta.png" alt="まずはAIで効率化できる業務を見つけませんか？">
+    <a class="hotspot" href="https://example.com/contact" aria-label="無料相談を申し込む"
+       style="left:7.3%; top:75.0%; width:85%; height:8.6%;"></a>
+  </div>
+
+  <img src="images/lp_10_faq.png" alt="よくあるご質問">
+
+  <div class="sec">
+    <img src="images/lp_11_final_cta.png" alt="単純作業を減らして、会社の成長につながる仕事を増やす。">
+    <a class="hotspot" href="https://example.com/contact" aria-label="無料で相談してみる"
+       style="left:9%; top:81.5%; width:82%; height:11.5%;"></a>
+  </div>
+
+  <div class="footer">
+    <a href="company.html">会社情報</a>｜<a href="tokusho.html">特定商取引法に基づく表記</a>｜<a href="privacy.html">プライバシーポリシー</a>
+    <div class="copy">&copy; 2026 【要記入：事業者名】</div>
+  </div>
+
+</div>
+
+<a class="floating-cta" href="https://example.com/contact">無料でAI活用について相談する →</a>
+
+</body>
+</html>
