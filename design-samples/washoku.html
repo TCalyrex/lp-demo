@@ -6,99 +6,111 @@
 <title>デザイン見本｜高級和食・割烹（和モダン）</title>
 <style>
   :root{
-    --paper:#f4efe3; --paper2:#ebe4d4; --sumi:#2b2620; --sumi-lt:#5c5346;
-    --shu:#a8402c; --kin:#96793a; --line:#d8cfba;
+    --paper:#f4efe3; --paper2:#ebe4d4; --sumi:#241f19; --sumi-lt:#544b3e;
+    --shu:#a8402c; --shu-dk:#8a3220; --kin:#8f7331; --line:#d8cfba;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
-    color:var(--sumi); background:var(--paper); line-height:2.2; letter-spacing:.08em;
-    background-image:radial-gradient(circle at 20% 10%,rgba(255,255,255,.5),transparent 40%);
+    color:var(--sumi); background:var(--paper); line-height:2.1; letter-spacing:.06em;
   }
   .sample-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--sumi);color:#efe7d6;font-size:12px;letter-spacing:.1em;text-align:center;padding:8px 12px;font-family:sans-serif;}
   .wrap{max-width:940px;margin:0 auto;padding:0 30px;}
-  section{padding:120px 0;}
+  section{padding:118px 0;}
 
-  /* 落款風の印＋見出し */
-  .head{text-align:center;margin-bottom:56px;}
-  .head .seal{display:inline-block;width:44px;height:44px;line-height:44px;background:var(--shu);color:#fff;border-radius:4px;font-size:20px;margin-bottom:20px;}
-  .head h2{font-weight:400;font-size:clamp(24px,4vw,34px);letter-spacing:.14em;}
-  .head .en{font-family:sans-serif;font-size:11px;letter-spacing:.4em;color:var(--kin);margin-top:12px;}
+  /* 見出し（落款印＋上余白） */
+  .head{text-align:center;margin:0 auto 58px;padding-top:14px;}
+  .head .seal{display:inline-block;width:46px;height:46px;line-height:46px;background:var(--shu);color:#fff;border-radius:4px;font-size:21px;margin-bottom:24px;box-shadow:0 4px 14px rgba(168,64,44,.28);}
+  .head h2{font-weight:600;font-size:clamp(25px,4.2vw,35px);letter-spacing:.12em;}
+  .head .en{font-family:sans-serif;font-size:11px;letter-spacing:.4em;color:var(--kin);margin-top:14px;}
 
-  /* FV：明るい生成り・横長写真・縦書き大明朝 */
-  .fv{padding-top:110px;padding-bottom:0;position:relative;}
-  .fv-inner{display:grid;grid-template-columns:1fr;gap:0;align-items:stretch;}
-  .fv-img{width:100%;height:52vh;min-height:340px;object-fit:cover;}
-  .fv-txt{padding:64px 30px 90px;text-align:center;}
-  .fv .en{font-family:sans-serif;font-size:12px;letter-spacing:.44em;color:var(--kin);margin-bottom:28px;}
-  .fv h1{font-weight:400;font-size:clamp(30px,6vw,52px);line-height:1.9;letter-spacing:.12em;}
+  /* ===== FV：1画面・写真上・テキスト＋CTAまで収める ===== */
+  .fv{height:100svh;min-height:600px;display:flex;flex-direction:column;}
+  .fv-img{width:100%;height:42vh;min-height:230px;object-fit:cover;flex:none;}
+  .fv-txt{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 26px 40px;background:
+    radial-gradient(circle at 50% 0%,rgba(255,255,255,.6),transparent 60%),var(--paper);}
+  .fv .en{font-family:sans-serif;font-size:12px;letter-spacing:.42em;color:var(--kin);margin-bottom:20px;}
+  .fv h1{font-weight:600;font-size:clamp(31px,6.6vw,54px);line-height:1.55;letter-spacing:.1em;}
   .fv h1 .shu{color:var(--shu);}
-  .fv .sub{margin-top:30px;font-size:clamp(16px,2.3vw,18px);color:var(--sumi-lt);line-height:2.1;}
+  .fv .sub{margin-top:22px;font-size:clamp(15.5px,2.4vw,18px);color:var(--sumi-lt);line-height:1.95;font-weight:400;}
+  .fv .sub b{font-weight:700;color:var(--sumi);}
 
-  .btn{display:inline-block;margin-top:40px;font-family:sans-serif;font-size:15px;letter-spacing:.18em;color:#fff;background:var(--shu);text-decoration:none;padding:19px 52px;transition:.3s;position:relative;}
-  .btn::after{content:"";position:absolute;inset:5px;border:1px solid rgba(255,255,255,.4);pointer-events:none;}
-  .btn:hover{background:#8f3623;}
+  /* ===== 上質なボタン ===== */
+  .btn{
+    display:inline-flex;align-items:center;gap:12px;
+    font-family:sans-serif;font-size:16px;font-weight:600;letter-spacing:.14em;
+    color:#fff;background:var(--shu);text-decoration:none;
+    padding:20px 46px;border-radius:3px;
+    box-shadow:0 10px 26px rgba(168,64,44,.3);
+    transition:.35s cubic-bezier(.2,.7,.2,1);
+  }
+  .btn .arw{transition:.35s;font-family:serif;}
+  .btn:hover{background:var(--shu-dk);transform:translateY(-3px);box-shadow:0 16px 34px rgba(168,64,44,.42);}
+  .btn:hover .arw{transform:translateX(5px);}
+  .fv .btn{margin-top:30px;}
 
-  .lead{font-size:clamp(23px,3.8vw,32px);line-height:2;text-align:center;letter-spacing:.1em;max-width:22em;margin:0 auto;font-weight:400;}
-  .body{font-size:clamp(16px,2.2vw,17.5px);color:var(--sumi-lt);max-width:34em;margin:34px auto 0;line-height:2.3;text-align:center;}
+  .lead{font-size:clamp(23px,3.8vw,32px);line-height:2;text-align:center;letter-spacing:.09em;max-width:22em;margin:0 auto;font-weight:600;}
+  .body{font-size:clamp(16px,2.2vw,17.5px);color:var(--sumi-lt);max-width:34em;margin:34px auto 0;line-height:2.25;text-align:center;}
+  .body b{font-weight:700;color:var(--sumi);}
   p.body + p.body{margin-top:24px;}
 
-  /* 悩み：縦の細罫で仕切る */
+  /* 悩み */
   .concerns{background:var(--paper2);}
   .concerns .items{max-width:640px;margin:0 auto;}
-  .concerns .it{padding:26px 0;border-bottom:1px solid var(--line);font-size:clamp(16.5px,2.4vw,18.5px);position:relative;padding-left:34px;}
-  .concerns .it::before{content:"◦";position:absolute;left:8px;color:var(--shu);font-size:20px;}
+  .concerns .it{padding:24px 0;border-bottom:1px solid var(--line);font-size:clamp(16.5px,2.4vw,18.5px);position:relative;padding-left:36px;font-weight:500;}
+  .concerns .it::before{content:"◦";position:absolute;left:8px;color:var(--shu);font-size:22px;top:20px;}
 
-  /* 理由：縦書き番号＋横組み */
-  .reason{display:grid;grid-template-columns:1fr;gap:22px;margin-bottom:70px;align-items:center;}
+  /* 理由 */
+  .reason{display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:74px;align-items:center;}
   .reason:last-child{margin-bottom:0;}
-  .reason img{width:100%;aspect-ratio:5/4;object-fit:cover;border:6px solid #fff;box-shadow:0 10px 30px rgba(43,38,32,.12);}
-  .reason .vno{font-family:sans-serif;font-size:12px;letter-spacing:.3em;color:var(--kin);}
-  .reason h3{font-weight:400;font-size:clamp(22px,3.2vw,27px);margin:14px 0 16px;letter-spacing:.08em;line-height:1.7;}
+  .reason img{width:100%;aspect-ratio:5/4;object-fit:cover;border:7px solid #fff;box-shadow:0 12px 34px rgba(36,31,25,.14);}
+  .reason .vno{font-family:sans-serif;font-size:12px;letter-spacing:.3em;color:var(--kin);font-weight:700;}
+  .reason h3{font-weight:600;font-size:clamp(22px,3.2vw,27px);margin:14px 0 16px;letter-spacing:.06em;line-height:1.7;}
   .reason p{font-size:clamp(15.5px,2.2vw,17px);color:var(--sumi-lt);line-height:2.2;}
 
-  /* コース：和紙カード・朱の見出し */
+  /* コース */
   .courses{display:grid;grid-template-columns:1fr;gap:24px;}
-  .course{background:#fbf8f0;border:1px solid var(--line);padding:48px 34px;text-align:center;position:relative;}
-  .course::before{content:"";position:absolute;top:14px;left:14px;right:14px;bottom:14px;border:1px solid var(--line);pointer-events:none;}
-  .course .kanji{font-size:34px;color:var(--shu);}
-  .course h3{font-weight:400;font-size:clamp(23px,3vw,26px);margin:10px 0 16px;letter-spacing:.2em;}
+  .course{background:#fbf8f0;border:1px solid var(--line);padding:50px 34px;text-align:center;position:relative;transition:.4s;}
+  .course::before{content:"";position:absolute;top:13px;left:13px;right:13px;bottom:13px;border:1px solid var(--line);pointer-events:none;transition:.4s;}
+  .course:hover{transform:translateY(-5px);box-shadow:0 16px 38px rgba(36,31,25,.12);}
+  .course:hover::before{border-color:var(--shu);}
+  .course .kanji{font-size:36px;color:var(--shu);}
+  .course h3{font-weight:600;font-size:clamp(22px,3vw,25px);margin:8px 0 16px;letter-spacing:.2em;}
   .course p{font-size:clamp(15.5px,2.1vw,16.5px);color:var(--sumi-lt);line-height:2;}
-  .course .price{margin-top:20px;font-family:sans-serif;font-size:16px;color:var(--kin);letter-spacing:.06em;}
+  .course .price{margin-top:20px;font-family:sans-serif;font-size:17px;color:var(--kin);letter-spacing:.04em;font-weight:600;}
 
   /* 流れ */
   .flow{max-width:600px;margin:0 auto;}
-  .flow .s{display:flex;gap:24px;padding:26px 0;border-bottom:1px dashed var(--line);}
-  .flow .s .k{font-family:serif;font-size:26px;color:var(--shu);flex:none;width:40px;text-align:center;}
-  .flow .s h4{font-weight:400;font-size:clamp(17px,2.4vw,19px);margin-bottom:4px;letter-spacing:.06em;}
-  .flow .s p{font-size:clamp(15px,2vw,16px);color:var(--sumi-lt);line-height:1.9;}
+  .flow .s{display:flex;gap:26px;padding:28px 0;border-bottom:1px dashed var(--line);align-items:flex-start;}
+  .flow .s .k{font-family:serif;font-size:28px;color:#fff;background:var(--shu);flex:none;width:46px;height:46px;line-height:46px;text-align:center;border-radius:50%;}
+  .flow .s h4{font-weight:600;font-size:clamp(17px,2.4vw,19px);margin-bottom:6px;letter-spacing:.06em;}
+  .flow .s p{font-size:clamp(15px,2vw,16px);color:var(--sumi-lt);line-height:1.95;}
 
   /* 数字 */
   .stats{background:var(--sumi);color:var(--paper);}
-  .stats .head h2,.stats .head .seal{}
   .stats .grid{display:grid;grid-template-columns:1fr;gap:48px;text-align:center;}
-  .stats .num{font-size:clamp(46px,7vw,56px);color:#e7c46a;font-weight:400;}
+  .stats .num{font-size:clamp(48px,7.4vw,58px);color:#e7c46a;font-weight:600;}
   .stats .num .u{font-size:24px;}
-  .stats .lbl{font-family:sans-serif;font-size:14px;letter-spacing:.14em;color:#c3baa5;margin-top:12px;}
+  .stats .lbl{font-family:sans-serif;font-size:14px;letter-spacing:.14em;color:#c9c0ab;margin-top:12px;font-weight:600;}
 
   /* 声 */
   .voices{display:grid;grid-template-columns:1fr;gap:28px;}
-  .voice{background:#fbf8f0;border:1px solid var(--line);padding:42px 36px;position:relative;}
-  .voice::before{content:"\201C";position:absolute;top:14px;left:20px;font-size:52px;color:var(--line);font-family:serif;line-height:1;}
-  .voice p{font-size:clamp(16px,2.2vw,17.5px);color:var(--sumi);line-height:2.3;position:relative;}
-  .voice .who{font-family:sans-serif;font-size:13.5px;letter-spacing:.08em;color:var(--kin);margin-top:20px;}
+  .voice{background:#fbf8f0;border:1px solid var(--line);padding:44px 36px 40px;position:relative;}
+  .voice::before{content:"\201C";position:absolute;top:16px;left:22px;font-size:54px;color:var(--line);font-family:serif;line-height:1;}
+  .voice p{font-size:clamp(16px,2.2vw,17.5px);color:var(--sumi);line-height:2.3;position:relative;padding-top:10px;}
+  .voice .who{font-family:sans-serif;font-size:13.5px;letter-spacing:.08em;color:var(--kin);margin-top:20px;font-weight:600;}
 
   /* FAQ */
   .faq{max-width:720px;margin:0 auto;}
-  .faq dt{font-size:clamp(17px,2.5vw,19px);color:var(--shu);padding:26px 0 10px;border-top:1px solid var(--line);}
-  .faq dt::before{content:"問　";color:var(--kin);font-size:15px;}
+  .faq dt{font-size:clamp(17px,2.5vw,19px);color:var(--sumi);padding:26px 0 10px;border-top:1px solid var(--line);font-weight:700;}
+  .faq dt::before{content:"問　";color:var(--shu);font-size:15px;}
   .faq dd{font-size:clamp(15.5px,2.2vw,16.5px);color:var(--sumi-lt);padding-bottom:8px;line-height:2.1;}
 
   /* オファー */
-  .offer{background:var(--paper2);text-align:center;padding:80px 34px;}
-  .offer h2{font-weight:400;font-size:clamp(25px,4vw,36px);margin:20px 0;letter-spacing:.12em;}
-  .offer .price{font-family:sans-serif;font-size:clamp(16px,2.3vw,18px);color:var(--kin);letter-spacing:.06em;}
+  .offer{background:var(--paper2);text-align:center;padding:96px 34px;}
+  .offer h2{font-weight:600;font-size:clamp(26px,4.2vw,38px);margin:20px 0;letter-spacing:.1em;}
+  .offer .price{font-family:sans-serif;font-size:clamp(16px,2.3vw,18px);color:var(--kin);letter-spacing:.05em;font-weight:600;}
 
   .note{text-align:center;font-family:sans-serif;font-size:12.5px;color:#948b78;margin-top:34px;letter-spacing:.04em;line-height:1.7;}
   footer{padding:64px 30px;text-align:center;color:#948b78;font-size:12.5px;font-family:sans-serif;letter-spacing:.05em;line-height:1.9;border-top:1px solid var(--line);}
@@ -107,7 +119,9 @@
   .reveal.on{opacity:1;transform:none;}
 
   @media(min-width:820px){
-    .fv-img{height:66vh;}
+    .fv{flex-direction:row;}
+    .fv-img{width:50%;height:auto;flex:none;}
+    .fv-txt{flex:1;padding:40px 56px;}
     .reason{grid-template-columns:1fr 1fr;gap:48px;}
     .reason.rev .txt{order:2;}
     .courses{grid-template-columns:repeat(3,1fr);}
@@ -119,23 +133,21 @@
 <body>
 <div class="sample-bar">デザイン見本（サンプル）｜和モダン ── 文言・写真・料金・数字・お客様の声はすべて架空のサンプルです</div>
 
-<!-- FV -->
+<!-- FV：写真＋テキスト＋CTAを1画面に -->
 <header class="fv">
-  <div class="fv-inner">
-    <img class="fv-img" src="images/washoku.png" alt="">
-    <div class="fv-txt">
-      <p class="en">KAPPO CUISINE &nbsp;&#8226;&nbsp; TOKYO</p>
-      <h1>一皿に、<span class="shu">四季</span>を。<br>カウンター八席の、静かな贅沢。</h1>
-      <p class="sub">一日、限られたお客様だけに。<br>大切な方をお迎えする夜に。</p>
-      <a href="#offer" class="btn">ご予約について</a>
-    </div>
+  <img class="fv-img" src="images/washoku.png" alt="">
+  <div class="fv-txt">
+    <p class="en">KAPPO CUISINE &nbsp;&#8226;&nbsp; TOKYO</p>
+    <h1>その夜を、<br><span class="shu">一生の記憶</span>に。</h1>
+    <p class="sub"><b>一日一組、カウンター八席だけ。</b><br>旬の食材で組む、その日だけのおまかせ料理。</p>
+    <a href="#offer" class="btn">お席を予約する <span class="arw">→</span></a>
   </div>
 </header>
 
 <!-- コンセプト -->
 <section class="wrap reveal">
   <div class="head"><span class="seal">献</span><h2>料理は、記憶に残る</h2><p class="en">CONCEPT</p></div>
-  <p class="body">その日の朝に届いた食材だけで、その日の献立を組みます。だから同じ夜は、二度とありません。カウンター越しに、季節の移ろいと、職人の手の動きを間近で。器の温度、出汁の香り、間の取り方まで。ひと皿ごとに流れる時間そのものを、味わっていただく場所です。</p>
+  <p class="body">その日の朝に届いた食材だけで、その日の献立を組みます。<b>だから同じ夜は、二度とありません。</b>カウンター越しに、季節の移ろいと、職人の手の動きを間近で。器の温度、出汁の香り、間の取り方まで。ひと皿ごとに流れる時間そのものを、味わっていただく場所です。</p>
   <p class="body">記念日に、接待に、そして自分へのご褒美に。その夜が、長く記憶に残るように。</p>
 </section>
 
@@ -172,7 +184,7 @@
 
 <!-- コース -->
 <section class="wrap reveal">
-  <div class="head"><span class="seal">献</span><h2>おまかせ、3つのお献立</h2><p class="en">OMAKASE</p></div>
+  <div class="head"><span class="seal">膳</span><h2>おまかせ、3つのお献立</h2><p class="en">OMAKASE</p></div>
   <div class="courses">
     <div class="course"><p class="kanji">花</p><h3>はな</h3><p>季節の味を気軽に。はじめての方や、軽めにお楽しみになりたい夜へ。</p><p class="price">全8品　¥11,000</p></div>
     <div class="course"><p class="kanji">月</p><h3>つき</h3><p>当店の定番。旬の魅力をひと通り味わえる、贅沢なおまかせ。</p><p class="price">全11品　¥16,500</p></div>
@@ -182,7 +194,7 @@
 
 <!-- 流れ -->
 <section class="wrap reveal">
-  <div class="head"><span class="seal">流</span><h2>ご予約から、当日まで</h2><p class="en">RESERVATION FLOW</p></div>
+  <div class="head"><span class="seal">順</span><h2>ご予約から、当日まで</h2><p class="en">RESERVATION FLOW</p></div>
   <div class="flow">
     <div class="s"><div class="k">一</div><div><h4>ご予約</h4><p>ネットまたはお電話で。ご希望の日時と人数をお伝えください。</p></div></div>
     <div class="s"><div class="k">二</div><div><h4>ご要望の確認</h4><p>苦手な食材、アレルギー、記念日の演出などを事前に伺います。</p></div></div>
@@ -235,7 +247,7 @@
     <div class="head"><span class="seal">予</span><h2 style="margin-top:0;">席を、ご用意します</h2></div>
     <p class="body" style="margin-top:0;">席数に限りがございますので、ご予約をおすすめしております。記念日や接待など、特別なご要望も、どうぞお気軽にご相談ください。あなたの大切な夜を、心を込めてお迎えします。</p>
     <p class="price" style="margin-top:26px;">おまかせコース　¥11,000〜（税込・要予約）</p>
-    <a href="#" class="btn">予約する</a>
+    <a href="#" class="btn" style="margin-top:30px;">お席を予約する <span class="arw">→</span></a>
   </div>
 </section>
 
