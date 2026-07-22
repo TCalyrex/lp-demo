@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デザイン見本｜エディトリアル誌面</title>
+<style>
+  :root{
+    --ink:#3a3230; --paper:#fbf8f5; --accent:#a86b6b; --sub:#c9a7a0; --line:#e7ddd7;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Hiragino Mincho ProN","Yu Mincho",serif; color:var(--ink); background:var(--paper); line-height:1.95; letter-spacing:.03em;}
+  .sample-bar{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--accent);color:#fff;font-size:12px;letter-spacing:.1em;text-align:center;padding:8px 12px;font-family:sans-serif;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 26px;}
+  section{padding:96px 0;}
+  .kicker{font-family:sans-serif;font-size:11px;letter-spacing:.36em;color:var(--accent);margin-bottom:20px;}
+  h1,h2,h3{font-weight:400;}
+  .fv{padding-top:118px;}
+  .fv-img{width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:44px;}
+  .fv h1{font-size:clamp(26px,5vw,42px);line-height:1.6;margin-bottom:26px;}
+  .fv .vol{font-family:sans-serif;font-size:12px;letter-spacing:.2em;color:var(--sub);margin-bottom:12px;}
+  .fv p{font-size:15px;color:#7a6b67;max-width:32em;}
+  .btn{display:inline-block;margin-top:40px;font-family:sans-serif;font-size:13px;letter-spacing:.16em;color:#fff;background:var(--accent);text-decoration:none;padding:17px 44px;border-radius:2px;transition:.3s;}
+  .btn:hover{opacity:.85;}
+  hr{border:none;border-top:1px solid var(--line);}
+  .point{display:grid;grid-template-columns:1fr;gap:56px;}
+  .point .num{font-family:sans-serif;font-size:12px;letter-spacing:.2em;color:var(--accent);}
+  .point h3{font-size:22px;margin:12px 0 16px;line-height:1.6;}
+  .point p{font-size:15px;color:#6b5f5b;max-width:34em;}
+  .point img{width:100%;aspect-ratio:4/3;object-fit:cover;background:#efe6e1;}
+  .quote{font-size:clamp(20px,3.6vw,30px);line-height:1.9;max-width:24em;color:var(--accent);}
+  .dim{background:#f3ebe7;}
+  .placeholder{border:1px dashed #c9b5ae;padding:38px 30px;color:#a08a84;font-size:14px;font-family:sans-serif;text-align:center;border-radius:2px;}
+  .offer{background:#fff;border:1px solid var(--line);padding:60px 38px;text-align:center;border-radius:2px;}
+  .offer h2{font-size:clamp(22px,4vw,30px);margin-bottom:24px;}
+  .center{text-align:center;}
+  footer{padding:66px 0;text-align:center;color:#a08a84;font-size:12px;font-family:sans-serif;letter-spacing:.08em;}
+  @media(min-width:760px){.point.rev{grid-template-columns:1fr 1fr;align-items:center;}.point.rev .txt{order:2;}}
+</style>
+</head>
+<body>
+<div class="sample-bar">デザイン見本（サンプル）｜テイスト：エディトリアル誌面 ── コスメ・美容・韓国コスメD2C向け</div>
+
+<section class="fv wrap">
+  <img class="fv-img" src="images/02-editorial.png" alt="キービジュアル">
+  <p class="vol">Vol.01 &nbsp;/&nbsp; SKIN STORY</p>
+  <p class="kicker">DAILY GLOW SERUM</p>
+  <h1>肌が、静かに<br>ととのっていく季節。</h1>
+  <p>韓国発、話題の美容成分をぜいたくに。毎日のお手入れに、ひとつ足すだけ。</p>
+  <a href="#offer" class="btn">今日から始める</a>
+</section>
+<hr>
+
+<section class="dim">
+  <div class="wrap">
+    <p class="kicker">CONCERN</p>
+    <p class="quote">スキンケアは足しているのに、なんだか手応えがない。</p>
+    <p style="color:#7a6b67;font-size:15px;margin-top:32px;max-width:32em;">アイテムは増えていくのに、鏡を見るたびに気になる場所は変わらない。──足りないのは量ではなく、順番と、続けやすさかもしれません。</p>
+  </div>
+</section>
+<hr>
+
+<section class="wrap">
+  <p class="kicker center" style="text-align:center;">POINT</p>
+  <div class="point rev">
+    <div class="txt"><p class="num">POINT 01</p><h3>朝と夜、1滴ずつ。</h3><p>複雑な手順はいりません。いつものお手入れに重ねるだけ。続けられるから、肌は応えてくれます。</p></div>
+    <img src="images/02-editorial.png" alt="">
+  </div>
+  <div class="point rev" style="margin-top:72px;">
+    <img src="images/02-editorial.png" alt="">
+    <div class="txt"><p class="num">POINT 02</p><h3>選んだのは、話題の成分。</h3><p>【ここに配合成分の説明が入ります】。肌なじみと使い心地にこだわりました。</p></div>
+  </div>
+</section>
+<hr>
+
+<section class="wrap center">
+  <p class="kicker">VOICE</p>
+  <p class="quote" style="margin:0 auto 40px;">「＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿」</p>
+  <div class="placeholder">【この枠に、実際の愛用者の声・ビフォーアフター写真・レビュー数が入ります】<br>※見本のため空欄です。創作の数字は入れません。</div>
+</section>
+<hr>
+
+<section class="wrap" id="offer">
+  <div class="offer">
+    <p class="kicker">FIRST TRY</p>
+    <h2>まずは、1本から。</h2>
+    <p style="color:#6b5f5b;font-size:15px;max-width:30em;margin:0 auto 28px;">定期便なら初回【　　】％OFF。合わなければいつでも休止できます。</p>
+    <p style="font-family:sans-serif;font-size:14px;letter-spacing:.1em;color:#7a6b67;">通常価格【　　　】円 → 初回【　　　】円</p>
+    <a href="#" class="btn" style="margin-top:32px;">お得に試す</a>
+  </div>
+</section>
+
+<footer>
+  ※これは「なべとも」のデザイン見本です。文言・写真・価格はサンプルであり、実在の商品ではありません。<br>
+  テイスト：エディトリアル誌面｜デザイン言語カタログ 言語02
+</footer>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デザイン見本｜高級リッチ版（完成サンプル）</title>
+<style>
+  :root{
+    --gold:#c8a24a; --gold-lt:#e6cf94; --ink:#f5efe3; --bg:#0e0c0a; --bg2:#171310; --line:rgba(200,162,74,.34);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;color:var(--ink);background:var(--bg);line-height:2;letter-spacing:.03em;overflow-x:hidden;}
+  .sample-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:#000;color:var(--gold);font-size:12px;letter-spacing:.1em;text-align:center;padding:8px 12px;font-family:sans-serif;border-bottom:1px solid var(--line);}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 28px;}
+  .narrow{max-width:760px;}
+
+  .rule{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 auto 6px;}
+  .rule::before,.rule::after{content:"";height:1px;width:56px;background:linear-gradient(90deg,transparent,var(--gold));}
+  .rule::after{background:linear-gradient(90deg,var(--gold),transparent);}
+  .rule span{color:var(--gold);font-family:sans-serif;font-size:12px;letter-spacing:.36em;}
+
+  .hero{position:relative;height:100vh;min-height:620px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+  .hero .bg{position:absolute;inset:0;background:url('images/luxury-esthe.png') center/cover no-repeat;transform:scale(1.08);animation:zoom 16s ease-out forwards;}
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(14,12,10,.2),rgba(14,12,10,.85));}
+  @keyframes zoom{to{transform:scale(1);}}
+  .hero .inner{position:relative;z-index:2;padding:0 24px;animation:rise 1.6s cubic-bezier(.2,.7,.2,1) both;}
+  @keyframes rise{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:none;}}
+  .hero .en{font-family:sans-serif;font-size:13px;letter-spacing:.42em;color:var(--gold-lt);margin-bottom:26px;}
+  .hero h1{font-weight:400;font-size:clamp(30px,5.8vw,56px);line-height:1.55;text-shadow:0 2px 30px rgba(0,0,0,.6);}
+  .hero h1 .g{color:var(--gold-lt);}
+  .hero .sub{margin-top:26px;font-size:clamp(17px,2.4vw,19px);color:#eae1d0;line-height:1.9;}
+  .scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;font-family:sans-serif;font-size:11px;letter-spacing:.3em;color:var(--gold);animation:blink 2.4s infinite;}
+  @keyframes blink{0%,100%{opacity:.3;}50%{opacity:1;}}
+
+  .btn{display:inline-block;margin-top:40px;font-family:sans-serif;font-size:15px;letter-spacing:.2em;color:#1a140a;background:linear-gradient(120deg,var(--gold),var(--gold-lt),var(--gold));background-size:200% auto;text-decoration:none;padding:21px 58px;border-radius:2px;box-shadow:0 10px 30px rgba(200,162,74,.3);transition:.5s;font-weight:700;}
+  .btn:hover{background-position:right center;box-shadow:0 12px 40px rgba(200,162,74,.5);}
+
+  section{padding:110px 0;}
+  .reveal{opacity:0;transform:translateY(40px);transition:1s cubic-bezier(.2,.7,.2,1);}
+  .reveal.on{opacity:1;transform:none;}
+
+  .lead{font-size:clamp(24px,4vw,36px);line-height:1.85;text-align:center;max-width:20em;margin:26px auto 0;font-weight:400;}
+  .body{font-size:clamp(16.5px,2.2vw,18px);color:#ddd4c4;max-width:33em;margin:26px auto 0;line-height:2.05;}
+  .body.c{text-align:center;}
+  p.body + p.body{margin-top:22px;}
+
+  /* 悩み */
+  .concerns{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .concerns ul{max-width:640px;margin:36px auto 0;list-style:none;}
+  .concerns li{font-size:clamp(17px,2.4vw,19px);padding:22px 0 22px 42px;position:relative;border-bottom:1px solid rgba(200,162,74,.15);color:#e2d9c8;line-height:1.85;}
+  .concerns li::before{content:"—";position:absolute;left:6px;color:var(--gold);}
+
+  /* 理由 */
+  .reasons{display:grid;grid-template-columns:1fr;gap:64px;margin-top:70px;}
+  .reason{display:grid;grid-template-columns:1fr;gap:26px;align-items:center;}
+  .reason img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--line);}
+  .reason .no{font-family:sans-serif;font-size:13px;letter-spacing:.26em;color:var(--gold);}
+  .reason h3{font-weight:400;font-size:clamp(24px,3.4vw,28px);margin:14px 0 16px;line-height:1.5;}
+  .reason p{font-size:clamp(16px,2.2vw,17.5px);color:#d0c8b8;line-height:2;}
+
+  /* コース */
+  .courses{display:grid;grid-template-columns:1fr;gap:28px;margin-top:64px;}
+  .course{border:1px solid var(--line);background:linear-gradient(160deg,var(--bg2),var(--bg));padding:48px 34px;text-align:center;transition:.5s;}
+  .course:hover{border-color:var(--gold);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.5);}
+  .course .no{font-family:sans-serif;font-size:13px;letter-spacing:.26em;color:var(--gold);}
+  .course h3{font-weight:400;font-size:clamp(25px,3.4vw,28px);margin:16px 0 14px;}
+  .course .ln{width:38px;height:1px;background:var(--gold);margin:0 auto 18px;}
+  .course p{font-size:clamp(16px,2.2vw,17px);color:#cdc5b5;line-height:1.95;}
+  .course .price{margin-top:20px;font-family:sans-serif;font-size:16px;letter-spacing:.06em;color:var(--gold-lt);font-weight:600;}
+
+  /* 流れ */
+  .flow{max-width:660px;margin:44px auto 0;counter-reset:f;}
+  .flow .s{display:flex;gap:24px;align-items:flex-start;padding:26px 0;border-bottom:1px solid rgba(200,162,74,.15);}
+  .flow .s::before{counter-increment:f;content:counter(f,decimal-leading-zero);flex:none;font-family:sans-serif;font-size:17px;color:var(--gold);letter-spacing:.06em;padding-top:2px;}
+  .flow .s h4{font-weight:400;font-size:clamp(18px,2.6vw,21px);margin-bottom:6px;}
+  .flow .s p{font-size:clamp(15px,2.1vw,16.5px);color:#bdb5a5;line-height:1.9;}
+
+  /* 数字 */
+  .stats{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .stats .grid{display:grid;grid-template-columns:1fr;gap:48px;text-align:center;}
+  .stats .num{font-size:clamp(52px,8vw,60px);color:var(--gold-lt);font-weight:400;line-height:1.1;}
+  .stats .num .u{font-size:28px;}
+  .stats .lbl{font-family:sans-serif;font-size:14px;letter-spacing:.14em;color:#b3a992;margin-top:12px;}
+
+  /* 声 */
+  .voices{display:grid;grid-template-columns:1fr;gap:30px;margin-top:56px;}
+  .voice{border:1px solid var(--line);padding:42px 36px;background:linear-gradient(160deg,var(--bg2),var(--bg));}
+  .voice p{font-size:clamp(16.5px,2.3vw,18px);color:#e0d7c6;line-height:2.05;}
+  .voice .who{font-family:sans-serif;font-size:14px;letter-spacing:.1em;color:var(--gold);margin-top:22px;}
+
+  /* FAQ */
+  .faq{max-width:740px;margin:44px auto 0;}
+  .faq dt{font-size:clamp(18px,2.6vw,20px);color:var(--gold-lt);padding:28px 0 12px;border-top:1px solid rgba(200,162,74,.18);line-height:1.6;}
+  .faq dt::before{content:"Q. ";color:var(--gold);}
+  .faq dd{font-size:clamp(16px,2.2vw,17px);color:#cdc5b5;padding-bottom:10px;line-height:1.95;}
+
+  /* オファー */
+  .offer{text-align:center;background:linear-gradient(180deg,var(--bg),var(--bg2));border:1px solid var(--line);padding:78px 40px;max-width:800px;margin:0 auto;}
+  .offer h2{font-weight:400;font-size:clamp(26px,4.2vw,40px);margin:22px 0;}
+  .offer .price{font-family:sans-serif;font-size:clamp(16px,2.3vw,18px);letter-spacing:.08em;color:var(--gold-lt);font-weight:600;}
+
+  .note{text-align:center;font-family:sans-serif;font-size:12.5px;color:#8b8272;margin-top:34px;letter-spacing:.06em;line-height:1.7;}
+
+  footer{padding:66px 0;text-align:center;color:#8b8272;font-size:12.5px;font-family:sans-serif;letter-spacing:.06em;border-top:1px solid var(--line);line-height:1.9;}
+  @media(min-width:820px){
+    .reasons{gap:80px;}
+    .reason{grid-template-columns:1fr 1fr;gap:44px;}
+    .reason.rev .txt{order:2;}
+    .courses{grid-template-columns:repeat(3,1fr);}
+    .stats .grid{grid-template-columns:repeat(3,1fr);}
+    .voices{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+<div class="sample-bar">デザイン見本（サンプル）｜高級リッチ版 ── 文言・写真・料金・数字・お客様の声はすべて架空のサンプルです</div>
+
+<!-- FV -->
+<header class="hero">
+  <div class="bg"></div>
+  <div class="inner">
+    <p class="en">PRIVATE ESTHETIC SALON &nbsp;&#8226;&nbsp; TOKYO</p>
+    <h1>その肌に、<span class="g">静かな贅沢</span>を。<br>選ばれた人だけの、完全個室エステ。</h1>
+    <p class="sub">一日わずか6名様限定。<br>誰にも会わない、あなただけの時間。</p>
+    <a href="#offer" class="btn">はじめての方へ</a>
+  </div>
+  <div class="scroll">SCROLL</div>
+</header>
+
+<!-- コンセプト -->
+<section class="wrap reveal">
+  <div class="rule"><span>CONCEPT</span></div>
+  <p class="lead">効くだけの美容は、<br>もう卒業しませんか。</p>
+  <p class="body c">最新の機器も、確かな技術も、当然のこと。私たちがこだわり抜いたのは、扉を開けた瞬間から満たされていく「体験そのもの」です。焚かれた香り、絞られた灯り、肌に触れる手のあたたかさ。ここで過ごす90分は、施術であると同時に、あなたが自分に還るための時間になります。</p>
+  <p class="body c">忙しい毎日の中で、誰かに丁寧に扱われる時間を、どれだけ持てているでしょうか。私たちは、その時間をつくるためにこの場所を開きました。</p>
+</section>
+
+<!-- 悩み -->
+<section class="concerns reveal">
+  <div class="wrap">
+    <div class="rule"><span>SUCH FEELINGS</span></div>
+    <p class="lead" style="font-size:clamp(22px,3.6vw,30px);">こんな思い、<br>抱えていませんか。</p>
+    <ul>
+      <li>鏡を見るたび、以前とは違う肌の疲れが気になる</li>
+      <li>高いスキンケアを重ねても、手応えを感じにくくなってきた</li>
+      <li>エステに通っても、次々と勧誘されて心から寛げなかった</li>
+      <li>自分のためだけの、静かな時間がずっと持てていない</li>
+    </ul>
+    <p class="body c" style="margin-top:40px;">ひとつでも心当たりがあるなら、一度だけ、私たちの扉を開けてみてください。</p>
+  </div>
+</section>
+
+<!-- 選ばれる理由 -->
+<section class="wrap reveal">
+  <div class="rule"><span>OUR REASON</span></div>
+  <p class="lead">私たちが、<br>選ばれ続ける理由。</p>
+  <div class="reasons">
+    <div class="reason rev">
+      <div class="txt"><p class="no">REASON 01</p><h3>完全個室・完全予約制</h3><p>他のお客様と顔を合わせることは一切ありません。専有の個室で、担当者があなただけに向き合います。一日6名様までとしているのは、一人ひとりに十分な時間と集中を注ぐためです。</p></div>
+      <img src="images/luxury-esthe.png" alt="">
+    </div>
+    <div class="reason">
+      <div class="txt"><p class="no">REASON 02</p><h3>肌診断から始まる、あなた専用の設計</h3><p>同じ肌は、ふたつとありません。初回に丁寧なカウンセリングと肌診断を行い、その日の状態に合わせて施術を組み立てます。決まったコースをなぞるのではなく、あなたのための一回をつくります。</p></div>
+      <img src="images/luxury-esthe.png" alt="">
+    </div>
+    <div class="reason rev">
+      <div class="txt"><p class="no">REASON 03</p><h3>勧誘をしない、という約束</h3><p>高額なコースを無理におすすめすることはありません。続けるかどうかは、あなたが心から望んだときだけ。私たちが売りたいのは、契約ではなく、また来たいと思える時間です。</p></div>
+      <img src="images/luxury-esthe.png" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- コース -->
+<section class="wrap reveal">
+  <div class="rule"><span>SIGNATURE</span></div>
+  <p class="lead">選べる、3つの贅沢。</p>
+  <div class="courses">
+    <div class="course"><p class="no">01</p><h3>フェイシャル</h3><div class="ln"></div><p>肌本来の輝きを引き出す、最上位のトリートメント。乾燥・くすみが気になる方へ。</p><p class="price">90分　¥22,000</p></div>
+    <div class="course"><p class="no">02</p><h3>ボディ</h3><div class="ln"></div><p>一日の疲れを解き放つ、全身のためのリチュアル。深いめぐりと、軽やかさを。</p><p class="price">90分　¥24,000</p></div>
+    <div class="course"><p class="no">03</p><h3>プレミアム</h3><div class="ln"></div><p>フェイシャルとボディを贅沢に組み合わせた、特別な一日のためのコース。</p><p class="price">150分　¥38,000</p></div>
+  </div>
+</section>
+
+<!-- 流れ -->
+<section class="wrap narrow reveal">
+  <div class="rule"><span>THE FLOW</span></div>
+  <p class="lead">はじめての、ご来店。</p>
+  <div class="flow">
+    <div class="s"><div><h4>ご予約</h4><p>ネットまたはお電話で。ご希望の日時をお選びください。</p></div></div>
+    <div class="s"><div><h4>カウンセリング・肌診断</h4><p>お悩みとご希望を丁寧に伺い、その日の肌を診断します。</p></div></div>
+    <div class="s"><div><h4>あなたのための施術</h4><p>診断に基づき組み立てた、あなただけのトリートメント。</p></div></div>
+    <div class="s"><div><h4>アフターティーと、ご自宅ケアのご案内</h4><p>余韻を味わいながら、日々のケアもお持ち帰りください。</p></div></div>
+  </div>
+</section>
+
+<!-- 数字（架空サンプル） -->
+<section class="stats reveal">
+  <div class="wrap">
+    <div class="rule"><span>OUR NUMBERS</span></div>
+    <div class="grid" style="margin-top:44px;">
+      <div><div class="num">12<span class="u">年</span></div><div class="lbl">創業 2013年</div></div>
+      <div><div class="num">380<span class="u">名</span></div><div class="lbl">会員数</div></div>
+      <div><div class="num">97<span class="u">%</span></div><div class="lbl">また通いたい</div></div>
+    </div>
+    <p class="note">※ここに入る数字は架空のサンプルです。実際は、確認できた事実の数字だけを入れます。</p>
+  </div>
+</section>
+
+<!-- 声（架空サンプル） -->
+<section class="wrap reveal">
+  <div class="rule"><span>VOICE</span></div>
+  <p class="lead">通う方の、声。</p>
+  <div class="voices">
+    <div class="voice"><p>「エステは久しぶりで緊張していましたが、迎えられ方からもう違いました。勧誘が全くないので、自分の時間として心から寛げます。帰り道、肌より先に気持ちが軽くなっているのが不思議です。」</p><p class="who">40代・女性　フェイシャル</p></div>
+    <div class="voice"><p>「予約が取りやすく、いつも同じ方が担当してくださるので安心です。仕事で張り詰めた月に一度、ここで自分を取り戻しています。個室なので、誰にも気を遣わなくていいのが何より。」</p><p class="who">30代・女性　プレミアム</p></div>
+  </div>
+  <p class="note">※お客様の声も架空のサンプルです。実際は、許可をいただいた本物の声だけを掲載します。</p>
+</section>
+
+<!-- FAQ -->
+<section class="wrap narrow reveal">
+  <div class="rule"><span>Q &amp; A</span></div>
+  <p class="lead">よくあるご質問。</p>
+  <dl class="faq">
+    <dt>エステが初めてでも大丈夫ですか？</dt>
+    <dd>はい。お客様の多くが、じっくり通うのは初めての方です。カウンセリングで不安を伺いながら進めますので、ご安心ください。</dd>
+    <dt>本当に勧誘はありませんか？</dt>
+    <dd>ございません。コースの継続や物販を無理におすすめすることは一切しない方針です。</dd>
+    <dt>どのくらいの頻度で通えばいいですか？</dt>
+    <dd>肌の状態やご希望によって異なります。初回のカウンセリングで、無理のないペースをご一緒に考えます。</dd>
+    <dt>支払い方法は？</dt>
+    <dd>各種クレジットカード、電子マネー、現金がご利用いただけます。</dd>
+  </dl>
+</section>
+
+<!-- オファー -->
+<section class="wrap reveal" id="offer">
+  <div class="offer">
+    <div class="rule"><span>INVITATION</span></div>
+    <h2>まずは、体験から。</h2>
+    <p class="body c" style="margin-top:0;">この静けさと上質を、一度ご体感ください。体験の日に、しつこい勧誘をすることは決してありません。あなたが「また来たい」と思ってくださったら、それが私たちの何よりの喜びです。</p>
+    <p class="price" style="margin-top:26px;">初回体験トリートメント（90分）　¥8,800（税込）</p>
+    <a href="#" class="btn">体験を予約する</a>
+  </div>
+</section>
+
+<footer>
+  ※これは「なべとも」のデザイン見本です。店名・文言・写真・料金・数字・お客様の声は、すべてレイアウトを見せるための架空サンプルであり、実在のサービス・実在の実績ではありません。<br>
+  高級リッチ版｜黒×ゴールド・映画的・作り込み系｜デザイン言語カタログ 言語01の発展形
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

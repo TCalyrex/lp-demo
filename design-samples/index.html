@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デザイン見本｜なべとも</title>
+<style>
+  :root{--ink:#23211d;--paper:#f7f5f0;--accent:#1f3d31;--line:#ddd8cc;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:var(--ink);background:var(--paper);line-height:1.8;letter-spacing:.02em;}
+  .hero{text-align:center;padding:80px 24px 50px;}
+  .hero .kicker{font-size:12px;letter-spacing:.3em;color:var(--accent);margin-bottom:18px;}
+  .hero h1{font-family:"Hiragino Mincho ProN",serif;font-weight:400;font-size:clamp(26px,5vw,40px);line-height:1.5;margin-bottom:22px;}
+  .hero p{font-size:15px;color:#5c574d;max-width:30em;margin:0 auto;}
+  .note{max-width:640px;margin:24px auto 0;font-size:13px;color:#8a8474;background:#efece4;border-radius:8px;padding:16px 20px;}
+  .grid{max-width:1080px;margin:0 auto;padding:20px 24px 90px;display:grid;grid-template-columns:1fr;gap:30px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;text-decoration:none;color:inherit;transition:.3s;display:block;}
+  .card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(0,0,0,.1);}
+  .card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#eee;}
+  .card .body{padding:26px 26px 30px;}
+  .card .tag{font-size:11px;letter-spacing:.16em;color:var(--accent);font-weight:700;}
+  .card h2{font-family:"Hiragino Mincho ProN",serif;font-weight:400;font-size:22px;margin:8px 0 12px;}
+  .card .use{font-size:13px;color:#7a746a;}
+  .card .open{margin-top:18px;font-size:13px;font-weight:700;color:var(--accent);}
+  .card .open::after{content:" →";}
+  footer{padding:60px 24px;text-align:center;color:#8a8474;font-size:12px;border-top:1px solid var(--line);}
+  @media(min-width:680px){.grid{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:1000px){.grid{grid-template-columns:repeat(3,1fr);}}
+</style>
+</head>
+<body>
+<section class="hero">
+  <p class="kicker">DESIGN SAMPLES</p>
+  <h1>こんなLPが、作れます。</h1>
+  <p>ご商売やお好みに合わせて、雰囲気を自在に。<br>気になるテイストをタップすると、実際のLP見本がご覧いただけます。</p>
+  <div class="note">※各ページの文言・写真・料金はすべてサンプルです。実績や数字は載せていません（あなたの実際の情報が入る枠になっています）。</div>
+</section>
+
+<div class="grid">
+  <a class="card" href="01-余白ミニマル.html">
+    <img src="images/minimal-hero.png" alt="余白ミニマル">
+    <div class="body"><p class="tag">MINIMAL</p><h2>余白ミニマル</h2><p class="use">高級サロン・士業・パーソナルジム・コンサル</p><p class="open">見本を開く</p></div>
+  </a>
+  <a class="card" href="02-エディトリアル.html">
+    <img src="images/02-editorial.png" alt="エディトリアル">
+    <div class="body"><p class="tag">EDITORIAL</p><h2>エディトリアル誌面</h2><p class="use">コスメ・美容・韓国コスメD2C・アパレル</p><p class="open">見本を開く</p></div>
+  </a>
+  <a class="card" href="03-ダイレクト通販.html">
+    <img src="images/03-direct.png" alt="ダイレクト通販">
+    <div class="body"><p class="tag">DIRECT</p><h2>ダイレクト通販</h2><p class="use">健康食品・化粧品・オファーの強い商材</p><p class="open">見本を開く</p></div>
+  </a>
+  <a class="card" href="04-クリニック清潔.html">
+    <img src="images/04-clinic.png" alt="クリニック清潔">
+    <div class="body"><p class="tag">CLINIC</p><h2>クリニック清潔</h2><p class="use">整体・治療院・歯科・サロン施術系</p><p class="open">見本を開く</p></div>
+  </a>
+  <a class="card" href="08-コーポレート信頼.html">
+    <img src="images/08-corporate.png" alt="コーポレート信頼">
+    <div class="body"><p class="tag">CORPORATE</p><h2>コーポレート信頼</h2><p class="use">不動産・BtoB・士業・業務支援</p><p class="open">見本を開く</p></div>
+  </a>
+</div>
+
+<footer>
+  なべとも｜デザイン見本カタログ<br>
+  ほかにも「和モダン」「ネオン・ダーク」「手書きあたたか」など、全8テイストに対応しています。
+</footer>
+</body>
+</html>

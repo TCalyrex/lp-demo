@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デザイン見本｜ダイレクト通販</title>
+<style>
+  :root{--ink:#2b2b2b;--paper:#fffdf5;--red:#e8341c;--org:#ff8a00;--yel:#ffe14d;--blue:#0a66c2;--line:#ffd9b0;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:var(--ink);background:var(--paper);line-height:1.7;font-weight:500;}
+  .sample-bar{position:fixed;top:0;left:0;right:0;z-index:100;background:#2b2b2b;color:#ffe14d;font-size:12px;letter-spacing:.06em;text-align:center;padding:8px 12px;font-weight:700;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 18px;}
+  section{padding:44px 0;}
+  h1,h2,h3{font-weight:900;letter-spacing:-.01em;}
+  /* FV */
+  .fv{padding:104px 0 72px;text-align:center;background:linear-gradient(180deg,#fff4d6,#fffdf5);}
+  .badge{display:inline-block;background:var(--red);color:#fff;font-weight:900;font-size:14px;padding:7px 20px;border-radius:30px;margin-bottom:18px;}
+  .fv h1{font-size:clamp(28px,7vw,46px);line-height:1.25;margin-bottom:8px;}
+  .fv h1 .mark{color:var(--red);}
+  .fv h1 .u{background:linear-gradient(transparent 60%,var(--yel) 60%);}
+  .fv-img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:14px;margin:24px 0;border:4px solid #fff;box-shadow:0 10px 30px rgba(0,0,0,.12);}
+  .price-hero{font-size:15px;font-weight:700;color:#555;margin-top:8px;}
+  .price-hero b{font-size:44px;color:var(--red);font-weight:900;vertical-align:-6px;}
+  .cta{display:block;max-width:440px;margin:22px auto 0;background:linear-gradient(180deg,#ff5a2c,#e8341c);color:#fff;font-weight:900;font-size:22px;text-align:center;text-decoration:none;padding:22px 20px;border-radius:50px;box-shadow:0 8px 0 #b3260f,0 14px 24px rgba(232,52,28,.4);transition:.1s;}
+  .cta:active{transform:translateY(4px);box-shadow:0 4px 0 #b3260f;}
+  .cta small{display:block;font-size:13px;font-weight:700;opacity:.95;}
+  /* 帯 */
+  .band{background:var(--red);color:#fff;text-align:center;font-weight:900;font-size:clamp(19px,4.4vw,26px);padding:26px 18px;margin-bottom:30px;}
+  .band .yel{color:var(--yel);}
+  /* ベネフィット箇条書き */
+  .benefits{background:#fff;border:3px solid var(--org);border-radius:18px;padding:30px 24px;}
+  .benefits li{list-style:none;font-size:17px;font-weight:700;padding:14px 0 14px 40px;position:relative;border-bottom:1px dashed var(--line);}
+  .benefits li:last-child{border:none;}
+  .benefits li::before{content:"✓";position:absolute;left:0;top:12px;width:26px;height:26px;background:var(--org);color:#fff;border-radius:50%;font-size:16px;text-align:center;line-height:26px;}
+  /* 信頼パート（息継ぎ：白+青） */
+  .trust{background:#f2f7fc;}
+  .trust .kicker{color:var(--blue);font-weight:900;font-size:13px;letter-spacing:.1em;text-align:center;margin-bottom:14px;}
+  .trust h2{text-align:center;color:#123;font-size:clamp(20px,4vw,26px);line-height:1.5;font-weight:900;}
+  .placeholder{border:2px dashed #9bbde0;border-radius:14px;padding:32px 22px;color:#5b83ac;font-size:14px;text-align:center;background:#fff;margin-top:26px;font-weight:700;}
+  /* オファー */
+  .offer{background:#fff8e6;border:4px dashed var(--red);border-radius:20px;padding:40px 26px;text-align:center;}
+  .offer h2{font-size:clamp(22px,5vw,30px);color:var(--red);margin-bottom:14px;}
+  .strike{color:#999;text-decoration:line-through;font-weight:700;}
+  .now{font-size:40px;color:var(--red);font-weight:900;}
+  footer{padding:44px 18px;text-align:center;color:#b0a48c;font-size:12px;}
+</style>
+</head>
+<body>
+<div class="sample-bar">デザイン見本（サンプル）｜テイスト：ダイレクト通販 ── 健康食品・化粧品・オファーの強い商材向け</div>
+
+<section class="fv wrap">
+  <span class="badge">＼ 販売数【　　】突破 ／</span>
+  <h1>朝の<span class="mark">スッキリ</span>を、<br><span class="u">たった1杯</span>で。</h1>
+  <img class="fv-img" src="images/03-direct.png" alt="キービジュアル">
+  <p class="price-hero">初回限定 <b>【　　】</b>円（税込・送料無料）</p>
+  <a href="#offer" class="cta">今すぐお得に試す<small>▼ 30日間返金保証つき</small></a>
+</section>
+
+<div class="band">まだ<span class="yel">ムダな努力</span>、続けますか？</div>
+
+<section class="wrap">
+  <ul class="benefits">
+    <li>忙しい朝でも、混ぜて飲むだけのかんたん習慣</li>
+    <li>【ここに配合成分・量の説明が入ります】</li>
+    <li>続けやすい、やさしい味わい</li>
+    <li>国内工場で製造・品質管理【要確認：事実のみ記載】</li>
+  </ul>
+</section>
+
+<section class="trust">
+  <div class="wrap">
+    <p class="kicker">SAFETY &amp; VOICE</p>
+    <h2>選ばれているには、<br>理由があります。</h2>
+    <div class="placeholder">【この枠に、実際の販売実績・愛用者の声・メディア掲載などが入ります】<br>※見本のため空欄です。実績・数字の創作はしません。</div>
+  </div>
+</section>
+
+<section class="wrap" id="offer">
+  <div class="offer">
+    <h2>＼ 今だけの特別価格 ／</h2>
+    <p>通常価格 <span class="strike">【　　】円</span></p>
+    <p class="now">初回【　　】円</p>
+    <p style="font-size:13px;color:#777;margin:10px 0 0;">※定期便はいつでも休止・解約できます</p>
+    <a href="#" class="cta" style="margin-top:22px;">お得な定期便で申し込む<small>▼ 数量限定・なくなり次第終了</small></a>
+  </div>
+</section>
+
+<footer>
+  ※これは「なべとも」のデザイン見本です。文言・写真・価格・実績はすべてサンプルであり、実在の商品ではありません。<br>
+  テイスト：ダイレクト通販｜デザイン言語カタログ 言語03
+</footer>
+</body>
+</html>

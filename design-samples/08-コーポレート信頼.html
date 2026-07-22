@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デザイン見本｜コーポレート信頼</title>
+<style>
+  :root{--ink:#1e2a3a;--paper:#ffffff;--navy:#123a6b;--blue:#2f6fb3;--org:#f08a24;--bg:#f4f7fb;--line:#e2e9f1;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:var(--ink);background:var(--paper);line-height:1.85;}
+  .sample-bar{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);color:#fff;font-size:12px;letter-spacing:.06em;text-align:center;padding:8px 12px;}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px;}
+  section{padding:80px 0;}
+  .kicker{font-size:12px;letter-spacing:.2em;color:var(--blue);font-weight:700;margin-bottom:14px;}
+  h1,h2,h3{font-weight:700;letter-spacing:.01em;}
+  /* FV */
+  .fv{padding-top:112px;display:grid;grid-template-columns:1fr;gap:36px;align-items:center;}
+  .fv h1{font-size:clamp(26px,4.6vw,42px);line-height:1.5;margin-bottom:20px;}
+  .fv h1 .navy{color:var(--navy);}
+  .fv p{font-size:16px;color:#4a5a6e;max-width:30em;}
+  .fv-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;box-shadow:0 12px 32px rgba(18,58,107,.14);}
+  .btn{display:inline-block;margin-top:30px;font-size:15px;font-weight:700;color:#fff;background:var(--navy);text-decoration:none;padding:18px 44px;border-radius:6px;transition:.3s;}
+  .btn:hover{background:var(--blue);}
+  .btn.org{background:var(--org);}
+  /* 数字（実績は空欄枠） */
+  .stats{background:var(--bg);}
+  .stats .grid{display:grid;grid-template-columns:1fr;gap:20px;text-align:center;}
+  .stats .box{background:#fff;border:1px solid var(--line);border-radius:10px;padding:34px 20px;}
+  .stats .num{font-size:34px;font-weight:800;color:var(--navy);}
+  .stats .lbl{font-size:13px;color:#6b7a8d;margin-top:6px;}
+  /* 課題→解決カード */
+  .cards{display:grid;grid-template-columns:1fr;gap:22px;margin-top:44px;}
+  .card{border:1px solid var(--line);border-radius:10px;padding:34px 28px;background:#fff;}
+  .card .n{display:inline-block;background:var(--navy);color:#fff;font-size:13px;font-weight:700;padding:4px 14px;border-radius:20px;margin-bottom:16px;}
+  .card h3{font-size:19px;margin-bottom:12px;}
+  .card p{font-size:15px;color:#4a5a6e;}
+  /* ステップ */
+  .flow{display:grid;grid-template-columns:1fr;gap:16px;counter-reset:f;margin-top:40px;}
+  .flow .s{display:flex;gap:18px;align-items:center;background:var(--bg);border-radius:10px;padding:22px 24px;}
+  .flow .s::before{counter-increment:f;content:"STEP "counter(f);flex:none;font-size:13px;font-weight:800;color:#fff;background:var(--blue);padding:8px 14px;border-radius:6px;}
+  .flow .s span{font-size:15px;font-weight:600;}
+  .placeholder{border:2px dashed #b6c8dd;border-radius:10px;padding:34px 26px;color:#6b83a0;font-size:14px;text-align:center;background:#fff;}
+  .offer{background:var(--navy);color:#fff;border-radius:14px;padding:60px 40px;text-align:center;}
+  .offer h2{font-size:clamp(22px,4vw,32px);margin-bottom:18px;}
+  .offer p{color:#c8d6e6;font-size:15px;max-width:32em;margin:0 auto 26px;}
+  .center{text-align:center;}
+  footer{padding:56px 0;text-align:center;color:#93a3b6;font-size:12px;}
+  @media(min-width:800px){
+    .fv{grid-template-columns:1.1fr .9fr;}
+    .stats .grid{grid-template-columns:repeat(3,1fr);}
+    .cards{grid-template-columns:repeat(3,1fr);}
+  }
+</style>
+</head>
+<body>
+<div class="sample-bar">デザイン見本（サンプル）｜テイスト：コーポレート信頼 ── 不動産・BtoB・士業・業務支援向け</div>
+
+<section class="fv wrap">
+  <div>
+    <p class="kicker">RELIABLE PARTNER</p>
+    <h1>その不動産の悩み、<br><span class="navy">まるごとご相談ください。</span></h1>
+    <p>相続・空き家・住み替え。専門のスタッフが、あなたの状況に合わせて最適なご提案をいたします。無理な営業はいたしません。</p>
+    <a href="#offer" class="btn">無料で相談する</a>
+  </div>
+  <img class="fv-img" src="images/08-corporate.png" alt="キービジュアル">
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="grid">
+      <div class="box"><div class="num">【　】年</div><div class="lbl">地域での実績</div></div>
+      <div class="box"><div class="num">【　　】件</div><div class="lbl">ご相談・成約実績</div></div>
+      <div class="box"><div class="num">【　】%</div><div class="lbl">お客様満足度</div></div>
+    </div>
+    <p class="center" style="font-size:12px;color:#93a3b6;margin-top:20px;">※数字は空欄です。実績・満足度の創作はしません。確定した事実のみ記載します。</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <p class="kicker center" style="text-align:center;">こんなお悩みを解決します</p>
+  <div class="cards">
+    <div class="card"><span class="n">CASE 01</span><h3>相続した実家の扱いに困っている</h3><p>権利関係の整理から売却・活用まで、専門家と連携してサポートします。</p></div>
+    <div class="card"><span class="n">CASE 02</span><h3>空き家を放置してしまっている</h3><p>管理・解体・売却、それぞれのメリットを比較してご提案します。</p></div>
+    <div class="card"><span class="n">CASE 03</span><h3>いくらで売れるのか分からない</h3><p>まずは無料査定から。相場と根拠をわかりやすくご説明します。</p></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <p class="kicker center" style="text-align:center;">ご相談の流れ</p>
+  <div class="flow">
+    <div class="s"><span>お問い合わせ（フォーム・お電話）</span></div>
+    <div class="s"><span>無料ヒアリング・現地確認</span></div>
+    <div class="s"><span>ご提案とお見積り</span></div>
+    <div class="s"><span>ご納得のうえで契約・実行</span></div>
+  </div>
+</section>
+
+<section class="wrap center">
+  <p class="kicker">お客様の声・実績</p>
+  <div class="placeholder">【この枠に、実際のお客様の声・成約事例・提携先ロゴなどが入ります】<br>※見本のため空欄です。事例や数字の創作はしません。</div>
+</section>
+
+<section class="wrap" id="offer">
+  <div class="offer">
+    <p class="kicker" style="color:#8fb3dc;">FREE CONSULTATION</p>
+    <h2>まずは無料相談から。</h2>
+    <p>相談したからといって、契約する必要はありません。状況を整理するだけでも、次の一歩が見えてきます。</p>
+    <a href="#" class="btn org">無料相談を申し込む</a>
+  </div>
+</section>
+
+<footer>
+  ※これは「なべとも」のデザイン見本です。文言・写真・数字はサンプルであり、実在の企業ではありません。<br>
+  テイスト：コーポレート信頼｜デザイン言語カタログ 言語08
+</footer>
+</body>
+</html>

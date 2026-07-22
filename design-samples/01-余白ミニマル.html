@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デザイン見本｜余白ミニマル</title>
+<style>
+  :root{
+    --ink:#23211d;        /* 墨色の文字 */
+    --paper:#f7f5f0;      /* アイボリー */
+    --accent:#1f3d31;     /* 締め色：深緑 */
+    --line:#d9d4c8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Hiragino Mincho ProN","Yu Mincho",YuMincho,serif;
+    color:var(--ink); background:var(--paper);
+    line-height:2; letter-spacing:.04em;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* 見本であることを示す帯 */
+  .sample-bar{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:var(--accent); color:#f7f5f0;
+    font-size:12px; letter-spacing:.1em; text-align:center;
+    padding:8px 12px; font-family:sans-serif;
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:0 28px;}
+  section{padding:110px 0;}
+  .kicker{font-family:sans-serif; font-size:12px; letter-spacing:.34em; color:var(--accent); margin-bottom:24px;}
+  h1,h2{font-weight:400; letter-spacing:.06em;}
+
+  /* FV */
+  .fv{padding-top:120px;}
+  .fv-img{width:100%; aspect-ratio:16/9; object-fit:cover; margin-bottom:56px;}
+  .fv h1{font-size:clamp(26px,5vw,44px); line-height:1.7; margin-bottom:32px;}
+  .fv p{font-size:15px; color:#5c574d; max-width:30em;}
+
+  .btn{
+    display:inline-block; margin-top:44px;
+    font-family:sans-serif; font-size:13px; letter-spacing:.18em;
+    color:var(--accent); text-decoration:none;
+    border:1px solid var(--accent); padding:18px 46px; border-radius:2px;
+    transition:.4s;
+  }
+  .btn:hover{background:var(--accent); color:var(--paper);}
+
+  hr{border:none; border-top:1px solid var(--line); margin:0;}
+
+  /* 悩み（曇り） */
+  .dim{background:#efece4;}
+  .dim h2{font-size:clamp(20px,3.6vw,28px); line-height:1.9; max-width:22em;}
+  .dim .q{color:#6b665b; font-size:15px; margin-top:36px; max-width:34em;}
+
+  /* 解決・未来 */
+  .lead{font-size:clamp(20px,3.6vw,30px); line-height:1.9; max-width:24em; margin-bottom:40px;}
+  .body{font-size:15px; color:#4f4a41; max-width:34em;}
+  .body + .body{margin-top:26px;}
+
+  .three{display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); margin-top:64px; border:1px solid var(--line);}
+  .three > div{background:var(--paper); padding:44px 32px;}
+  .three .n{font-family:sans-serif; font-size:12px; letter-spacing:.24em; color:var(--accent); margin-bottom:16px;}
+  .three h3{font-weight:400; font-size:19px; margin-bottom:14px;}
+  .three p{font-size:14px; color:#5c574d;}
+
+  /* 証拠（空欄枠） */
+  .placeholder{
+    border:1px dashed #b9b3a4; background:transparent;
+    padding:40px 32px; color:#8a8474; font-size:14px;
+    font-family:sans-serif; letter-spacing:.06em; text-align:center;
+    border-radius:2px;
+  }
+  .voice{margin-top:40px;}
+  .voice p{font-size:17px; line-height:2; max-width:30em; margin:0 auto; text-align:center; color:#3d3931;}
+  .voice .who{font-family:sans-serif; font-size:12px; letter-spacing:.16em; color:#8a8474; margin-top:20px;}
+
+  /* オファー（安心） */
+  .offer{background:#fff; border:1px solid var(--line); padding:64px 40px; text-align:center; border-radius:2px;}
+  .offer h2{font-size:clamp(22px,4vw,32px); margin-bottom:28px;}
+  .offer .price{font-size:14px; color:#5c574d; font-family:sans-serif; letter-spacing:.1em;}
+
+  .center{text-align:center;}
+  footer{padding:70px 0; text-align:center; color:#8a8474; font-size:12px; font-family:sans-serif; letter-spacing:.1em;}
+
+  @media(min-width:720px){
+    .three{grid-template-columns:repeat(3,1fr);}
+  }
+</style>
+</head>
+<body>
+<div class="sample-bar">デザイン見本（サンプル）｜テイスト：余白ミニマル ── 高級サロン・士業・パーソナルジム・コンサル向け</div>
+
+<!-- FV：期待 -->
+<section class="fv wrap">
+  <img class="fv-img" src="images/minimal-hero.png" alt="キービジュアル">
+  <p class="kicker">PERSONAL STUDIO</p>
+  <h1>鍛えるより、整える。<br>静けさの中で、体は変わる。</h1>
+  <p>完全予約制・マンツーマン。あなたのための時間だけが流れる場所で、無理なく続く体づくりを。</p>
+  <a href="#offer" class="btn">はじめてみる</a>
+</section>
+
+<hr>
+
+<!-- 悩み：曇り -->
+<section class="dim">
+  <div class="wrap">
+    <p class="kicker">ITS ABOUT TIME</p>
+    <h2>続かなかったのは、<br>あなたの意志のせいではありません。</h2>
+    <p class="q">賑やかなジム、周りの目、詰め込まれた予定。頑張るための場所が、いつのまにか負担になっていた。──必要だったのは、もっと静かな環境だったのかもしれません。</p>
+  </div>
+</section>
+
+<hr>
+
+<!-- 解決・商品：光が差す -->
+<section class="wrap">
+  <p class="kicker">OUR APPROACH</p>
+  <p class="lead">私たちが用意したのは、<br>あなた一人のためのスタジオです。</p>
+  <p class="body">一日に迎えるのは、限られた人数だけ。だから急かされることも、待たされることもありません。トレーナーはあなたの体と生活を丁寧に聞き取り、その日の調子に合わせて組み立てます。</p>
+  <p class="body">派手な追い込みはしません。正しく、静かに、確かに。続けられることだけを、続けていきます。</p>
+
+  <div class="three">
+    <div><p class="n">01</p><h3>完全マンツーマン</h3><p>他の利用者と顔を合わせることのない、専有の時間と空間。</p></div>
+    <div><p class="n">02</p><h3>生活から設計</h3><p>運動だけでなく、食事と睡眠まで含めて無理のない習慣に。</p></div>
+    <div><p class="n">03</p><h3>続く仕組み</h3><p>頑張りに頼らない。仕組みで、自然に続く状態をつくります。</p></div>
+  </div>
+</section>
+
+<hr>
+
+<!-- ベネフィット：開放 -->
+<section class="wrap center">
+  <p class="kicker">AFTER</p>
+  <p class="lead" style="margin:0 auto 40px;">三ヶ月後、鏡の前に立つのが<br>少しだけ楽しみになる。</p>
+  <p class="body" style="margin:0 auto;">体重の数字より、服の似合い方。朝の軽さ。階段での息。変わっていくのは、毎日の小さな実感からです。</p>
+</section>
+
+<hr>
+
+<!-- 証拠：実直（空欄枠） -->
+<section class="wrap">
+  <p class="kicker center">VOICE</p>
+  <div class="voice">
+    <p>「＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿」</p>
+    <p class="who">── お客様の声がここに入ります</p>
+  </div>
+  <div class="placeholder" style="margin-top:48px;">
+    【この枠に、実際のお客様の声・ビフォーアフター・実績数字が入ります】<br>
+    ※見本のため空欄です。創作の数字は入れません。
+  </div>
+</section>
+
+<hr>
+
+<!-- オファー：安心 -->
+<section class="wrap" id="offer">
+  <div class="offer">
+    <p class="kicker">FIRST STEP</p>
+    <h2>まずは、体験から。</h2>
+    <p class="body" style="margin:0 auto 32px;">入会前に、スタジオの静けさとトレーナーとの相性を確かめてください。勧誘はいたしません。</p>
+    <p class="price">体験セッション　【　　　】円（税込）</p>
+    <a href="#" class="btn" style="margin-top:36px;">体験を申し込む</a>
+  </div>
+</section>
+
+<footer>
+  ※これは「なべとも」のデザイン見本です。文言・写真・料金はサンプルであり、実在のサービスではありません。<br>
+  テイスト：余白ミニマル｜デザイン言語カタログ 言語01
+</footer>
+
+</body>
+</html>

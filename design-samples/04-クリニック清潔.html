@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デザイン見本｜クリニック清潔</title>
+<style>
+  :root{--ink:#3f4a4a;--paper:#f4faf9;--accent:#4bab94;--sub:#8fcabb;--warm:#fff;--line:#dcecea;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:var(--ink);background:var(--paper);line-height:1.9;letter-spacing:.02em;}
+  .sample-bar{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--accent);color:#fff;font-size:12px;letter-spacing:.08em;text-align:center;padding:8px 12px;}
+  .wrap{max-width:940px;margin:0 auto;padding:0 24px;}
+  section{padding:84px 0;}
+  .kicker{font-size:12px;letter-spacing:.2em;color:var(--accent);font-weight:700;margin-bottom:16px;}
+  h1,h2,h3{font-weight:700;letter-spacing:.02em;}
+  .fv{padding-top:112px;}
+  .fv-img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:20px;margin-bottom:40px;}
+  .fv h1{font-size:clamp(25px,4.8vw,40px);line-height:1.55;margin-bottom:22px;}
+  .fv p{font-size:16px;color:#5f7370;max-width:32em;}
+  .btn{display:inline-block;margin-top:34px;font-size:16px;font-weight:700;color:#fff;background:var(--accent);text-decoration:none;padding:20px 52px;border-radius:40px;box-shadow:0 8px 22px rgba(75,171,148,.28);transition:.3s;}
+  .btn:hover{transform:translateY(-2px);}
+  .soft{background:#e8f5f2;border-radius:32px;padding:64px 40px;}
+  .soft h2{font-size:clamp(20px,3.6vw,28px);line-height:1.7;color:#3f4a4a;}
+  .soft p{color:#5f7370;font-size:15px;margin-top:20px;max-width:34em;}
+  .cards{display:grid;grid-template-columns:1fr;gap:20px;margin-top:48px;}
+  .card{background:#fff;border-radius:24px;padding:38px 30px;text-align:center;box-shadow:0 6px 20px rgba(75,171,148,.1);}
+  .card .ic{width:64px;height:64px;border-radius:50%;background:#e8f5f2;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;color:var(--accent);}
+  .card h3{font-size:18px;margin-bottom:12px;}
+  .card p{font-size:14px;color:#5f7370;}
+  .steps{counter-reset:s;max-width:560px;margin:40px auto 0;}
+  .step{display:flex;gap:20px;align-items:flex-start;padding:22px 0;border-bottom:1px dashed var(--line);}
+  .step::before{counter-increment:s;content:counter(s);flex:none;width:38px;height:38px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .step div{font-size:15px;color:#4f5f5d;}
+  .placeholder{border:2px dashed var(--sub);border-radius:20px;padding:36px 28px;color:#79a89e;font-size:14px;text-align:center;background:#fff;}
+  .offer{background:#fff;border-radius:32px;padding:60px 38px;text-align:center;box-shadow:0 10px 30px rgba(75,171,148,.14);}
+  .offer h2{font-size:clamp(22px,4vw,30px);margin-bottom:20px;}
+  .center{text-align:center;}
+  footer{padding:60px 0;text-align:center;color:#79a89e;font-size:12px;letter-spacing:.06em;}
+  @media(min-width:720px){.cards{grid-template-columns:repeat(3,1fr);}}
+</style>
+</head>
+<body>
+<div class="sample-bar">デザイン見本（サンプル）｜テイスト：クリニック清潔 ── 整体・治療院・歯科・サロン施術系向け</div>
+
+<section class="fv wrap">
+  <img class="fv-img" src="images/04-clinic.png" alt="キービジュアル">
+  <p class="kicker">RELAX &amp; CARE</p>
+  <h1>その痛み、<br>がまんしなくて大丈夫です。</h1>
+  <p>国家資格をもつ施術者が、一人ひとりの体に合わせて丁寧に。無理な勧誘は一切ありません。</p>
+  <a href="#offer" class="btn">はじめての方へ</a>
+</section>
+
+<section class="wrap">
+  <div class="soft">
+    <p class="kicker">CHECK</p>
+    <h2>こんなお悩み、<br>ありませんか？</h2>
+    <p>・朝起きると腰が重い　・肩こりが慢性化している<br>・整体に通っても、その場しのぎで戻ってしまう</p>
+  </div>
+</section>
+
+<section class="wrap center">
+  <p class="kicker">3つの安心</p>
+  <div class="cards">
+    <div class="card"><div class="ic">✓</div><h3>丁寧なカウンセリング</h3><p>まず体の状態をしっかり確認。原因からご説明します。</p></div>
+    <div class="card"><div class="ic">♡</div><h3>やさしい施術</h3><p>バキバキしない、痛くない施術。初めての方も安心です。</p></div>
+    <div class="card"><div class="ic">◎</div><h3>戻らない体づくり</h3><p>その場しのぎでなく、良い状態が続くようサポートします。</p></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <p class="kicker center" style="text-align:center;">ご来院の流れ</p>
+  <div class="steps">
+    <div class="step"><div>ご予約（ネット・お電話でかんたんに）</div></div>
+    <div class="step"><div>カウンセリングと体の検査</div></div>
+    <div class="step"><div>お一人に合わせた施術</div></div>
+    <div class="step"><div>ご自宅でのケアのご案内</div></div>
+  </div>
+</section>
+
+<section class="wrap center">
+  <p class="kicker">お客様の声</p>
+  <div class="placeholder">【この枠に、実際の患者様の声・改善例・口コミ件数が入ります】<br>※見本のため空欄です。効果や体験談の創作はしません。</div>
+</section>
+
+<section class="wrap" id="offer">
+  <div class="offer">
+    <p class="kicker">はじめての方へ</p>
+    <h2>初回かんたん相談</h2>
+    <p style="color:#5f7370;font-size:15px;max-width:30em;margin:0 auto 26px;">まずはお体の状態を見せてください。通うかどうかは、その後ゆっくりお決めいただけます。</p>
+    <p style="font-size:14px;color:#5f7370;letter-spacing:.08em;">初回カウンセリング＋施術　【　　　】円</p>
+    <a href="#" class="btn" style="margin-top:30px;">かんたんネット予約</a>
+  </div>
+</section>
+
+<footer>
+  ※これは「なべとも」のデザイン見本です。文言・写真・料金はサンプルであり、実在の院ではありません。<br>
+  テイスト：クリニック清潔｜デザイン言語カタログ 言語04
+</footer>
+</body>
+</html>
