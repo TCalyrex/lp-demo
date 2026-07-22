@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デザイン見本｜韓国コスメ（エディトリアル）</title>
+<style>
+  :root{
+    --rose:#c68a84; --rose-dk:#b06d66; --beige:#e9ded2; --cream:#faf6f1; --white:#fff;
+    --ink:#463b36; --ink-lt:#8a7c73; --gold:#b1955c; --line:#e7dccf;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:var(--ink);background:var(--cream);line-height:2;letter-spacing:.03em;}
+  .serif{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
+  b,strong{font-weight:700;color:var(--rose-dk);}
+  .sample-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--ink);color:#f3e9df;font-size:12px;letter-spacing:.1em;text-align:center;padding:8px 12px;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 28px;}
+  .narrow{max-width:760px;}
+  section{padding:104px 0;}
+
+  .head{text-align:center;margin-bottom:52px;}
+  .head .en{font-size:11px;letter-spacing:.4em;color:var(--gold);font-weight:600;}
+  .head h2{font-family:"Hiragino Mincho ProN",serif;font-weight:400;font-size:clamp(25px,4.2vw,36px);line-height:1.5;margin-top:14px;letter-spacing:.08em;}
+  .head .line{width:44px;height:1px;background:var(--gold);margin:18px auto 0;}
+
+  /* FV */
+  .fv{min-height:100svh;display:flex;flex-direction:column;}
+  .fv-img{width:100%;height:44vh;min-height:240px;object-fit:cover;flex:none;}
+  .fv-txt{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:34px 28px 44px;background:var(--cream);}
+  .fv .vol{font-size:12px;letter-spacing:.24em;color:var(--gold);margin-bottom:16px;}
+  .fv h1{font-family:"Hiragino Mincho ProN",serif;font-weight:400;font-size:clamp(30px,6.2vw,50px);line-height:1.55;letter-spacing:.08em;}
+  .fv h1 .rose{color:var(--rose);}
+  .fv .sub{margin-top:22px;font-size:clamp(15.5px,2.3vw,18px);color:var(--ink-lt);line-height:1.95;}
+  .fv .sub b{color:var(--ink);}
+
+  .btn{display:inline-flex;align-items:center;gap:11px;font-size:16px;font-weight:700;letter-spacing:.1em;color:#fff;background:var(--rose);text-decoration:none;padding:20px 48px;border-radius:40px;box-shadow:0 12px 28px rgba(198,138,132,.36);transition:.35s cubic-bezier(.2,.7,.2,1);}
+  .btn .arw{transition:.35s;}
+  .btn:hover{background:var(--rose-dk);transform:translateY(-3px);box-shadow:0 18px 38px rgba(198,138,132,.5);}
+  .btn:hover .arw{transform:translateX(5px);}
+  .fv .btn{margin-top:30px;}
+
+  .lead{font-family:"Hiragino Mincho ProN",serif;font-size:clamp(23px,3.8vw,32px);line-height:1.85;text-align:center;max-width:20em;margin:0 auto;font-weight:400;letter-spacing:.06em;}
+  .body{font-size:clamp(16px,2.2vw,17.5px);color:var(--ink-lt);max-width:33em;margin:30px auto 0;line-height:2.15;text-align:center;}
+  p.body + p.body{margin-top:22px;}
+
+  /* 悩み */
+  .concerns{background:var(--beige);}
+  .concerns .items{max-width:600px;margin:0 auto;}
+  .concerns .it{padding:22px 0;border-bottom:1px solid #d8c8b8;font-size:clamp(16px,2.4vw,18px);position:relative;padding-left:34px;}
+  .concerns .it::before{content:"✿";position:absolute;left:4px;color:var(--rose);font-size:16px;top:22px;}
+
+  /* POINT（雑誌風） */
+  .point{display:grid;grid-template-columns:1fr;gap:26px;margin-bottom:70px;align-items:center;}
+  .point:last-child{margin-bottom:0;}
+  .point img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+  .point .no{font-family:"Hiragino Mincho ProN",serif;font-size:13px;letter-spacing:.2em;color:var(--gold);}
+  .point h3{font-family:"Hiragino Mincho ProN",serif;font-weight:400;font-size:clamp(22px,3.2vw,27px);margin:10px 0 15px;line-height:1.55;letter-spacing:.06em;}
+  .point p{font-size:clamp(15.5px,2.2vw,17px);color:var(--ink-lt);line-height:2.1;}
+
+  /* 数字 */
+  .stats{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .stats .grid{display:grid;grid-template-columns:1fr;gap:44px;text-align:center;}
+  .stats .num{font-family:"Hiragino Mincho ProN",serif;font-size:clamp(46px,7vw,56px);color:var(--rose);font-weight:400;}
+  .stats .num .u{font-size:22px;color:var(--ink);}
+  .stats .lbl{font-size:13.5px;letter-spacing:.1em;color:var(--ink-lt);margin-top:12px;font-weight:600;}
+
+  /* 声 */
+  .voices{display:grid;grid-template-columns:1fr;gap:26px;}
+  .voice{background:var(--white);border:1px solid var(--line);padding:40px 34px;border-radius:6px;}
+  .voice .stars{color:var(--gold);letter-spacing:.2em;font-size:15px;margin-bottom:14px;}
+  .voice p{font-size:clamp(15.5px,2.2vw,17px);color:var(--ink);line-height:2.15;}
+  .voice .who{font-size:13px;letter-spacing:.06em;color:var(--ink-lt);margin-top:18px;}
+
+  /* FAQ */
+  .faq{max-width:720px;margin:0 auto;}
+  .faq dt{font-size:clamp(16.5px,2.5vw,18.5px);color:var(--ink);font-weight:700;padding:26px 0 10px;border-top:1px solid var(--line);}
+  .faq dt::before{content:"Q. ";color:var(--rose);}
+  .faq dd{font-size:clamp(15.5px,2.2vw,16.5px);color:var(--ink-lt);padding-bottom:8px;line-height:2;}
+
+  /* オファー */
+  .offer{background:var(--beige);text-align:center;padding:92px 30px;}
+  .offer h2{font-family:"Hiragino Mincho ProN",serif;font-weight:400;font-size:clamp(25px,4.2vw,36px);margin-bottom:20px;letter-spacing:.08em;}
+  .offer .price{font-size:clamp(15.5px,2.3vw,17.5px);color:var(--ink);letter-spacing:.04em;}
+  .offer .price b{color:var(--rose-dk);font-size:1.2em;}
+
+  .note{text-align:center;font-size:12.5px;color:#a99c8f;margin-top:32px;line-height:1.7;}
+  footer{padding:60px 28px;text-align:center;color:#a99c8f;font-size:12.5px;line-height:1.9;border-top:1px solid var(--line);}
+  .reveal{opacity:0;transform:translateY(30px);transition:1s cubic-bezier(.2,.7,.2,1);}
+  .reveal.on{opacity:1;transform:none;}
+  @media(min-width:820px){
+    .fv{flex-direction:row-reverse;}
+    .fv-img{width:52%;height:auto;flex:none;}
+    .fv-txt{flex:1;padding:40px 54px;}
+    .concerns .items{max-width:640px;}
+    .point{grid-template-columns:1fr 1fr;gap:48px;}
+    .point.rev .txt{order:2;}
+    .stats .grid{grid-template-columns:repeat(3,1fr);}
+    .voices{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+<div class="sample-bar">デザイン見本（サンプル）｜エディトリアル ── 文言・写真・料金・数字・お客様の声はすべて架空のサンプルです</div>
+
+<!-- FV -->
+<header class="fv">
+  <img class="fv-img" src="images/02-editorial.png" alt="">
+  <div class="fv-txt">
+    <p class="vol serif">Vol.01 &nbsp;/&nbsp; SKIN STORY</p>
+    <h1>その肌に、<br><span class="rose">満ちる一滴</span>を。</h1>
+    <p class="sub"><b>韓国発、話題の美容成分をぜいたくに。</b><br>毎日のお手入れに、ひとつ足すだけ。</p>
+    <a href="#offer" class="btn">お得に試す <span class="arw">→</span></a>
+  </div>
+</header>
+
+<!-- コンセプト -->
+<section class="wrap reveal">
+  <div class="head"><p class="en">CONCEPT</p><h2>足すほど迷子になる、<br>スキンケアを終わりに。</h2><div class="line"></div></div>
+  <p class="body">アイテムは増えていくのに、鏡を見るたびに気になる場所は変わらない。<b>足りないのは量ではなく、一滴の質と、続けやすさかもしれません。</b>この美容液は、あれこれ重ねる代わりに、毎日のお手入れにひとつ足すだけ。忙しい朝も夜も、無理なく続けられる設計にしました。</p>
+</section>
+
+<!-- 悩み -->
+<section class="concerns reveal">
+  <div class="wrap">
+    <div class="head"><p class="en">SKIN CONCERN</p><h2>こんなお悩み、<br>ありませんか。</h2><div class="line"></div></div>
+    <div class="items">
+      <div class="it">スキンケアを頑張っているのに、手応えを感じにくい</div>
+      <div class="it">乾燥やくすみで、夕方には肌が疲れて見える</div>
+      <div class="it">アイテムが多くて、続けるのが面倒になってしまう</div>
+      <div class="it">自分の肌に、本当に合うものが分からない</div>
+    </div>
+  </div>
+</section>
+
+<!-- POINT -->
+<section class="wrap reveal">
+  <div class="head"><p class="en">POINT</p><h2>選ばれる、3つの理由。</h2><div class="line"></div></div>
+  <div class="point rev">
+    <div class="txt"><p class="no">POINT 01</p><h3>朝と夜、1滴ずつ。</h3><p>複雑な手順はいりません。いつものお手入れに重ねるだけ。<b>続けられるから、肌は応えてくれます。</b></p></div>
+    <img src="images/02-editorial.png" alt="">
+  </div>
+  <div class="point">
+    <div class="txt"><p class="no">POINT 02</p><h3>話題の成分を、ぜいたくに。</h3><p>【ここに配合成分の説明が入ります】。<b>肌なじみと使い心地にこだわり</b>、毎日使いたくなるテクスチャーに仕上げました。</p></div>
+    <img src="images/02-editorial.png" alt="">
+  </div>
+  <div class="point rev">
+    <div class="txt"><p class="no">POINT 03</p><h3>いつでも休める、定期便。</h3><p>肌の調子や在庫に合わせて、<b>いつでも休止・再開ができます。</b>無理に続けさせることは、いたしません。</p></div>
+    <img src="images/02-editorial.png" alt="">
+  </div>
+</section>
+
+<!-- 数字 -->
+<section class="stats reveal">
+  <div class="wrap">
+    <div class="head"><p class="en">OUR NUMBERS</p><h2>数字で見る、選ばれる理由。</h2><div class="line"></div></div>
+    <div class="grid">
+      <div><div class="num">98<span class="u">%</span></div><div class="lbl">使用感の満足度</div></div>
+      <div><div class="num">12<span class="u">万本</span></div><div class="lbl">累計出荷</div></div>
+      <div><div class="num">89<span class="u">%</span></div><div class="lbl">定期継続率</div></div>
+    </div>
+    <p class="note">※ここに入る数字は架空のサンプルです。実際は、確認できた事実の数字だけを入れます。</p>
+  </div>
+</section>
+
+<!-- 声 -->
+<section class="wrap reveal">
+  <div class="head"><p class="en">VOICE</p><h2>愛用者の、声。</h2><div class="line"></div></div>
+  <div class="voices">
+    <div class="voice"><p class="stars">★★★★★</p><p>いろいろ試してきましたが、これは<b>1滴でしっとりするのに、べたつかない</b>のが気に入っています。朝の忙しい時間でも続けられて、夕方の肌の疲れ方が変わった気がします。</p><p class="who">30代・女性　定期3ヶ月</p></div>
+    <div class="voice"><p class="stars">★★★★★</p><p>手順が増えるのが苦手でしたが、<b>これは"足すだけ"なので続いています。</b>使い心地がとても良くて、なくなると不安になるくらい。友人にもすすめました。</p><p class="who">40代・女性　定期6ヶ月</p></div>
+  </div>
+  <p class="note">※お客様の声も架空のサンプルです。実際は、許可をいただいた本物の声だけを掲載します。</p>
+</section>
+
+<!-- FAQ -->
+<section class="wrap narrow reveal">
+  <div class="head"><p class="en">Q &amp; A</p><h2>よくあるご質問。</h2><div class="line"></div></div>
+  <dl class="faq">
+    <dt>敏感肌でも使えますか？</dt>
+    <dd>【成分と使用上の注意を記載】。ご心配な方は、目立たない部分でお試しいただくことをおすすめします。</dd>
+    <dt>定期便はいつでも解約できますか？</dt>
+    <dd>はい。回数の縛りはございません。マイページから、いつでも休止・解約が可能です。</dd>
+    <dt>どのくらいで実感できますか？</dt>
+    <dd>肌のサイクルには個人差があります。まずは肌が生まれ変わる目安として、しばらくお続けいただくのがおすすめです。</dd>
+    <dt>他の化粧品と併用できますか？</dt>
+    <dd>はい。いつものお手入れに、化粧水のあと・乳液の前に1滴足してお使いください。</dd>
+  </dl>
+</section>
+
+<!-- オファー -->
+<section class="offer reveal" id="offer">
+  <div class="wrap">
+    <div class="head" style="margin-bottom:24px;"><p class="en">FIRST TRY</p><h2 style="margin-top:12px;">まずは、1本から。</h2></div>
+    <p class="body" style="margin-top:0;">定期便のご利用で、初回はお得な特別価格に。<b>合わなければ、いつでも休止できます。</b>まずは一度、あなたの肌で確かめてください。</p>
+    <p class="price" style="margin-top:24px;">通常価格【　　　】円 → 初回 <b>【　　　】円</b>（税込・送料無料）</p>
+    <a href="#" class="btn" style="margin-top:28px;">お得に試す <span class="arw">→</span></a>
+  </div>
+</section>
+
+<footer>
+  ※これは「なべとも」のデザイン見本です。商品名・文言・写真・価格・数字・お客様の声は、すべてレイアウトを見せるための架空サンプルであり、実在の商品・実在の実績ではありません。<br>
+  エディトリアル｜クリーム×くすみローズ×ゴールド・明朝×ゴシック混植｜デザイン言語カタログ 言語02
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
