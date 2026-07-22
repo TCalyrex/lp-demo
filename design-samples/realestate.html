@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デザイン見本｜不動産（格調コーポレート）</title>
+<style>
+  :root{
+    --char:#1e2a38; --char2:#16202c; --ink:#28323e; --ink-lt:#697583;
+    --paper:#f6f4ef; --white:#fff; --gold:#a2854a; --gold-lt:#c0a367; --line:#e3ded4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:var(--ink);background:var(--paper);line-height:1.95;letter-spacing:.02em;}
+  .serif{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
+  b,strong{font-weight:700;color:var(--char);}
+  .sample-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--char);color:var(--gold-lt);font-size:12px;letter-spacing:.1em;text-align:center;padding:8px 12px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 28px;}
+  section{padding:100px 0;}
+  .head{margin-bottom:52px;}
+  .head .en{font-size:12px;letter-spacing:.28em;color:var(--gold);font-weight:700;}
+  .head h2{font-family:"Hiragino Mincho ProN",serif;font-weight:400;font-size:clamp(26px,4.4vw,38px);line-height:1.4;margin-top:12px;letter-spacing:.06em;}
+  .head.c{text-align:center;}
+  .head.c .bar{width:46px;height:2px;background:var(--gold);margin:18px auto 0;}
+
+  /* FV */
+  .fv{min-height:100svh;display:flex;flex-direction:column;}
+  .fv-img{width:100%;height:46vh;min-height:250px;object-fit:cover;flex:none;}
+  .fv-txt{flex:1;display:flex;flex-direction:column;justify-content:center;padding:38px 28px 46px;background:var(--paper);}
+  .fv .en{font-size:12px;letter-spacing:.3em;color:var(--gold);font-weight:700;margin-bottom:18px;}
+  .fv h1{font-family:"Hiragino Mincho ProN",serif;font-weight:400;font-size:clamp(29px,5.6vw,50px);line-height:1.5;letter-spacing:.05em;}
+  .fv h1 .g{color:var(--gold);}
+  .fv .sub{margin-top:22px;font-size:clamp(15.5px,2.3vw,18px);color:var(--ink-lt);line-height:1.95;max-width:30em;}
+  .fv .sub b{color:var(--ink);}
+
+  .btn{display:inline-flex;align-items:center;gap:12px;font-size:16px;font-weight:700;letter-spacing:.08em;color:#fff;background:var(--char);text-decoration:none;padding:20px 46px;border-radius:3px;box-shadow:0 10px 26px rgba(30,42,56,.24);transition:.35s cubic-bezier(.2,.7,.2,1);position:relative;}
+  .btn .arw{transition:.35s;color:var(--gold-lt);}
+  .btn:hover{background:var(--char2);transform:translateY(-3px);box-shadow:0 16px 34px rgba(30,42,56,.34);}
+  .btn:hover .arw{transform:translateX(5px);}
+  .btn.gold{background:var(--gold);}
+  .btn.gold .arw{color:#fff;}
+  .btn.gold:hover{background:#8f7440;}
+  .fv .btn{margin-top:30px;align-self:flex-start;}
+
+  .lead{font-family:"Hiragino Mincho ProN",serif;font-size:clamp(23px,3.8vw,33px);line-height:1.6;font-weight:400;letter-spacing:.05em;max-width:18em;}
+  .body{font-size:clamp(16px,2.2vw,17.5px);color:var(--ink-lt);max-width:34em;margin-top:22px;line-height:2.1;}
+
+  /* 課題カード */
+  .cases{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px;}
+  .cases .c{background:var(--white);padding:40px 32px;}
+  .cases .n{font-family:"Hiragino Mincho ProN",serif;font-size:14px;letter-spacing:.14em;color:var(--gold);}
+  .cases h3{font-weight:700;font-size:clamp(18px,2.6vw,21px);margin:12px 0 12px;line-height:1.5;}
+  .cases p{font-size:clamp(15px,2.1vw,16px);color:var(--ink-lt);line-height:1.95;}
+
+  /* 実績数字 */
+  .stats{background:var(--char);color:#eef1f4;}
+  .stats .grid{display:grid;grid-template-columns:1fr;gap:44px;text-align:center;}
+  .stats .num{font-family:"Hiragino Mincho ProN",serif;font-size:clamp(48px,7.4vw,60px);color:var(--gold-lt);font-weight:400;line-height:1;}
+  .stats .num .u{font-size:24px;color:#eef1f4;}
+  .stats .lbl{font-size:14px;letter-spacing:.1em;color:#aeb8c4;margin-top:14px;font-weight:600;}
+
+  /* 理由 */
+  .reason{display:grid;grid-template-columns:1fr;gap:22px;margin-bottom:60px;align-items:center;}
+  .reason:last-child{margin-bottom:0;}
+  .reason img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+  .reason .no{font-family:"Hiragino Mincho ProN",serif;font-size:14px;letter-spacing:.2em;color:var(--gold);}
+  .reason h3{font-family:"Hiragino Mincho ProN",serif;font-weight:400;font-size:clamp(22px,3.2vw,27px);margin:10px 0 14px;line-height:1.5;}
+  .reason p{font-size:clamp(15.5px,2.2vw,17px);color:var(--ink-lt);line-height:2.1;}
+
+  /* 流れ */
+  .flow{display:grid;grid-template-columns:1fr;gap:14px;counter-reset:f;margin-top:8px;}
+  .flow .s{display:flex;gap:22px;align-items:center;background:var(--white);border:1px solid var(--line);padding:24px 26px;}
+  .flow .s::before{counter-increment:f;content:"STEP "counter(f);flex:none;font-size:12px;font-weight:700;letter-spacing:.06em;color:#fff;background:var(--gold);padding:7px 14px;border-radius:2px;}
+  .flow .s h4{font-weight:700;font-size:clamp(17px,2.4vw,19px);}
+  .flow .s p{font-size:clamp(14.5px,2vw,16px);color:var(--ink-lt);margin-top:2px;}
+
+  /* 声 */
+  .voices{display:grid;grid-template-columns:1fr;gap:24px;margin-top:8px;}
+  .voice{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--gold);padding:40px 34px;}
+  .voice p{font-size:clamp(15.5px,2.2vw,17px);color:var(--ink);line-height:2.1;}
+  .voice .who{font-size:13.5px;letter-spacing:.06em;color:var(--ink-lt);margin-top:18px;font-weight:600;}
+
+  /* FAQ */
+  .faq{max-width:760px;margin:8px auto 0;}
+  .faq dt{font-size:clamp(16.5px,2.5vw,18.5px);font-weight:700;color:var(--char);padding:26px 0 10px;border-top:1px solid var(--line);}
+  .faq dt::before{content:"Q. ";color:var(--gold);}
+  .faq dd{font-size:clamp(15.5px,2.2vw,16.5px);color:var(--ink-lt);padding-bottom:8px;line-height:2;}
+
+  /* オファー */
+  .offer{background:var(--char);color:#eef1f4;text-align:center;}
+  .offer h2{font-family:"Hiragino Mincho ProN",serif;font-weight:400;font-size:clamp(26px,4.4vw,40px);margin-bottom:18px;letter-spacing:.06em;}
+  .offer .body{color:#aeb8c4;margin:0 auto 8px;}
+  .offer .body b{color:#fff;}
+
+  .note{font-size:12.5px;color:#9aa4b0;margin-top:30px;text-align:center;line-height:1.7;}
+  .stats .note{color:#8794a2;}
+  footer{padding:56px 28px;text-align:center;color:#9aa4b0;font-size:12.5px;line-height:1.9;border-top:1px solid var(--line);}
+  .reveal{opacity:0;transform:translateY(32px);transition:.95s cubic-bezier(.2,.7,.2,1);}
+  .reveal.on{opacity:1;transform:none;}
+  @media(min-width:840px){
+    .fv{flex-direction:row;}
+    .fv-img{width:52%;height:auto;flex:none;order:2;}
+    .fv-txt{flex:1;padding:48px 56px;}
+    .cases{grid-template-columns:repeat(3,1fr);}
+    .stats .grid{grid-template-columns:repeat(3,1fr);}
+    .reason{grid-template-columns:1fr 1fr;gap:48px;}
+    .reason.rev .txt{order:2;}
+    .voices{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+<div class="sample-bar">デザイン見本（サンプル）｜格調コーポレート ── 文言・写真・料金・数字・お客様の声はすべて架空のサンプルです</div>
+
+<!-- FV -->
+<header class="fv">
+  <img class="fv-img" src="images/realestate-lux.png" alt="">
+  <div class="fv-txt">
+    <p class="en">REAL ESTATE PARTNER</p>
+    <h1>その不動産の悩み、<br><span class="g">まるごと</span>ご相談ください。</h1>
+    <p class="sub"><b>相続・空き家・住み替え。</b>専門のスタッフが、あなたの状況に合わせて最適なご提案を。無理な営業は、一切いたしません。</p>
+    <a href="#offer" class="btn">無料で相談する <span class="arw">→</span></a>
+  </div>
+</header>
+
+<!-- 課題 -->
+<section class="wrap reveal">
+  <div class="head c"><p class="en">SUCH CASES</p><h2>こんなお悩みを、解決します。</h2><div class="bar"></div></div>
+  <div class="cases">
+    <div class="c"><p class="n">CASE 01</p><h3>相続した実家の扱いに困っている</h3><p><b>権利関係の整理から売却・活用まで</b>、専門家と連携して一括でサポートします。</p></div>
+    <div class="c"><p class="n">CASE 02</p><h3>空き家を放置してしまっている</h3><p>管理・解体・売却、<b>それぞれのメリットを比較</b>して、最適な道をご提案します。</p></div>
+    <div class="c"><p class="n">CASE 03</p><h3>いくらで売れるのか分からない</h3><p>まずは<b>無料査定から。</b>相場と、その根拠をわかりやすくご説明します。</p></div>
+  </div>
+</section>
+
+<!-- 実績数字 -->
+<section class="stats reveal">
+  <div class="wrap">
+    <div class="grid">
+      <div><div class="num">28<span class="u">年</span></div><div class="lbl">地域での実績</div></div>
+      <div><div class="num">3,400<span class="u">件</span></div><div class="lbl">ご相談・成約実績</div></div>
+      <div><div class="num">96<span class="u">%</span></div><div class="lbl">お客様満足度</div></div>
+    </div>
+    <p class="note">※数字は架空のサンプルです。実際は、確認できた事実の数字だけを入れます。</p>
+  </div>
+</section>
+
+<!-- 理由 -->
+<section class="wrap reveal">
+  <div class="head c"><p class="en">OUR STRENGTH</p><h2>選ばれ続ける、理由。</h2><div class="bar"></div></div>
+  <div class="reason rev">
+    <div class="txt"><p class="no">01</p><h3>地域を知り尽くした、28年。</h3><p>この街で長く商いを続けてきたからこそ、<b>相場も、買い手の動きも熟知しています。</b>机上の査定ではなく、実際に売れる価格をご提示します。</p></div>
+    <img src="images/realestate-lux.png" alt="">
+  </div>
+  <div class="reason">
+    <div class="txt"><p class="no">02</p><h3>相続も税務も、ワンストップ。</h3><p>司法書士・税理士など<b>専門家と連携し、窓口はひとつ。</b>あちこち相談して回る手間なく、まとめてお任せいただけます。</p></div>
+    <img src="images/realestate-lux.png" alt="">
+  </div>
+  <div class="reason rev">
+    <div class="txt"><p class="no">03</p><h3>無理な営業を、しない。</h3><p>急かすことも、契約を迫ることもありません。<b>ご納得いただけるまで、何度でもご相談を。</b>売らない選択肢も、正直にお伝えします。</p></div>
+    <img src="images/realestate-lux.png" alt="">
+  </div>
+</section>
+
+<!-- 流れ -->
+<section class="wrap reveal">
+  <div class="head c"><p class="en">THE FLOW</p><h2>ご相談から、解決まで。</h2><div class="bar"></div></div>
+  <div class="flow">
+    <div class="s"><div><h4>お問い合わせ</h4><p>フォームまたはお電話で。ご状況をお聞かせください。</p></div></div>
+    <div class="s"><div><h4>無料ヒアリング・現地確認</h4><p>専門スタッフが状況を伺い、必要に応じて現地を確認します。</p></div></div>
+    <div class="s"><div><h4>ご提案とお見積り</h4><p>複数の選択肢と、それぞれの根拠をわかりやすくご提示します。</p></div></div>
+    <div class="s"><div><h4>ご納得のうえで、契約・実行</h4><p>ご理解いただけてから、次の一歩へ。急かすことはありません。</p></div></div>
+  </div>
+</section>
+
+<!-- 声 -->
+<section class="wrap reveal">
+  <div class="head c"><p class="en">VOICE</p><h2>ご相談された方の、声。</h2><div class="bar"></div></div>
+  <div class="voices">
+    <div class="voice"><p>親の家をどうすればいいか分からず、長く放置していました。<b>相続の手続きから売却まで、窓口ひとつで進めていただけて</b>本当に助かりました。急かされることもなく、安心してお任せできました。</p><p class="who">60代・男性　相続・売却</p></div>
+    <div class="voice"><p>複数の会社に査定を頼みましたが、<b>ここだけは価格の根拠をきちんと説明してくれました。</b>売らない選択肢まで正直に話してくれて、信頼できると感じました。</p><p class="who">50代・女性　査定・売却</p></div>
+  </div>
+  <p class="note">※お客様の声も架空のサンプルです。実際は、許可をいただいた本物の声だけを掲載します。</p>
+</section>
+
+<!-- FAQ -->
+<section class="wrap reveal">
+  <div class="head c"><p class="en">Q &amp; A</p><h2>よくあるご質問。</h2><div class="bar"></div></div>
+  <dl class="faq">
+    <dt>相談だけでも大丈夫ですか？</dt>
+    <dd>もちろんです。ご相談は無料で、契約の義務は一切ございません。状況を整理するだけでもお役に立てます。</dd>
+    <dt>相続の手続きもお願いできますか？</dt>
+    <dd>はい。提携する司法書士・税理士と連携し、窓口ひとつでまとめてサポートいたします。</dd>
+    <dt>遠方に住んでいても対応できますか？</dt>
+    <dd>可能です。オンラインや書面でのやり取りにも対応しておりますので、お気軽にご相談ください。</dd>
+    <dt>査定に費用はかかりますか？</dt>
+    <dd>査定は無料です。相場と根拠をわかりやすくご説明いたします。</dd>
+  </dl>
+</section>
+
+<!-- オファー -->
+<section class="offer reveal" id="offer">
+  <div class="wrap">
+    <div class="head c" style="margin-bottom:20px;"><p class="en" style="color:var(--gold-lt);">FREE CONSULTATION</p></div>
+    <h2>まずは、無料相談から。</h2>
+    <p class="body">相談したからといって、契約する必要はありません。<b>状況を整理するだけでも、次の一歩が見えてきます。</b>どうぞお気軽に、お声がけください。</p>
+    <a href="#" class="btn gold" style="margin-top:26px;">無料相談を申し込む <span class="arw">→</span></a>
+  </div>
+</section>
+
+<footer>
+  ※これは「なべとも」のデザイン見本です。会社名・文言・写真・数字・お客様の声は、すべてレイアウトを見せるための架空サンプルであり、実在の企業・実在の実績ではありません。<br>
+  格調コーポレート｜白×チャコール×真鍮ゴールド・明朝×ゴシック｜デザイン言語カタログ 言語08
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
