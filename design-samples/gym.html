@@ -3,209 +3,245 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>デザイン見本｜高級パーソナルジム</title>
+<title>デザイン見本｜パーソナルジム（スポーティ）</title>
 <style>
-  :root{--gold:#c8a24a;--gold-lt:#e6cf94;--ink:#f5efe3;--bg:#0e0c0a;--bg2:#171310;--line:rgba(200,162,74,.34);}
+  :root{
+    --navy:#0e2440; --navy2:#0a1c33; --ink:#1a2536; --paper:#f4f6f9; --white:#fff;
+    --lime:#c8f032; --lime-dk:#a8d017; --gray:#6b7789; --line:#e2e7ee;
+  }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;color:var(--ink);background:var(--bg);line-height:2;letter-spacing:.03em;overflow-x:hidden;}
-  .sample-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:#000;color:var(--gold);font-size:12px;letter-spacing:.1em;text-align:center;padding:8px 12px;font-family:sans-serif;border-bottom:1px solid var(--line);}
-  .wrap{max-width:1000px;margin:0 auto;padding:0 28px;}
-  .narrow{max-width:760px;}
-  .rule{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 auto 6px;}
-  .rule::before,.rule::after{content:"";height:1px;width:56px;background:linear-gradient(90deg,transparent,var(--gold));}
-  .rule::after{background:linear-gradient(90deg,var(--gold),transparent);}
-  .rule span{color:var(--gold);font-family:sans-serif;font-size:12px;letter-spacing:.36em;}
-  .hero{position:relative;height:100vh;min-height:620px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
-  .hero .bg{position:absolute;inset:0;background:url('images/gym-lux.png') center/cover no-repeat;transform:scale(1.08);animation:zoom 16s ease-out forwards;}
-  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(14,12,10,.2),rgba(14,12,10,.85));}
-  @keyframes zoom{to{transform:scale(1);}}
-  .hero .inner{position:relative;z-index:2;padding:0 24px;animation:rise 1.6s cubic-bezier(.2,.7,.2,1) both;}
-  @keyframes rise{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:none;}}
-  .hero .en{font-family:sans-serif;font-size:13px;letter-spacing:.42em;color:var(--gold-lt);margin-bottom:26px;}
-  .hero h1{font-weight:400;font-size:clamp(30px,5.8vw,56px);line-height:1.55;text-shadow:0 2px 30px rgba(0,0,0,.6);}
-  .hero h1 .g{color:var(--gold-lt);}
-  .hero .sub{margin-top:26px;font-size:clamp(17px,2.4vw,19px);color:#eae1d0;line-height:1.9;}
-  .scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;font-family:sans-serif;font-size:11px;letter-spacing:.3em;color:var(--gold);animation:blink 2.4s infinite;}
-  @keyframes blink{0%,100%{opacity:.3;}50%{opacity:1;}}
-  .btn{display:inline-block;margin-top:40px;font-family:sans-serif;font-size:15px;letter-spacing:.2em;color:#1a140a;background:linear-gradient(120deg,var(--gold),var(--gold-lt),var(--gold));background-size:200% auto;text-decoration:none;padding:21px 58px;border-radius:2px;box-shadow:0 10px 30px rgba(200,162,74,.3);transition:.5s;font-weight:700;}
-  .btn:hover{background-position:right center;box-shadow:0 12px 40px rgba(200,162,74,.5);}
-  section{padding:110px 0;}
-  .reveal{opacity:0;transform:translateY(40px);transition:1s cubic-bezier(.2,.7,.2,1);}
+  body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:var(--ink);background:var(--paper);line-height:1.85;letter-spacing:.01em;}
+  .sample-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--navy);color:var(--lime);font-size:12px;letter-spacing:.08em;text-align:center;padding:8px 12px;font-weight:700;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 26px;}
+  section{padding:96px 0;}
+  .head{margin-bottom:52px;}
+  .head .en{font-size:13px;font-weight:800;letter-spacing:.22em;color:var(--lime-dk);}
+  .head h2{font-weight:900;font-size:clamp(27px,4.6vw,40px);line-height:1.3;margin-top:10px;letter-spacing:.01em;}
+  .head.c{text-align:center;}
+  .em{color:var(--navy);}
+  b,strong{font-weight:800;color:var(--navy);}
+
+  /* FV：ネイビー・極太・1画面 */
+  .fv{min-height:100svh;background:var(--navy);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:100px 0 44px;position:relative;overflow:hidden;}
+  .fv::before{content:"";position:absolute;top:-20%;right:-10%;width:60%;height:140%;background:linear-gradient(120deg,transparent,rgba(200,240,50,.08));transform:skewX(-12deg);}
+  .fv .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr;gap:36px;align-items:center;}
+  .fv .en{font-size:13px;font-weight:800;letter-spacing:.3em;color:var(--lime);margin-bottom:20px;}
+  .fv h1{font-weight:900;font-size:clamp(34px,7vw,64px);line-height:1.2;letter-spacing:.01em;}
+  .fv h1 .lime{color:var(--lime);}
+  .fv .sub{margin-top:24px;font-size:clamp(16px,2.3vw,18.5px);color:#c2ccdb;line-height:1.9;font-weight:500;}
+  .fv .sub b{color:#fff;}
+  .fv-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;box-shadow:0 30px 60px rgba(0,0,0,.4);}
+
+  .btn{display:inline-flex;align-items:center;gap:12px;font-size:17px;font-weight:900;letter-spacing:.04em;color:var(--navy);background:var(--lime);text-decoration:none;padding:22px 50px;border-radius:50px;box-shadow:0 12px 30px rgba(200,240,50,.35);transition:.3s cubic-bezier(.2,.7,.2,1);margin-top:34px;}
+  .btn .arw{transition:.3s;}
+  .btn:hover{background:var(--lime-dk);transform:translateY(-3px);box-shadow:0 18px 40px rgba(200,240,50,.5);}
+  .btn:hover .arw{transform:translateX(6px);}
+  .btn.dk{color:#fff;background:var(--navy);box-shadow:0 12px 30px rgba(14,36,64,.3);}
+  .btn.dk:hover{background:var(--navy2);}
+
+  .lead{font-size:clamp(24px,4vw,36px);line-height:1.5;font-weight:900;max-width:16em;}
+  .body{font-size:clamp(16px,2.2vw,17.5px);color:var(--gray);max-width:34em;margin-top:22px;line-height:2;}
+
+  /* 実績数字（スポーティは数字主役） */
+  .stats{background:var(--navy);color:#fff;}
+  .stats .grid{display:grid;grid-template-columns:1fr;gap:12px;}
+  .stats .box{padding:40px 24px;text-align:center;border:1px solid rgba(255,255,255,.12);border-radius:14px;}
+  .stats .num{font-size:clamp(50px,9vw,72px);font-weight:900;color:var(--lime);line-height:1;}
+  .stats .num .u{font-size:26px;color:#fff;}
+  .stats .lbl{font-size:14px;font-weight:700;color:#b3c0d3;margin-top:14px;letter-spacing:.08em;}
+
+  /* 悩み */
+  .concerns{background:var(--white);}
+  .concerns .items{display:grid;grid-template-columns:1fr;gap:16px;margin-top:8px;}
+  .concerns .it{background:var(--paper);border-left:5px solid var(--lime);border-radius:8px;padding:24px 26px;font-size:clamp(16.5px,2.4vw,18px);font-weight:700;color:var(--ink);}
+
+  /* 理由 */
+  .reason{display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:64px;align-items:center;}
+  .reason:last-child{margin-bottom:0;}
+  .reason img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;box-shadow:0 20px 44px rgba(14,36,64,.16);}
+  .reason .no{font-size:64px;font-weight:900;color:var(--lime);line-height:1;-webkit-text-stroke:0;}
+  .reason h3{font-weight:900;font-size:clamp(22px,3.2vw,28px);margin:6px 0 14px;line-height:1.4;}
+  .reason p{font-size:clamp(15.5px,2.2vw,17px);color:var(--gray);line-height:2;}
+
+  /* コース */
+  .courses{display:grid;grid-template-columns:1fr;gap:24px;margin-top:8px;}
+  .course{background:var(--white);border:2px solid var(--line);border-radius:16px;padding:44px 30px;text-align:center;transition:.3s;}
+  .course:hover{border-color:var(--navy);transform:translateY(-6px);box-shadow:0 20px 44px rgba(14,36,64,.14);}
+  .course .no{display:inline-block;font-size:14px;font-weight:900;color:#fff;background:var(--navy);border-radius:30px;padding:5px 18px;letter-spacing:.06em;}
+  .course h3{font-weight:900;font-size:clamp(23px,3vw,27px);margin:16px 0 12px;}
+  .course p{font-size:clamp(15.5px,2.1vw,16.5px);color:var(--gray);line-height:1.9;}
+  .course .price{margin-top:20px;font-size:19px;font-weight:900;color:var(--navy);}
+
+  /* 流れ */
+  .flow{display:grid;grid-template-columns:1fr;gap:16px;counter-reset:f;margin-top:8px;}
+  .flow .s{display:flex;gap:22px;align-items:center;background:var(--white);border-radius:12px;padding:24px 26px;}
+  .flow .s::before{counter-increment:f;content:"0"counter(f);flex:none;font-size:26px;font-weight:900;color:var(--lime-dk);}
+  .flow .s h4{font-weight:800;font-size:clamp(17px,2.4vw,19px);}
+  .flow .s p{font-size:clamp(14.5px,2vw,16px);color:var(--gray);margin-top:2px;}
+
+  /* 声 */
+  .voices{display:grid;grid-template-columns:1fr;gap:24px;margin-top:8px;}
+  .voice{background:var(--white);border-radius:16px;padding:40px 32px;box-shadow:0 10px 30px rgba(14,36,64,.08);border-top:5px solid var(--lime);}
+  .voice p{font-size:clamp(16px,2.2vw,17.5px);color:var(--ink);line-height:2.05;}
+  .voice .who{font-size:14px;font-weight:800;color:var(--navy);margin-top:20px;}
+
+  /* FAQ */
+  .faq{max-width:760px;margin:8px auto 0;}
+  .faq dt{font-size:clamp(17px,2.5vw,19px);font-weight:800;color:var(--navy);padding:26px 0 10px;border-top:2px solid var(--line);}
+  .faq dt::before{content:"Q ";color:var(--lime-dk);font-weight:900;}
+  .faq dd{font-size:clamp(15.5px,2.2vw,16.5px);color:var(--gray);padding-bottom:8px;line-height:1.95;}
+
+  /* オファー */
+  .offer{background:var(--navy);color:#fff;text-align:center;}
+  .offer h2{font-weight:900;font-size:clamp(27px,4.6vw,42px);margin-bottom:18px;line-height:1.3;}
+  .offer .body{color:#c2ccdb;margin:0 auto 8px;}
+  .offer .price{font-size:clamp(16px,2.3vw,18px);font-weight:800;color:var(--lime);margin-top:22px;}
+
+  .note{font-size:12.5px;color:#93a0b3;margin-top:30px;text-align:center;line-height:1.7;}
+  .stats .note,.offer .note{color:#8494a8;}
+  footer{padding:56px 26px;text-align:center;color:#93a0b3;font-size:12.5px;line-height:1.9;border-top:1px solid var(--line);}
+  .reveal{opacity:0;transform:translateY(34px);transition:.9s cubic-bezier(.2,.7,.2,1);}
   .reveal.on{opacity:1;transform:none;}
-  .lead{font-size:clamp(24px,4vw,36px);line-height:1.85;text-align:center;max-width:20em;margin:26px auto 0;font-weight:400;}
-  .body{font-size:clamp(16.5px,2.2vw,18px);color:#ddd4c4;max-width:33em;margin:26px auto 0;line-height:2.05;}
-  .body.c{text-align:center;}
-  p.body + p.body{margin-top:22px;}
-  .concerns{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-  .concerns ul{max-width:640px;margin:36px auto 0;list-style:none;}
-  .concerns li{font-size:clamp(17px,2.4vw,19px);padding:22px 0 22px 42px;position:relative;border-bottom:1px solid rgba(200,162,74,.15);color:#e2d9c8;line-height:1.85;}
-  .concerns li::before{content:"—";position:absolute;left:6px;color:var(--gold);}
-  .reasons{display:grid;grid-template-columns:1fr;gap:64px;margin-top:70px;}
-  .reason{display:grid;grid-template-columns:1fr;gap:26px;align-items:center;}
-  .reason img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--line);}
-  .reason .no{font-family:sans-serif;font-size:13px;letter-spacing:.26em;color:var(--gold);}
-  .reason h3{font-weight:400;font-size:clamp(24px,3.4vw,28px);margin:14px 0 16px;line-height:1.5;}
-  .reason p{font-size:clamp(16px,2.2vw,17.5px);color:#d0c8b8;line-height:2;}
-  .courses{display:grid;grid-template-columns:1fr;gap:28px;margin-top:64px;}
-  .course{border:1px solid var(--line);background:linear-gradient(160deg,var(--bg2),var(--bg));padding:48px 34px;text-align:center;transition:.5s;}
-  .course:hover{border-color:var(--gold);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.5);}
-  .course .no{font-family:sans-serif;font-size:13px;letter-spacing:.26em;color:var(--gold);}
-  .course h3{font-weight:400;font-size:clamp(25px,3.4vw,28px);margin:16px 0 14px;}
-  .course .ln{width:38px;height:1px;background:var(--gold);margin:0 auto 18px;}
-  .course p{font-size:clamp(16px,2.2vw,17px);color:#cdc5b5;line-height:1.95;}
-  .course .price{margin-top:20px;font-family:sans-serif;font-size:16px;letter-spacing:.06em;color:var(--gold-lt);font-weight:600;}
-  .flow{max-width:660px;margin:44px auto 0;counter-reset:f;}
-  .flow .s{display:flex;gap:24px;align-items:flex-start;padding:26px 0;border-bottom:1px solid rgba(200,162,74,.15);}
-  .flow .s::before{counter-increment:f;content:counter(f,decimal-leading-zero);flex:none;font-family:sans-serif;font-size:17px;color:var(--gold);letter-spacing:.06em;padding-top:2px;}
-  .flow .s h4{font-weight:400;font-size:clamp(18px,2.6vw,21px);margin-bottom:6px;}
-  .flow .s p{font-size:clamp(15px,2.1vw,16.5px);color:#bdb5a5;line-height:1.9;}
-  .stats{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-  .stats .grid{display:grid;grid-template-columns:1fr;gap:48px;text-align:center;}
-  .stats .num{font-size:clamp(52px,8vw,60px);color:var(--gold-lt);font-weight:400;line-height:1.1;}
-  .stats .num .u{font-size:28px;}
-  .stats .lbl{font-family:sans-serif;font-size:14px;letter-spacing:.14em;color:#b3a992;margin-top:12px;}
-  .voices{display:grid;grid-template-columns:1fr;gap:30px;margin-top:56px;}
-  .voice{border:1px solid var(--line);padding:42px 36px;background:linear-gradient(160deg,var(--bg2),var(--bg));}
-  .voice p{font-size:clamp(16.5px,2.3vw,18px);color:#e0d7c6;line-height:2.05;}
-  .voice .who{font-family:sans-serif;font-size:14px;letter-spacing:.1em;color:var(--gold);margin-top:22px;}
-  .faq{max-width:740px;margin:44px auto 0;}
-  .faq dt{font-size:clamp(18px,2.6vw,20px);color:var(--gold-lt);padding:28px 0 12px;border-top:1px solid rgba(200,162,74,.18);line-height:1.6;}
-  .faq dt::before{content:"Q. ";color:var(--gold);}
-  .faq dd{font-size:clamp(16px,2.2vw,17px);color:#cdc5b5;padding-bottom:10px;line-height:1.95;}
-  .offer{text-align:center;background:linear-gradient(180deg,var(--bg),var(--bg2));border:1px solid var(--line);padding:78px 40px;max-width:800px;margin:0 auto;}
-  .offer h2{font-weight:400;font-size:clamp(26px,4.2vw,40px);margin:22px 0;}
-  .offer .price{font-family:sans-serif;font-size:clamp(16px,2.3vw,18px);letter-spacing:.08em;color:var(--gold-lt);font-weight:600;}
-  .note{text-align:center;font-family:sans-serif;font-size:12.5px;color:#8b8272;margin-top:34px;letter-spacing:.06em;line-height:1.7;}
-  footer{padding:66px 0;text-align:center;color:#8b8272;font-size:12.5px;font-family:sans-serif;letter-spacing:.06em;border-top:1px solid var(--line);line-height:1.9;}
-  @media(min-width:820px){.reasons{gap:80px;}.reason{grid-template-columns:1fr 1fr;gap:44px;}.reason.rev .txt{order:2;}.courses{grid-template-columns:repeat(3,1fr);}.stats .grid{grid-template-columns:repeat(3,1fr);}.voices{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:840px){
+    .fv .wrap{grid-template-columns:1.05fr .95fr;}
+    .stats .grid{grid-template-columns:repeat(3,1fr);}
+    .concerns .items{grid-template-columns:repeat(2,1fr);}
+    .reason{grid-template-columns:1fr 1fr;gap:48px;}
+    .reason.rev .txt{order:2;}
+    .courses{grid-template-columns:repeat(3,1fr);}
+    .voices{grid-template-columns:repeat(2,1fr);}
+  }
 </style>
 </head>
 <body>
-<div class="sample-bar">デザイン見本（サンプル）｜高級リッチ版 ── 文言・写真・料金・数字・お客様の声はすべて架空のサンプルです</div>
+<div class="sample-bar">デザイン見本（サンプル）｜スポーティ ── 文言・写真・料金・数字・お客様の声はすべて架空のサンプルです</div>
 
-<header class="hero">
-  <div class="bg"></div>
-  <div class="inner">
-    <p class="en">PRIVATE TRAINING GYM &nbsp;&#8226;&nbsp; TOKYO</p>
-    <h1>その体に、<span class="g">静かな自信</span>を。<br>完全個室・専属トレーナー制。</h1>
-    <p class="sub">追い込むだけの時代は、終わりました。<br>あなたの生活ごと、無理なく変える。</p>
-    <a href="#offer" class="btn">はじめての方へ</a>
+<!-- FV -->
+<header class="fv">
+  <div class="wrap">
+    <div>
+      <p class="en">PRIVATE TRAINING GYM</p>
+      <h1>本気で変える、<br><span class="lime">最後のジム。</span></h1>
+      <p class="sub"><b>完全個室・専属トレーナー制。</b><br>追い込むだけの時代は、もう終わり。生活ごと変えるから、リバウンドしない。</p>
+      <a href="#offer" class="btn">無料体験に申し込む <span class="arw">→</span></a>
+    </div>
+    <img class="fv-img" src="images/gym-sporty.png" alt="">
   </div>
-  <div class="scroll">SCROLL</div>
 </header>
 
-<section class="wrap reveal">
-  <div class="rule"><span>CONCEPT</span></div>
-  <p class="lead">鍛えるより、<br>続けられること。</p>
-  <p class="body c">一時的に絞るだけなら、方法はいくらでもあります。私たちが本当に届けたいのは、卒業したあとも保てる体と習慣です。だから、無理な食事制限も、根性論の追い込みもしません。あなたの生活のリズムを丁寧に伺い、その中で続けられることだけを、確かに積み上げていきます。</p>
-  <p class="body c">完全個室だから、人目を気にする必要はありません。ここは、あなたが自分と向き合うためだけの空間です。</p>
-</section>
-
-<section class="concerns reveal">
-  <div class="wrap">
-    <div class="rule"><span>SUCH FEELINGS</span></div>
-    <p class="lead" style="font-size:clamp(22px,3.6vw,30px);">こんな経験、<br>ありませんか。</p>
-    <ul>
-      <li>ジムに入会したのに、いつのまにか通わなくなった</li>
-      <li>自己流の食事制限で、リバウンドを繰り返してきた</li>
-      <li>周りの目が気になって、トレーニングに集中できない</li>
-      <li>忙しくて、続けられる自信が持てない</li>
-    </ul>
-    <p class="body c" style="margin-top:40px;">続かなかったのは、あなたの意志のせいではありません。仕組みが合っていなかっただけです。</p>
-  </div>
-</section>
-
-<section class="wrap reveal">
-  <div class="rule"><span>OUR REASON</span></div>
-  <p class="lead">私たちが、<br>選ばれ続ける理由。</p>
-  <div class="reasons">
-    <div class="reason rev">
-      <div class="txt"><p class="no">REASON 01</p><h3>完全個室・専属トレーナー制</h3><p>入会から卒業まで、同じトレーナーがあなたを担当します。毎回説明し直す必要はありません。あなたの体も、性格も、生活も分かった上で、最適なメニューを組み立てます。</p></div>
-      <img src="images/gym-lux.png" alt="">
-    </div>
-    <div class="reason">
-      <div class="txt"><p class="no">REASON 02</p><h3>食事は「制限」ではなく「設計」</h3><p>何かを禁じるのではなく、忙しい毎日で続けられる食べ方をご一緒に設計します。外食もお酒も、付き合い方さえ分かれば怖くありません。</p></div>
-      <img src="images/gym-lux.png" alt="">
-    </div>
-    <div class="reason rev">
-      <div class="txt"><p class="no">REASON 03</p><h3>卒業後も、戻らない体へ</h3><p>私たちのゴールは、通い続けさせることではありません。あなたが一人でも維持できる知識と習慣を、期間の中で丁寧にお渡しします。</p></div>
-      <img src="images/gym-lux.png" alt="">
-    </div>
-  </div>
-</section>
-
-<section class="wrap reveal">
-  <div class="rule"><span>PROGRAM</span></div>
-  <p class="lead">選べる、3つのコース。</p>
-  <div class="courses">
-    <div class="course"><p class="no">01</p><h3>ボディメイク</h3><div class="ln"></div><p>引き締めと理想のシルエットへ。見た目の変化を実感したい方へ。</p><p class="price">全16回　¥196,000</p></div>
-    <div class="course"><p class="no">02</p><h3>コンディショニング</h3><div class="ln"></div><p>姿勢・肩こり・疲れにくい体へ。無理なく整えたい方へ。</p><p class="price">全16回　¥184,000</p></div>
-    <div class="course"><p class="no">03</p><h3>プレミアム</h3><div class="ln"></div><p>トレーニングと食事指導を最も手厚く。本気で変えたい方へ。</p><p class="price">全24回　¥298,000</p></div>
-  </div>
-</section>
-
-<section class="wrap narrow reveal">
-  <div class="rule"><span>THE FLOW</span></div>
-  <p class="lead">はじめての、体験まで。</p>
-  <div class="flow">
-    <div class="s"><div><h4>ご予約</h4><p>ネットまたはお電話で。ご希望の日時をお選びください。</p></div></div>
-    <div class="s"><div><h4>カウンセリング・体の測定</h4><p>目標と生活を伺い、現在の体の状態を測定します。</p></div></div>
-    <div class="s"><div><h4>体験トレーニング</h4><p>実際のセッションを、専属トレーナーと体験。</p></div></div>
-    <div class="s"><div><h4>プランのご提案</h4><p>あなたに合ったコースを、無理なくご提案します。</p></div></div>
-  </div>
-</section>
-
+<!-- 実績数字 -->
 <section class="stats reveal">
   <div class="wrap">
-    <div class="rule"><span>OUR NUMBERS</span></div>
-    <div class="grid" style="margin-top:44px;">
-      <div><div class="num">9<span class="u">年</span></div><div class="lbl">創業 2016年</div></div>
-      <div><div class="num">1,200<span class="u">名</span></div><div class="lbl">卒業生</div></div>
-      <div><div class="num">92<span class="u">%</span></div><div class="lbl">目標達成率</div></div>
+    <div class="grid">
+      <div class="box"><div class="num">1,200<span class="u">名</span></div><div class="lbl">卒業生</div></div>
+      <div class="box"><div class="num">92<span class="u">%</span></div><div class="lbl">目標達成率</div></div>
+      <div class="box"><div class="num">9<span class="u">年</span></div><div class="lbl">創業 2016年</div></div>
     </div>
-    <p class="note">※ここに入る数字は架空のサンプルです。実際は、確認できた事実の数字だけを入れます。</p>
+    <p class="note">※数字は架空のサンプルです。実際は、確認できた事実の数字だけを入れます。</p>
   </div>
 </section>
 
+<!-- コンセプト -->
 <section class="wrap reveal">
-  <div class="rule"><span>VOICE</span></div>
-  <p class="lead">卒業生の、声。</p>
+  <div class="head"><p class="en">CONCEPT</p><h2>鍛えるより、<span class="em">続けられること。</span></h2></div>
+  <p class="body">一時的に絞るだけなら、方法はいくらでもあります。私たちが本当に届けたいのは、<b>卒業したあとも保てる体と習慣</b>です。だから、無理な食事制限も、根性論の追い込みもしません。あなたの生活のリズムを丁寧に伺い、その中で続けられることだけを、確かに積み上げていきます。</p>
+</section>
+
+<!-- 悩み -->
+<section class="concerns reveal">
+  <div class="wrap">
+    <div class="head"><p class="en">SUCH FEELINGS</p><h2>こんな経験、<br>ありませんか。</h2></div>
+    <div class="items">
+      <div class="it">ジムに入会したのに、通わなくなった</div>
+      <div class="it">自己流の食事制限でリバウンドを繰り返した</div>
+      <div class="it">周りの目が気になって集中できない</div>
+      <div class="it">忙しくて、続けられる自信がない</div>
+    </div>
+    <p class="body" style="max-width:none;">続かなかったのは、<b>あなたの意志のせいではありません。</b>仕組みが合っていなかっただけです。</p>
+  </div>
+</section>
+
+<!-- 理由 -->
+<section class="wrap reveal">
+  <div class="head c"><p class="en">OUR REASON</p><h2>選ばれ続ける、3つの理由。</h2></div>
+  <div class="reason rev">
+    <div class="txt"><p class="no">01</p><h3>完全個室・専属トレーナー制</h3><p>入会から卒業まで、同じトレーナーが担当。あなたの体も生活も分かった上で、<b>最適なメニューを組み立てます。</b>毎回説明し直す必要はありません。</p></div>
+    <img src="images/gym-sporty.png" alt="">
+  </div>
+  <div class="reason">
+    <div class="txt"><p class="no">02</p><h3>食事は「制限」でなく「設計」</h3><p>何かを禁じるのではなく、<b>忙しい毎日でも続けられる食べ方</b>をご一緒に設計します。外食もお酒も、付き合い方さえ分かれば怖くありません。</p></div>
+    <img src="images/gym-sporty.png" alt="">
+  </div>
+  <div class="reason rev">
+    <div class="txt"><p class="no">03</p><h3>卒業後も、戻らない体へ</h3><p>私たちのゴールは、通い続けさせることではありません。<b>あなたが一人でも維持できる知識と習慣</b>を、期間の中で丁寧にお渡しします。</p></div>
+    <img src="images/gym-sporty.png" alt="">
+  </div>
+</section>
+
+<!-- コース -->
+<section class="wrap reveal">
+  <div class="head c"><p class="en">PROGRAM</p><h2>選べる、3つのコース。</h2></div>
+  <div class="courses">
+    <div class="course"><span class="no">PLAN 01</span><h3>ボディメイク</h3><p>引き締めと理想のシルエットへ。見た目の変化を実感したい方へ。</p><p class="price">全16回　¥196,000</p></div>
+    <div class="course"><span class="no">PLAN 02</span><h3>コンディショニング</h3><p>姿勢・肩こり・疲れにくい体へ。無理なく整えたい方へ。</p><p class="price">全16回　¥184,000</p></div>
+    <div class="course"><span class="no">PLAN 03</span><h3>プレミアム</h3><p>トレーニングと食事指導を最も手厚く。本気で変えたい方へ。</p><p class="price">全24回　¥298,000</p></div>
+  </div>
+</section>
+
+<!-- 流れ -->
+<section class="concerns reveal">
+  <div class="wrap">
+    <div class="head c"><p class="en">THE FLOW</p><h2>体験までの、4ステップ。</h2></div>
+    <div class="flow">
+      <div class="s"><div><h4>ご予約</h4><p>ネットまたはお電話で。ご希望の日時をお選びください。</p></div></div>
+      <div class="s"><div><h4>カウンセリング・体の測定</h4><p>目標と生活を伺い、現在の体の状態を測定します。</p></div></div>
+      <div class="s"><div><h4>体験トレーニング</h4><p>実際のセッションを、専属トレーナーと体験。</p></div></div>
+      <div class="s"><div><h4>プランのご提案</h4><p>あなたに合ったコースを、無理なくご提案します。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 声 -->
+<section class="wrap reveal">
+  <div class="head c"><p class="en">VOICE</p><h2>卒業生の、声。</h2></div>
   <div class="voices">
-    <div class="voice"><p>「何度もジムで挫折してきましたが、初めて続けられました。追い込まれるのではなく、生活の中でできることを一緒に考えてくれたのが大きかったです。個室なので人目も気にならず、毎回通うのが楽しみでした。」</p><p class="who">40代・男性　ボディメイク</p></div>
-    <div class="voice"><p>「食事制限がつらくて何度も失敗してきましたが、ここでは"禁止"がありませんでした。外食との付き合い方を教わって、卒業してからもリバウンドしていません。体だけでなく、考え方が変わりました。」</p><p class="who">30代・女性　プレミアム</p></div>
+    <div class="voice"><p>何度もジムで挫折してきましたが、<b>初めて続けられました。</b>追い込まれるのではなく、生活の中でできることを一緒に考えてくれたのが大きかったです。個室なので人目も気にならず、毎回通うのが楽しみでした。</p><p class="who">40代・男性　ボディメイク</p></div>
+    <div class="voice"><p>食事制限がつらくて何度も失敗してきましたが、<b>ここでは「禁止」がありませんでした。</b>外食との付き合い方を教わって、卒業してからもリバウンドしていません。体だけでなく、考え方が変わりました。</p><p class="who">30代・女性　プレミアム</p></div>
   </div>
   <p class="note">※お客様の声も架空のサンプルです。実際は、許可をいただいた本物の声だけを掲載します。</p>
 </section>
 
-<section class="wrap narrow reveal">
-  <div class="rule"><span>Q &amp; A</span></div>
-  <p class="lead">よくあるご質問。</p>
-  <dl class="faq">
-    <dt>運動が苦手でも大丈夫ですか？</dt>
-    <dd>はい。お客様の多くが運動初心者の方です。体力や経験に合わせて、無理のないところから始めます。</dd>
-    <dt>厳しい食事制限はありますか？</dt>
-    <dd>ありません。禁止するのではなく、続けられる食べ方をご一緒に設計します。</dd>
-    <dt>どのくらいで効果が出ますか？</dt>
-    <dd>目標や体質によって異なりますが、まずは体験で現状を測定し、現実的な目安をお伝えします。</dd>
-    <dt>着替えやシューズは必要ですか？</dt>
-    <dd>ウェア・シューズ・タオルは無料でお貸しします。手ぶらでお越しいただけます。</dd>
-  </dl>
+<!-- FAQ -->
+<section class="concerns reveal">
+  <div class="wrap">
+    <div class="head c"><p class="en">Q &amp; A</p><h2>よくあるご質問。</h2></div>
+    <dl class="faq">
+      <dt>運動が苦手でも大丈夫ですか？</dt>
+      <dd>はい。お客様の多くが運動初心者の方です。体力や経験に合わせて、無理のないところから始めます。</dd>
+      <dt>厳しい食事制限はありますか？</dt>
+      <dd>ありません。禁止するのではなく、続けられる食べ方をご一緒に設計します。</dd>
+      <dt>どのくらいで効果が出ますか？</dt>
+      <dd>目標や体質によって異なりますが、まずは体験で現状を測定し、現実的な目安をお伝えします。</dd>
+      <dt>着替えやシューズは必要ですか？</dt>
+      <dd>ウェア・シューズ・タオルは無料でお貸しします。手ぶらでお越しいただけます。</dd>
+    </dl>
+  </div>
 </section>
 
-<section class="wrap reveal" id="offer">
-  <div class="offer">
-    <div class="rule"><span>INVITATION</span></div>
-    <h2>まずは、体験から。</h2>
-    <p class="body c" style="margin-top:0;">実際のトレーニングと、専属トレーナーとの相性を確かめてください。体験の日に、しつこい勧誘をすることは決してありません。続けるかどうかは、あなたが納得してからで大丈夫です。</p>
-    <p class="price" style="margin-top:26px;">体験トレーニング（60分）　¥3,300（税込）</p>
-    <a href="#" class="btn">体験を予約する</a>
+<!-- オファー -->
+<section class="offer reveal" id="offer">
+  <div class="wrap">
+    <h2>まずは、無料体験から。</h2>
+    <p class="body">実際のトレーニングと、専属トレーナーとの相性を確かめてください。しつこい勧誘は一切しません。続けるかどうかは、<b style="color:#fff;">あなたが納得してから</b>で大丈夫です。</p>
+    <p class="price">体験トレーニング（60分）　¥3,300（税込）</p>
+    <a href="#" class="btn">無料体験に申し込む <span class="arw">→</span></a>
   </div>
 </section>
 
 <footer>
   ※これは「なべとも」のデザイン見本です。店名・文言・写真・料金・数字・お客様の声は、すべてレイアウトを見せるための架空サンプルであり、実在のサービス・実在の実績ではありません。<br>
-  高級リッチ版｜黒×ゴールド・映画的・作り込み系
+  スポーティ｜ネイビー×ライム・極太ゴシック・数字主役
 </footer>
 
 <script>
