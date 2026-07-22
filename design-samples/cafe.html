@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デザイン見本｜カフェ（ビジュアルブック型）</title>
+<style>
+  :root{
+    --bg:#f0ebe1; --card:#fff; --ink:#3b342b; --ink-lt:#7d7365; --brown:#6f5842; --leaf:#5f6e4a; --line:#ddd4c4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:var(--ink);background:var(--bg);line-height:2;letter-spacing:.04em;}
+  .serif{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
+  .sample-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--brown);color:#f4ede0;font-size:12px;letter-spacing:.1em;text-align:center;padding:8px 12px;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* FV：全面写真＋店名だけ（ミニマル） */
+  .fv{height:100svh;min-height:560px;position:relative;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;}
+  .fv .bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.06);animation:z 18s ease-out forwards;}
+  @keyframes z{to{transform:scale(1);}}
+  .fv::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(50,40,30,.15),rgba(50,40,30,.55));}
+  .fv .inner{position:relative;z-index:2;text-align:center;color:#fff;padding:0 24px 76px;}
+  .fv .en{font-size:13px;letter-spacing:.5em;margin-bottom:18px;opacity:.9;}
+  .fv h1{font-family:"Hiragino Mincho ProN",serif;font-weight:400;font-size:clamp(38px,9vw,76px);letter-spacing:.14em;line-height:1.2;text-shadow:0 2px 24px rgba(0,0,0,.4);}
+  .fv .tag{margin-top:20px;font-size:clamp(14px,2.2vw,16px);letter-spacing:.14em;}
+  .fv .scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;color:#fff;font-size:10px;letter-spacing:.3em;opacity:.8;animation:bl 2.4s infinite;}
+  @keyframes bl{0%,100%{opacity:.3;}50%{opacity:.9;}}
+
+  /* イントロ（短い一言） */
+  .intro{text-align:center;padding:96px 24px;}
+  .intro p{font-family:"Hiragino Mincho ProN",serif;font-size:clamp(19px,3.2vw,27px);line-height:2.2;letter-spacing:.08em;max-width:20em;margin:0 auto;color:var(--brown);}
+
+  /* ギャラリー（写真主役・テキスト無し） */
+  .gallery{display:grid;grid-template-columns:1fr;gap:8px;}
+  .gallery img{width:100%;height:100%;object-fit:cover;display:block;}
+  .gallery .tall{aspect-ratio:3/4;}
+  .gallery .wide{aspect-ratio:16/10;}
+
+  .band{text-align:center;padding:22px;background:var(--brown);color:#f4ede0;font-family:"Hiragino Mincho ProN",serif;font-size:clamp(15px,2.4vw,18px);letter-spacing:.2em;}
+
+  /* メニュー（一覧が主役） */
+  .menu{padding:100px 0;}
+  .menu .ttl{text-align:center;margin-bottom:56px;}
+  .menu .ttl .en{font-size:12px;letter-spacing:.4em;color:var(--leaf);}
+  .menu .ttl h2{font-family:"Hiragino Mincho ProN",serif;font-weight:400;font-size:clamp(28px,5vw,40px);letter-spacing:.2em;margin-top:12px;}
+  .menu-grid{display:grid;grid-template-columns:1fr;gap:44px;}
+  .menu-cat h3{font-family:"Hiragino Mincho ProN",serif;font-weight:400;font-size:22px;letter-spacing:.14em;color:var(--brown);padding-bottom:14px;border-bottom:2px solid var(--brown);margin-bottom:8px;}
+  .menu-cat .row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:15px 0;border-bottom:1px dotted var(--line);}
+  .menu-cat .row .name{font-size:clamp(15.5px,2.3vw,17px);}
+  .menu-cat .row .name small{display:block;color:var(--ink-lt);font-size:12.5px;letter-spacing:.02em;margin-top:2px;}
+  .menu-cat .row .p{font-size:15.5px;color:var(--brown);font-weight:600;white-space:nowrap;}
+
+  /* こだわり（写真＋短文・横並び） */
+  .story{padding:100px 0;background:var(--card);}
+  .story .row{display:grid;grid-template-columns:1fr;gap:30px;align-items:center;margin-bottom:64px;}
+  .story .row:last-child{margin-bottom:0;}
+  .story img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+  .story .en{font-size:12px;letter-spacing:.3em;color:var(--leaf);}
+  .story h3{font-family:"Hiragino Mincho ProN",serif;font-weight:400;font-size:clamp(23px,3.4vw,29px);margin:10px 0 16px;letter-spacing:.08em;line-height:1.5;}
+  .story p{font-size:clamp(15.5px,2.2vw,17px);color:var(--ink-lt);line-height:2.2;}
+
+  /* インフォメーション（店舗情報が主役） */
+  .info{padding:100px 0;text-align:center;}
+  .info .ttl{font-family:"Hiragino Mincho ProN",serif;font-size:clamp(26px,4.6vw,36px);letter-spacing:.2em;margin-bottom:44px;}
+  .info-grid{display:grid;grid-template-columns:1fr;gap:2px;background:var(--line);border:1px solid var(--line);max-width:640px;margin:0 auto;text-align:left;}
+  .info-grid .r{background:var(--bg);display:grid;grid-template-columns:120px 1fr;gap:0;}
+  .info-grid .k{background:var(--brown);color:#f4ede0;padding:20px 22px;font-size:14px;letter-spacing:.1em;}
+  .info-grid .v{padding:20px 22px;font-size:clamp(15px,2.2vw,16.5px);line-height:1.8;}
+  .info .sns{margin-top:44px;}
+  .btn{display:inline-flex;align-items:center;gap:11px;font-size:15px;font-weight:600;letter-spacing:.1em;color:#fff;background:var(--leaf);text-decoration:none;padding:18px 44px;border-radius:40px;transition:.3s;}
+  .btn:hover{background:#4d5a3c;transform:translateY(-2px);}
+
+  .note{font-size:12.5px;color:#a89e8d;margin-top:34px;text-align:center;line-height:1.7;}
+  footer{padding:56px 24px;text-align:center;color:#a89e8d;font-size:12.5px;line-height:1.9;border-top:1px solid var(--line);}
+  .reveal{opacity:0;transform:translateY(28px);transition:1s cubic-bezier(.2,.7,.2,1);}
+  .reveal.on{opacity:1;transform:none;}
+  @media(min-width:760px){
+    .gallery{grid-template-columns:2fr 1fr;grid-auto-rows:1fr;}
+    .gallery .a{grid-row:span 2;}
+    .menu-grid{grid-template-columns:repeat(2,1fr);gap:56px;}
+    .story .row{grid-template-columns:1fr 1fr;gap:52px;}
+    .story .row.rev .txt{order:2;}
+  }
+</style>
+</head>
+<body>
+<div class="sample-bar">デザイン見本（サンプル）｜ビジュアルブック型 ── 店名・写真・メニュー・情報はすべて架空のサンプルです</div>
+
+<!-- FV：写真全面＋店名 -->
+<header class="fv">
+  <div class="bg" style="background-image:url('images/cafe-interior.png')"></div>
+  <div class="inner">
+    <p class="en serif">CAFE &amp; ROASTERY</p>
+    <h1>木漏れ日</h1>
+    <p class="tag">— 街のすみの、小さな休憩室 —</p>
+  </div>
+  <div class="scroll">SCROLL</div>
+</header>
+
+<!-- イントロ -->
+<section class="intro reveal">
+  <p>いい一日は、<br>一杯の珈琲から。</p>
+</section>
+
+<!-- ギャラリー（写真で魅せる） -->
+<div class="gallery">
+  <img class="a" src="images/cafe-interior.png" alt="">
+  <img class="tall" src="images/cafe-item.png" alt="">
+  <img class="tall" src="images/cafe-interior.png" alt="">
+</div>
+
+<div class="band serif">その日の気分で、ゆっくりと。</div>
+
+<!-- メニュー -->
+<section class="menu">
+  <div class="wrap">
+    <div class="ttl"><p class="en">OUR MENU</p><h2>お品書き</h2></div>
+    <div class="menu-grid">
+      <div class="menu-cat">
+        <h3>COFFEE</h3>
+        <div class="row"><span class="name">ハンドドリップ<small>その日の豆から選べます</small></span><span class="p">¥600</span></div>
+        <div class="row"><span class="name">カフェラテ<small>自家焙煎の深煎りで</small></span><span class="p">¥620</span></div>
+        <div class="row"><span class="name">水出しアイスコーヒー<small>ゆっくり8時間抽出</small></span><span class="p">¥650</span></div>
+        <div class="row"><span class="name">本日のカフェオレ</span><span class="p">¥640</span></div>
+      </div>
+      <div class="menu-cat">
+        <h3>SWEETS &amp; FOOD</h3>
+        <div class="row"><span class="name">自家製チーズケーキ<small>週替わりの味わい</small></span><span class="p">¥580</span></div>
+        <div class="row"><span class="name">焼きたてスコーン<small>クロテッドクリーム添え</small></span><span class="p">¥520</span></div>
+        <div class="row"><span class="name">キッシュプレート<small>サラダとスープ付き</small></span><span class="p">¥1,180</span></div>
+        <div class="row"><span class="name">季節のフルーツタルト</span><span class="p">¥680</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- こだわり -->
+<section class="story">
+  <div class="wrap">
+    <div class="row rev reveal">
+      <div class="txt"><p class="en">OUR COFFEE</p><h3>豆は、店の奥で焙煎しています。</h3><p>その週に届いた生豆を、少しずつ、手をかけて。焙煎したてのいちばんいい状態で、一杯ずつお淹れします。香りの立ち方が、きっと違います。</p></div>
+      <img src="images/cafe-item.png" alt="">
+    </div>
+    <div class="row reveal">
+      <div class="txt"><p class="en">OUR SPACE</p><h3>長居してもらえる、居心地を。</h3><p>ひとりで本を読む方も、静かに話したい方も。Wi-Fiと電源席もご用意しています。時間を気にせず、どうぞごゆっくり。</p></div>
+      <img src="images/cafe-interior.png" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- インフォメーション -->
+<section class="info reveal">
+  <div class="wrap">
+    <p class="ttl serif">INFORMATION</p>
+    <div class="info-grid">
+      <div class="r"><div class="k">営業時間</div><div class="v">8:00 – 19:00<br>（L.O. 18:30）</div></div>
+      <div class="r"><div class="k">定休日</div><div class="v">火曜日</div></div>
+      <div class="r"><div class="k">住所</div><div class="v">【ここに住所が入ります】</div></div>
+      <div class="r"><div class="k">アクセス</div><div class="v">【最寄り駅から徒歩◯分】</div></div>
+      <div class="r"><div class="k">席数</div><div class="v">24席（電源席・Wi-Fiあり）</div></div>
+    </div>
+    <div class="sns">
+      <a href="#" class="btn">Instagramを見る</a>
+    </div>
+    <p class="note">※店名・写真・メニュー・価格・情報はすべて架空のサンプルです。実在の店舗ではありません。</p>
+  </div>
+</section>
+
+<footer>
+  ※これは「なべとも」のデザイン見本です。ビジュアルブック型＝写真とメニュー・店舗情報を主役にした、セールス型とは別の構成パターンのサンプルです。<br>
+  ビジュアルブック型｜写真主役・メニュー・店舗情報
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
