@@ -46,9 +46,9 @@
     padding:104px 0 56px;background:var(--rose-pale);}
   .fv .ph{position:absolute;inset:0;}
   .fv .ph img{width:100%;height:100%;object-fit:cover;object-position:18% center;}
-  /* テキストは左、商品は右。kb-hero.png は商品が画像の左寄りにあるため、
-     左右反転（scaleX)して商品を右へ持ってくる */
-  .fv .ph img{object-position:32% 56%;transform:scaleX(-1);}
+  /* テキストは左、商品は右。画像は sips で左右反転済み（商品が右・余白が左）。
+     CSSでの反転はやめた——object-position の座標が反転して扱いにくいため */
+  .fv .ph img{object-position:center center;}
   .fv .ph::after{content:"";position:absolute;inset:0;background:
     linear-gradient(100deg,rgba(251,247,243,.96) 0%,rgba(251,247,243,.88) 34%,rgba(251,247,243,.22) 60%,transparent 84%);}
   .fv .in{position:relative;z-index:2;max-width:600px;margin-right:auto;}
@@ -57,8 +57,8 @@
      1画面に「商品 → キャッチ → CTA」まで収める */
   @media(max-width:860px){
     .fv{min-height:100svh;padding:80px 0 30px;align-items:flex-end;}
-    /* 画像版に合わせ、モバイルでも商品は右下に見せる */
-    .fv .ph img{object-position:68% 50%;}
+    /* モバイルは縦長にトリミングされるため、商品側（右寄り）を中心に見せる */
+    .fv .ph img{object-position:78% 52%;}
     .fv .ph::after{background:linear-gradient(0deg,
       rgba(251,247,243,.99) 0%,rgba(251,247,243,.97) 42%,rgba(251,247,243,.5) 60%,rgba(251,247,243,.04) 84%,transparent 100%);}
     .fv .in{max-width:none;margin:0;}
@@ -311,7 +311,7 @@
 
 <!-- ===== FV ===== -->
 <div class="fv">
-  <div class="ph"><img src="images/kb-hero.png" alt="美容液"></div>
+  <div class="ph"><img src="images/kb-hero3.png" alt="美容液"></div>
   <div class="wrap in">
     <div class="brand en">YEON</div>
     <div class="kicker">かくれ乾燥の肌に。うるおいを、角層のすみずみへ<sup>※7</sup>。</div>
