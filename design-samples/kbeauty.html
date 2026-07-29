@@ -46,7 +46,7 @@
   /* ===== FV（商品を見せる／キャッチが主役／バッジは丸で下） ===== */
   /* 文字群は画面のできるだけ上へ。上余白はサンプルバー(33px)を避ける最小限だけ */
   .fv{position:relative;min-height:100svh;display:flex;align-items:flex-start;overflow:hidden;
-    padding:14px 0 40px;background:var(--rose-pale);}
+    padding:0 0 40px;background:var(--rose-pale);}
   .fv .ph{position:absolute;inset:0;}
   .fv .ph img{width:100%;height:100%;object-fit:cover;object-position:18% center;}
   /* テキストは左、商品は右。画像は sips で左右反転済み（商品が右・余白が左）。
@@ -65,7 +65,7 @@
   @media(max-width:860px){
     /* 上に商品をはっきり見せ、下でテキスト。境目はグラデーションで溶かして
        「写真の上に文字を載せている」一体感は保つ */
-    .fv{min-height:100svh;padding:12px 0 22px;align-items:flex-end;background:var(--cream);}
+    .fv{min-height:100svh;padding:0 0 22px;align-items:flex-end;background:var(--cream);}
     .fv .ph{top:0;bottom:auto;height:54svh;}
     .fv .ph img{object-position:76% 44%;filter:saturate(1.1) contrast(1.08);}
     .fv .ph::after{background:linear-gradient(0deg,
