@@ -172,8 +172,8 @@
   .fv .band-top{font-size:clamp(15px,4.2vw,20px);font-weight:800;color:#ffd76a;line-height:1.4;
     text-shadow:-2px -2px 0 #14100e,2px -2px 0 #14100e,-2px 2px 0 #14100e,2px 2px 0 #14100e,0 3px 6px rgba(0,0,0,.6);}
   .fv .band-top sup{font-size:.5em;color:#c9b48a;}
-  .fv .band-main{margin-top:4px;font-size:clamp(34px,10.6vw,56px);font-weight:800;line-height:1.16;
-    letter-spacing:-.04em;color:#fff;
+  .fv .band-main{margin-top:4px;font-size:clamp(28px,8.4vw,48px);font-weight:800;line-height:1.18;
+    letter-spacing:-.045em;color:#fff;white-space:nowrap;
     text-shadow:-3px -3px 0 #fff,3px -3px 0 #fff,-3px 3px 0 #fff,3px 3px 0 #fff,
                 -3px 0 0 #fff,3px 0 0 #fff,0 -3px 0 #fff,0 3px 0 #fff,
                 0 7px 0 rgba(0,0,0,.55),0 10px 16px rgba(0,0,0,.6);}
@@ -191,6 +191,9 @@
     box-shadow:0 4px 14px rgba(0,0,0,.3);}
   .fv .tate .t2{background:#e8342b;color:#fff;}
 
+  .fv .tate .tcy{text-combine-upright:all;-webkit-text-combine:horizontal;letter-spacing:0;}
+  /* バッジが写真にくっついていたので離す */
+  .fv .badges{margin-top:26px!important;}
   .fv .badges .bdg.fn{background:#e8342b;color:#fff;border-color:#e8342b;font-weight:800;}
   .fv .item{max-width:min(78%,300px)!important;margin-left:auto;margin-right:auto;}
   .fv .rank sup{font-size:.6em;}
@@ -222,7 +225,7 @@
   <div class="band">
     <div class="band-in">
       <p class="band-top">ただ補うだけじゃない。<sup>※1</sup></p>
-      <p class="band-main"><span class="red">めぐり</span>を、<span class="ylw">つくる</span>。</p>
+      <p class="band-main"><span class="red">めぐりを、</span><span class="ylw">つくる。</span></p>
     </div>
     <p class="band-note">※1 めぐりに関わる15種の和漢素材を配合し、日々の健康維持をサポートする設計です</p>
   </div>
@@ -230,7 +233,7 @@
   <!-- ②ターゲット本人の実写＋縦書きの白抜き帯 -->
   <div class="hero-ph">
     <img src="images/sup-person.png" alt="朝、起き上がれない">
-    <div class="tate"><span class="t1">朝がつらい</span><span class="t2">58歳が実感</span></div>
+    <div class="tate"><span class="t1">朝がつらい</span><span class="t2"><span class="tcy">58</span>歳が実感</span></div>
   </div>
 
   <div class="in">
