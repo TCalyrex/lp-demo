@@ -162,6 +162,40 @@
     .stats .grid{grid-template-columns:repeat(3,1fr);}
     .fv h1{font-size:clamp(38px,5.4vw,54px);}
   }
+
+  /* ===== FV：サプリ広告LP3本の型（2026-07-29再構築） =====
+     参照：ヒザテクト(富士フイルム)／ロコモア(サントリー)／N organic
+     ①黒地に極太の袋文字 ②ターゲット本人の実写＋縦書き白抜き帯
+     ③機能性表示食品バッジ ④注記を明示 */
+  .fv .band{background:linear-gradient(180deg,#14100e 0%,#241a15 100%);padding:18px 16px 0;text-align:center;}
+  .fv .band-in{max-width:560px;margin:0 auto;}
+  .fv .band-top{font-size:clamp(15px,4.2vw,20px);font-weight:800;color:#ffd76a;line-height:1.4;
+    text-shadow:-2px -2px 0 #14100e,2px -2px 0 #14100e,-2px 2px 0 #14100e,2px 2px 0 #14100e,0 3px 6px rgba(0,0,0,.6);}
+  .fv .band-top sup{font-size:.5em;color:#c9b48a;}
+  .fv .band-main{margin-top:4px;font-size:clamp(34px,10.6vw,56px);font-weight:800;line-height:1.16;
+    letter-spacing:-.04em;color:#fff;
+    text-shadow:-3px -3px 0 #fff,3px -3px 0 #fff,-3px 3px 0 #fff,3px 3px 0 #fff,
+                -3px 0 0 #fff,3px 0 0 #fff,0 -3px 0 #fff,0 3px 0 #fff,
+                0 7px 0 rgba(0,0,0,.55),0 10px 16px rgba(0,0,0,.6);}
+  .fv .band-main .red{color:#e8342b;}
+  .fv .band-main .ylw{color:#ffc21f;}
+  .fv .band-note{max-width:600px;margin:12px auto 0;padding:8px 12px;background:rgba(255,255,255,.1);
+    font-size:clamp(10px,2.8vw,12px);color:#f2e6d6;line-height:1.6;letter-spacing:0;}
+
+  .fv .hero-ph{position:relative;line-height:0;}
+  .fv .hero-ph img{width:100%;max-width:none;height:min(46vh,320px);object-fit:cover;
+    object-position:center 34%;filter:none;margin:0;}
+  .fv .tate{position:absolute;top:14px;right:14px;display:flex;gap:8px;}
+  .fv .tate span{writing-mode:vertical-rl;background:#fff;color:#241a15;font-weight:800;
+    font-size:clamp(17px,4.6vw,23px);letter-spacing:.06em;padding:12px 7px;line-height:1;
+    box-shadow:0 4px 14px rgba(0,0,0,.3);}
+  .fv .tate .t2{background:#e8342b;color:#fff;}
+
+  .fv .badges .bdg.fn{background:#e8342b;color:#fff;border-color:#e8342b;font-weight:800;}
+  .fv .item{max-width:min(78%,300px)!important;margin-left:auto;margin-right:auto;}
+  .fv .rank sup{font-size:.6em;}
+  .fv .fvnote{margin-top:12px;font-size:9.5px;line-height:1.7;color:#8a7f72;letter-spacing:0;}
+  .fv .fvnote b{color:#5c5147;}
 </style>
 </head>
 <body>
@@ -169,18 +203,34 @@
 
 <!-- FV -->
 <header class="fv">
+  <!-- ①黒地に極太の袋文字（ヒザテクトの型） -->
+  <div class="band">
+    <div class="band-in">
+      <p class="band-top">ただ補うだけじゃない。<sup>※1</sup></p>
+      <p class="band-main"><span class="red">めぐり</span>を、<span class="ylw">つくる</span>。</p>
+    </div>
+    <p class="band-note">※1 めぐりに関わる15種の和漢素材を配合し、日々の健康維持をサポートする設計です</p>
+  </div>
+
+  <!-- ②ターゲット本人の実写＋縦書きの白抜き帯 -->
+  <div class="hero-ph">
+    <img src="images/sup-person.png" alt="朝、起き上がれない">
+    <div class="tate"><span class="t1">朝がつらい</span><span class="t2">58歳が実感</span></div>
+  </div>
+
   <div class="in">
     <div class="badges">
+      <span class="bdg fn">機能性表示食品</span>
       <span class="bdg">国内GMP工場製造</span>
       <span class="bdg">無添加処方</span>
-      <span class="bdg">機能性表示食品</span>
     </div>
     <h1>朝、<span class="o">スッと動ける</span>日を、<br>もう一度あたりまえに。</h1>
     <p class="sub">年齢とともに減っていく“めぐり”に。<br><b>15種の和漢素材</b>を、1日2粒でまるごとチャージ。</p>
-    <img src="images/supplement.png" alt="サプリメント商品イメージ">
-    <div class="rank"><span class="crown">👑</span>健康サプリ部門　満足度ランキング 第1位</div>
+    <img class="item" src="images/sup-item.png" alt="サプリメント商品イメージ">
+    <div class="rank"><span class="crown">👑</span>健康サプリ部門　満足度ランキング 第1位<sup>※2</sup></div>
     <a href="#offer" class="btn">初回<b style="color:#fff">67%OFF</b>で試す <span class="arw">→</span></a>
     <p class="cta-note">＼ 今だけ！毎月先着500名さま限定 ／</p>
+    <p class="fvnote">※2 自社調べ。2026年3月実施、40〜60代の男女300名によるインターネット調査（当社取扱い健康サプリ8品目中）。<b>※すべて架空のサンプルです。</b></p>
   </div>
 </header>
 
