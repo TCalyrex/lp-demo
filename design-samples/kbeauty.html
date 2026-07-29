@@ -85,19 +85,22 @@
   }
 
   .fv .brand{font-size:12px;letter-spacing:.52em;color:var(--gold);margin-bottom:15px;}
-  .fv .kicker{font-size:clamp(14px,2.3vw,16.5px);letter-spacing:.14em;color:var(--ink-lt);
-    margin-bottom:13px;padding-bottom:12px;position:relative;display:inline-block;}
-  .fv .kicker::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
-    background:linear-gradient(90deg,var(--rose),rgba(201,148,141,.15));}
+  /* 濃く・太くしてインパクトを出す（薄いグレーだと弱かった） */
+  .fv .kicker{font-size:clamp(15px,2.5vw,19px);letter-spacing:.12em;color:var(--ink);
+    font-weight:700;margin-bottom:14px;padding-bottom:13px;position:relative;display:inline-block;}
+  .fv .kicker::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
+    background:linear-gradient(90deg,var(--rose-dk),rgba(169,111,104,.12));}
   .fv .kicker sup{font-size:10px;color:var(--gold);}
   /* 画像版のインパクトに合わせて大幅に拡大（78px→112px）。極太ゴシック */
   .fv h1{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;font-weight:800;
-    font-size:clamp(46px,9.6vw,104px);line-height:1.22;letter-spacing:-.015em;white-space:nowrap;
-    background:linear-gradient(160deg,var(--ink) 14%,var(--rose-dk) 92%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;}
+    font-size:clamp(50px,11.2vw,126px);line-height:1.16;letter-spacing:-.025em;white-space:nowrap;
+    background:linear-gradient(160deg,var(--ink) 12%,var(--rose-dk) 90%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 6px 26px rgba(61,51,46,.16));}
   .fv h1 em{font-style:normal;}
-  .fv .sub{margin-top:20px;font-size:clamp(16px,2.5vw,20px);color:var(--ink-lt);line-height:2;font-weight:500;}
-  .fv .sub b{color:var(--ink);font-weight:800;}
+  /* サブも濃く・太く・大きく */
+  .fv .sub{margin-top:22px;font-size:clamp(17px,2.9vw,24px);color:var(--ink);line-height:1.9;font-weight:700;}
+  .fv .sub b{color:var(--rose-dk);font-weight:800;}
 
   /* 丸バッジ＝完全な正円（画像版は角丸四角になってしまった。CSSなら確実に円になる） */
   .fv .circles{display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin-top:26px;}
@@ -124,7 +127,10 @@
                0 14px 32px rgba(169,111,104,.34),
                0 3px 10px rgba(169,111,104,.2);}
   .fv .btn:hover{background:linear-gradient(180deg,var(--rose-dk) 0%,var(--ink) 100%);}
-  .fv .fvnote{margin-top:24px;font-size:10.5px;line-height:1.8;color:var(--ink-x);letter-spacing:.01em;}
+  /* 注記の詳細はFVから外し、下部の注記まとめへリンクで飛ばす（FVを写真とキャッチに使うため）。
+     ただしバッジ内の「※1」マークは残す＝根拠へ辿れる状態は維持する */
+  .fv .fvnote{margin-top:20px;font-size:11px;line-height:1.8;color:var(--ink-x);letter-spacing:.01em;}
+  .fv .fvnote a{color:var(--gold);text-decoration:underline;text-underline-offset:3px;}
 
   /* ===== 見出し ===== */
   .head{text-align:center;margin:0 auto 60px;padding-top:14px;}
@@ -329,8 +335,7 @@
 
     <div class="item"><b>YEON リバイタライジング セラム〈美容液・化粧品〉</b></div>
     <a href="#lineup" class="btn">商品を見る<span class="arw">→</span></a>
-    <p class="fvnote">※1 ◯◯総研調べ。韓国発スキンケア美容液市場（国内流通・オンライン含む）2023年1月〜2025年12月 YEON ブランド 金額シェア。<br>
-    ※2 うるおいによる肌のキメの乱れをととのえることを指します。／※7 角層まで。／※12 公式オンラインストアのレビュー平均（2026年6月末時点・328件）。</p>
+    <p class="fvnote">※1・※12の詳細は<a href="#notes">ページ下部の注記</a>に記載しています。</p>
   </div>
 </div>
 
@@ -649,7 +654,7 @@
 </section>
 
 <!-- ===== 注記まとめ ===== -->
-<section class="notes">
+<section class="notes" id="notes">
   <div class="wrap">
     <h3>注記</h3>
     <ul>
