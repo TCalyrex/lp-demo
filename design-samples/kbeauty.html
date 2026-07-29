@@ -46,17 +46,18 @@
     padding:104px 0 56px;background:var(--rose-pale);}
   .fv .ph{position:absolute;inset:0;}
   .fv .ph img{width:100%;height:100%;object-fit:cover;object-position:18% center;}
-  /* PC：商品は左に見せ、テキストは右。ベールは右側にかける */
+  /* なべとも式の試作画像を設計図にした配置：テキストは左、商品は右下 */
+  .fv .ph img{object-position:72% 58%;}
   .fv .ph::after{content:"";position:absolute;inset:0;background:
-    linear-gradient(260deg,rgba(251,247,243,.96) 0%,rgba(251,247,243,.9) 38%,rgba(251,247,243,.34) 66%,transparent 100%);}
-  .fv .in{position:relative;z-index:2;max-width:540px;margin-left:auto;}
+    linear-gradient(100deg,rgba(251,247,243,.97) 0%,rgba(251,247,243,.92) 40%,rgba(251,247,243,.38) 68%,transparent 100%);}
+  .fv .in{position:relative;z-index:2;max-width:600px;margin-right:auto;}
 
   /* モバイル：写真の上に文字を重ねる（アスタリフト／N organic と同じ構造）。
      1画面に「商品 → キャッチ → CTA」まで収める */
   @media(max-width:860px){
     .fv{min-height:100svh;padding:80px 0 30px;align-items:flex-end;}
-    /* 商品（画像の左寄り中央）が必ず画面に入る位置。以前は 52% 26% で商品が枠外へ出ていた */
-    .fv .ph img{object-position:33% 46%;}
+    /* 画像版に合わせ、モバイルでも商品は右下に見せる */
+    .fv .ph img{object-position:68% 50%;}
     .fv .ph::after{background:linear-gradient(0deg,
       rgba(251,247,243,.99) 0%,rgba(251,247,243,.97) 42%,rgba(251,247,243,.5) 60%,rgba(251,247,243,.04) 84%,transparent 100%);}
     .fv .in{max-width:none;margin:0;}
@@ -85,32 +86,40 @@
   .fv .kicker::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
     background:linear-gradient(90deg,var(--rose),rgba(201,148,141,.15));}
   .fv .kicker sup{font-size:10px;color:var(--gold);}
-  .fv h1{font-family:"Hiragino Mincho ProN",serif;font-weight:600;
-    font-size:clamp(38px,7.4vw,68px);line-height:1.46;letter-spacing:.09em;
-    background:linear-gradient(180deg,var(--ink) 30%,var(--rose-dk) 100%);
+  /* 画像版は太いゴシックが効いていた。明朝→極太ゴシックへ変更し、サイズも上げる */
+  .fv h1{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;font-weight:800;
+    font-size:clamp(42px,8.6vw,78px);line-height:1.3;letter-spacing:.02em;
+    background:linear-gradient(160deg,var(--ink) 18%,var(--rose-dk) 96%);
     -webkit-background-clip:text;background-clip:text;color:transparent;}
   .fv h1 em{font-style:normal;}
   .fv .sub{margin-top:18px;font-size:clamp(15px,2.2vw,17px);color:var(--ink-lt);line-height:2.25;}
   .fv .sub b{color:var(--ink);font-weight:700;}
 
-  /* 丸バッジ（日本の化粧品LPの定番） */
-  .fv .circles{display:flex;gap:13px;align-items:center;flex-wrap:wrap;margin-top:24px;}
-  .fv .cir{width:96px;height:96px;border-radius:50%;flex:none;
+  /* 丸バッジ＝完全な正円（画像版は角丸四角になってしまった。CSSなら確実に円になる） */
+  .fv .circles{display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin-top:26px;}
+  .fv .cir{width:108px;height:108px;border-radius:50%;flex:none;aspect-ratio:1/1;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;font-size:10.5px;line-height:1.55;letter-spacing:.01em;
-    box-shadow:0 6px 18px rgba(169,111,104,.2);}
-  .fv .cir b{display:block;font-size:15px;font-weight:700;letter-spacing:.02em;margin:2px 0;}
+    text-align:center;font-size:11px;line-height:1.5;letter-spacing:0;
+    box-shadow:0 8px 22px rgba(169,111,104,.24);}
+  .fv .cir b{display:block;font-size:16px;font-weight:800;letter-spacing:0;margin:3px 0 1px;}
   .fv .cir sup{font-size:8.5px;}
   .fv .cir.a{background:var(--rose-dk);color:#fff;}
-  .fv .cir.a b{font-size:16.5px;}
-  .fv .cir.b{background:#fff;border:1.5px solid var(--rose);color:var(--rose-dk);}
-  .fv .cir.c{background:var(--gold);color:#fff;}
-  @media(max-width:400px){ .fv .cir{width:84px;height:84px;font-size:9.5px;} }
+  .fv .cir.a b{font-size:17.5px;}
+  .fv .cir.b{background:rgba(255,255,255,.94);border:1.5px solid var(--rose);color:var(--rose-dk);}
+  .fv .cir.c{display:none;} /* 画像版に合わせて2つに絞る */
+  @media(max-width:400px){ .fv .cir{width:88px;height:88px;font-size:9.5px;} .fv .cir b{font-size:13px;} }
 
   .fv .item{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);
     font-size:14px;color:var(--ink-lt);line-height:2.1;}
   .fv .item b{display:block;font-size:16px;color:var(--ink);font-weight:700;letter-spacing:.06em;}
-  .fv .btn{margin-top:20px;}
+  /* 画像版と同じ「横幅いっぱいのボタン」。ただし貼り付け感が出ないよう、
+     背景から浮かせる光と二重の影で馴染ませる（画像版はここが単色バーになってしまった） */
+  .fv .btn{margin-top:20px;width:100%;max-width:440px;justify-content:center;
+    background:linear-gradient(180deg,var(--rose) 0%,var(--rose-dk) 100%);
+    box-shadow:0 2px 0 rgba(255,255,255,.5) inset,
+               0 14px 32px rgba(169,111,104,.34),
+               0 3px 10px rgba(169,111,104,.2);}
+  .fv .btn:hover{background:linear-gradient(180deg,var(--rose-dk) 0%,var(--ink) 100%);}
   .fv .fvnote{margin-top:24px;font-size:10.5px;line-height:1.8;color:var(--ink-x);letter-spacing:.01em;}
 
   /* ===== 見出し ===== */
