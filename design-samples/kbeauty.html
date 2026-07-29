@@ -102,7 +102,17 @@
   .fv .sub{margin-top:22px;font-size:clamp(17px,2.9vw,24px);color:var(--ink);line-height:1.9;font-weight:700;}
   .fv .sub b{color:var(--rose-dk);font-weight:800;}
 
-  /* 丸バッジ＝完全な正円（画像版は角丸四角になってしまった。CSSなら確実に円になる） */
+  /* 丸バッジ＝画像（ハイブリッド）。円形にクリップし、画像内の円の外側にある
+     背景の輪っかを scale で切り落とす */
+  .fv .cirimg{position:relative;width:128px;height:128px;border-radius:50%;overflow:hidden;
+    flex:none;box-shadow:0 10px 28px rgba(169,111,104,.3);}
+  .fv .cirimg img{width:100%;height:100%;object-fit:cover;transform:scale(1.14);}
+  .fv .cirimg .mk{position:absolute;right:12px;bottom:14px;font-size:9.5px;
+    color:rgba(255,255,255,.9);letter-spacing:0;}
+  @media(max-width:860px){ .fv .cirimg{width:96px;height:96px;} .fv .cirimg .mk{right:9px;bottom:10px;font-size:8.5px;} }
+  @media(max-width:400px){ .fv .cirimg{width:82px;height:82px;} }
+
+  /* 旧・CSS製バッジ（他セクションで使う可能性があるため定義は残す） */
   .fv .circles{display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin-top:26px;}
   .fv .cir{width:108px;height:108px;border-radius:50%;flex:none;aspect-ratio:1/1;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -327,10 +337,10 @@
     <h1>肌が、<br><em>ひらく時間。</em></h1>
     <p class="sub">濃密なのに、<b>驚くほど軽い</b>。</p>
 
+    <!-- ハイブリッド：バッジは画像（質感が出る・頻繁に変えない）／キャッチはCSS（差し替え自由） -->
     <div class="circles">
-      <div class="cir a">3年連続<b>売上No.1</b><sup>※1</sup></div>
-      <div class="cir b">発酵<b>カメリア</b>配合</div>
-      <div class="cir c">レビュー<b>4.7</b><sup>※12</sup></div>
+      <div class="cirimg"><img src="images/kb-badge1.png" alt="3年連続 売上No.1"><span class="mk">※1</span></div>
+      <div class="cirimg"><img src="images/kb-badge2.png" alt="発酵カメリア配合"></div>
     </div>
 
     <div class="item"><b>YEON リバイタライジング セラム〈美容液・化粧品〉</b></div>
