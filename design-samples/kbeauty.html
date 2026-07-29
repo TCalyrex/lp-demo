@@ -45,7 +45,7 @@
   /* ===== FV（商品を見せる／キャッチが主役／バッジは丸で下） ===== */
   /* 文字群は画面のできるだけ上へ。上余白はサンプルバー(33px)を避ける最小限だけ */
   .fv{position:relative;min-height:100svh;display:flex;align-items:flex-start;overflow:hidden;
-    padding:46px 0 48px;background:var(--rose-pale);}
+    padding:44px 0 44px;background:var(--rose-pale);}
   .fv .ph{position:absolute;inset:0;}
   .fv .ph img{width:100%;height:100%;object-fit:cover;object-position:18% center;}
   /* テキストは左、商品は右。画像は sips で左右反転済み（商品が右・余白が左）。
@@ -89,10 +89,13 @@
     .fv .cir{width:66px;height:66px;font-size:8.5px;}
   }
 
-  /* 間合いを詰める（ブランド名〜小見出し〜キャッチを近づけて塊にする） */
-  .fv .brand{font-size:12px;letter-spacing:.52em;color:var(--gold);margin-bottom:6px;}
+  /* 徹底的に詰める。bodyのline-height:2.1が各要素に効いて余白を生んでいたので、
+     FV内の文字は行高を個別に潰す */
+  .fv .brand{font-size:12px;letter-spacing:.52em;color:var(--gold);
+    line-height:1;margin-bottom:10px;}
   .fv .kicker{font-size:clamp(15px,2.5vw,19px);letter-spacing:.12em;color:var(--ink);
-    font-weight:700;margin-bottom:8px;padding-bottom:10px;position:relative;display:inline-block;}
+    font-weight:700;line-height:1.35;margin-bottom:6px;padding-bottom:8px;
+    position:relative;display:inline-block;}
   .fv .kicker::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
     background:linear-gradient(90deg,var(--rose-dk),rgba(169,111,104,.12));}
   .fv .kicker sup{font-size:10px;color:var(--gold);}
@@ -104,7 +107,7 @@
     filter:drop-shadow(0 6px 26px rgba(61,51,46,.16));}
   .fv h1 em{font-style:normal;}
   /* サブも濃く・太く・大きく */
-  .fv .sub{margin-top:22px;font-size:clamp(17px,2.9vw,24px);color:var(--ink);line-height:1.9;font-weight:700;}
+  .fv .sub{margin-top:16px;font-size:clamp(17px,2.9vw,24px);color:var(--ink);line-height:1.6;font-weight:700;}
   .fv .sub b{color:var(--rose-dk);font-weight:800;}
 
   /* 丸バッジ＝画像（ハイブリッド）。円形にクリップし、画像内の円の外側にある
@@ -127,7 +130,7 @@
   @media(max-width:400px){ .fv .cirimg{width:82px;height:82px;} }
 
   /* 旧・CSS製バッジ（他セクションで使う可能性があるため定義は残す） */
-  .fv .circles{display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin-top:26px;}
+  .fv .circles{display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin-top:20px;}
   .fv .cir{width:108px;height:108px;border-radius:50%;flex:none;aspect-ratio:1/1;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
     text-align:center;font-size:11px;line-height:1.5;letter-spacing:0;
