@@ -43,75 +43,85 @@
   .btn.line{background:transparent;color:var(--ink);border:1px solid var(--ink);box-shadow:none;}
   .btn.line:hover{background:var(--ink);color:#fff;}
 
-  /* ===== FV（ゼロベース再設計・2026-07-29） =====
-     設計思想を変更：PC画面ではなく「スマホ幅」を基準に縦構成で組む。
-     日本の通販コスメLP（アスタリフト／N organic）はいずれもスマホ幅で設計され、
-     PCでも中央に細長く表示される。横並びレイアウトをやめ、
-     縦の流れ（ブランド→キャッチ→商品→バッジ→CTA）を1画面に収める。 */
-  .fv{position:relative;min-height:100svh;display:flex;justify-content:center;overflow:hidden;
-    background:linear-gradient(168deg,#fdf7f4 0%,#f7e9e3 40%,#efdcd4 100%);}
+  /* ===== FV（実際に回っている広告LP 3本の型で再構築・2026-07-29） =====
+     参照：N organic（lp.sirok.jp）／アイムピンチ（impinch.com）／タカミ（takami-labo.com）
+     3本の共通型＝①独自カテゴリ名を作る ②金の冠バッジを複数 ③キャッチは悩みの状況描写
+     ④オファーは"お試し"価格 ⑤注記は極小・長文をFV内に ⑥フリーダイヤルをヘッダーに */
 
-  /* PCでは背景写真を左右いっぱいに敷き、ぼかして奥行きだけ担わせる */
+  /* 上部：ブランド＋フリーダイヤル（通販LPの定番） */
+  .lp-head{position:relative;z-index:5;background:#fff;border-bottom:1px solid var(--line);
+    display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 18px;}
+  .lp-head .bn{font-size:13px;letter-spacing:.4em;color:var(--ink);font-weight:700;line-height:1;}
+  .lp-head .bn small{display:block;font-size:9px;letter-spacing:.06em;color:var(--ink-x);
+    margin-top:4px;font-weight:400;}
+  .lp-head .tel{text-align:right;line-height:1.25;}
+  .lp-head .tel b{font-size:clamp(17px,4.6vw,21px);color:var(--rose-dk);font-weight:800;letter-spacing:.02em;}
+  .lp-head .tel span{display:block;font-size:8.5px;color:var(--ink-x);}
+
+  /* 告知帯 */
+  .lp-notice{position:relative;z-index:5;background:var(--rose-dk);color:#fff;text-align:center;
+    padding:7px 12px;font-size:clamp(11px,3.2vw,13px);font-weight:700;letter-spacing:.04em;line-height:1.5;}
+  .lp-notice b{color:#ffe9b8;font-size:1.15em;}
+
+  .fv{position:relative;display:flex;justify-content:center;overflow:hidden;
+    background:linear-gradient(168deg,#fdf7f4 0%,#f7e9e3 42%,#efdcd4 100%);}
   .fv .bg{position:absolute;inset:0;z-index:0;}
-  .fv .bg img{width:100%;height:100%;object-fit:cover;object-position:center;
-    filter:blur(6px) saturate(1.06);transform:scale(1.06);}
+  .fv .bg img{width:100%;height:100%;object-fit:cover;filter:blur(7px) saturate(1.05);transform:scale(1.08);}
   .fv .bg::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(253,247,244,.82) 0%,rgba(247,233,227,.9) 100%);}
+    background:linear-gradient(180deg,rgba(253,247,244,.86) 0%,rgba(247,233,227,.92) 100%);}
 
-  /* 中央のスマホ幅フレーム。ここに全部を縦に積む */
-  .fv .frame{position:relative;z-index:2;width:100%;max-width:560px;min-height:100svh;
-    display:flex;flex-direction:column;padding:20px 26px 24px;}
+  .fv .frame{position:relative;z-index:2;width:100%;max-width:560px;
+    display:flex;flex-direction:column;padding:20px 24px 22px;}
 
-  .fv .brand{font-size:11.5px;letter-spacing:.5em;color:var(--gold);line-height:1;margin-bottom:11px;}
-  .fv .kicker{align-self:flex-start;font-size:clamp(14px,3.6vw,16px);font-weight:700;color:var(--ink);
-    line-height:1.4;letter-spacing:.08em;margin-bottom:9px;padding-bottom:8px;position:relative;}
-  .fv .kicker::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
-    background:linear-gradient(90deg,var(--rose-dk),rgba(169,111,104,.1));}
+  /* キャッチ＝悩みの状況描写（3本ともこの型） */
+  .fv .catch{font-size:clamp(17px,4.6vw,21px);font-weight:800;color:var(--ink);
+    line-height:1.5;letter-spacing:-.01em;}
+  .fv .catch em{font-style:normal;color:var(--rose-dk);}
 
-  .fv h1{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;font-weight:800;
-    font-size:clamp(46px,13.2vw,68px);line-height:1.16;letter-spacing:-.045em;
-    background:linear-gradient(155deg,var(--ink) 10%,var(--rose-dk) 88%);
+  /* 独自カテゴリ名＝一番大きく（「ピンチ肌化粧品」「角質美容水」の位置） */
+  .fv .cat{margin-top:10px;font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;
+    font-weight:800;font-size:clamp(38px,11.4vw,58px);line-height:1.14;letter-spacing:-.045em;
+    background:linear-gradient(155deg,var(--ink) 8%,var(--rose-dk) 86%);
     -webkit-background-clip:text;background-clip:text;color:transparent;
-    filter:drop-shadow(0 4px 20px rgba(61,51,46,.14));}
-  .fv h1 em{font-style:normal;}
+    filter:drop-shadow(0 4px 18px rgba(61,51,46,.16));}
+  .fv .pname{margin-top:8px;font-size:clamp(12px,3.4vw,14px);color:var(--ink-lt);
+    letter-spacing:.04em;line-height:1.6;}
+  .fv .pname b{color:var(--ink);font-weight:700;}
 
-  .fv .sub{margin-top:12px;font-size:clamp(15.5px,4.2vw,18px);font-weight:700;
-    color:var(--ink);line-height:1.6;}
-  .fv .sub b{color:var(--rose-dk);font-weight:800;}
+  /* 金の冠バッジ（画像1枚に3つ） */
+  .fv .crowns{margin:14px 0 0;}
+  .fv .crowns img{width:100%;height:auto;mix-blend-mode:multiply;}
 
-  /* 商品：残りの高さいっぱいに、大きく中央へ */
-  .fv .visual{flex:1 1 0;min-height:0;position:relative;margin:4px 0 0;}
-  .fv .visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
-    mix-blend-mode:multiply;
-    filter:drop-shadow(0 18px 32px rgba(169,111,104,.22));}
+  /* 商品 */
+  .fv .visual{position:relative;margin:2px 0 0;text-align:center;}
+  .fv .visual img{width:min(100%,340px);height:auto;margin:0 auto;
+    mix-blend-mode:multiply;filter:drop-shadow(0 16px 30px rgba(169,111,104,.22));}
 
-  /* 下部：バッジ＋CTA */
-  .fv .foot{margin-top:auto;padding-top:8px;}
-  .fv .circles{display:flex;gap:12px;justify-content:center;margin-bottom:15px;}
-  .fv .cirimg{position:relative;width:clamp(84px,23vw,104px);aspect-ratio:1/1;border-radius:50%;
-    overflow:hidden;flex:none;
-    box-shadow:0 8px 22px rgba(169,111,104,.3),
-               0 0 0 4px rgba(255,255,255,.4),
-               0 0 26px rgba(203,178,127,.45);}
-  .fv .cirimg img{width:100%;height:100%;object-fit:cover;transform:scale(1.14);}
-  .fv .cirimg::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;
-    background:radial-gradient(circle at 30% 22%,rgba(255,255,255,.5) 0%,rgba(255,255,255,.13) 28%,transparent 52%);}
-  .fv .cirimg .mk{position:absolute;right:18%;bottom:15%;font-size:8.5px;color:rgba(255,255,255,.88);}
+  /* オファー箱＝お試し価格（3本ともここが主役） */
+  .fv .offer{margin-top:6px;background:#fff;border:2px solid var(--rose-dk);border-radius:14px;
+    padding:16px 18px 18px;text-align:center;box-shadow:0 14px 34px rgba(169,111,104,.22);}
+  .fv .offer .lb{display:inline-block;background:var(--rose-dk);color:#fff;font-size:11.5px;
+    font-weight:800;letter-spacing:.08em;padding:5px 14px;border-radius:999px;line-height:1;}
+  .fv .offer .name{margin-top:11px;font-size:clamp(14px,3.8vw,16px);font-weight:700;color:var(--ink);line-height:1.6;}
+  .fv .offer .price{margin-top:6px;display:flex;align-items:baseline;justify-content:center;gap:6px;
+    flex-wrap:wrap;line-height:1;}
+  .fv .offer .was{font-size:13px;color:var(--ink-x);text-decoration:line-through;}
+  .fv .offer .now{font-family:"Hiragino Sans",sans-serif;font-weight:800;color:var(--rose-dk);
+    font-size:clamp(44px,13vw,60px);letter-spacing:-.03em;}
+  .fv .offer .yen{font-size:clamp(15px,4vw,18px);font-weight:800;color:var(--rose-dk);}
+  .fv .offer .off{display:inline-block;margin-left:4px;background:#fff0e6;color:var(--rose-dk);
+    font-size:11.5px;font-weight:800;padding:4px 9px;border-radius:4px;letter-spacing:.02em;}
+  .fv .offer .cond{margin-top:8px;font-size:11px;color:var(--ink-lt);line-height:1.7;}
 
-  .fv .btn{width:100%;justify-content:center;
-    background:linear-gradient(180deg,var(--rose) 0%,var(--rose-dk) 100%);
+  .fv .btn{margin-top:13px;width:100%;justify-content:center;font-size:clamp(15px,4.2vw,17px);
+    background:linear-gradient(180deg,#d98f74 0%,var(--rose-dk) 100%);
     box-shadow:0 2px 0 rgba(255,255,255,.5) inset,
-               0 12px 28px rgba(169,111,104,.36),
-               0 3px 8px rgba(169,111,104,.22);}
+               0 12px 26px rgba(169,111,104,.4),0 3px 8px rgba(169,111,104,.24);}
   .fv .btn:hover{background:linear-gradient(180deg,var(--rose-dk) 0%,var(--ink) 100%);}
-  .fv .fvnote{margin-top:9px;font-size:9.5px;line-height:1.7;color:var(--ink-x);text-align:center;}
-  .fv .fvnote a{color:var(--gold);text-decoration:underline;text-underline-offset:2px;}
 
-  /* 画面が低い端末：サブを隠してCTAまでを1画面に確実に収める */
-  @media(max-height:680px){
-    .fv .sub{display:none;}
-    .fv .cirimg{width:76px;}
-  }
+  /* 注記＝極小・長文をFV内に（3本ともこの形） */
+  .fv .fvnote{margin-top:11px;font-size:8.5px;line-height:1.65;color:var(--ink-x);letter-spacing:0;}
+  .fv .fvnote a{color:var(--gold);text-decoration:underline;text-underline-offset:2px;}
 
   /* ===== 見出し ===== */
   .head{text-align:center;margin:0 auto 60px;padding-top:14px;}
@@ -300,24 +310,37 @@
 <div class="sample-bar">デザイン見本（サンプル）｜韓国コスメ・美容液 ── ブランド名・文言・写真・料金・数字・お客様の声はすべて架空です</div>
 
 <!-- ===== FV ===== -->
+<header class="lp-head">
+  <div class="bn">YEON<small>ヨン｜韓国発スキンケア</small></div>
+  <div class="tel"><b>0120-000-000</b><span>受付 平日9:00〜18:00</span></div>
+</header>
+<div class="lp-notice">初回限定・お一人さま1回限り／<b>7日間お試しセット 980円</b>（税込・送料無料）</div>
+
 <div class="fv">
   <div class="bg"><img src="images/kb-hero3.png" alt=""></div>
   <div class="frame">
-    <div class="brand en">YEON</div>
-    <div class="kicker">かくれ乾燥の肌に。</div>
-    <h1>肌が、<br><em>ひらく時間。</em></h1>
-    <p class="sub">濃密なのに、<b>驚くほど軽い</b>。</p>
+    <p class="catch">夕方になると、<br><em>化粧がのらなくなってきた</em>肌に。</p>
+    <div class="cat">かくれ乾燥<br>美容液</div>
+    <p class="pname"><b>YEON リバイタライジング セラム</b>〈美容液・化粧品〉</p>
+
+    <div class="crowns"><img src="images/kb-crowns.png" alt="3年連続売上No.1／愛用者12万人／満足度94%"></div>
 
     <div class="visual"><img src="images/kb-item.png" alt="YEON リバイタライジング セラム"></div>
 
-    <div class="foot">
-      <div class="circles">
-        <div class="cirimg"><img src="images/kb-badge1.png" alt="3年連続 売上No.1"><span class="mk">※1</span></div>
-        <div class="cirimg"><img src="images/kb-badge2.png" alt="発酵カメリア配合"></div>
+    <div class="offer">
+      <span class="lb">初回限定・7日間お試し</span>
+      <p class="name">美容液 10mL（約7日分）＋ 携帯ポーチ</p>
+      <div class="price">
+        <span class="was">2,200円</span>
+        <span class="now">980</span><span class="yen">円（税込）</span>
+        <span class="off">55%OFF</span>
       </div>
-      <a href="#lineup" class="btn">商品を見る<span class="arw">→</span></a>
-      <p class="fvnote">※1の詳細は<a href="#notes">ページ下部の注記</a>に記載しています。</p>
+      <p class="cond">送料無料／お一人さま1回限り／定期購入の縛りはありません</p>
     </div>
+
+    <a href="#lineup" class="btn">お試しセットを見る<span class="arw">→</span></a>
+
+    <p class="fvnote">※1 ◯◯総研調べ。韓国発スキンケア美容液市場（国内流通・オンライン含む）2023年1月〜2025年12月 YEONブランド 金額シェア。／※2 2019年3月〜2026年6月の累計出荷本数を1人1本として換算した数値。／※3 自社調べ。2026年3月実施、20〜40代の女性120名によるモニターアンケート（使用4週間後）。個人の感想であり、効果を保証するものではありません。／その他の注記は<a href="#notes">ページ下部</a>に記載しています。<br><b>※このページはデザイン見本です。ブランド名・数字・価格・受賞歴はすべて架空のサンプルです。</b></p>
   </div>
 </div>
 
