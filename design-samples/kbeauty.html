@@ -54,23 +54,23 @@
   /* モバイル：写真の上に文字を重ねる（アスタリフト／N organic と同じ構造）。
      1画面に「商品 → キャッチ → CTA」まで収める */
   @media(max-width:860px){
-    .fv{min-height:100svh;padding:92px 0 34px;align-items:flex-end;}
-    .fv .ph img{object-position:52% 26%;}
+    .fv{min-height:100svh;padding:80px 0 30px;align-items:flex-end;}
+    /* 商品（画像の左寄り中央）が必ず画面に入る位置。以前は 52% 26% で商品が枠外へ出ていた */
+    .fv .ph img{object-position:33% 46%;}
     .fv .ph::after{background:linear-gradient(0deg,
-      rgba(251,247,243,.99) 0%,rgba(251,247,243,.97) 40%,rgba(251,247,243,.6) 58%,rgba(251,247,243,.05) 82%,transparent 100%);}
+      rgba(251,247,243,.99) 0%,rgba(251,247,243,.97) 42%,rgba(251,247,243,.5) 60%,rgba(251,247,243,.04) 84%,transparent 100%);}
     .fv .in{max-width:none;margin:0;}
-    .fv .brand{margin-bottom:12px;font-size:11px;}
-    .fv .kicker{font-size:12.5px;letter-spacing:.08em;margin-bottom:12px;padding-bottom:10px;}
-    .fv h1{font-size:clamp(31px,8.6vw,42px);line-height:1.5;}
-    .fv .sub{margin-top:14px;font-size:14px;line-height:2;}
+    .fv .brand{margin-bottom:10px;font-size:11px;}
+    .fv .kicker{font-size:12.5px;letter-spacing:.08em;margin-bottom:10px;padding-bottom:9px;}
+    .fv h1{font-size:clamp(33px,9.4vw,46px);line-height:1.44;}
+    .fv .sub{margin-top:12px;font-size:14px;line-height:2;}
     .fv .circles{margin-top:18px;gap:9px;}
     .fv .cir{width:76px;height:76px;font-size:9px;box-shadow:0 4px 12px rgba(169,111,104,.18);}
     .fv .cir b{font-size:12.5px;margin:1px 0;}
     .fv .cir.a b{font-size:13.5px;}
-    .fv .item{margin-top:18px;padding-top:14px;font-size:12px;line-height:1.9;}
-    .fv .item b{font-size:13.5px;margin-bottom:3px;}
-    .fv .item .yen{font-size:18px;}
-    .fv .btn{margin-top:16px;padding:17px 38px;font-size:14.5px;width:100%;justify-content:center;}
+    .fv .item{margin-top:16px;padding-top:13px;font-size:12px;line-height:1.9;}
+    .fv .item b{font-size:13px;margin-bottom:0;}
+    .fv .btn{margin-top:14px;padding:17px 38px;font-size:14.5px;width:100%;justify-content:center;}
     /* 注記は消さない（No.1表記の根拠を画面から外すと景品表示法上まずい）。極小で残す */
     .fv .fvnote{margin-top:11px;font-size:8.5px;line-height:1.55;opacity:.8;}
   }
@@ -79,9 +79,9 @@
     .fv .cir{width:66px;height:66px;font-size:8.5px;}
   }
 
-  .fv .brand{font-size:12px;letter-spacing:.52em;color:var(--gold);margin-bottom:20px;}
+  .fv .brand{font-size:12px;letter-spacing:.52em;color:var(--gold);margin-bottom:15px;}
   .fv .kicker{font-size:clamp(14px,2.3vw,16.5px);letter-spacing:.14em;color:var(--ink-lt);
-    margin-bottom:18px;padding-bottom:14px;position:relative;display:inline-block;}
+    margin-bottom:13px;padding-bottom:12px;position:relative;display:inline-block;}
   .fv .kicker::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
     background:linear-gradient(90deg,var(--rose),rgba(201,148,141,.15));}
   .fv .kicker sup{font-size:10px;color:var(--gold);}
@@ -90,11 +90,11 @@
     background:linear-gradient(180deg,var(--ink) 30%,var(--rose-dk) 100%);
     -webkit-background-clip:text;background-clip:text;color:transparent;}
   .fv h1 em{font-style:normal;}
-  .fv .sub{margin-top:22px;font-size:clamp(15px,2.2vw,17px);color:var(--ink-lt);line-height:2.25;}
+  .fv .sub{margin-top:18px;font-size:clamp(15px,2.2vw,17px);color:var(--ink-lt);line-height:2.25;}
   .fv .sub b{color:var(--ink);font-weight:700;}
 
   /* 丸バッジ（日本の化粧品LPの定番） */
-  .fv .circles{display:flex;gap:13px;align-items:center;flex-wrap:wrap;margin-top:30px;}
+  .fv .circles{display:flex;gap:13px;align-items:center;flex-wrap:wrap;margin-top:24px;}
   .fv .cir{width:96px;height:96px;border-radius:50%;flex:none;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
     text-align:center;font-size:10.5px;line-height:1.55;letter-spacing:.01em;
@@ -107,11 +107,10 @@
   .fv .cir.c{background:var(--gold);color:#fff;}
   @media(max-width:400px){ .fv .cir{width:84px;height:84px;font-size:9.5px;} }
 
-  .fv .item{margin-top:28px;padding-top:22px;border-top:1px solid var(--line);
+  .fv .item{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);
     font-size:14px;color:var(--ink-lt);line-height:2.1;}
-  .fv .item b{display:block;font-size:16px;color:var(--ink);font-weight:700;letter-spacing:.06em;margin-bottom:6px;}
-  .fv .item .yen{font-size:22px;color:var(--ink);font-weight:700;letter-spacing:.02em;}
-  .fv .btn{margin-top:26px;}
+  .fv .item b{display:block;font-size:16px;color:var(--ink);font-weight:700;letter-spacing:.06em;}
+  .fv .btn{margin-top:20px;}
   .fv .fvnote{margin-top:24px;font-size:10.5px;line-height:1.8;color:var(--ink-x);letter-spacing:.01em;}
 
   /* ===== 見出し ===== */
@@ -306,7 +305,7 @@
   <div class="wrap in">
     <div class="brand en">YEON</div>
     <div class="kicker">かくれ乾燥の肌に。うるおいを、角層のすみずみへ<sup>※7</sup>。</div>
-    <h1>肌が、<em>ひらく</em>時間。</h1>
+    <h1>肌が、<br><em>ひらく時間。</em></h1>
     <p class="sub">濃密なのに、<b>驚くほど軽い</b>。夜のひと滴が、朝の肌をととのえます<sup>※2</sup>。</p>
 
     <div class="circles">
@@ -315,10 +314,7 @@
       <div class="cir c">レビュー<b>4.7</b><sup>※12</sup></div>
     </div>
 
-    <div class="item">
-      <b>YEON リバイタライジング セラム〈美容液・化粧品〉</b>
-      30mL <span class="yen">8,800</span>円（税込）／50mL <span class="yen">13,200</span>円（税込）
-    </div>
+    <div class="item"><b>YEON リバイタライジング セラム〈美容液・化粧品〉</b></div>
     <a href="#lineup" class="btn">商品を見る<span class="arw">→</span></a>
     <p class="fvnote">※1 ◯◯総研調べ。韓国発スキンケア美容液市場（国内流通・オンライン含む）2023年1月〜2025年12月 YEON ブランド 金額シェア。<br>
     ※2 うるおいによる肌のキメの乱れをととのえることを指します。／※7 角層まで。／※12 公式オンラインストアのレビュー平均（2026年6月末時点・328件）。</p>
