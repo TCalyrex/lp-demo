@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>にじいろキッズ英会話｜「英語、たのしい！」から始める子ども英会話（デザインデモ）</title>
+<meta name="description" content="○○市の子ども英会話教室。歌とゲームで『英語、たのしい！』から。まずは無料体験レッスンへ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FFF8EC;
+    --paper:#ffffff;
+    --sun:#FFC42E;
+    --sun-d:#F4A400;
+    --coral:#FF6B6B;
+    --coral-d:#F0484A;
+    --sky:#37C0DE;
+    --mint:#4FC69A;
+    --grape:#8E7CE8;
+    --ink:#4a3524;
+    --sub:#8a7862;
+    --line:#f0e4cf;
+    --maxw:920px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"M PLUS Rounded 1c",sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.9;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:82px;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
+  .en{font-family:"Baloo 2",cursive;}
+  img{max-width:100%;display:block;}
+  b,strong{font-weight:800;color:var(--coral-d);}
+
+  section{padding:56px 0;position:relative;}
+  h2{font-size:27px;font-weight:900;line-height:1.5;letter-spacing:.01em;}
+  @media(min-width:700px){h2{font-size:34px;}}
+  h2 .mark{background:linear-gradient(transparent 58%,#ffe08a 58%);padding:0 4px;}
+  .lead{font-size:17px;color:#5f4f3d;}
+
+  .label{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:"Baloo 2";font-weight:800;font-size:15px;letter-spacing:.06em;
+    color:#fff;background:var(--grape);padding:6px 18px;border-radius:999px;
+    box-shadow:0 4px 0 rgba(0,0,0,.08);margin-bottom:18px;transform:rotate(-1.2deg);
+  }
+  .label.c2{background:var(--sky);}
+  .label.c3{background:var(--coral);}
+  .label.c4{background:var(--mint);}
+
+  /* buttons */
+  .btn{
+    display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+    background:linear-gradient(180deg,#FF8A5B,var(--coral));
+    color:#fff;text-decoration:none;font-weight:900;font-size:20px;
+    padding:16px 34px;border-radius:999px;min-height:66px;
+    box-shadow:0 8px 0 var(--coral-d), 0 14px 22px rgba(240,72,74,.34);
+    transition:transform .1s ease, box-shadow .1s ease;letter-spacing:.02em;
+  }
+  .btn:active{transform:translateY(5px);box-shadow:0 3px 0 var(--coral-d),0 8px 14px rgba(240,72,74,.3);}
+  .btn:hover{transform:translateY(-2px);}
+  .btn small{display:block;font-size:13px;font-weight:700;margin-top:3px;opacity:.96;}
+  .btn .arw{margin-left:6px;}
+  .btn.sun{background:linear-gradient(180deg,#FFD65A,var(--sun));color:#5a3d00;box-shadow:0 8px 0 var(--sun-d),0 14px 22px rgba(244,164,0,.32);}
+  .btn-wrap{text-align:center;margin-top:26px;}
+
+  /* ===== ribbon ===== */
+  .ribbon{background:var(--mint);color:#fff;text-align:center;font-weight:800;font-size:15px;padding:10px;letter-spacing:.02em;}
+
+  /* ===== FV ===== */
+  .fv{background:
+      radial-gradient(circle at 12% 18%, #ffe39a 0 60px, transparent 61px),
+      radial-gradient(circle at 88% 12%, #a7e6f4 0 46px, transparent 47px),
+      radial-gradient(circle at 78% 82%, #ffc2c2 0 54px, transparent 55px),
+      radial-gradient(circle at 8% 88%, #c9bdf5 0 40px, transparent 41px),
+      var(--cream);
+    padding:34px 0 48px;overflow:hidden;}
+  .fv .tag{font-family:"Baloo 2";font-weight:700;color:var(--sky);font-size:16px;letter-spacing:.04em;margin-bottom:12px;}
+  .fv h1{font-size:33px;font-weight:900;line-height:1.42;margin-bottom:14px;}
+  @media(min-width:700px){.fv h1{font-size:46px;}}
+  .fv h1 .y{color:var(--sun-d);}
+  .fv h1 .c{color:var(--coral-d);}
+  .fv .sub{font-size:17px;color:#5f4f3d;margin-bottom:20px;}
+  .fv-photo{
+    border-radius:34px 30px 36px 28px;overflow:hidden;
+    border:6px solid #fff;box-shadow:0 16px 0 rgba(255,196,46,.35), 0 20px 34px rgba(0,0,0,.14);
+    transform:rotate(-1deg);margin-bottom:8px;
+  }
+  .fv-photo img{width:100%;aspect-ratio:16/10;object-fit:cover;}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:22px 0 4px;}
+  .chip{background:#fff;border:2px dashed var(--sun);color:var(--ink);font-weight:800;
+    font-size:14px;padding:8px 16px;border-radius:999px;box-shadow:0 4px 0 rgba(244,164,0,.18);}
+  .chip .e{margin-right:5px;}
+
+  /* wavy divider */
+  .wave{display:block;width:100%;height:44px;}
+
+  /* ===== trust ===== */
+  .trust{background:var(--sun);}
+  .trust .row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:26px 0;}
+  .trust .cell{text-align:center;color:#5a3d00;}
+  .trust .n{font-family:"Baloo 2";font-weight:800;font-size:40px;line-height:1;}
+  @media(min-width:700px){.trust .n{font-size:52px;}}
+  .trust .n small{font-size:20px;}
+  .trust .t{font-weight:800;font-size:13px;margin-top:4px;}
+
+  /* ===== worry check ===== */
+  .checks{display:grid;gap:14px;margin-top:10px;}
+  @media(min-width:640px){.checks{grid-template-columns:1fr 1fr;}}
+  .check{background:#fff;border-radius:20px;padding:18px 20px 18px 56px;position:relative;
+    box-shadow:0 6px 16px rgba(150,120,70,.12);font-weight:700;font-size:16px;}
+  .check:before{content:"✓";position:absolute;left:16px;top:16px;width:28px;height:28px;border-radius:50%;
+    background:var(--mint);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 3px 0 #3aa77f;}
+  .after-check{text-align:center;font-weight:800;font-size:19px;margin-top:26px;color:var(--grape);}
+
+  /* ===== reason cards ===== */
+  .reasons{display:grid;gap:22px;margin-top:12px;}
+  @media(min-width:760px){.reasons{grid-template-columns:repeat(3,1fr);}}
+  .rc{background:#fff;border-radius:26px;padding:28px 22px 24px;text-align:center;position:relative;
+    box-shadow:0 12px 26px rgba(150,120,70,.16);}
+  .rc .bub{width:64px;height:64px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;
+    font-family:"Baloo 2";font-weight:800;font-size:28px;color:#fff;}
+  .rc.one .bub{background:var(--coral);box-shadow:0 6px 0 var(--coral-d);}
+  .rc.two .bub{background:var(--sky);box-shadow:0 6px 0 #1fa2bf;}
+  .rc.three .bub{background:var(--mint);box-shadow:0 6px 0 #3aa77f;}
+  .rc h3{font-size:20px;font-weight:900;margin-bottom:10px;}
+  .rc.one h3{color:var(--coral-d);} .rc.two h3{color:#1fa2bf;} .rc.three h3{color:#3aa77f;}
+  .rc p{font-size:15px;color:#5f4f3d;line-height:1.85;}
+
+  /* ===== steps ===== */
+  .flow{display:grid;gap:16px;margin-top:12px;}
+  .fstep{background:#fff;border-radius:22px;padding:20px 20px 20px 78px;position:relative;box-shadow:0 8px 20px rgba(150,120,70,.12);}
+  .fstep .no{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;
+    background:var(--grape);color:#fff;font-family:"Baloo 2";font-weight:800;font-size:22px;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 5px 0 #6f5bc9;}
+  .fstep h3{font-size:18px;font-weight:900;margin-bottom:4px;color:var(--ink);}
+  .fstep p{font-size:15px;color:#5f4f3d;}
+
+  /* ===== growth / voice ===== */
+  .grow{display:grid;gap:16px;margin-top:12px;}
+  @media(min-width:700px){.grow{grid-template-columns:repeat(3,1fr);}}
+  .gcard{background:#fff;border-radius:22px;padding:22px 18px;text-align:center;box-shadow:0 8px 20px rgba(150,120,70,.13);}
+  .gcard .who{font-size:13px;color:var(--sub);font-weight:700;}
+  .gcard .big{font-family:"Baloo 2";font-weight:800;font-size:22px;color:var(--coral-d);margin:8px 0;line-height:1.3;}
+  .gcard .big b{color:var(--sky);font-size:26px;}
+  .voices{display:grid;gap:16px;margin-top:24px;}
+  @media(min-width:700px){.voices{grid-template-columns:1fr 1fr;}}
+  .vc{background:#fff;border-radius:22px;padding:22px;box-shadow:0 8px 20px rgba(150,120,70,.13);position:relative;}
+  .vc .q{font-family:"Baloo 2";font-size:40px;color:var(--sun);line-height:.6;}
+  .vc p{font-size:15px;color:#4a3524;margin:6px 0 12px;font-weight:500;}
+  .vc .who{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--sub);font-weight:700;}
+  .vc .av{width:36px;height:36px;border-radius:50%;background:var(--mint);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;}
+
+  /* ===== price ===== */
+  .price-card{background:#fff;border-radius:26px;padding:8px 8px 24px;box-shadow:0 12px 28px rgba(150,120,70,.16);overflow:hidden;}
+  .price-card .top{background:var(--sky);color:#fff;text-align:center;padding:16px;border-radius:20px 20px 0 0;margin:-8px -8px 0;}
+  .price-card .top .en{font-size:15px;font-weight:700;}
+  .plans{display:grid;gap:0;}
+  .plan{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:2px dashed var(--line);}
+  .plan:last-child{border-bottom:none;}
+  .plan .name{font-weight:800;font-size:16px;}
+  .plan .name small{display:block;font-weight:500;font-size:12px;color:var(--sub);}
+  .plan .amt{font-family:"Baloo 2";font-weight:800;font-size:24px;color:var(--coral-d);}
+  .plan .amt small{font-size:13px;color:var(--sub);}
+  .price-note{text-align:center;font-size:13px;color:var(--sub);margin-top:14px;}
+
+  /* ===== CTA block ===== */
+  .ctablock{background:linear-gradient(160deg,#FFD65A,var(--sun));text-align:center;}
+  .ctablock h2{color:#5a3d00;}
+  .ctablock p{color:#6a4a00;font-weight:700;margin-top:10px;}
+  .ctablock .free{display:inline-block;background:var(--coral);color:#fff;font-weight:800;padding:6px 18px;border-radius:999px;margin-bottom:16px;box-shadow:0 5px 0 var(--coral-d);}
+
+  /* ===== FAQ ===== */
+  .faq details{background:#fff;border-radius:20px;margin-bottom:12px;overflow:hidden;box-shadow:0 6px 16px rgba(150,120,70,.1);}
+  .faq summary{list-style:none;cursor:pointer;padding:18px 52px 18px 54px;position:relative;font-weight:800;font-size:16px;color:var(--ink);}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary:before{content:"Q";position:absolute;left:18px;top:16px;width:26px;height:26px;border-radius:50%;
+    background:var(--sky);color:#fff;display:flex;align-items:center;justify-content:center;font-family:"Baloo 2";font-weight:800;}
+  .faq summary:after{content:"＋";position:absolute;right:20px;top:50%;transform:translateY(-50%);color:var(--coral);font-weight:800;font-size:20px;}
+  .faq details[open] summary:after{content:"－";}
+  .faq .a{padding:0 22px 20px 54px;color:#5f4f3d;font-size:15px;}
+
+  /* ===== footer ===== */
+  footer{background:#5a4632;color:#e9dcc7;padding:30px 0 26px;font-size:13px;}
+  footer .fl{display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:12px;}
+  footer a{color:#ffe3a6;text-decoration:none;}
+  .demo-note{background:#fff2d6;color:#8a6a1a;text-align:center;font-size:12.5px;padding:14px 16px;line-height:1.7;border-top:2px dashed var(--sun);}
+
+  /* fixed bar */
+  .bar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(255,255,255,.96);
+    backdrop-filter:blur(4px);padding:10px 14px;border-top:2px solid var(--sun);box-shadow:0 -4px 16px rgba(0,0,0,.08);}
+  .bar .inner{max-width:var(--maxw);margin:0 auto;}
+  .bar .btn{width:100%;min-height:56px;font-size:18px;box-shadow:0 5px 0 var(--coral-d);padding:10px;}
+
+  .fade{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+  .fade.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<div class="ribbon">🎈 無料体験レッスン受付中！ ＼ 2歳〜小学生・入会金いまだけ0円 ／</div>
+
+<!-- ===== FV ===== -->
+<header class="fv">
+  <div class="wrap">
+    <div class="tag">HELLO! ○○市のこども英会話教室</div>
+    <h1>「英語、<span class="y">たのしい！</span>」<br>から、はじめよう。</h1>
+    <p class="sub">歌って、遊んで、気づいたら口から英語。<br><b>「勉強」だと思う前に、好きになる。</b>それが、にじいろの英会話です。</p>
+    <div class="fv-photo">
+      <img src="images/kids-hero.png" alt="外国人講師と子どもたちが英語カードで楽しくレッスンする様子">
+    </div>
+    <div class="chips">
+      <span class="chip"><span class="e">🎵</span>歌とゲーム中心</span>
+      <span class="chip"><span class="e">🌏</span>外国人＆日本人講師</span>
+      <span class="chip"><span class="e">💬</span>少人数クラス</span>
+    </div>
+    <div class="btn-wrap">
+      <a class="btn" href="#taiken">無料体験レッスンに申し込む<small>かんたん3分で入力／2歳〜小学生</small><span class="arw">→</span></a>
+    </div>
+  </div>
+</header>
+
+<svg class="wave" viewBox="0 0 1440 44" preserveAspectRatio="none"><path fill="#FFC42E" d="M0,20 C240,60 480,-10 720,18 C960,46 1200,4 1440,26 L1440,44 L0,44 Z"></path></svg>
+
+<!-- ===== trust ===== -->
+<div class="trust">
+  <div class="wrap">
+    <div class="row">
+      <div class="cell"><div class="n">98<small>%</small></div><div class="t">レッスン<br>満足度</div></div>
+      <div class="cell"><div class="n">95<small>%</small></div><div class="t">1年間の<br>継続率</div></div>
+      <div class="cell"><div class="n">12<small>年</small></div><div class="t">地域で<br>愛されて</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== worry check ===== -->
+<section>
+  <div class="wrap fade">
+    <span class="label c3">こんなお悩み、ありませんか？</span>
+    <h2><span class="mark">「うちの子、英語を好きになれる？」</span></h2>
+    <div class="checks" style="margin-top:22px;">
+      <div class="check">早くから英語に触れさせたいけど、何から始めればいいか分からない</div>
+      <div class="check">教材を買ったのに、家では全然続かなかった</div>
+      <div class="check">人見知りで、大勢の中だと引っ込んでしまう</div>
+      <div class="check">「勉強」にすると、かえって英語をきらいにならないか心配</div>
+    </div>
+    <p class="after-check">＼ ひとつでも当てはまったら、まず“遊びに”来てください ／</p>
+  </div>
+</section>
+
+<!-- ===== reasons ===== -->
+<section style="background:#fff;">
+  <div class="wrap fade">
+    <span class="label c2">えらばれる3つのわけ</span>
+    <h2>「たのしい」があるから、<span class="mark">続く。話せる。</span></h2>
+    <div class="reasons">
+      <div class="rc one">
+        <div class="bub">1</div>
+        <h3>遊びの中で、英語が口から出る</h3>
+        <p>歌・ゲーム・絵本で体を動かしながら英語に触れます。覚えるのではなく、気づいたら言えている。楽しいから、家でも口ずさむ子が増えます。</p>
+      </div>
+      <div class="rc two">
+        <div class="bub">2</div>
+        <h3>ネイティブ＆日本人の二人体制</h3>
+        <p>本物の発音にたっぷり触れながら、つまずいたら日本人講師がやさしくフォロー。「わからなくて怖い」がないから、人見知りさんも安心です。</p>
+      </div>
+      <div class="rc three">
+        <div class="bub">3</div>
+        <h3>少人数だから、ひとりずつ話せる</h3>
+        <p>1クラス最大6名まで。全員に発話の順番がまわってきます。「聞いているだけ」で終わらせず、自分の口で英語を使う時間を確保します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 44" preserveAspectRatio="none" style="transform:rotate(180deg);"><path fill="#fff" d="M0,20 C240,60 480,-10 720,18 C960,46 1200,4 1440,26 L1440,44 L0,44 Z"></path></svg>
+
+<!-- ===== lesson photo band + flow ===== -->
+<section>
+  <div class="wrap fade">
+    <span class="label c4">レッスンの流れ</span>
+    <h2>45分、あっという間。<br><span class="mark">ぜんぶ「楽しい」でできています。</span></h2>
+    <div class="fv-photo" style="transform:rotate(1deg);margin:20px 0 26px;">
+      <img src="images/kids-lesson.png" alt="英語の歌やゲームで元気に手を挙げる子どもたち">
+    </div>
+    <div class="flow">
+      <div class="fstep"><div class="no">1</div><h3>ハロータイム（あいさつの歌）</h3><p>毎回同じ歌で始めるから、英語モードにすっと切り替わります。</p></div>
+      <div class="fstep"><div class="no">2</div><h3>ゲーム＆アクティビティ</h3><p>カードやおもちゃで単語をインプット。夢中で遊ぶうちに語彙が増えます。</p></div>
+      <div class="fstep"><div class="no">3</div><h3>おはなし・絵本タイム</h3><p>ネイティブ講師の生きた英語で、聞く力と発音の土台をつくります。</p></div>
+      <div class="fstep"><div class="no">4</div><h3>アウトプット（発表）</h3><p>今日おぼえた英語を、ひとりずつ声に出して発表。小さな成功体験を積みます。</p></div>
+    </div>
+    <div class="btn-wrap">
+      <a class="btn sun" href="#taiken">この流れを無料で体験する<small>3分で申し込み完了</small><span class="arw">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== growth + voice ===== -->
+<section style="background:#fff;">
+  <div class="wrap fade">
+    <span class="label">通った子の、うれしい変化</span>
+    <h2>「英語きらい」が、<span class="mark">「もっとやりたい！」に。</span></h2>
+    <div class="grow">
+      <div class="gcard"><div class="who">年中・Rちゃん</div><div class="big">おうちで英語の歌を<br><b>毎日</b>口ずさむように</div></div>
+      <div class="gcard"><div class="who">小2・Kくん</div><div class="big">英検 <b>5級</b> に<br>合格できました</div></div>
+      <div class="gcard"><div class="who">小4・Mちゃん</div><div class="big">外国人に自分から<br><b>あいさつ</b>できた</div></div>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:22px;align-items:center;margin:30px 0 4px;">
+      <div class="fv-photo" style="flex:0 0 240px;max-width:240px;transform:rotate(-1.5deg);margin:0;">
+        <img src="images/kids-teacher.png" alt="外国人講師が子どもに1対1で英語カードを見せている様子" style="aspect-ratio:4/5;">
+      </div>
+      <div style="flex:1 1 260px;min-width:240px;">
+        <span class="label c4" style="transform:rotate(-1deg);">せんせい、だいすき！</span>
+        <h3 style="font-size:23px;font-weight:900;color:#3aa77f;line-height:1.5;margin-bottom:8px;">好きな先生の言葉だから、<br>すっと入る。</h3>
+        <p style="color:#5f4f3d;font-size:15px;">子どもは「誰から習うか」で伸び方が変わります。名前を呼んで、目を見て、できたら思いきりほめる。にじいろの先生は、英語を教える前に、まず子どもの心をつかみます。</p>
+      </div>
+    </div>
+
+    <div class="voices">
+      <div class="vc"><div class="q">“</div><p>人見知りがはげしくて心配でしたが、先生が名前をよんで笑わせてくれて、3回目には自分から手をあげていました。送り迎えのたびに「今日たのしかった！」と言います。</p><div class="who"><span class="av">R</span>年中さんのママ</div></div>
+      <div class="vc"><div class="q">“</div><p>家庭学習の教材は続かなかったのに、ここは「行きたい！」と自分から言います。発音がきれいで、親のほうがおどろいています。</p><div class="who"><span class="av">K</span>小2のママ</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== price ===== -->
+<section>
+  <div class="wrap fade">
+    <span class="label c3">料金のご案内</span>
+    <h2>月謝は、<span class="mark">わかりやすく一本。</span></h2>
+    <p class="lead" style="margin:8px 0 20px;">「あとから教材費がどんどん…」がないよう、はじめに全部お見せします。</p>
+    <div class="price-card">
+      <div class="top"><div class="en">MONTHLY</div><div style="font-weight:800;">週1回・年42回レッスン</div></div>
+      <div class="plans">
+        <div class="plan"><div class="name">キッズ（2〜3歳）<small>親子で参加・30分</small></div><div class="amt">7,700<small>円/月</small></div></div>
+        <div class="plan"><div class="name">園児（4〜6歳）<small>45分クラス</small></div><div class="amt">8,800<small>円/月</small></div></div>
+        <div class="plan"><div class="name">小学生<small>50分クラス</small></div><div class="amt">9,900<small>円/月</small></div></div>
+      </div>
+    </div>
+    <p class="price-note">※入会金 11,000円（いまだけ0円キャンペーン中）・教材費 年13,200円。<strong>追加でかかる費用はこれだけです。</strong></p>
+  </div>
+</section>
+
+<!-- ===== CTA block ===== -->
+<section class="ctablock" id="taiken">
+  <div class="wrap fade">
+    <span class="free">入会金0円キャンペーン中</span>
+    <h2>まずは、たのしいを<br>のぞきに来てください。</h2>
+    <p>体験だけで、しつこい勧誘はしません。<br>お子さんが英語で笑う顔を、ぜひ見にきてください。</p>
+    <div class="btn-wrap">
+      <a class="btn" href="#taiken">無料体験レッスンに申し込む<small>かんたん3分／2歳〜小学生／費用0円</small><span class="arw">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq" style="background:#fff;">
+  <div class="wrap fade">
+    <span class="label c2">よくあるご質問</span>
+    <h2>はじめての方へ</h2>
+    <div style="margin-top:20px;">
+      <details><summary>英語がまったく初めてでも大丈夫ですか？</summary><div class="a">はい。ほとんどのお子さんが「はじめまして」からのスタートです。歌やゲームから入るので、英語を知らなくても楽しめます。</div></details>
+      <details><summary>人見知りで、輪に入れるか心配です。</summary><div class="a">少人数クラスで、講師が一人ひとりに声をかけます。無理に前へ出させることはしません。慣れるまで見学しながら、その子のペースで参加できます。</div></details>
+      <details><summary>親も一緒に入りますか？</summary><div class="a">2〜3歳の親子クラスは一緒にご参加いただきます。園児・小学生クラスはお子さまだけで、保護者の方は見学スペースからご覧いただけます。</div></details>
+      <details><summary>体験のあと、勧誘されませんか？</summary><div class="a">その場での入会はお願いしていません。資料をお渡しして、ご家庭でゆっくり決めていただきます。</div></details>
+    </div>
+  </div>
+</section>
+
+<div class="demo-note">※本ページはデザインデモです。教室名・写真・料金・実績・お客様の声はすべて架空のサンプルであり、実在の教室や実績を示すものではありません。</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fl">
+      <a href="#">特定商取引法に基づく表記</a>
+      <a href="#">プライバシーポリシー</a>
+      <a href="#">運営者情報</a>
+    </div>
+    <div>にじいろキッズ英会話（サンプル）｜○○県○○市○○ 1-2-3　TEL：000-000-0000（※架空のサンプル）</div>
+    <div style="margin-top:10px;">&copy; にじいろキッズ英会話（デザインデモ）</div>
+  </div>
+</footer>
+
+<div class="bar"><div class="inner"><a class="btn" href="#taiken">🎈 無料体験レッスンに申し込む（3分）</a></div></div>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

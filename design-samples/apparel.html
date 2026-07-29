@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tsumugi ｜ 2026 Autumn & Winter Lookbook（デザインデモ）</title>
+<meta name="description" content="しずかな日々に寄り添う、大人の日常着。tsumugi 2026 Autumn & Winter コレクション。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F5F1E9; --paper:#FBF9F4; --ink:#2C2823; --sub:#847a6c; --line:#E4DCCF; --taupe:#A99C88;
+    --maxw:1200px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Noto Sans JP",sans-serif;font-weight:300;color:var(--ink);background:var(--ivory);
+    line-height:2;font-size:15px;letter-spacing:.02em;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  .cor{font-family:"Cormorant Garamond",serif;}
+  .jost{font-family:"Jost",sans-serif;}
+  .serif{font-family:"Noto Serif JP",serif;}
+  .label{font-family:"Jost",sans-serif;font-weight:400;font-size:12px;letter-spacing:.35em;text-transform:uppercase;color:var(--taupe);}
+
+  /* announce + nav */
+  .announce{background:var(--ink);color:#efe9dd;text-align:center;font-family:"Jost";font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;padding:9px;}
+  .nav{position:sticky;top:0;z-index:50;background:rgba(245,241,233,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav .in{display:flex;align-items:center;justify-content:space-between;height:70px;}
+  .brand{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:28px;letter-spacing:.14em;}
+  .nav .links{display:none;gap:38px;}
+  .nav .links a{font-family:"Jost";font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);}
+  .nav .links a:hover{color:var(--taupe);}
+  .nav .store{font-family:"Jost";font-size:12px;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--ink);padding:9px 18px;border-radius:1px;transition:.2s;}
+  .nav .store:hover{background:var(--ink);color:var(--ivory);}
+  @media(min-width:900px){.nav .links{display:flex;}}
+
+  /* hero */
+  .hero{position:relative;height:88vh;min-height:520px;overflow:hidden;}
+  .hero img{width:100%;height:100%;object-fit:cover;}
+  .hero .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,10,.12),rgba(20,16,10,.34));}
+  .hero .cap{position:absolute;left:0;right:0;bottom:8%;text-align:center;color:#fbf8f1;padding:0 20px;}
+  .hero .cap .l{font-family:"Jost";font-size:12.5px;letter-spacing:.4em;text-transform:uppercase;opacity:.9;}
+  .hero .cap h1{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:58px;line-height:1.05;margin:14px 0 12px;letter-spacing:.02em;}
+  @media(min-width:760px){.hero .cap h1{font-size:92px;}}
+  .hero .cap p{font-family:"Noto Serif JP";font-weight:300;font-size:15px;letter-spacing:.14em;opacity:.95;}
+
+  /* statement */
+  .statement{text-align:center;padding:110px 24px;}
+  .statement .label{display:block;margin-bottom:26px;}
+  .statement p{font-family:"Noto Serif JP";font-weight:300;font-size:22px;line-height:2.3;letter-spacing:.08em;}
+  @media(min-width:760px){.statement p{font-size:27px;}}
+
+  /* lookbook */
+  .look{padding:40px 0;}
+  .look .row{display:grid;gap:30px;align-items:center;margin-bottom:96px;}
+  @media(min-width:820px){
+    .look .row{grid-template-columns:1fr 1fr;gap:56px;}
+    .look .row.rev .media{order:2;}
+  }
+  .look .media img{width:100%;aspect-ratio:4/5;object-fit:cover;}
+  .look .txt .num{font-family:"Cormorant Garamond",serif;font-size:64px;font-weight:300;line-height:1;color:var(--taupe);}
+  .look .txt h2{font-family:"Noto Serif JP";font-weight:300;font-size:26px;letter-spacing:.06em;margin:10px 0 20px;line-height:1.7;}
+  .look .txt p{color:#5f574b;max-width:400px;margin-bottom:24px;}
+  .look .txt .items{border-top:1px solid var(--line);padding-top:18px;}
+  .look .txt .items .it{display:flex;justify-content:space-between;padding:8px 0;font-size:14px;color:#6a6255;letter-spacing:.04em;}
+  .look .txt .items .it span:last-child{font-family:"Jost";color:var(--ink);}
+
+  /* fabric */
+  .fabric{background:var(--paper);}
+  .fabric .in{display:grid;gap:0;align-items:stretch;}
+  @media(min-width:820px){.fabric .in{grid-template-columns:1fr 1fr;}}
+  .fabric .ph img{width:100%;height:100%;min-height:360px;object-fit:cover;}
+  .fabric .tx{padding:80px 44px;display:flex;flex-direction:column;justify-content:center;}
+  .fabric .tx .label{margin-bottom:22px;}
+  .fabric .tx h2{font-family:"Noto Serif JP";font-weight:300;font-size:28px;line-height:1.7;letter-spacing:.05em;margin-bottom:22px;}
+  .fabric .tx p{color:#5f574b;max-width:440px;}
+
+  /* items */
+  .items-sec{padding:104px 0;text-align:center;}
+  .items-sec .label{display:block;margin-bottom:12px;}
+  .items-sec .title{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:44px;margin-bottom:56px;letter-spacing:.03em;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px 20px;text-align:left;}
+  @media(min-width:760px){.grid{grid-template-columns:repeat(4,1fr);}}
+  .item .ph{overflow:hidden;margin-bottom:14px;background:var(--paper);}
+  .item .ph img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .8s ease;}
+  .item:hover .ph img{transform:scale(1.05);}
+  .item .nm{font-size:13.5px;letter-spacing:.04em;}
+  .item .pr{font-family:"Jost";font-size:13.5px;color:var(--sub);margin-top:3px;}
+
+  /* store cta */
+  .store-cta{background:var(--ink);color:#f3ede1;text-align:center;padding:110px 24px;}
+  .store-cta .label{color:var(--taupe);display:block;margin-bottom:20px;}
+  .store-cta h2{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:46px;line-height:1.2;margin-bottom:28px;}
+  @media(min-width:760px){.store-cta h2{font-size:64px;}}
+  .store-cta .btn{display:inline-block;font-family:"Jost";font-size:13px;letter-spacing:.24em;text-transform:uppercase;border:1px solid #f3ede1;padding:16px 40px;border-radius:1px;transition:.25s;}
+  .store-cta .btn:hover{background:#f3ede1;color:var(--ink);}
+  .store-cta .news{margin-top:44px;max-width:420px;margin-left:auto;margin-right:auto;}
+  .store-cta .news form{display:flex;border-bottom:1px solid rgba(243,237,225,.4);}
+  .store-cta .news input{flex:1;background:transparent;border:none;color:#f3ede1;font-family:"Jost";font-size:13px;letter-spacing:.15em;padding:12px 4px;outline:none;}
+  .store-cta .news input::placeholder{color:rgba(243,237,225,.5);}
+  .store-cta .news button{background:transparent;border:none;color:#f3ede1;font-family:"Jost";font-size:12px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;}
+
+  /* footer */
+  footer{padding:64px 0 34px;}
+  .foot-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;margin-bottom:44px;}
+  @media(max-width:680px){.foot-top{grid-template-columns:1fr 1fr;}}
+  footer .brand{margin-bottom:14px;display:inline-block;}
+  footer h4{font-family:"Jost";font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe);margin-bottom:16px;}
+  footer a{display:block;font-size:13px;color:#6a6255;margin-bottom:10px;letter-spacing:.04em;}
+  footer a:hover{color:var(--ink);}
+  .foot-bar{border-top:1px solid var(--line);padding-top:22px;font-family:"Jost";font-size:11.5px;letter-spacing:.14em;color:var(--sub);}
+  .demo-note{background:var(--paper);border-top:1px solid var(--line);color:var(--sub);text-align:center;font-size:12px;padding:16px;line-height:1.8;letter-spacing:.03em;}
+
+  .fade{opacity:0;transform:translateY(20px);transition:opacity 1s ease,transform 1s ease;}
+  .fade.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<div class="announce">Free shipping on orders over ¥15,000 — 2026 A/W Collection Now Online</div>
+
+<nav class="nav">
+  <div class="wrap in">
+    <div class="links" style="justify-content:flex-start;">
+      <a href="#look">Collection</a>
+      <a href="#fabric">About</a>
+      <a href="#items">Items</a>
+    </div>
+    <div class="brand">tsumugi</div>
+    <a class="store" href="#store">Online Store</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <img src="images/apparel-hero.png" alt="生成り色のリネンをまとった女性モデルの編集的なファッション写真">
+  <div class="ov"></div>
+  <div class="cap">
+    <div class="l">2026 Autumn &amp; Winter</div>
+    <h1 class="cor">Quiet Days</h1>
+    <p>しずかな日々に、寄り添う服。</p>
+  </div>
+</header>
+
+<!-- ===== STATEMENT ===== -->
+<section class="statement">
+  <div class="wrap">
+    <span class="label">The Collection</span>
+    <p>流行を追わず、去年も、来年も着られること。<br>肌に触れた瞬間に、力がふっと抜けること。<br>tsumugi の服は、あなたの日常に静かに溶けていきます。</p>
+  </div>
+</section>
+
+<!-- ===== LOOKBOOK ===== -->
+<section class="look" id="look">
+  <div class="wrap">
+
+    <div class="row fade">
+      <div class="media"><img src="images/apparel-look1.png" alt="オフホワイトとキャメルのコーディネートの全身ルック"></div>
+      <div class="txt">
+        <div class="num cor">01</div>
+        <h2>朝の光と、<br>ゆるやかなシルエット。</h2>
+        <p>体の線を拾わない、やわらかなドレープ。一日中着ていても疲れない、そんな一着から一日が始まります。</p>
+        <div class="items">
+          <div class="it"><span>リネンブレンド ワンピース</span><span>¥19,800</span></div>
+          <div class="it"><span>コットン ワイドパンツ</span><span>¥16,500</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row rev fade">
+      <div class="media"><img src="images/apparel-look3.png" alt="チャコールとオフホワイトの落ち着いた装いでくつろぐモデル"></div>
+      <div class="txt">
+        <div class="num cor">02</div>
+        <h2>陰りのある色に、<br>手を伸ばす季節。</h2>
+        <p>チャコール、グレージュ、生成り。主張しない色だからこそ、重ねるほどに奥行きが生まれます。</p>
+        <div class="items">
+          <div class="it"><span>ウールギャベ ジャケット</span><span>¥32,000</span></div>
+          <div class="it"><span>カシミヤ タートルネック</span><span>¥24,000</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FABRIC ===== -->
+<section class="fabric" id="fabric">
+  <div class="in">
+    <div class="ph"><img src="images/apparel-look2.png" alt="リネンとコットンの生地のディテール"></div>
+    <div class="tx">
+      <span class="label">Material</span>
+      <h2 class="serif">素材から、<br>時間をかけて。</h2>
+      <p>洗うたびに、少しずつ肌になじむ。tsumugi は、長く着るほど良くなる天然素材だけを選んでいます。国内の職人と一枚ずつ向き合い、縫い代の始末まで、目に見えないところにこそ手をかけました。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ITEMS ===== -->
+<section class="items-sec" id="items">
+  <div class="wrap">
+    <span class="label">Featured</span>
+    <div class="title cor">This Season's Pieces</div>
+    <div class="grid">
+      <div class="item"><div class="ph"><img src="images/apparel-look1.png" alt="リネンブレンド ワンピース"></div><div class="nm">リネンブレンド ワンピース</div><div class="pr">¥19,800</div></div>
+      <div class="item"><div class="ph"><img src="images/apparel-look3.png" alt="ウールギャベ ジャケット"></div><div class="nm">ウールギャベ ジャケット</div><div class="pr">¥32,000</div></div>
+      <div class="item"><div class="ph"><img src="images/apparel-look2.png" alt="カシミヤ タートルネック"></div><div class="nm">カシミヤ タートルネック</div><div class="pr">¥24,000</div></div>
+      <div class="item"><div class="ph"><img src="images/apparel-hero.png" alt="コットン ワイドパンツ"></div><div class="nm">コットン ワイドパンツ</div><div class="pr">¥16,500</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STORE CTA ===== -->
+<section class="store-cta" id="store">
+  <div class="wrap">
+    <span class="label">Online Store</span>
+    <h2 class="cor">Wear your quiet days.</h2>
+    <a class="btn" href="#">コレクションを見る</a>
+    <div class="news">
+      <p style="font-family:'Jost';font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;color:var(--taupe);">Newsletter</p>
+      <form onsubmit="return false;">
+        <input type="email" placeholder="Email address" aria-label="メールアドレス">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="brand cor">tsumugi</div>
+        <p style="font-size:13px;color:#6a6255;max-width:300px;">しずかな日々に寄り添う、大人の日常着。（デザインデモ）</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="#items">New Arrivals</a><a href="#look">Lookbook</a><a href="#store">Online Store</a>
+      </div>
+      <div>
+        <h4>Info</h4>
+        <a href="#">運営者情報</a><a href="#">特定商取引法に基づく表記</a><a href="#">プライバシーポリシー</a>
+      </div>
+    </div>
+    <div class="foot-bar">© tsumugi — Design Demo ｜ ○○県○○市○○（※架空のサンプル）</div>
+  </div>
+</footer>
+
+<div class="demo-note">※本ページはデザインデモです。ブランド名「tsumugi」・写真・商品・価格はすべて架空のサンプルであり、実在のブランドや商品を示すものではありません。</div>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デザイン見本｜健康サプリ通販（高彩度・煽り型）</title>
+<style>
+  :root{
+    --org:#ff6a13; --org-dk:#e35100; --grn:#39b54a; --grn-dk:#2a8f38;
+    --ylw:#ffcf1f; --cream:#fff7ea; --cream2:#ffeecf; --ink:#43301c; --ink-lt:#7a6449;
+    --pink:#ff4d6d;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Hiragino Maru Gothic ProN","Hiragino Sans",-apple-system,sans-serif;
+    color:var(--ink); background:var(--cream); line-height:1.9; letter-spacing:.02em;
+    -webkit-font-smoothing:antialiased;
+  }
+  .sample-bar{position:fixed;top:0;left:0;right:0;z-index:300;background:var(--ink);color:#ffe9c9;font-size:12px;letter-spacing:.06em;text-align:center;padding:8px 12px;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px;}
+  section{padding:76px 0;}
+  b{font-weight:800;color:var(--org-dk);}
+  .mark{background:linear-gradient(transparent 58%,var(--ylw) 58%);font-weight:800;color:var(--ink);padding:0 2px;}
+
+  /* ラベル見出し */
+  .head{text-align:center;margin:0 auto 44px;}
+  .head .lab{display:inline-block;background:var(--grn);color:#fff;font-size:13px;font-weight:800;letter-spacing:.1em;padding:7px 20px;border-radius:999px;margin-bottom:18px;box-shadow:0 6px 16px rgba(57,181,74,.3);}
+  .head h2{font-weight:900;font-size:clamp(25px,5vw,37px);line-height:1.4;letter-spacing:.01em;}
+  .head h2 .o{color:var(--org);}
+  .head .sb{margin-top:14px;font-size:clamp(14.5px,2.3vw,16px);color:var(--ink-lt);font-weight:700;}
+
+  /* ===== FV ===== */
+  .fv{background:
+      radial-gradient(circle at 85% 15%,rgba(255,207,31,.5),transparent 45%),
+      linear-gradient(160deg,#fff2d6 0%,#ffe0b0 55%,#ffd7c0 100%);
+    padding:64px 0 56px;position:relative;overflow:hidden;}
+  .fv::before{content:"";position:absolute;bottom:-70px;left:-60px;width:260px;height:260px;background:rgba(57,181,74,.14);border-radius:50%;}
+  .fv .in{max-width:960px;margin:0 auto;padding:0 22px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;position:relative;}
+  .fv .badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;}
+  .fv .bdg{background:#fff;color:var(--org-dk);font-size:12.5px;font-weight:800;padding:6px 14px;border-radius:999px;box-shadow:0 4px 12px rgba(227,81,0,.16);border:2px solid var(--org);}
+  .fv h1{font-weight:900;font-size:clamp(30px,7.2vw,52px);line-height:1.35;letter-spacing:.01em;}
+  .fv h1 .o{color:var(--org);}
+  .fv h1 .g{color:var(--grn-dk);}
+  .fv .sub{font-size:clamp(15.5px,2.6vw,19px);color:var(--ink);font-weight:700;line-height:1.85;}
+  .fv img{width:100%;max-width:400px;filter:drop-shadow(0 22px 34px rgba(180,90,20,.32));margin:6px 0;}
+  .fv .rank{display:inline-flex;align-items:center;gap:8px;background:#fff;padding:10px 20px;border-radius:999px;font-weight:800;color:var(--ink);font-size:14px;box-shadow:0 8px 20px rgba(180,90,20,.16);}
+  .fv .rank .crown{font-size:20px;}
+
+  /* ===== ボタン ===== */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:12px;
+    font-size:clamp(17px,3vw,21px);font-weight:900;letter-spacing:.04em;
+    color:#fff;background:linear-gradient(180deg,#ff8a3d,var(--org));text-decoration:none;
+    padding:22px 44px;border-radius:999px;
+    box-shadow:0 12px 0 var(--org-dk),0 20px 30px rgba(227,81,0,.34);
+    transition:.18s;position:relative;
+  }
+  .btn .arw{transition:.25s;}
+  .btn:hover{transform:translateY(4px);box-shadow:0 8px 0 var(--org-dk),0 14px 22px rgba(227,81,0,.34);}
+  .btn:hover .arw{transform:translateX(5px);}
+  .btn.grn{background:linear-gradient(180deg,#5cc96a,var(--grn));box-shadow:0 12px 0 var(--grn-dk),0 20px 30px rgba(42,143,56,.32);}
+  .btn.grn:hover{box-shadow:0 8px 0 var(--grn-dk),0 14px 22px rgba(42,143,56,.32);}
+  .btn .sm{font-size:12px;font-weight:700;opacity:.9;letter-spacing:.02em;}
+  .cta-mini{text-align:center;padding:8px 0 4px;}
+  .cta-note{text-align:center;font-size:12.5px;color:var(--ink-lt);margin-top:14px;font-weight:700;}
+
+  /* ===== 悩みチェック ===== */
+  .worry{background:#fff;}
+  .checks{max-width:600px;margin:0 auto;display:grid;gap:14px;}
+  .chk{display:flex;gap:14px;align-items:center;background:var(--cream);border:2px solid var(--cream2);border-radius:16px;padding:18px 22px;font-size:clamp(15.5px,2.5vw,18px);font-weight:700;}
+  .chk .bx{flex:none;width:30px;height:30px;background:var(--org);color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;}
+  .worry .lead{text-align:center;margin-top:34px;font-size:clamp(17px,3vw,22px);font-weight:900;color:var(--ink);line-height:1.7;}
+
+  /* ===== 実感グラフ ===== */
+  .graph{background:linear-gradient(160deg,var(--grn) 0%,var(--grn-dk) 100%);color:#fff;}
+  .graph .head h2{color:#fff;}
+  .graph .lab{background:#fff;color:var(--grn-dk);}
+  .bars{max-width:560px;margin:0 auto;display:grid;gap:26px;}
+  .bar .t{font-size:clamp(15px,2.4vw,17px);font-weight:800;margin-bottom:8px;display:flex;justify-content:space-between;}
+  .bar .t .p{color:var(--ylw);font-size:20px;}
+  .bar .track{height:22px;background:rgba(255,255,255,.22);border-radius:999px;overflow:hidden;}
+  .bar .fill{height:100%;background:linear-gradient(90deg,var(--ylw),#fff3b0);border-radius:999px;width:0;transition:width 1.4s cubic-bezier(.2,.7,.2,1);}
+  .graph .note{color:rgba(255,255,255,.8);}
+
+  /* ===== 理由カード ===== */
+  .reasons{background:var(--cream);}
+  .rcards{display:grid;grid-template-columns:1fr;gap:24px;}
+  .rc{background:#fff;border-radius:22px;padding:36px 28px;box-shadow:0 10px 30px rgba(180,120,60,.1);text-align:center;position:relative;border:3px solid #fff;transition:.3s;}
+  .rc:hover{transform:translateY(-6px);border-color:var(--org);}
+  .rc .no{position:absolute;top:-18px;left:50%;transform:translateX(-50%);background:var(--org);color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:19px;box-shadow:0 6px 14px rgba(227,81,0,.3);}
+  .rc .ic{font-size:46px;margin:14px 0 10px;}
+  .rc h3{font-weight:900;font-size:clamp(18px,2.8vw,21px);margin-bottom:12px;line-height:1.5;color:var(--ink);}
+  .rc p{font-size:clamp(14.5px,2.2vw,15.5px);color:var(--ink-lt);font-weight:600;line-height:1.95;}
+
+  /* ===== 声 ===== */
+  .voices{background:#fff;}
+  .vcards{display:grid;grid-template-columns:1fr;gap:22px;max-width:760px;margin:0 auto;}
+  .vc{background:var(--cream);border-radius:20px;padding:28px 26px;display:flex;gap:18px;align-items:flex-start;}
+  .vc .av{flex:none;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--ylw),var(--org));display:flex;align-items:center;justify-content:center;font-size:26px;}
+  .vc .st{color:var(--ylw);font-size:17px;letter-spacing:2px;margin-bottom:6px;-webkit-text-stroke:.6px var(--org);}
+  .vc p{font-size:clamp(14.5px,2.3vw,16px);font-weight:600;line-height:1.95;color:var(--ink);}
+  .vc .who{margin-top:12px;font-size:13px;color:var(--ink-lt);font-weight:800;}
+
+  /* ===== 数字 ===== */
+  .stats{background:linear-gradient(160deg,var(--org) 0%,var(--org-dk) 100%);color:#fff;}
+  .stats .grid{display:grid;grid-template-columns:1fr;gap:34px;text-align:center;}
+  .stats .num{font-size:clamp(46px,10vw,64px);font-weight:900;line-height:1;color:#fff;text-shadow:0 4px 0 rgba(0,0,0,.12);}
+  .stats .num .u{font-size:26px;}
+  .stats .lbl{font-size:14px;font-weight:800;margin-top:10px;color:#ffe6cc;}
+  .stats .note{color:rgba(255,255,255,.82);}
+
+  /* ===== オファー ===== */
+  .offer{background:var(--cream2);}
+  .obox{max-width:640px;margin:0 auto;background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 20px 50px rgba(180,110,40,.22);border:4px solid var(--org);}
+  .obox .top{background:var(--org);color:#fff;text-align:center;padding:22px 20px;}
+  .obox .top .sm{font-size:14px;font-weight:800;opacity:.95;}
+  .obox .top .big{font-size:clamp(22px,4.5vw,30px);font-weight:900;margin-top:4px;}
+  .obox .bd{padding:36px 30px 40px;text-align:center;}
+  .price-row{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin:6px 0 4px;}
+  .price-old{font-size:20px;color:#b7a894;text-decoration:line-through;font-weight:700;}
+  .price-new{font-size:clamp(40px,9vw,58px);font-weight:900;color:var(--org-dk);line-height:1;}
+  .price-new .u{font-size:24px;}
+  .price-new .yen{font-size:26px;}
+  .off-tag{display:inline-block;background:var(--pink);color:#fff;font-weight:900;font-size:15px;padding:8px 18px;border-radius:999px;margin-bottom:8px;box-shadow:0 6px 14px rgba(255,77,109,.3);}
+  .perks{text-align:left;max-width:380px;margin:26px auto 0;display:grid;gap:12px;}
+  .perk{display:flex;gap:10px;align-items:flex-start;font-size:15px;font-weight:700;}
+  .perk .c{flex:none;color:var(--grn);font-weight:900;font-size:18px;}
+
+  /* ===== 保証 ===== */
+  .guarantee{background:#fff;}
+  .gbox{max-width:640px;margin:0 auto;background:var(--cream);border:3px dashed var(--grn);border-radius:22px;padding:38px 30px;text-align:center;}
+  .gbox .seal{width:96px;height:96px;margin:0 auto 18px;border-radius:50%;background:linear-gradient(135deg,var(--grn),var(--grn-dk));color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;box-shadow:0 10px 24px rgba(42,143,56,.3);}
+  .gbox .seal .n{font-size:30px;line-height:1;}
+  .gbox .seal .s{font-size:11px;margin-top:2px;}
+  .gbox h3{font-weight:900;font-size:clamp(19px,3.2vw,24px);margin-bottom:12px;color:var(--ink);}
+  .gbox p{font-size:clamp(14.5px,2.2vw,15.5px);color:var(--ink-lt);font-weight:600;line-height:1.95;max-width:30em;margin:0 auto;}
+
+  /* ===== FAQ ===== */
+  .faq{background:var(--cream);}
+  .qa{max-width:720px;margin:0 auto;display:grid;gap:14px;}
+  .q{background:#fff;border-radius:16px;padding:22px 24px;box-shadow:0 6px 18px rgba(180,120,60,.08);}
+  .q .qt{font-weight:900;font-size:clamp(15.5px,2.5vw,17.5px);color:var(--ink);display:flex;gap:12px;}
+  .q .qt::before{content:"Q";flex:none;width:28px;height:28px;background:var(--grn);color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+  .q .at{font-size:clamp(14px,2.2vw,15.5px);color:var(--ink-lt);font-weight:600;line-height:1.95;margin-top:12px;padding-left:40px;}
+
+  /* ===== ラストCTA ===== */
+  .last{background:linear-gradient(160deg,#fff2d6,#ffdcae);text-align:center;}
+  .last h2{font-weight:900;font-size:clamp(24px,5vw,38px);line-height:1.4;margin-bottom:10px;}
+  .last h2 .o{color:var(--org);}
+  .last p{font-size:clamp(15px,2.5vw,17px);font-weight:700;color:var(--ink-lt);margin-bottom:30px;}
+
+  .note{text-align:center;font-size:12.5px;color:#a08a70;margin-top:26px;font-weight:600;line-height:1.7;}
+  footer{padding:52px 22px;text-align:center;color:#a08a70;font-size:12.5px;line-height:1.9;background:#fff;}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:.9s cubic-bezier(.2,.7,.2,1);}
+  .reveal.on{opacity:1;transform:none;}
+
+  @media(min-width:780px){
+    .rcards{grid-template-columns:repeat(3,1fr);}
+    .vcards{grid-template-columns:1fr 1fr;}
+    .stats .grid{grid-template-columns:repeat(3,1fr);}
+    .fv h1{font-size:clamp(38px,5.4vw,54px);}
+  }
+</style>
+</head>
+<body>
+<div class="sample-bar">デザイン見本（サンプル）｜健康サプリ通販 ── 商品名・写真・料金・数字・お客様の声はすべて架空のサンプルです</div>
+
+<!-- FV -->
+<header class="fv">
+  <div class="in">
+    <div class="badges">
+      <span class="bdg">国内GMP工場製造</span>
+      <span class="bdg">無添加処方</span>
+      <span class="bdg">機能性表示食品</span>
+    </div>
+    <h1>朝、<span class="o">スッと動ける</span>日を、<br>もう一度あたりまえに。</h1>
+    <p class="sub">年齢とともに減っていく“めぐり”に。<br><b>15種の和漢素材</b>を、1日2粒でまるごとチャージ。</p>
+    <img src="images/supplement.png" alt="サプリメント商品イメージ">
+    <div class="rank"><span class="crown">👑</span>健康サプリ部門　満足度ランキング 第1位</div>
+    <a href="#offer" class="btn">初回<b style="color:#fff">67%OFF</b>で試す <span class="arw">→</span></a>
+    <p class="cta-note">＼ 今だけ！毎月先着500名さま限定 ／</p>
+  </div>
+</header>
+
+<!-- 悩みチェック -->
+<section class="worry reveal">
+  <div class="wrap">
+    <div class="head">
+      <span class="lab">CHECK</span>
+      <h2>こんな“朝のだるさ”、<br><span class="o">あきらめていませんか？</span></h2>
+    </div>
+    <div class="checks">
+      <div class="chk"><span class="bx">✓</span>目覚ましが鳴っても、布団から出られない</div>
+      <div class="chk"><span class="bx">✓</span>午後になると、どっと疲れが押し寄せる</div>
+      <div class="chk"><span class="bx">✓</span>栄養ドリンクに頼る日が増えてきた</div>
+      <div class="chk"><span class="bx">✓</span>休んでも、疲れが翌日に持ち越す</div>
+      <div class="chk"><span class="bx">✓</span>「年のせい」と言われるのが、正直くやしい</div>
+    </div>
+    <p class="lead"><span class="mark">1つでも当てはまるなら、</span><br>足りていないのは“めぐり”かもしれません。</p>
+    <div class="cta-mini" style="margin-top:34px;">
+      <a href="#offer" class="btn grn">まずは初回1,980円で試す <span class="arw">→</span></a>
+      <p class="cta-note">＼ 20日間の全額返金保証つき ／</p>
+    </div>
+  </div>
+</section>
+
+<!-- 実感グラフ -->
+<section class="graph reveal">
+  <div class="wrap">
+    <div class="head">
+      <span class="lab">満足度調査</span>
+      <h2>飲んだ方の、うれしい実感</h2>
+      <p class="sb" style="color:rgba(255,255,255,.9)">モニター208名アンケート（架空サンプル）</p>
+    </div>
+    <div class="bars">
+      <div class="bar"><div class="t"><span>朝の目覚めがラクになった</span><span class="p">92%</span></div><div class="track"><div class="fill" data-w="92"></div></div></div>
+      <div class="bar"><div class="t"><span>夕方まで元気が続く</span><span class="p">88%</span></div><div class="track"><div class="fill" data-w="88"></div></div></div>
+      <div class="bar"><div class="t"><span>また続けたいと思う</span><span class="p">95%</span></div><div class="track"><div class="fill" data-w="95"></div></div></div>
+    </div>
+    <p class="note">※このグラフの数字は架空のサンプルです。実際は、確認できた調査結果の数字だけを使います。</p>
+  </div>
+</section>
+
+<!-- 理由 -->
+<section class="reasons reveal">
+  <div class="wrap">
+    <div class="head">
+      <span class="lab">3つの理由</span>
+      <h2><span class="o">選ばれ続ける</span>ワケ</h2>
+    </div>
+    <div class="rcards">
+      <div class="rc"><span class="no">1</span><div class="ic">🌿</div><h3>15種の和漢素材を<br>ぎゅっと凝縮</h3><p>高麗人参・生姜・棗（なつめ）など、昔から親しまれてきた素材を独自バランスで配合。毎日の“めぐり”をやさしく後押しします。</p></div>
+      <div class="rc"><span class="no">2</span><div class="ic">🏭</div><h3>国内GMP工場で<br>ていねいに製造</h3><p>品質管理の基準を満たした国内工場で製造。香料・着色料・保存料は不使用の無添加処方だから、毎日安心して続けられます。</p></div>
+      <div class="rc"><span class="no">3</span><div class="ic">💧</div><h3>小粒で飲みやすく<br>続けやすい</h3><p>1日たった2粒。においが少なくつるんと飲めるソフトカプセルだから、サプリが苦手な方にも。続けてこそ、実感につながります。</p></div>
+    </div>
+    <div class="cta-mini" style="margin-top:40px;">
+      <a href="#offer" class="btn">今すぐお得に始める <span class="arw">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 声 -->
+<section class="voices reveal">
+  <div class="wrap">
+    <div class="head">
+      <span class="lab">お客様の声</span>
+      <h2>続けている方から、<br>届いています</h2>
+    </div>
+    <div class="vcards">
+      <div class="vc"><div class="av">🙂</div><div><div class="st">★★★★★</div><p>朝が本当に苦手で、いつも家族に起こされていました。飲みはじめて3週間、<b>自分でパッと起きられた朝に自分でも驚きました。</b>小粒で続けやすいのもうれしいです。</p><div class="who">54歳・女性／パート勤務</div></div></div>
+      <div class="vc"><div class="av">😊</div><div><div class="st">★★★★★</div><p>いろいろ試してきましたが、これは夕方の“ガクッ”が減った気がします。<b>返金保証があったので、気軽に始められたのが大きい。</b>今は定期便で続けています。</p><div class="who">61歳・男性／自営業</div></div></div>
+      <div class="vc"><div class="av">😌</div><div><div class="st">★★★★★</div><p>においがほとんどなくて、水でつるんと飲めます。「年のせい」とあきらめていた私にとって、<b>また前向きに動ける日が増えたのが何よりうれしい。</b></p><div class="who">49歳・女性／会社員</div></div></div>
+      <div class="vc"><div class="av">🙂</div><div><div class="st">★★★★☆</div><p>効果の感じ方は人それぞれだと思いますが、私は続けて2ヶ月で調子の良い日が増えました。<b>無添加なところに惹かれて選びました。</b>もう少し続けてみます。</p><div class="who">58歳・男性／会社員</div></div></div>
+    </div>
+    <p class="note">※お客様の声はすべて架空のサンプルです。実際は、許可をいただいた本物の声だけを掲載します。</p>
+  </div>
+</section>
+
+<!-- 数字 -->
+<section class="stats reveal">
+  <div class="wrap">
+    <div class="head">
+      <span class="lab" style="background:#fff;color:var(--org-dk)">数字で見る</span>
+      <h2 style="color:#fff;">たくさんの方に、<br>選ばれています</h2>
+    </div>
+    <div class="grid">
+      <div><div class="num">120<span class="u">万袋</span></div><div class="lbl">累計出荷数</div></div>
+      <div><div class="num">94<span class="u">%</span></div><div class="lbl">定期継続率</div></div>
+      <div><div class="num">4.7<span class="u">/5</span></div><div class="lbl">平均レビュー評価</div></div>
+    </div>
+    <p class="note">※これらの数字は架空のサンプルです。実際は、確認できた事実の数字だけを入れます。</p>
+  </div>
+</section>
+
+<!-- オファー -->
+<section class="offer reveal" id="offer">
+  <div class="wrap">
+    <div class="head">
+      <span class="lab" style="background:var(--pink)">数量限定</span>
+      <h2>今だけの、<span class="o">はじめてセット</span></h2>
+    </div>
+    <div class="obox">
+      <div class="top"><p class="sm">毎月先着500名さま限定</p><p class="big">初回67%OFF ＋ 送料無料</p></div>
+      <div class="bd">
+        <span class="off-tag">＼ いちばんお得な定期便 ／</span>
+        <div class="price-row">
+          <span class="price-old">通常 5,980円</span>
+        </div>
+        <div class="price-row">
+          <span class="price-new"><span class="yen">¥</span>1,980<span class="u">（税込）</span></span>
+        </div>
+        <p style="font-weight:800;color:var(--ink-lt);font-size:14px;">2回目以降もずっと20%OFFの4,780円</p>
+        <div class="perks">
+          <div class="perk"><span class="c">✓</span>初回<b>67%OFF</b>＝実質1日66円ではじめられる</div>
+          <div class="perk"><span class="c">✓</span>ずっと<b>送料無料</b>でお届け</div>
+          <div class="perk"><span class="c">✓</span><b>お届け周期は自由に変更</b>・いつでも休止OK</div>
+          <div class="perk"><span class="c">✓</span><b>20日間の全額返金保証</b>つきだから安心</div>
+        </div>
+        <div style="margin-top:30px;">
+          <a href="#" class="btn">初回1,980円で申し込む <span class="arw">→</span></a>
+          <p class="cta-note">お申し込みは1分で完了します</p>
+        </div>
+      </div>
+    </div>
+    <p class="note">※価格・特典はレイアウトを見せるための架空サンプルです。実在の商品・実在の価格ではありません。</p>
+  </div>
+</section>
+
+<!-- 保証 -->
+<section class="guarantee reveal">
+  <div class="wrap">
+    <div class="gbox">
+      <div class="seal"><span class="n">20</span><span class="s">DAYS</span></div>
+      <h3>合わなければ、全額返金します</h3>
+      <p>はじめては不安なもの。だから当店では、初回お届けから<b style="color:var(--grn-dk)">20日以内</b>なら、たとえ容器が空でも代金を全額お返しします。まずはあなたの体で、じっくり確かめてください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq reveal">
+  <div class="wrap">
+    <div class="head">
+      <span class="lab">よくある質問</span>
+      <h2>お申し込み前の、<br>ギモンに</h2>
+    </div>
+    <div class="qa">
+      <div class="q"><div class="qt">定期便は、何回か続けないと解約できませんか？</div><div class="at">いいえ。回数のお約束はありません。次回お届けの10日前までにご連絡いただければ、いつでも休止・解約が可能です。</div></div>
+      <div class="q"><div class="qt">いつ飲むのが効果的ですか？</div><div class="at">食品ですので、決まりはありません。続けやすいタイミングで、毎日の習慣にしていただくのがおすすめです。</div></div>
+      <div class="q"><div class="qt">薬と一緒に飲んでも大丈夫ですか？</div><div class="at">お薬を服用中・通院中の方は、念のため、かかりつけの医師や薬剤師にご相談のうえお召し上がりください。</div></div>
+      <div class="q"><div class="qt">返金保証はどうやって使えますか？</div><div class="at">初回お届けから20日以内に、お電話1本でお申し付けください。容器が空になっていても対象です。</div></div>
+    </div>
+    <div class="cta-mini" style="margin-top:40px;">
+      <a href="#offer" class="btn grn">お得な初回セットを見る <span class="arw">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ラストCTA -->
+<section class="last reveal">
+  <div class="wrap">
+    <h2>「年のせい」で、<br><span class="o">片づけないで。</span></h2>
+    <p>また前向きに動ける朝を、あなたにも。<br>まずは20日間、リスクなしで試してみてください。</p>
+    <a href="#offer" class="btn">初回67%OFF・1,980円で始める <span class="arw">→</span></a>
+    <p class="cta-note">＼ 毎月先着500名さま・全額返金保証つき ／</p>
+  </div>
+</section>
+
+<footer>
+  ※これは「なべとも」のデザイン見本です。商品名・写真・料金・数字・お客様の声は、すべてレイアウトを見せるための架空サンプルであり、実在の商品・実在の実績ではありません。<br>
+  高彩度ポップ｜オレンジ×グリーン×クリーム・丸ゴシック｜通販煽り型（縦長・CTA連打）
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('on');
+      e.target.querySelectorAll('.fill').forEach(f=>{f.style.width=f.dataset.w+'%';});
+    }
+  })},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

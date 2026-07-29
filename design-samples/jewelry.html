@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デザイン見本｜ハイジュエリー（ミニマル・黒×白）</title>
+<style>
+  :root{
+    --bg:#0b0b0d; --bg2:#101014; --ink:#f3efe8; --mut:#9c968b;
+    --gold:#c9a869; --gold-lt:#e3caa0; --line:rgba(255,255,255,.13);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Hiragino Mincho ProN","Yu Mincho","Times New Roman",serif;
+    background:var(--bg); color:var(--ink);
+    line-height:2.2; letter-spacing:.08em; -webkit-font-smoothing:antialiased;
+  }
+  .sample-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:#000;color:#b7b1a5;font-size:11.5px;letter-spacing:.14em;text-align:center;padding:9px 12px;font-family:sans-serif;border-bottom:1px solid var(--line);}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+  section{padding:150px 0;}
+  .en{font-family:"Times New Roman",serif;letter-spacing:.42em;text-transform:uppercase;}
+
+  /* 見出し */
+  .head{text-align:center;margin:0 auto 84px;}
+  .head .lab{display:block;font-size:11px;letter-spacing:.5em;color:var(--gold);margin-bottom:26px;text-transform:uppercase;font-family:"Times New Roman",serif;}
+  .head h2{font-weight:400;font-size:clamp(26px,4vw,40px);letter-spacing:.18em;line-height:1.7;}
+
+  /* ===== FV ===== */
+  .fv{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;padding:120px 24px 70px;background:radial-gradient(ellipse at 50% 42%,#17171b 0%,var(--bg) 70%);}
+  .fv .brand{font-size:12px;letter-spacing:.62em;color:var(--gold);margin-bottom:44px;}
+  .fv h1{font-weight:400;font-size:clamp(30px,6vw,60px);letter-spacing:.24em;line-height:1.65;}
+  .fv h1 .thin{display:block;font-size:.5em;letter-spacing:.4em;color:var(--mut);margin-top:26px;}
+  .fv img{width:min(78vw,620px);margin:52px auto 0;display:block;}
+  .fv .cta{margin-top:48px;}
+
+  /* ===== 上質なボタン（黒地に金の細枠→ホバーで金塗り） ===== */
+  .btn{
+    display:inline-flex;align-items:center;gap:16px;
+    font-family:"Times New Roman",serif;font-size:14px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--gold-lt);text-decoration:none;
+    padding:18px 42px;border:1px solid var(--gold);border-radius:0;
+    background:transparent;position:relative;overflow:hidden;
+    transition:.5s cubic-bezier(.2,.7,.2,1);
+  }
+  .btn span.t{position:relative;z-index:1;transition:.5s;}
+  .btn .arw{position:relative;z-index:1;transition:.5s;font-family:serif;}
+  .btn::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--gold),var(--gold-lt));transform:translateX(-101%);transition:.5s cubic-bezier(.2,.7,.2,1);}
+  .btn:hover::before{transform:translateX(0);}
+  .btn:hover span.t,.btn:hover .arw{color:#0b0b0d;}
+  .btn:hover .arw{transform:translateX(6px);}
+
+  /* ===== 思想（1文・詩的） ===== */
+  .creed{text-align:center;background:var(--bg);}
+  .creed p{font-size:clamp(20px,3.2vw,30px);font-weight:400;line-height:2.4;letter-spacing:.16em;max-width:20em;margin:0 auto;color:var(--ink);}
+  .creed p .g{color:var(--gold-lt);}
+  .creed .sub{font-size:clamp(14px,2vw,15.5px);color:var(--mut);letter-spacing:.1em;line-height:2.3;max-width:32em;margin:44px auto 0;}
+  .creed .sub b{color:var(--ink);font-weight:400;border-bottom:1px solid var(--gold);padding-bottom:1px;}
+
+  /* ===== コレクション（縦に静かに） ===== */
+  .collection{background:var(--bg2);}
+  .piece{display:grid;grid-template-columns:1fr;gap:10px;text-align:center;padding:56px 0;border-bottom:1px solid var(--line);}
+  .piece:first-of-type{border-top:1px solid var(--line);}
+  .piece .no{font-family:"Times New Roman",serif;font-size:12px;letter-spacing:.4em;color:var(--gold);}
+  .piece h3{font-weight:400;font-size:clamp(22px,3.4vw,30px);letter-spacing:.2em;margin:6px 0 4px;}
+  .piece .mat{font-size:14px;color:var(--mut);letter-spacing:.1em;}
+  .piece .price{font-family:"Times New Roman",serif;font-size:15px;color:var(--gold-lt);letter-spacing:.14em;margin-top:14px;}
+
+  /* ===== 素材（数字・控えめ） ===== */
+  .material{position:relative;}
+  .material .grid{display:grid;grid-template-columns:1fr;gap:70px;align-items:center;}
+  .material img{width:100%;filter:grayscale(.1);}
+  .material h3{font-weight:400;font-size:clamp(22px,3.2vw,30px);letter-spacing:.16em;line-height:1.8;margin-bottom:28px;}
+  .material p{font-size:clamp(14.5px,2vw,16px);color:var(--mut);line-height:2.4;letter-spacing:.08em;}
+  .material p b{color:var(--ink);font-weight:400;}
+  .nums{display:flex;gap:48px;margin-top:44px;flex-wrap:wrap;}
+  .nums .n{font-family:"Times New Roman",serif;font-size:clamp(34px,5vw,46px);color:var(--gold-lt);letter-spacing:.04em;line-height:1;}
+  .nums .n small{display:block;font-family:"Hiragino Mincho ProN",serif;font-size:12px;color:var(--mut);letter-spacing:.14em;margin-top:12px;}
+
+  /* ===== アトリエ（流れ） ===== */
+  .atelier .steps{max-width:640px;margin:0 auto;}
+  .atelier .s{display:grid;grid-template-columns:auto 1fr;gap:34px;padding:36px 0;border-bottom:1px solid var(--line);align-items:baseline;}
+  .atelier .s .k{font-family:"Times New Roman",serif;font-size:20px;color:var(--gold);letter-spacing:.1em;}
+  .atelier .s h4{font-weight:400;font-size:clamp(17px,2.4vw,20px);letter-spacing:.14em;margin-bottom:10px;}
+  .atelier .s p{font-size:14.5px;color:var(--mut);line-height:2.2;letter-spacing:.06em;}
+
+  /* ===== 声 ===== */
+  .voice{text-align:center;background:var(--bg2);}
+  .voice p{font-size:clamp(18px,2.8vw,24px);font-weight:400;line-height:2.5;letter-spacing:.12em;max-width:24em;margin:0 auto;}
+  .voice p b{color:var(--gold-lt);font-weight:400;}
+  .voice .who{font-family:"Times New Roman",serif;font-size:13px;letter-spacing:.24em;color:var(--mut);margin-top:38px;}
+
+  /* ===== 予約 ===== */
+  .reserve{text-align:center;background:radial-gradient(ellipse at 50% 60%,#17171b,var(--bg) 72%);}
+  .reserve h2{font-weight:400;font-size:clamp(26px,4.4vw,42px);letter-spacing:.2em;line-height:1.7;margin-bottom:30px;}
+  .reserve p{font-size:15px;color:var(--mut);letter-spacing:.1em;line-height:2.3;max-width:28em;margin:0 auto 46px;}
+
+  .note,.voice p.note{text-align:center;font-family:sans-serif;font-size:11.5px;color:#6f6a60;margin-top:40px;letter-spacing:.06em;line-height:1.9;max-width:none;}
+  footer{padding:70px 32px;text-align:center;color:#6f6a60;font-size:11.5px;font-family:sans-serif;letter-spacing:.08em;line-height:2;border-top:1px solid var(--line);}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:1.3s cubic-bezier(.2,.7,.2,1);}
+  .reveal.on{opacity:1;transform:none;}
+
+  @media(min-width:820px){
+    .material .grid{grid-template-columns:1fr 1fr;gap:80px;}
+    .collection .pieces{max-width:760px;margin:0 auto;}
+  }
+</style>
+</head>
+<body>
+<div class="sample-bar">デザイン見本（サンプル）｜ハイジュエリー ── ブランド名・写真・価格・数字・お客様の声はすべて架空のサンプルです</div>
+
+<!-- FV -->
+<header class="fv">
+  <p class="brand en">Étoile &nbsp;Haute&nbsp;Joaillerie</p>
+  <h1>一粒の光に、<br>永遠を託して。<span class="thin en">Since 1946 · Ginza</span></h1>
+  <img src="images/jewelry.png" alt="ダイヤモンドの指輪とネックレス">
+  <div class="cta"><a href="#reserve" class="btn"><span class="t">来店を予約する</span><span class="arw">→</span></a></div>
+</header>
+
+<!-- 思想 -->
+<section class="creed reveal">
+  <div class="wrap">
+    <p>石は、選ぶものではありません。<br><span class="g">出会うものです。</span></p>
+    <p class="sub">世界中の原石のなかから、熟練の鑑定士が選び抜いた一粒だけを。<b>その輝きに見合う一生に、そっと寄り添うために。</b>わたしたちは、数ではなく、ひとつひとつの物語を仕立てています。</p>
+  </div>
+</section>
+
+<!-- コレクション -->
+<section class="collection reveal">
+  <div class="wrap">
+    <div class="head"><span class="lab">Collection</span><h2>三つの、永遠</h2></div>
+    <div class="pieces">
+      <div class="piece"><p class="no en">No.01</p><h3>Solitaire ─ 一粒の誓い</h3><p class="mat">Pt950 ／ ダイヤモンド 0.5ct〜</p><p class="price">¥480,000〜</p></div>
+      <div class="piece"><p class="no en">No.02</p><h3>Halo ─ 光の輪</h3><p class="mat">Pt950 ／ センターストーン＋メレダイヤ</p><p class="price">¥680,000〜</p></div>
+      <div class="piece"><p class="no en">No.03</p><h3>Éternité ─ 途切れぬ輝き</h3><p class="mat">Pt950 ／ フルエタニティ</p><p class="price">¥920,000〜</p></div>
+    </div>
+    <p class="note">※商品名・仕様・価格はすべて架空のサンプルです。実際は、確認できた事実だけを掲載します。</p>
+  </div>
+</section>
+
+<!-- 素材 -->
+<section class="material reveal">
+  <div class="wrap">
+    <div class="grid">
+      <img src="images/jewelry.png" alt="ダイヤモンドの輝き">
+      <div>
+        <div class="head" style="text-align:left;margin:0 0 0;"><span class="lab" style="margin-bottom:20px;">Our Stone</span></div>
+        <h3>選ばれるのは、<br>一〇〇のうち、三。</h3>
+        <p>入荷した原石のうち、わたしたちの基準を満たすのはごくわずか。<b>カット・透明度・色・重量——その四つのすべてで最上位を満たした石だけ</b>が、店頭に並びます。ひとつの婚約指輪のために、幾多の原石が見送られています。</p>
+        <div class="nums">
+          <div class="n">3<small>採用される原石（%）</small></div>
+          <div class="n">78<small>創業からの年</small></div>
+          <div class="n">∞<small>お直しの保証</small></div>
+        </div>
+        <p class="note" style="text-align:left;">※これらの数字は架空のサンプルです。実際は、確認できた事実の数字だけを入れます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- アトリエ -->
+<section class="atelier reveal">
+  <div class="wrap">
+    <div class="head"><span class="lab">Atelier</span><h2>ご来店から、お渡しまで</h2></div>
+    <div class="steps">
+      <div class="s"><div class="k">I</div><div><h4>ご予約・ご来店</h4><p>完全予約制の個室で、専任のスタッフが静かにお迎えします。人目を気にせず、ごゆっくり。</p></div></div>
+      <div class="s"><div class="k">II</div><div><h4>石との出会い</h4><p>ご予算とお好みを伺いながら、実際に石を手に取って。運命の一粒を、いっしょに。</p></div></div>
+      <div class="s"><div class="k">III</div><div><h4>お仕立て</h4><p>職人が一点ずつ手作業で。指のかたち、暮らしに寄り添う着け心地まで見据えて仕上げます。</p></div></div>
+      <div class="s"><div class="k">IV</div><div><h4>お渡しと、その先へ</h4><p>末永くお使いいただけるよう、サイズ直し・クリーニングを永年で承ります。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 声 -->
+<section class="voice reveal">
+  <div class="wrap">
+    <p>指輪を選ぶ時間そのものが、<br><b>二人の記憶になりました。</b><br>急かされず、静かに向き合えた夜を、<br>一生忘れません。</p>
+    <p class="who en">— K.M. &nbsp;/&nbsp; Solitaire</p>
+    <p class="note">※お客様の声も架空のサンプルです。実際は、許可をいただいた本物の声だけを掲載します。</p>
+  </div>
+</section>
+
+<!-- 予約 -->
+<section class="reserve reveal" id="reserve">
+  <div class="wrap">
+    <h2>その一粒に、<br>会いにいらしてください。</h2>
+    <p>完全予約制・個室でのご案内です。<br>見るだけ、ご相談だけでも、どうぞお気軽に。</p>
+    <a href="#" class="btn"><span class="t">来店を予約する</span><span class="arw">→</span></a>
+  </div>
+</section>
+
+<footer>
+  ※これは「なべとも」のデザイン見本です。ブランド名・写真・価格・数字・お客様の声は、すべてレイアウトを見せるための架空サンプルであり、実在のサービス・実在の実績ではありません。<br>
+  ミニマル｜黒×白×金・明朝／セリフ｜引き算の1画面型（余白と字間で見せる）
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デザイン見本｜高級旅館（フルスクリーンスライド・縦書き）</title>
+<style>
+  :root{
+    --moss:#1d2a22;      /* 千歳緑（濃） */
+    --moss2:#2f4438;     /* 千歳緑（中） */
+    --moss-lt:#5b7264;   /* 苔 */
+    --kinari:#f3efe5;    /* 生成り */
+    --kinari2:#e9e3d4;   /* 生成り（濃） */
+    --kin:#a58c53;       /* 淡い金 */
+    --kin-lt:#c4ad7b;
+    --sumi:#20241f;
+    --line:rgba(165,140,83,.32);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+    color:var(--sumi); background:var(--kinari);
+    line-height:2.15; letter-spacing:.07em;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;}
+
+  .sample-bar{position:fixed;top:0;left:0;right:0;z-index:300;background:var(--moss);color:var(--kin-lt);
+    font-size:12px;letter-spacing:.1em;text-align:center;padding:8px 12px;font-family:sans-serif;}
+
+  .wrap{max-width:980px;margin:0 auto;padding:0 30px;}
+  section{padding:120px 0;scroll-margin-top:112px;}
+
+  /* ===== 固定ヘッダー（価格＋予約） ===== */
+  .bar{position:fixed;top:33px;left:0;right:0;z-index:250;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 26px;background:rgba(29,42,34,.86);backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(165,140,83,.25);}
+  .bar .name{color:var(--kinari);font-size:clamp(17px,2.6vw,20px);letter-spacing:.34em;font-weight:600;}
+  .bar .name small{display:block;font-family:sans-serif;font-size:9.5px;letter-spacing:.36em;color:var(--kin);margin-top:5px;font-weight:400;}
+  .bar .right{display:flex;align-items:center;gap:18px;}
+  .bar .price{color:var(--kinari);font-size:13px;line-height:1.7;text-align:right;font-family:sans-serif;letter-spacing:.04em;}
+  .bar .price b{display:block;font-size:19px;color:var(--kin-lt);font-weight:700;letter-spacing:.02em;}
+  .bar .price span{font-size:10.5px;color:var(--moss-lt);}
+  .btn-s{display:inline-flex;align-items:center;gap:9px;font-family:sans-serif;font-size:13.5px;font-weight:700;
+    letter-spacing:.16em;color:var(--moss);background:var(--kin-lt);text-decoration:none;
+    padding:14px 26px;border-radius:2px;transition:.35s cubic-bezier(.2,.7,.2,1);
+    box-shadow:0 6px 20px rgba(0,0,0,.3);white-space:nowrap;}
+  .btn-s .arw{transition:.35s;font-family:serif;}
+  .btn-s:hover{background:var(--kinari);transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.42);}
+  .btn-s:hover .arw{transform:translateX(4px);}
+  @media(max-width:700px){ .bar .price{display:none;} .bar{padding:12px 16px;} }
+
+  /* ===== 上質なボタン ===== */
+  .btn{display:inline-flex;align-items:center;gap:13px;font-family:sans-serif;font-size:16px;font-weight:700;
+    letter-spacing:.16em;color:var(--moss);background:var(--kin-lt);text-decoration:none;
+    padding:21px 50px;border-radius:2px;box-shadow:0 12px 30px rgba(29,42,34,.32);
+    transition:.35s cubic-bezier(.2,.7,.2,1);}
+  .btn .arw{transition:.35s;font-family:serif;}
+  .btn:hover{background:var(--kinari);transform:translateY(-3px);box-shadow:0 18px 40px rgba(29,42,34,.42);}
+  .btn:hover .arw{transform:translateX(6px);}
+  .btn.dark{background:var(--moss);color:var(--kinari);}
+  .btn.dark:hover{background:var(--moss2);}
+
+  /* ===== FV：フルスクリーン自動スライド＋縦書き ===== */
+  .fv{position:relative;height:100svh;min-height:620px;overflow:hidden;background:var(--moss);}
+  .fv .slide{position:absolute;inset:0;opacity:0;animation:kenban 21s infinite;}
+  .fv .slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:zoom 21s infinite;}
+  .fv .slide:nth-child(1){animation-delay:0s;}   .fv .slide:nth-child(1) img{animation-delay:0s;}
+  .fv .slide:nth-child(2){animation-delay:7s;}   .fv .slide:nth-child(2) img{animation-delay:7s;}
+  .fv .slide:nth-child(3){animation-delay:14s;}  .fv .slide:nth-child(3) img{animation-delay:14s;}
+  @keyframes kenban{0%{opacity:0}5%{opacity:1}33%{opacity:1}38%{opacity:0}100%{opacity:0}}
+  @keyframes zoom{0%{transform:scale(1.02)}38%{transform:scale(1.11)}100%{transform:scale(1.11)}}
+  .fv .veil{position:absolute;inset:0;background:
+    linear-gradient(90deg,rgba(20,30,24,.72) 0%,rgba(20,30,24,.34) 46%,rgba(20,30,24,.1) 100%),
+    linear-gradient(0deg,rgba(20,30,24,.66) 0%,transparent 42%);}
+
+  .fv .inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-start;
+    padding:120px 8vw 60px;}
+  .fv .tate{writing-mode:vertical-rl;text-orientation:upright;}
+  .fv .en{font-family:sans-serif;writing-mode:horizontal-tb;font-size:11px;letter-spacing:.46em;
+    color:var(--kin-lt);margin-bottom:26px;}
+  .fv h1{writing-mode:vertical-rl;font-weight:600;color:var(--kinari);
+    font-size:clamp(30px,5.4vw,50px);line-height:1.85;letter-spacing:.24em;
+    text-shadow:0 3px 26px rgba(0,0,0,.5);height:min(58vh,470px);}
+  .fv h1 em{font-style:normal;color:var(--kin-lt);}
+  .fv .sub{writing-mode:vertical-rl;font-size:clamp(14.5px,2vw,16.5px);color:rgba(243,239,229,.9);
+    line-height:2.5;letter-spacing:.16em;margin-right:30px;height:min(40vh,330px);}
+  .fv .sub b{color:var(--kin-lt);font-weight:600;}
+  .fv .foot{position:absolute;left:8vw;right:8vw;bottom:52px;display:flex;align-items:flex-end;
+    justify-content:space-between;gap:20px;flex-wrap:wrap;}
+  .fv .rooms{font-family:sans-serif;font-size:12px;letter-spacing:.24em;color:rgba(243,239,229,.72);line-height:2;}
+  .fv .rooms b{color:var(--kin-lt);font-weight:700;letter-spacing:.1em;}
+  .scroll{position:absolute;left:50%;bottom:0;width:1px;height:64px;background:linear-gradient(var(--kin-lt),transparent);}
+  @media(max-width:700px){
+    .fv .inner{padding:110px 26px 60px;}
+    .fv h1{height:min(50vh,400px);letter-spacing:.2em;}
+    .fv .sub{display:none;}
+    .fv .foot{bottom:34px;left:26px;right:26px;}
+  }
+
+  /* ===== 見出し ===== */
+  .head{text-align:center;margin:0 auto 62px;padding-top:16px;}
+  .head .en{font-family:sans-serif;font-size:10.5px;letter-spacing:.44em;color:var(--kin);margin-bottom:20px;}
+  .head h2{font-weight:600;font-size:clamp(26px,4.4vw,37px);letter-spacing:.16em;line-height:1.7;}
+  .head .rule{width:34px;height:1px;background:var(--kin);margin:26px auto 0;}
+  .head.on-dark h2{color:var(--kinari);} .head.on-dark .en{color:var(--kin-lt);}
+
+  .lead{font-size:clamp(22px,3.6vw,31px);line-height:2.15;text-align:center;letter-spacing:.12em;
+    max-width:20em;margin:0 auto;font-weight:600;}
+  .body{font-size:clamp(16px,2.2vw,17.5px);color:var(--moss-lt);max-width:33em;margin:36px auto 0;
+    line-height:2.35;text-align:center;}
+  .body b{font-weight:700;color:var(--sumi);}
+  .note{font-family:sans-serif;font-size:11.5px;line-height:1.9;color:var(--moss-lt);
+    letter-spacing:.04em;margin-top:20px;text-align:center;}
+
+  /* ===== 宿の魅力 三つ ===== */
+  .charm{background:var(--kinari2);}
+  .charm .it{display:grid;grid-template-columns:1fr;gap:30px;margin-bottom:86px;align-items:center;}
+  .charm .it:last-child{margin-bottom:0;}
+  .charm .it img{width:100%;aspect-ratio:16/10;object-fit:cover;
+    box-shadow:0 18px 44px rgba(29,42,34,.2);}
+  .charm .no{font-family:serif;font-size:13px;letter-spacing:.34em;color:var(--kin);font-weight:700;}
+  .charm h3{font-weight:600;font-size:clamp(23px,3.4vw,29px);margin:14px 0 18px;letter-spacing:.1em;line-height:1.75;}
+  .charm p{font-size:clamp(15.5px,2.2vw,17px);color:var(--moss-lt);line-height:2.3;}
+  .charm p b{color:var(--sumi);font-weight:700;}
+  @media(min-width:840px){
+    .charm .it{grid-template-columns:1.15fr .85fr;gap:56px;}
+    .charm .it:nth-child(even){direction:rtl;} .charm .it:nth-child(even)>*{direction:ltr;}
+  }
+
+  /* ===== 客室 ===== */
+  .rooms-sec .grid{display:grid;grid-template-columns:1fr;gap:26px;}
+  @media(min-width:800px){.rooms-sec .grid{grid-template-columns:1fr 1fr;}}
+  .room{background:#fff;border:1px solid var(--line);overflow:hidden;transition:.4s;}
+  .room:hover{transform:translateY(-5px);box-shadow:0 20px 46px rgba(29,42,34,.16);}
+  .room img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+  .room .in{padding:32px 30px 36px;}
+  .room .tag{font-family:sans-serif;font-size:10.5px;letter-spacing:.28em;color:var(--kin);}
+  .room h3{font-weight:600;font-size:clamp(21px,3vw,25px);margin:12px 0 14px;letter-spacing:.14em;}
+  .room p{font-size:15.5px;color:var(--moss-lt);line-height:2.2;}
+  .room p b{color:var(--sumi);font-weight:700;}
+  .room .yen{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);
+    font-family:sans-serif;font-size:13px;color:var(--moss-lt);letter-spacing:.06em;}
+  .room .yen b{font-size:22px;color:var(--moss);font-weight:700;}
+
+  /* ===== 料理（濃色） ===== */
+  .meal{background:var(--moss);color:var(--kinari);}
+  .meal .lead{color:var(--kinari);}
+  .meal .body{color:rgba(243,239,229,.78);}
+  .meal .body b{color:var(--kin-lt);}
+  .meal img{width:100%;aspect-ratio:16/9;object-fit:cover;margin:56px 0 0;
+    box-shadow:0 24px 60px rgba(0,0,0,.4);}
+  .meal .cols{display:grid;grid-template-columns:1fr;gap:34px;margin-top:56px;}
+  @media(min-width:800px){.meal .cols{grid-template-columns:repeat(3,1fr);gap:44px;}}
+  .meal .col h4{font-weight:600;font-size:19.5px;letter-spacing:.16em;color:var(--kin-lt);
+    padding-bottom:14px;border-bottom:1px solid rgba(165,140,83,.3);margin-bottom:16px;}
+  .meal .col p{font-size:15.5px;line-height:2.25;color:rgba(243,239,229,.76);}
+  .meal .col p b{color:var(--kinari);font-weight:700;}
+  .meal .note{color:rgba(243,239,229,.55);}
+
+  /* ===== 一日の過ごし方（タイムライン） ===== */
+  .day .tl{max-width:660px;margin:0 auto;position:relative;padding-left:34px;}
+  .day .tl::before{content:"";position:absolute;left:5px;top:12px;bottom:12px;width:1px;background:var(--line);}
+  .day .row{position:relative;padding:0 0 44px;}
+  .day .row:last-child{padding-bottom:0;}
+  .day .row::before{content:"";position:absolute;left:-34px;top:9px;width:11px;height:11px;
+    border-radius:50%;background:var(--kin);box-shadow:0 0 0 5px var(--kinari);}
+  .day .t{font-family:sans-serif;font-size:13px;letter-spacing:.2em;color:var(--kin);font-weight:700;}
+  .day h4{font-weight:600;font-size:clamp(19px,2.8vw,22px);margin:8px 0 10px;letter-spacing:.1em;}
+  .day p{font-size:15.5px;color:var(--moss-lt);line-height:2.2;}
+  .day p b{color:var(--sumi);font-weight:700;}
+
+  /* ===== ギャラリー ===== */
+  .gal{background:var(--kinari2);}
+  .gal .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  @media(min-width:800px){.gal .grid{grid-template-columns:repeat(4,1fr);gap:18px;}}
+  .gal img{width:100%;aspect-ratio:1/1;object-fit:cover;transition:.5s;}
+  .gal .g{overflow:hidden;}
+  .gal .g:hover img{transform:scale(1.07);}
+  .gal .tall{grid-column:span 2;} .gal .tall img{aspect-ratio:2/1;}
+
+  /* ===== 声 ===== */
+  .voice .grid{display:grid;grid-template-columns:1fr;gap:24px;}
+  @media(min-width:820px){.voice .grid{grid-template-columns:repeat(3,1fr);}}
+  .voice .v{background:#fff;border:1px solid var(--line);padding:38px 30px;position:relative;}
+  .voice .v::before{content:"”";position:absolute;top:10px;right:20px;font-size:56px;color:var(--kin);opacity:.28;font-family:serif;}
+  .voice .v p{font-size:15.5px;line-height:2.25;color:var(--moss-lt);}
+  .voice .v p b{color:var(--sumi);font-weight:700;}
+  .voice .who{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);
+    font-family:sans-serif;font-size:12px;letter-spacing:.1em;color:var(--kin);}
+
+  /* ===== 基本情報（詳細表） ===== */
+  .info{background:var(--kinari2);}
+  .info .tbl{max-width:760px;margin:0 auto;border-top:1px solid var(--line);}
+  .info dl{display:grid;grid-template-columns:1fr;gap:0;border-bottom:1px solid var(--line);padding:20px 4px;}
+  @media(min-width:700px){.info dl{grid-template-columns:200px 1fr;align-items:baseline;}}
+  .info dt{font-family:sans-serif;font-size:13px;letter-spacing:.16em;color:var(--kin);font-weight:700;padding-bottom:6px;}
+  .info dd{font-size:16px;line-height:2.1;color:var(--sumi);}
+  .info dd b{font-weight:700;}
+  .info dd small{display:block;font-family:sans-serif;font-size:12.5px;color:var(--moss-lt);margin-top:4px;letter-spacing:.04em;}
+
+  /* ===== アクセス ===== */
+  .acc .box{max-width:700px;margin:0 auto;text-align:center;}
+  .acc .addr{font-size:clamp(17px,2.6vw,20px);letter-spacing:.1em;line-height:2;}
+  .acc .ways{display:grid;grid-template-columns:1fr;gap:20px;margin-top:44px;}
+  @media(min-width:700px){.acc .ways{grid-template-columns:1fr 1fr;}}
+  .acc .w{border:1px solid var(--line);padding:28px 24px;background:#fff;}
+  .acc .w h4{font-family:sans-serif;font-size:12px;letter-spacing:.24em;color:var(--kin);font-weight:700;margin-bottom:12px;}
+  .acc .w p{font-size:15.5px;color:var(--moss-lt);line-height:2.1;}
+  .acc .w p b{color:var(--sumi);font-weight:700;}
+
+  /* ===== ラストCTA ===== */
+  .last{position:relative;padding:0;}
+  .last img{width:100%;height:min(78vh,640px);object-fit:cover;}
+  .last .over{position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,30,24,.9),rgba(20,30,24,.5));
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 26px;}
+  .last h2{color:var(--kinari);font-weight:600;font-size:clamp(25px,4.6vw,38px);letter-spacing:.16em;line-height:1.85;}
+  .last p{color:rgba(243,239,229,.82);font-size:clamp(15.5px,2.2vw,17px);line-height:2.3;margin:26px auto 36px;max-width:26em;}
+  .last p b{color:var(--kin-lt);font-weight:700;}
+
+  footer{background:var(--moss);color:rgba(243,239,229,.5);text-align:center;
+    padding:52px 26px;font-family:sans-serif;font-size:12px;letter-spacing:.14em;line-height:2.2;}
+  footer b{display:block;font-family:"Hiragino Mincho ProN",serif;font-size:19px;
+    letter-spacing:.36em;color:var(--kinari);margin-bottom:14px;font-weight:600;}
+</style>
+</head>
+<body>
+
+<div class="sample-bar">デザイン見本（サンプル）｜高級旅館 ── 宿名・文言・写真・料金・数字・お客様の声はすべて架空のサンプルです</div>
+
+<header class="bar">
+  <div class="name">旅宿 翠月<small>SUIGETSU</small></div>
+  <div class="right">
+    <div class="price">1泊2食付 1名<b>48,000円〜</b><span>（税・サービス料込／2名1室ご利用時）</span></div>
+    <a href="#plan" class="btn-s">空室を見る<span class="arw">→</span></a>
+  </div>
+</header>
+
+<!-- ===== FV ===== -->
+<div class="fv">
+  <div class="slide"><img src="images/hotel-hero.png" alt="夕暮れの旅館の外観"></div>
+  <div class="slide"><img src="images/hotel-onsen.png" alt="檜の露天風呂"></div>
+  <div class="slide"><img src="images/hotel-room.png" alt="和室の客室"></div>
+  <div class="veil"></div>
+  <div class="inner">
+    <div>
+      <div class="en">SUIGETSU — MOUNTAIN RYOKAN</div>
+      <h1>山あいに、<br><em>十二室だけ</em>の夜。</h1>
+    </div>
+    <div class="sub">谷を渡る風の音と、<b>檜の湯の匂い</b>だけが残る。<br>ここには、急がなくていい時間があります。</div>
+  </div>
+  <div class="foot">
+    <div class="rooms">全<b>12</b>室／全室 露天風呂付<br>チェックイン <b>15:00</b>　アウト <b>11:00</b></div>
+    <a href="#plan" class="btn">宿泊プランを見る<span class="arw">→</span></a>
+  </div>
+  <div class="scroll"></div>
+</div>
+
+<!-- ===== リード ===== -->
+<section>
+  <div class="wrap">
+    <p class="lead">谷のいちばん奥、<br>看板のない一軒宿です。</p>
+    <p class="body">最寄り駅から車で二十分。杉木立を抜けた先に、翠月はあります。<b>創業は昭和三十四年</b>、湯守が三代にわたって同じ源泉を守ってきました。増やしたのは客室の数ではなく、一室あたりの静けさです。</p>
+    <p class="body">十二室すべてに露天風呂があり、廊下で他のお客様とすれ違うことはほとんどありません。<b>食事もすべてお部屋か個室のお食事処で</b>お召し上がりいただきます。</p>
+    <p class="note">※文言・写真・料金・数字はすべて架空のサンプルです。実際は、確認できた事実の数字だけを入れます。</p>
+  </div>
+</section>
+
+<!-- ===== 宿の魅力 三つ ===== -->
+<section class="charm">
+  <div class="wrap">
+    <div class="head">
+      <div class="en">THREE PLEASURES</div>
+      <h2>宿の愉しみ、三つ</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="it">
+      <img src="images/hotel-onsen.png" alt="檜の露天風呂と庭">
+      <div>
+        <div class="no">壱</div>
+        <h3>源泉を、独り占めする</h3>
+        <p>全室に檜の露天風呂を備えています。<b>加水も加温もしていない源泉</b>が、一日中そのまま流れ続けます。朝は谷から立ちのぼる霧、夜は木々の影。同じ湯船なのに、時間で景色が変わります。大浴場もありますが、部屋から出ずに一日を終える方が半数以上です。</p>
+      </div>
+    </div>
+
+    <div class="it">
+      <img src="images/hotel-lounge.png" alt="夜の読書ラウンジ">
+      <div>
+        <div class="no">弐</div>
+        <h3>夜は、灯りを落とした書斎で</h3>
+        <p>母屋の二階に、宿泊者だけが使える読書室があります。<b>蔵書はおよそ千二百冊</b>、この土地の民俗や山の記録が中心です。二十二時を過ぎると照明をさらに落とし、話し声のない時間になります。夜食のそば湯を、無料でお出ししています。</p>
+      </div>
+    </div>
+
+    <div class="it">
+      <img src="images/hotel-kaiseki.png" alt="季節の会席料理">
+      <div>
+        <div class="no">参</div>
+        <h3>献立は、その日の朝に決まる</h3>
+        <p>固定の献立表をお渡ししていません。<b>その朝に届いた食材を見てから</b>、板長が組み立てます。山菜、川魚、猪。里の畑から届く野菜。同じ月に二度お越しになっても、同じお膳は出ません。苦手な食材は、ご予約時にお知らせください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 客室 ===== -->
+<section class="rooms-sec">
+  <div class="wrap">
+    <div class="head">
+      <div class="en">GUEST ROOMS</div>
+      <h2>十二室、すべて間取りが違います</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="grid">
+      <div class="room">
+        <img src="images/hotel-room.png" alt="谷側の客室">
+        <div class="in">
+          <div class="tag">TANI — 谷側</div>
+          <h3>谷の間（六室）</h3>
+          <p>広縁の先が、そのまま谷に落ちています。<b>川音がいちばん近い部屋</b>です。四十二平米、和室十二畳＋広縁。露天風呂は檜。</p>
+          <div class="yen">1泊2食付 1名 <b>48,000</b>円〜</div>
+        </div>
+      </div>
+      <div class="room">
+        <img src="images/hotel-lounge.png" alt="森側の特別室">
+        <div class="in">
+          <div class="tag">MORI — 森側</div>
+          <h3>森の間（四室）</h3>
+          <p>杉と楓に囲まれた静かな側です。<b>秋は窓の全面が紅葉</b>になります。五十六平米、寝室と居間を分けた造り。露天風呂は石。</p>
+          <div class="yen">1泊2食付 1名 <b>62,000</b>円〜</div>
+        </div>
+      </div>
+      <div class="room">
+        <img src="images/hotel-hero.png" alt="離れ">
+        <div class="in">
+          <div class="tag">HANARE — 離れ</div>
+          <h3>離れ 月見（一棟）</h3>
+          <p>母屋から石畳で三十歩。<b>専用の庭と門を持つ一棟</b>です。七十八平米。夕食は棟内の囲炉裏でお出しします。</p>
+          <div class="yen">1泊2食付 1名 <b>98,000</b>円〜</div>
+        </div>
+      </div>
+      <div class="room">
+        <img src="images/hotel-onsen.png" alt="バリアフリーの部屋">
+        <div class="in">
+          <div class="tag">HIRA — 平屋</div>
+          <h3>平屋の間（一室）</h3>
+          <p>段差のない造りで、車椅子のままお入りいただけます。<b>浴室にも手すりを設置</b>。三十八平米。ご予約時にご相談ください。</p>
+          <div class="yen">1泊2食付 1名 <b>44,000</b>円〜</div>
+        </div>
+      </div>
+    </div>
+    <p class="note">※料金・室数・広さはすべて架空のサンプルです。</p>
+  </div>
+</section>
+
+<!-- ===== 料理 ===== -->
+<section class="meal">
+  <div class="wrap">
+    <div class="head on-dark">
+      <div class="en">CUISINE</div>
+      <h2>山の献立</h2>
+      <div class="rule"></div>
+    </div>
+    <p class="lead">品数は、多くありません。</p>
+    <p class="body">お出しするのは七品から九品。<b>器を下げてから次を出す</b>ので、一品ずつ温度の一番いいところで召し上がっていただけます。お食事の時間は、十八時から二十時のあいだでお選びください。</p>
+    <img src="images/hotel-kaiseki.png" alt="季節の会席">
+    <div class="cols">
+      <div class="col">
+        <h4>春・夏</h4>
+        <p>山菜の天ぷら、岩魚の塩焼き、里の夏野菜を冷やした椀。<b>五月は山椒</b>を、六月は青梅を使います。</p>
+      </div>
+      <div class="col">
+        <h4>秋・冬</h4>
+        <p>茸の土瓶蒸し、猪の小鍋仕立て。<b>十二月から二月は囲炉裏</b>で、炭火の焼き物をお出しします。</p>
+      </div>
+      <div class="col">
+        <h4>朝餉</h4>
+        <p>釜で炊いた米と、三種の漬物。<b>味噌は宿で仕込んだもの</b>。お櫃はおかわり自由です。</p>
+      </div>
+    </div>
+    <p class="note">※献立・仕入れの内容はすべて架空のサンプルです。</p>
+  </div>
+</section>
+
+<!-- ===== 一日の過ごし方 ===== -->
+<section class="day">
+  <div class="wrap">
+    <div class="head">
+      <div class="en">A DAY AT SUIGETSU</div>
+      <h2>翠月での、一日</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="tl">
+      <div class="row">
+        <div class="t">15:00</div>
+        <h4>到着、お部屋でお茶を</h4>
+        <p>ロビーでの記帳はありません。<b>お部屋にご案内してから</b>、係の者が手続きを承ります。お茶と、季節の生菓子をお出しします。</p>
+      </div>
+      <div class="row">
+        <div class="t">16:30</div>
+        <h4>湯に、一度目</h4>
+        <p>日が落ちる前の露天風呂がいちばん静かです。<b>大浴場は貸切も可能</b>（45分・無料・当日受付）。</p>
+      </div>
+      <div class="row">
+        <div class="t">18:00</div>
+        <h4>夕餉</h4>
+        <p>お部屋、または個室のお食事処で。<b>お酒は地の蔵のものを八種</b>ご用意しています。</p>
+      </div>
+      <div class="row">
+        <div class="t">21:00</div>
+        <h4>読書室へ</h4>
+        <p>母屋二階。<b>二十二時からは照明を落とし</b>、静かな時間になります。夜食のそば湯をどうぞ。</p>
+      </div>
+      <div class="row">
+        <div class="t">06:30</div>
+        <h4>朝霧の湯</h4>
+        <p>谷から霧が上がる時間です。<b>一年でいちばん多いのは十月</b>。露天風呂から見えます。</p>
+      </div>
+      <div class="row">
+        <div class="t">11:00</div>
+        <h4>お発ち</h4>
+        <p>チェックアウトは十一時。<b>お発ちの後も、日帰り湯として当日中は</b>ご利用いただけます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ギャラリー ===== -->
+<section class="gal">
+  <div class="wrap">
+    <div class="head">
+      <div class="en">GALLERY</div>
+      <h2>宿の景色</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="grid">
+      <div class="g tall"><img src="images/hotel-hero.png" alt="外観"></div>
+      <div class="g"><img src="images/hotel-onsen.png" alt="露天風呂"></div>
+      <div class="g"><img src="images/hotel-kaiseki.png" alt="料理"></div>
+      <div class="g"><img src="images/hotel-room.png" alt="客室"></div>
+      <div class="g"><img src="images/hotel-lounge.png" alt="読書室"></div>
+      <div class="g tall"><img src="images/hotel-onsen.png" alt="庭"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 声 ===== -->
+<section class="voice">
+  <div class="wrap">
+    <div class="head">
+      <div class="en">VOICE</div>
+      <h2>お泊まりになった方から</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="grid">
+      <div class="v">
+        <p>チェックインで立たされないのが、こんなに楽だと思いませんでした。<b>部屋に入ってから手続き</b>という順番、ほかの宿でも真似してほしいです。</p>
+        <div class="who">50代・ご夫婦／2泊</div>
+      </div>
+      <div class="v">
+        <p>読書室が目当てで行きました。<b>二十二時から本当に誰も喋らない</b>。あの時間のために、また予約しました。</p>
+        <div class="who">40代・おひとり／1泊</div>
+      </div>
+      <div class="v">
+        <p>父の車椅子で泊まれる宿を探していました。段差がないだけでなく、<b>浴室の手すりの位置まで聞いてくださった</b>のが有難かったです。</p>
+        <div class="who">60代・ご家族3名／1泊</div>
+      </div>
+    </div>
+    <p class="note">※お客様の声も架空のサンプルです。実際は、許可をいただいた本物の声だけを掲載します。</p>
+  </div>
+</section>
+
+<!-- ===== 基本情報 ===== -->
+<section class="info" id="plan">
+  <div class="wrap">
+    <div class="head">
+      <div class="en">INFORMATION</div>
+      <h2>基本情報</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="tbl">
+      <dl><dt>総客室数</dt><dd><b>12室</b>（全室 露天風呂付）<small>谷の間6／森の間4／離れ1／平屋1</small></dd></dl>
+      <dl><dt>ご宿泊料金</dt><dd>1泊2食付 1名 <b>48,000円〜98,000円</b><small>税・サービス料込／2名1室ご利用時。休前日・繁忙期は別料金</small></dd></dl>
+      <dl><dt>チェックイン / アウト</dt><dd><b>15:00 / 11:00</b><small>アーリーチェックイン（13:00）は1室 5,500円で承ります</small></dd></dl>
+      <dl><dt>お食事</dt><dd>夕食・朝食ともに お部屋または個室のお食事処<small>アレルギー・苦手な食材はご予約時にお知らせください</small></dd></dl>
+      <dl><dt>温泉</dt><dd>源泉かけ流し（加水・加温なし）<small>大浴場2／貸切風呂1（45分・無料・当日受付）</small></dd></dl>
+      <dl><dt>お子様</dt><dd><b>12歳以上</b>のお客様に限らせていただいております<small>静けさを保つための方針です。ご理解をお願いいたします</small></dd></dl>
+      <dl><dt>バリアフリー</dt><dd>平屋の間（1室）は段差なし・浴室手すりあり<small>車椅子の幅など、事前にご相談ください</small></dd></dl>
+      <dl><dt>Wi-Fi</dt><dd>全館無料<small>読書室のみ、電波を弱めています</small></dd></dl>
+      <dl><dt>送迎</dt><dd>最寄り駅より 無料送迎あり<small>1日4便・前日までにご予約ください</small></dd></dl>
+      <dl><dt>駐車場</dt><dd>あり（予約不要・無料・12台）<small>EV充電 200V×2台</small></dd></dl>
+      <dl><dt>お支払い</dt><dd>現金／各種クレジットカード／各種QR決済<small>事前決済も承ります</small></dd></dl>
+      <dl><dt>その他</dt><dd>全館禁煙（喫煙所1か所）／ペットのお預かりなし</dd></dl>
+    </div>
+    <p class="note">※すべて架空のサンプルです。</p>
+  </div>
+</section>
+
+<!-- ===== アクセス ===== -->
+<section class="acc">
+  <div class="wrap">
+    <div class="head">
+      <div class="en">ACCESS</div>
+      <h2>お越しの道順</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="box">
+      <p class="addr">〒000-0000<br>◯◯県◯◯郡◯◯町 字翠月 1-1</p>
+      <div class="ways">
+        <div class="w">
+          <h4>BY TRAIN</h4>
+          <p>◯◯駅より <b>無料送迎バスで20分</b><br>1日4便（14:00／15:00／16:00／17:00）<br>前日までにご予約ください</p>
+        </div>
+        <div class="w">
+          <h4>BY CAR</h4>
+          <p>◯◯ICより <b>約35分</b><br>駐車場12台・予約不要・無料<br>冬季は冬用タイヤをご用意ください</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ラストCTA ===== -->
+<section class="last">
+  <img src="images/hotel-hero.png" alt="夕暮れの翠月">
+  <div class="over">
+    <h2>十二室のうち、<br>ひと部屋を空けてお待ちします。</h2>
+    <p>週末・紅葉の時期は<b>三か月前から</b>埋まります。お日にちが決まりましたら、お早めにご確認ください。</p>
+    <a href="#" class="btn">空室を確認する<span class="arw">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <b>旅宿 翠月</b>
+  〒000-0000 ◯◯県◯◯郡◯◯町 字翠月 1-1／TEL 000-000-0000<br>
+  これはデザイン見本です。実在の宿泊施設ではありません。
+</footer>
+
+</body>
+</html>

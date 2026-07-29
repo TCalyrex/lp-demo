@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relay（リレー）｜商談を、取りこぼさない。営業案件管理SaaS（デザインデモ）</title>
+<meta name="description" content="案件のステータスがバラバラで、受注前に商談が消える。Relayは営業パイプラインを自動で見える化し、取りこぼしを止めるBtoB SaaSです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --bg2:#F5F7FB; --ink:#0B1220; --muted:#5B6472; --line:#E6EAF1;
+    --brand:#4F46E5; --brand2:#6366F1; --cyan:#06B6D4; --emerald:#10B981;
+    --dark:#0A1020; --dark2:#111a30;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);line-height:1.8;font-size:16px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  .en{font-family:"Space Grotesk",sans-serif;}
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  section{padding:84px 0;}
+  h2{font-size:30px;font-weight:900;line-height:1.45;letter-spacing:-.01em;}
+  @media(min-width:760px){h2{font-size:38px;}}
+  .eyebrow{font-family:"Space Grotesk";font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:14px;}
+  .sec-head{max-width:660px;margin-bottom:44px;}
+  .sec-head p{color:var(--muted);margin-top:14px;font-size:16px;}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:13px 24px;border-radius:11px;transition:transform .12s ease,box-shadow .12s ease,background .12s;}
+  .btn.primary{background:var(--brand);color:#fff;box-shadow:0 8px 20px rgba(79,70,229,.30);}
+  .btn.primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(79,70,229,.42);background:#4338CA;}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);}
+  .btn.ghost:hover{border-color:var(--brand);color:var(--brand);}
+  .btn.light{background:#fff;color:var(--brand);} .btn.light:hover{transform:translateY(-2px);}
+  .btn.big{padding:16px 30px;font-size:16px;}
+
+  /* nav */
+  .nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .nav .in{display:flex;align-items:center;justify-content:space-between;height:66px;}
+  .logo{display:flex;align-items:center;gap:9px;font-family:"Space Grotesk";font-weight:700;font-size:21px;letter-spacing:-.01em;}
+  .logo .dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--cyan));display:inline-block;position:relative;}
+  .logo .dot:after{content:"";position:absolute;inset:8px;border-radius:3px;background:#fff;}
+  .nav .links{display:none;gap:28px;font-size:14px;font-weight:500;color:#3a4354;}
+  .nav .links a:hover{color:var(--brand);}
+  .nav .act{display:flex;align-items:center;gap:12px;}
+  .nav .act .btn{padding:10px 18px;font-size:14px;}
+  .nav .ghostlink{display:none;}
+  @media(min-width:900px){.nav .links{display:flex;} .nav .ghostlink{display:inline-flex;}}
+
+  /* hero */
+  .hero{background:
+      radial-gradient(60% 60% at 80% 0%, rgba(99,102,241,.28), transparent 60%),
+      radial-gradient(50% 50% at 10% 30%, rgba(6,182,212,.16), transparent 60%),
+      linear-gradient(180deg,var(--dark),var(--dark2));
+    color:#fff;position:relative;overflow:hidden;padding:76px 0 90px;}
+  .hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:46px 46px;mask-image:radial-gradient(70% 70% at 50% 20%,#000,transparent);}
+  .hero .in{position:relative;}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#c7cffb;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;margin-bottom:24px;}
+  .badge .d{width:7px;height:7px;border-radius:50%;background:var(--emerald);box-shadow:0 0 0 3px rgba(16,185,129,.25);}
+  .hero h1{font-size:38px;font-weight:900;line-height:1.32;letter-spacing:-.02em;margin-bottom:20px;}
+  @media(min-width:760px){.hero h1{font-size:56px;}}
+  .hero h1 .g{background:linear-gradient(100deg,#a5b4fc,#67e8f9);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero .sub{font-size:18px;color:#aeb8d0;max-width:560px;margin-bottom:30px;}
+  .hero .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+  .hero .microtrust{margin-top:22px;font-size:13px;color:#8892ac;}
+
+  /* dashboard mock */
+  .mock{margin-top:56px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 80px rgba(0,0,0,.5);background:#0e1526;}
+  .mock .bar{display:flex;align-items:center;gap:7px;padding:12px 16px;background:#0b1120;border-bottom:1px solid rgba(255,255,255,.08);}
+  .mock .bar i{width:11px;height:11px;border-radius:50%;background:#37405c;display:inline-block;}
+  .mock .bar i:nth-child(1){background:#ff5f57;} .mock .bar i:nth-child(2){background:#febc2e;} .mock .bar i:nth-child(3){background:#28c840;}
+  .mock .bar .url{margin-left:12px;font-family:"Space Grotesk";font-size:12px;color:#6b7594;background:#131b30;padding:4px 12px;border-radius:6px;}
+  .mock .body{display:grid;grid-template-columns:150px 1fr;min-height:340px;}
+  .mock .side{background:#0b1120;border-right:1px solid rgba(255,255,255,.06);padding:16px 12px;display:none;}
+  .mock .side .item{height:9px;border-radius:5px;background:#1b2540;margin-bottom:14px;}
+  .mock .side .item.act{background:linear-gradient(90deg,var(--brand),var(--cyan));width:80%;}
+  .mock .main{padding:20px;}
+  @media(min-width:760px){.mock .side{display:block;}}
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px;}
+  .tile{background:#131b30;border:1px solid rgba(255,255,255,.06);border-radius:11px;padding:14px;}
+  .tile .lb{font-size:11px;color:#7e88a6;}
+  .tile .vl{font-family:"Space Grotesk";font-weight:700;font-size:22px;color:#fff;margin-top:4px;}
+  .tile .vl.up{color:#5eead4;}
+  .chart{display:flex;align-items:flex-end;gap:9px;height:110px;padding:14px;background:#131b30;border:1px solid rgba(255,255,255,.06);border-radius:11px;margin-bottom:18px;}
+  .chart span{flex:1;border-radius:5px 5px 0 0;background:linear-gradient(180deg,var(--brand2),var(--brand));opacity:.9;}
+  .kanban{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .col{background:#131b30;border:1px solid rgba(255,255,255,.06);border-radius:11px;padding:12px;}
+  .col .h{font-size:11px;color:#8892ac;margin-bottom:10px;font-weight:600;}
+  .card{background:#1a2440;border-radius:8px;padding:10px;margin-bottom:8px;}
+  .card .l1{height:7px;width:70%;background:#2c3860;border-radius:4px;margin-bottom:6px;}
+  .card .l2{height:6px;width:45%;background:#232f52;border-radius:4px;}
+  .card .tag{display:inline-block;margin-top:8px;height:14px;width:44px;border-radius:4px;background:rgba(99,102,241,.35);}
+  .card .tag.e{background:rgba(16,185,129,.35);}
+
+  /* logo cloud */
+  .cloud{background:var(--bg2);padding:38px 0;border-bottom:1px solid var(--line);}
+  .cloud .lead{text-align:center;font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.04em;margin-bottom:20px;}
+  .cloud .row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 34px;align-items:center;}
+  .cloud .lg{font-family:"Space Grotesk";font-weight:700;font-size:19px;color:#9aa3b5;letter-spacing:-.01em;opacity:.85;}
+
+  /* problem */
+  .prob-grid{display:grid;gap:18px;}
+  @media(min-width:760px){.prob-grid{grid-template-columns:repeat(3,1fr);}}
+  .prob{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:26px;}
+  .prob .ic{width:44px;height:44px;border-radius:11px;background:#fee2e2;color:#dc2626;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+  .prob h3{font-size:18px;font-weight:700;margin-bottom:8px;}
+  .prob p{color:var(--muted);font-size:15px;}
+
+  /* features */
+  .feat-grid{display:grid;gap:20px;}
+  @media(min-width:680px){.feat-grid{grid-template-columns:1fr 1fr;}}
+  @media(min-width:960px){.feat-grid{grid-template-columns:repeat(3,1fr);}}
+  .feat{border:1px solid var(--line);border-radius:16px;padding:28px;transition:box-shadow .2s,transform .2s,border-color .2s;}
+  .feat:hover{box-shadow:0 16px 40px rgba(15,18,32,.08);transform:translateY(-3px);border-color:#d4d9e6;}
+  .feat .ic{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#eef2ff,#e0e7ff);color:var(--brand);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+  .feat h3{font-size:18px;font-weight:700;margin-bottom:8px;}
+  .feat p{color:var(--muted);font-size:15px;}
+
+  /* steps */
+  .steps{background:var(--dark);color:#fff;border-radius:24px;padding:56px 40px;}
+  .steps .sec-head p{color:#aeb8d0;}
+  .step-grid{display:grid;gap:26px;counter-reset:s;}
+  @media(min-width:760px){.step-grid{grid-template-columns:repeat(3,1fr);}}
+  .stp{position:relative;padding-top:12px;}
+  .stp .no{counter-increment:s;content:counter(s);font-family:"Space Grotesk";font-weight:700;font-size:15px;width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;color:#a5b4fc;margin-bottom:16px;}
+  .stp .no:before{content:"0" counter(s);}
+  .stp h3{font-size:19px;font-weight:700;margin-bottom:8px;}
+  .stp p{color:#aeb8d0;font-size:15px;}
+
+  /* metrics */
+  .metrics{background:linear-gradient(120deg,var(--brand),#7c3aed);color:#fff;}
+  .met-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:34px 20px;text-align:center;}
+  @media(min-width:760px){.met-grid{grid-template-columns:repeat(4,1fr);}}
+  .met .n{font-family:"Space Grotesk";font-weight:700;font-size:48px;line-height:1;letter-spacing:-.02em;}
+  @media(min-width:760px){.met .n{font-size:58px;}}
+  .met .l{margin-top:10px;font-size:14px;color:#e0e0ff;font-weight:500;}
+
+  /* testimonial */
+  .testi{display:grid;gap:30px;align-items:center;}
+  @media(min-width:820px){.testi{grid-template-columns:1.1fr .9fr;}}
+  .testi .photo{border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 20px 50px rgba(15,18,32,.12);}
+  .testi .photo img{width:100%;aspect-ratio:16/11;object-fit:cover;}
+  .testi blockquote{font-size:22px;font-weight:700;line-height:1.7;letter-spacing:-.01em;}
+  @media(min-width:760px){.testi blockquote{font-size:26px;}}
+  .testi .quo{font-family:"Space Grotesk";font-size:48px;color:var(--brand);line-height:.5;}
+  .testi .who{margin-top:20px;color:var(--muted);font-size:14px;}
+  .testi .who b{color:var(--ink);display:block;font-size:15px;}
+
+  /* pricing */
+  .price-grid{display:grid;gap:22px;align-items:stretch;}
+  @media(min-width:820px){.price-grid{grid-template-columns:repeat(3,1fr);}}
+  .pcard{border:1px solid var(--line);border-radius:18px;padding:30px;display:flex;flex-direction:column;background:#fff;}
+  .pcard.hot{border:2px solid var(--brand);box-shadow:0 24px 60px rgba(79,70,229,.18);position:relative;}
+  .pcard.hot .flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--brand);color:#fff;font-size:12px;font-weight:700;padding:5px 16px;border-radius:999px;letter-spacing:.03em;}
+  .pcard .pn{font-family:"Space Grotesk";font-weight:700;font-size:20px;}
+  .pcard .pd{color:var(--muted);font-size:14px;margin:4px 0 18px;min-height:42px;}
+  .pcard .amt{font-family:"Space Grotesk";font-weight:700;font-size:40px;letter-spacing:-.02em;}
+  .pcard .amt small{font-size:15px;color:var(--muted);font-weight:500;font-family:"Noto Sans JP";}
+  .pcard ul{list-style:none;margin:22px 0;display:grid;gap:11px;}
+  .pcard li{font-size:14px;color:#3a4354;padding-left:26px;position:relative;}
+  .pcard li:before{content:"✓";position:absolute;left:0;top:0;color:var(--emerald);font-weight:800;}
+  .pcard .btn{width:100%;justify-content:center;margin-top:auto;}
+
+  /* faq */
+  .faq details{border-bottom:1px solid var(--line);}
+  .faq summary{list-style:none;cursor:pointer;padding:22px 44px 22px 0;position:relative;font-weight:700;font-size:17px;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary:after{content:"+";position:absolute;right:6px;top:20px;font-size:24px;color:var(--brand);font-weight:400;}
+  .faq details[open] summary:after{content:"–";}
+  .faq .a{padding:0 0 22px;color:var(--muted);font-size:15px;max-width:760px;}
+
+  /* cta band */
+  .ctaband{background:var(--dark);color:#fff;text-align:center;border-radius:24px;padding:64px 30px;position:relative;overflow:hidden;}
+  .ctaband:before{content:"";position:absolute;inset:0;background:radial-gradient(50% 80% at 50% 0%,rgba(99,102,241,.4),transparent 70%);}
+  .ctaband .in2{position:relative;}
+  .ctaband h2{margin-bottom:14px;}
+  .ctaband p{color:#aeb8d0;margin-bottom:28px;}
+  .ctaband .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+  /* footer */
+  footer{background:#0b1120;color:#8892ac;padding:56px 0 30px;font-size:14px;}
+  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px;margin-bottom:34px;}
+  @media(max-width:680px){.foot-top{grid-template-columns:1fr 1fr;}}
+  footer .logo{color:#fff;margin-bottom:12px;}
+  footer h4{color:#c7cffb;font-size:13px;margin-bottom:14px;font-weight:700;}
+  footer a{display:block;color:#8892ac;margin-bottom:9px;}
+  footer a:hover{color:#fff;}
+  .foot-bar{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;font-size:13px;}
+  .demo-note{background:#eef1f7;color:#5B6472;text-align:center;font-size:12.5px;padding:14px 16px;line-height:1.7;}
+
+  .fade{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
+  .fade.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="wrap in">
+    <div class="logo"><span class="dot"></span>Relay</div>
+    <div class="links">
+      <a href="#features">機能</a>
+      <a href="#case">導入事例</a>
+      <a href="#price">料金</a>
+      <a href="#faq">よくある質問</a>
+    </div>
+    <div class="act">
+      <a class="btn ghost ghostlink" href="#">資料請求</a>
+      <a class="btn primary" href="#cta">無料で試す</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="wrap in">
+    <div class="badge"><span class="d"></span>導入1,200社突破・14日間無料トライアル</div>
+    <h1>商談を、<span class="g">取りこぼさない。</span></h1>
+    <p class="sub">案件のステータスは営業の頭の中と、バラバラのスプレッドシートの中。Relayは営業パイプラインを自動で見える化し、「あの商談どうなった？」をゼロにするBtoB向け案件管理SaaSです。</p>
+    <div class="cta-row">
+      <a class="btn primary big" href="#cta">無料で試す →</a>
+      <a class="btn ghost big" href="#" style="color:#c7cffb;border-color:rgba(255,255,255,.2);">3分でわかる資料を見る</a>
+    </div>
+    <p class="microtrust">クレジットカード不要／初期費用0円／かんたん導入</p>
+
+    <!-- dashboard mock -->
+    <div class="mock">
+      <div class="bar"><i></i><i></i><i></i><span class="url">app.relay.example / pipeline</span></div>
+      <div class="body">
+        <div class="side">
+          <div class="item act"></div><div class="item"></div><div class="item"></div>
+          <div class="item"></div><div class="item"></div><div class="item" style="width:60%;"></div>
+        </div>
+        <div class="main">
+          <div class="tiles">
+            <div class="tile"><div class="lb">進行中の商談</div><div class="vl">128</div></div>
+            <div class="tile"><div class="lb">今月の受注</div><div class="vl up">¥24.8M</div></div>
+            <div class="tile"><div class="lb">受注率</div><div class="vl up">42%</div></div>
+          </div>
+          <div class="chart"><span style="height:40%"></span><span style="height:62%"></span><span style="height:48%"></span><span style="height:78%"></span><span style="height:58%"></span><span style="height:90%"></span><span style="height:70%"></span></div>
+          <div class="kanban">
+            <div class="col"><div class="h">商談化</div><div class="card"><div class="l1"></div><div class="l2"></div><div class="tag"></div></div><div class="card"><div class="l1"></div><div class="l2"></div><div class="tag"></div></div></div>
+            <div class="col"><div class="h">提案中</div><div class="card"><div class="l1"></div><div class="l2"></div><div class="tag e"></div></div></div>
+            <div class="col"><div class="h">受注</div><div class="card"><div class="l1"></div><div class="l2"></div><div class="tag e"></div></div><div class="card"><div class="l1"></div><div class="l2"></div><div class="tag e"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== LOGO CLOUD ===== -->
+<div class="cloud">
+  <div class="wrap">
+    <div class="lead">成長企業の営業チームに選ばれています</div>
+    <div class="row">
+      <span class="lg">NorthPeak</span><span class="lg">Cobalt</span><span class="lg">Studio 8</span>
+      <span class="lg">Meridian</span><span class="lg">Fluxo</span><span class="lg">Aozora Inc.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROBLEM ===== -->
+<section>
+  <div class="wrap fade">
+    <div class="sec-head">
+      <div class="eyebrow">The problem</div>
+      <h2>受注の手前で、商談が静かに消えていく。</h2>
+      <p>ツールを入れても、現場が入力しなければ意味がない。多くの営業組織が、同じ場所でつまずいています。</p>
+    </div>
+    <div class="prob-grid">
+      <div class="prob">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 9v4M12 17h.01M10.3 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.7 3.86a2 2 0 0 0-3.4 0z"/></svg></div>
+        <h3>案件が属人化する</h3>
+        <p>進捗は担当者の頭の中。休んだ日も、辞めた後も、誰も状況が分からない。</p>
+      </div>
+      <div class="prob">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="m7 14 3-4 4 3 5-7"/></svg></div>
+        <h3>数字が集計待ち</h3>
+        <p>着地見込みを知るのに、毎週スプレッドシートの手集計。会議のための資料づくりに追われる。</p>
+      </div>
+      <div class="prob">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>フォロー漏れが起きる</h3>
+        <p>「次いつ連絡するか」が管理されず、温度の高い商談ほど、追客の間に冷めていく。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section id="features" style="background:var(--bg2);">
+  <div class="wrap fade">
+    <div class="sec-head">
+      <div class="eyebrow">Features</div>
+      <h2>入力させない。だから、続く。</h2>
+      <p>Relayは「営業に手間を増やさない」ことを設計の起点にしています。既存のメール・カレンダー・名刺と連携し、記録の大半を自動化します。</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <h3>パイプライン管理</h3>
+        <p>商談をドラッグ&ドロップでステージ移動。組織の案件が1画面で見渡せます。</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16v12H5.2L4 17.5z"/><path d="M8 9h8M8 12h5"/></svg></div>
+        <h3>メール自動連携</h3>
+        <p>やりとりしたメールが該当案件へ自動で紐づく。転記の手間がなくなります。</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7"/><rect x="12" y="7" width="3" height="11"/><rect x="17" y="13" width="3" height="5"/></svg></div>
+        <h3>リアルタイム予測</h3>
+        <p>着地見込みと受注率を自動集計。会議前の資料づくりから解放されます。</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 1"/></svg></div>
+        <h3>フォロー漏れ通知</h3>
+        <p>次アクションの期日が近づくと自動でリマインド。温度の高い商談を取りこぼしません。</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h3>チーム共有</h3>
+        <p>権限設計とコメント機能で、上長のレビューや引き継ぎがそのまま画面で完結します。</p>
+      </div>
+      <div class="feat">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2 4 6v6c0 5 3.4 8 8 10 4.6-2 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>セキュリティ</h3>
+        <p>通信の暗号化・IPアクセス制限・監査ログに対応。情報システム部門の要件にも応えます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section>
+  <div class="wrap fade">
+    <div class="steps">
+      <div class="sec-head" style="margin-bottom:36px;">
+        <div class="eyebrow" style="color:#a5b4fc;">How it works</div>
+        <h2>最短、その日から使える。</h2>
+        <p>専任のエンジニアは不要。3ステップで、営業の見える化が始まります。</p>
+      </div>
+      <div class="step-grid">
+        <div class="stp"><div class="no"></div><h3>連携する</h3><p>メール・カレンダー・名刺アプリをつなぐだけ。既存のデータを取り込みます。</p></div>
+        <div class="stp"><div class="no"></div><h3>見える化する</h3><p>案件が自動でボードに並び、進捗と着地見込みがリアルタイムで表示されます。</p></div>
+        <div class="stp"><div class="no"></div><h3>改善する</h3><p>止まっている商談・漏れかけの追客が一目で分かり、動くべき所に集中できます。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== METRICS ===== -->
+<section class="metrics">
+  <div class="wrap fade">
+    <div class="met-grid">
+      <div class="met"><div class="n en">1,200<span style="font-size:.5em;">社</span></div><div class="l">導入企業数</div></div>
+      <div class="met"><div class="n en">+32<span style="font-size:.5em;">%</span></div><div class="l">平均受注率の改善</div></div>
+      <div class="met"><div class="n en">1/3</div><div class="l">入力・報告工数</div></div>
+      <div class="met"><div class="n en">98<span style="font-size:.5em;">%</span></div><div class="l">継続利用率</div></div>
+    </div>
+    <p style="text-align:center;margin-top:30px;font-size:12.5px;color:#dcdcff;">※上記はデザインデモ用の架空のサンプル数値です。実際の効果を示すものではありません。</p>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIAL ===== -->
+<section id="case">
+  <div class="wrap fade">
+    <div class="testi">
+      <div class="photo"><img src="images/saas-team.png" alt="オフィスでノートパソコンを囲んで打ち合わせするビジネスチーム"></div>
+      <div>
+        <div class="quo en">"</div>
+        <blockquote>「あの商談どうなった？」が会議から消えました。マネージャーが数字を追う時間を、現場の同行に回せています。</blockquote>
+        <div class="who"><b>営業推進部 マネージャー／SaaS企業（従業員120名）</b>Relay 導入11ヶ月</div>
+        <p style="font-size:12.5px;color:var(--muted);margin-top:14px;">※デザインデモ用の架空の事例です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section id="price" style="background:var(--bg2);">
+  <div class="wrap fade">
+    <div class="sec-head" style="margin-left:auto;margin-right:auto;text-align:center;">
+      <div class="eyebrow">Pricing</div>
+      <h2>チームの規模に合わせて。</h2>
+      <p style="margin-left:auto;margin-right:auto;">すべてのプランで14日間の無料トライアル。初期費用はかかりません。</p>
+    </div>
+    <div class="price-grid">
+      <div class="pcard">
+        <div class="pn">Starter</div>
+        <div class="pd">まず個人〜小チームで試したい方に。</div>
+        <div class="amt">¥1,480<small> /人・月</small></div>
+        <ul>
+          <li>パイプライン管理</li>
+          <li>メール自動連携</li>
+          <li>基本レポート</li>
+          <li>メールサポート</li>
+        </ul>
+        <a class="btn ghost" href="#cta">無料で試す</a>
+      </div>
+      <div class="pcard hot">
+        <div class="flag">いちばん人気</div>
+        <div class="pn">Business</div>
+        <div class="pd">見える化と予測を本格運用するチームに。</div>
+        <div class="amt">¥2,980<small> /人・月</small></div>
+        <ul>
+          <li>Starterの全機能</li>
+          <li>リアルタイム着地予測</li>
+          <li>フォロー漏れ通知</li>
+          <li>権限設計・チーム共有</li>
+          <li>チャットサポート</li>
+        </ul>
+        <a class="btn primary" href="#cta">無料で試す</a>
+      </div>
+      <div class="pcard">
+        <div class="pn">Enterprise</div>
+        <div class="pd">全社導入・高度なセキュリティ要件に。</div>
+        <div class="amt">要相談</div>
+        <ul>
+          <li>Businessの全機能</li>
+          <li>IPアクセス制限・監査ログ</li>
+          <li>SSO/SAML連携</li>
+          <li>専任カスタマーサクセス</li>
+        </ul>
+        <a class="btn ghost" href="#">お問い合わせ</a>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:12.5px;color:var(--muted);margin-top:20px;">※価格はデザインデモ用の架空のサンプルです。</p>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="wrap fade">
+    <div class="sec-head"><div class="eyebrow">FAQ</div><h2>よくあるご質問</h2></div>
+    <div class="faq">
+      <details><summary>導入にどれくらい手間がかかりますか？</summary><div class="a">メールやカレンダーの連携は数分で完了します。既存のスプレッドシートからのデータ移行もインポート機能でサポートしており、専任のエンジニアは不要です。</div></details>
+      <details><summary>現場の営業が入力してくれるか不安です。</summary><div class="a">Relayは「入力させない」設計です。メールのやりとりが自動で案件に紐づくため、手入力は最小限。まずは無料トライアルで、現場の負担がどれだけ減るかをご確認ください。</div></details>
+      <details><summary>他のツールから乗り換えできますか？</summary><div class="a">主要な表計算・CRMからのデータ移行に対応しています。移行の手順はカスタマーサクセスがご案内します。</div></details>
+      <details><summary>セキュリティは大丈夫ですか？</summary><div class="a">通信の暗号化に加え、EnterpriseプランではIPアクセス制限・監査ログ・SSOに対応。情報システム部門の要件に合わせた運用が可能です。</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BAND ===== -->
+<section id="cta">
+  <div class="wrap">
+    <div class="ctaband fade">
+      <div class="in2">
+        <h2>「あの商談どうなった？」を、<br>今日で終わりにする。</h2>
+        <p>14日間、無料。クレジットカードは要りません。</p>
+        <div class="cta-row">
+          <a class="btn light big" href="#">無料で試す →</a>
+          <a class="btn ghost big" href="#" style="color:#fff;border-color:rgba(255,255,255,.25);">資料を請求する</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="demo-note">※本ページはデザインデモです。サービス名「Relay」・ロゴ・導入企業・料金・実績・お客様の声はすべて架空のサンプルであり、実在のサービスや実績を示すものではありません。</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="logo"><span class="dot"></span>Relay</div>
+        <p style="max-width:280px;">営業の商談を取りこぼさない、BtoB向け案件管理SaaS。（デザインデモ）</p>
+      </div>
+      <div>
+        <h4>製品</h4>
+        <a href="#features">機能</a><a href="#price">料金</a><a href="#case">導入事例</a><a href="#faq">よくある質問</a>
+      </div>
+      <div>
+        <h4>会社</h4>
+        <a href="#">運営者情報</a><a href="#">特定商取引法に基づく表記</a><a href="#">プライバシーポリシー</a><a href="#">お問い合わせ</a>
+      </div>
+    </div>
+    <div class="foot-bar">&copy; Relay（デザインデモ）｜○○県○○市○○（※架空のサンプル）</div>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+  document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デザイン見本｜クリニック（信頼・安心／白×深緑・明朝）</title>
+<style>
+  :root{
+    --bg:#f6faf8; --paper:#ffffff; --soft:#eef4f1; --soft2:#e6efeb;
+    --deep:#173f39; --teal:#2f6a60; --teal2:#43897d; --teal-lt:#9cc3ba;
+    --ink:#1f2e2b; --mut:#63756f; --line:#dde8e4; --brass:#a98e5f;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans",-apple-system,sans-serif;
+    background:var(--bg); color:var(--ink);
+    line-height:2.05; letter-spacing:.02em; -webkit-font-smoothing:antialiased;
+  }
+  .sample-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--deep);color:#d7e7e2;font-size:11.5px;letter-spacing:.08em;text-align:center;padding:9px 12px;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 30px;}
+  section{padding:132px 0;}
+  b{font-weight:700;color:var(--teal);}
+  svg.ic{width:100%;height:100%;stroke:currentColor;stroke-width:1.4;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+
+  /* 見出し（英字ラベル＋罫線＋明朝） */
+  .head{text-align:center;margin:0 auto 72px;}
+  .head .en{display:inline-flex;align-items:center;gap:14px;font-family:"Times New Roman",serif;font-size:12px;letter-spacing:.42em;color:var(--brass);text-transform:uppercase;margin-bottom:26px;}
+  .head .en::before,.head .en::after{content:"";width:26px;height:1px;background:var(--brass);opacity:.6;}
+  .head h2{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-weight:600;font-size:clamp(25px,3.8vw,36px);letter-spacing:.08em;line-height:1.7;color:var(--deep);}
+  .head .lead{margin-top:20px;font-size:clamp(14.5px,2.1vw,16px);color:var(--mut);line-height:2;letter-spacing:.04em;}
+
+  /* ===== FV ===== */
+  .fv{background:var(--paper);padding:150px 0 0;}
+  .fv .in{display:grid;grid-template-columns:1fr;gap:44px;align-items:center;}
+  .fv .brand{font-family:"Times New Roman",serif;font-size:13px;letter-spacing:.36em;color:var(--brass);text-transform:uppercase;margin-bottom:30px;}
+  .fv h1{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-weight:600;font-size:clamp(30px,5.4vw,50px);line-height:1.75;letter-spacing:.09em;color:var(--deep);}
+  .fv .sub{margin-top:30px;font-size:clamp(14.5px,2.2vw,16.5px);color:var(--mut);line-height:2.15;letter-spacing:.03em;max-width:24em;}
+  .fv .meta{margin-top:34px;display:flex;flex-direction:column;gap:4px;border-left:2px solid var(--soft2);padding-left:20px;}
+  .fv .meta .r{font-size:13.5px;color:var(--ink);letter-spacing:.04em;}
+  .fv .meta .r span{color:var(--mut);display:inline-block;width:5.5em;}
+  .fv .cta{margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;}
+  .fv .imgwrap{position:relative;}
+  .fv img{width:100%;border-radius:10px;box-shadow:0 30px 60px rgba(23,63,57,.16);display:block;}
+  .fv .imgwrap::after{content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.5);border-radius:6px;pointer-events:none;}
+  .fv .stripe{margin-top:120px;background:var(--deep);color:#dcece7;}
+  .fv .stripe .row{display:grid;grid-template-columns:1fr;}
+  .fv .stripe .c{padding:34px 30px;text-align:center;border-bottom:1px solid rgba(255,255,255,.1);}
+  .fv .stripe .c .t{font-family:"Times New Roman",serif;font-size:11px;letter-spacing:.3em;color:var(--teal-lt);text-transform:uppercase;margin-bottom:10px;}
+  .fv .stripe .c .d{font-size:15px;letter-spacing:.04em;}
+
+  /* ===== ボタン ===== */
+  .btn{
+    display:inline-flex;align-items:center;gap:12px;
+    font-size:15px;font-weight:600;letter-spacing:.08em;
+    color:#fff;background:var(--deep);text-decoration:none;
+    padding:17px 38px;border-radius:4px;
+    box-shadow:0 10px 24px rgba(23,63,57,.2);
+    transition:.3s cubic-bezier(.2,.7,.2,1);
+  }
+  .btn .arw{transition:.3s;}
+  .btn:hover{background:var(--teal);transform:translateY(-2px);box-shadow:0 14px 30px rgba(23,63,57,.28);}
+  .btn:hover .arw{transform:translateX(5px);}
+  .btn.ghost{background:transparent;color:var(--deep);border:1px solid var(--line);box-shadow:none;}
+  .btn.ghost:hover{background:var(--soft);color:var(--deep);transform:translateY(-2px);}
+  .btn.light{background:#fff;color:var(--deep);}
+  .btn.light:hover{background:var(--soft);color:var(--deep);}
+
+  /* ===== 理念 ===== */
+  .creed{background:var(--bg);text-align:center;}
+  .creed .big{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:clamp(22px,3.6vw,32px);line-height:2.1;letter-spacing:.1em;color:var(--deep);font-weight:600;max-width:19em;margin:0 auto;}
+  .creed .big .u{background:linear-gradient(transparent 62%,var(--soft2) 62%);}
+  .creed p{margin-top:40px;font-size:clamp(14.5px,2.1vw,16px);color:var(--mut);line-height:2.3;max-width:34em;margin-left:auto;margin-right:auto;}
+
+  /* ===== 約束（3つ・SVG） ===== */
+  .promise{background:var(--paper);}
+  .pgrid{display:grid;grid-template-columns:1fr;border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+  .pc{padding:52px 40px;text-align:center;border-bottom:1px solid var(--line);}
+  .pc:last-child{border-bottom:none;}
+  .pc .ico{width:52px;height:52px;color:var(--teal);margin:0 auto 24px;}
+  .pc .no{font-family:"Times New Roman",serif;font-size:12px;letter-spacing:.3em;color:var(--brass);margin-bottom:12px;}
+  .pc h3{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-weight:600;font-size:clamp(18px,2.6vw,21px);margin-bottom:16px;letter-spacing:.06em;color:var(--deep);}
+  .pc p{font-size:clamp(14px,2vw,15px);color:var(--mut);line-height:2.1;}
+
+  /* ===== 診療案内 ===== */
+  .depts{background:var(--bg);}
+  .dgrid{display:grid;grid-template-columns:1fr;gap:20px;}
+  .dept{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:34px 32px;display:flex;gap:22px;align-items:flex-start;transition:.3s;}
+  .dept:hover{border-color:var(--teal-lt);box-shadow:0 12px 30px rgba(23,63,57,.08);transform:translateY(-3px);}
+  .dept .ico{flex:none;width:40px;height:40px;color:var(--teal);}
+  .dept h4{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-weight:600;font-size:clamp(17px,2.3vw,19px);margin-bottom:8px;letter-spacing:.05em;color:var(--deep);}
+  .dept p{font-size:14px;color:var(--mut);line-height:1.95;}
+
+  /* ===== 院内のご案内（声の代わり・事実ベース） ===== */
+  .facility{background:var(--paper);}
+  .fgrid{display:grid;grid-template-columns:1fr;gap:22px;}
+  .fc{background:var(--soft);border-radius:10px;padding:36px 32px;}
+  .fc .ico{width:36px;height:36px;color:var(--teal);margin-bottom:20px;}
+  .fc h4{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-weight:600;font-size:clamp(16px,2.2vw,18px);margin-bottom:10px;letter-spacing:.05em;color:var(--deep);}
+  .fc p{font-size:14px;color:var(--mut);line-height:2;}
+
+  /* ===== 受診の流れ ===== */
+  .flow{background:var(--bg);}
+  .steps{display:grid;grid-template-columns:1fr;gap:22px;}
+  .fstep{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:38px 30px 34px;text-align:center;}
+  .fstep .k{font-family:"Times New Roman",serif;font-size:13px;letter-spacing:.2em;color:var(--brass);margin-bottom:16px;}
+  .fstep .ico{width:38px;height:38px;color:var(--teal);margin:0 auto 18px;}
+  .fstep h4{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-weight:600;font-size:clamp(15.5px,2.1vw,17px);margin-bottom:10px;letter-spacing:.04em;color:var(--deep);}
+  .fstep p{font-size:13px;color:var(--mut);line-height:1.85;}
+
+  /* ===== 院長 ===== */
+  .doctor{background:var(--paper);}
+  .dbox{display:grid;grid-template-columns:1fr;gap:44px;align-items:center;max-width:900px;margin:0 auto;}
+  .dbox .card{background:var(--soft);border-radius:12px;padding:48px 40px;}
+  .dbox .avatar{width:110px;height:110px;border-radius:50%;background:var(--paper);border:1px solid var(--line);color:var(--teal);display:flex;align-items:center;justify-content:center;margin:0 auto 26px;}
+  .dbox .avatar svg{width:52px;height:52px;}
+  .dbox .name{font-family:"Times New Roman",serif;font-size:12px;letter-spacing:.16em;color:var(--brass);text-transform:uppercase;}
+  .dbox .jname{font-size:14px;color:var(--mut);margin-top:4px;letter-spacing:.06em;}
+  .dbox h3{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-weight:600;font-size:clamp(20px,3vw,26px);margin:0 0 22px;letter-spacing:.08em;line-height:1.7;color:var(--deep);}
+  .dbox p{font-size:clamp(14.5px,2.1vw,16px);color:var(--mut);line-height:2.3;}
+  .dbox p+p{margin-top:18px;}
+
+  /* ===== アクセス ===== */
+  .access{background:var(--deep);color:#dcece7;}
+  .access .head .en{color:var(--teal-lt);}
+  .access .head .en::before,.access .head .en::after{background:var(--teal-lt);opacity:.5;}
+  .access .head h2{color:#fff;}
+  .abox{display:grid;grid-template-columns:1fr;max-width:820px;margin:0 auto;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;overflow:hidden;}
+  .abox .col{padding:44px 40px;}
+  .abox .col+.col{border-top:1px solid rgba(255,255,255,.12);}
+  .abox .ttl{font-family:"Times New Roman",serif;font-size:11px;letter-spacing:.28em;color:var(--teal-lt);text-transform:uppercase;margin-bottom:22px;}
+  .abox .row{display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:14.5px;}
+  .abox .row:last-child{border-bottom:none;}
+  .abox .row .d{color:#a9cec6;}
+  .abox .addr{font-size:15px;line-height:2;color:#e2f0ec;}
+  .abox .addr .p{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:17px;color:#fff;margin-bottom:10px;letter-spacing:.06em;}
+  .access .cta{text-align:center;margin-top:44px;}
+
+  /* ===== FAQ ===== */
+  .faq{background:var(--bg);}
+  .qa{max-width:760px;margin:0 auto;}
+  .qa dt{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-weight:600;font-size:clamp(16px,2.3vw,18px);color:var(--deep);padding:28px 0 12px;border-top:1px solid var(--line);display:flex;gap:14px;letter-spacing:.04em;}
+  .qa dt .q{font-family:"Times New Roman",serif;color:var(--brass);flex:none;}
+  .qa dd{font-size:clamp(14px,2vw,15px);color:var(--mut);padding:0 0 10px 30px;line-height:2.1;}
+
+  .note{text-align:center;font-size:12px;color:#9aacaa;margin-top:30px;line-height:1.8;letter-spacing:.03em;}
+  footer{padding:66px 30px;text-align:center;color:#8ea19c;font-size:12px;line-height:2;background:var(--paper);border-top:1px solid var(--line);}
+  footer .fbrand{font-family:"Times New Roman",serif;letter-spacing:.3em;color:var(--teal);font-size:14px;margin-bottom:16px;}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:.9s cubic-bezier(.2,.7,.2,1);}
+  .reveal.on{opacity:1;transform:none;}
+
+  @media(min-width:840px){
+    .fv{padding-top:0;}
+    .fv .in{grid-template-columns:1.02fr .98fr;gap:64px;min-height:92svh;padding-top:60px;}
+    .fv .stripe .row{grid-template-columns:repeat(3,1fr);}
+    .fv .stripe .c{border-bottom:none;border-right:1px solid rgba(255,255,255,.1);}
+    .fv .stripe .c:last-child{border-right:none;}
+    .pgrid{grid-template-columns:repeat(3,1fr);}
+    .pc{border-bottom:none;border-right:1px solid var(--line);}
+    .pc:last-child{border-right:none;}
+    .dgrid{grid-template-columns:1fr 1fr;}
+    .fgrid{grid-template-columns:repeat(3,1fr);}
+    .steps{grid-template-columns:repeat(4,1fr);}
+    .dbox{grid-template-columns:.8fr 1.2fr;}
+    .abox{grid-template-columns:1fr 1fr;}
+    .abox .col+.col{border-top:none;border-left:1px solid rgba(255,255,255,.12);}
+  }
+</style>
+</head>
+<body>
+<!-- SVGアイコン定義（絵文字を使わず線画で統一） -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-talk" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-4 3v-3H4z"/><path d="M8 9h8M8 12h5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 2.5v5c0 4.4-3 8-7 10-4-2-7-5.6-7-10v-5z"/><path d="M9 12l2 2 4-4.2"/></symbol>
+  <symbol id="i-stetho" viewBox="0 0 24 24"><path d="M6 3v5a4 4 0 0 0 8 0V3"/><path d="M6 3H4.5M14 3h1.5"/><path d="M10 16v1a4 4 0 0 0 8 0v-2"/><circle cx="18" cy="12" r="2.4"/></symbol>
+  <symbol id="i-child" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M6 21c0-3.5 2.7-6 6-6s6 2.5 6 6"/><path d="M12 12v3"/></symbol>
+  <symbol id="i-syringe" viewBox="0 0 24 24"><path d="M14 4l6 6M18 6l-9.5 9.5L5 19l-1-1L15 6z"/><path d="M9 11l2 2M11 9l2 2"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20S4 15 4 9.5A3.8 3.8 0 0 1 12 7a3.8 3.8 0 0 1 8 2.5C20 15 12 20 12 20z"/><path d="M8 12h2l1-2 1.5 3 1-1h2.5"/></symbol>
+  <symbol id="i-form" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4C10 4 5 9 5 17c0 1 0 2 .3 3C7 13 12 10 18 9c-5 2-8 5-9 11 8 0 11-6 11-16z"/></symbol>
+  <symbol id="i-access" viewBox="0 0 24 24"><path d="M12 21s6-5.4 6-10a6 6 0 1 0-12 0c0 4.6 6 10 6 10z"/><circle cx="12" cy="11" r="2.2"/></symbol>
+</svg>
+
+<div class="sample-bar">デザイン見本（サンプル）｜クリニック ── 医院名・写真・診療内容・診療時間・所在地はすべて架空のサンプルです</div>
+
+<!-- FV -->
+<header class="fv">
+  <div class="wrap in">
+    <div class="tx">
+      <p class="brand">Midori Clinic ／ Internal Medicine &amp; Pediatrics</p>
+      <h1>その不調に、<br>ていねいに向き合う。</h1>
+      <p class="sub">「これくらいで受診していいのかな」——そう迷ったときこそ、どうぞ。ひとつひとつのご不安に、時間をかけて向き合う診療所です。</p>
+      <div class="meta">
+        <p class="r"><span>診療科</span>内科・小児科</p>
+        <p class="r"><span>診療</span>平日 9:00–18:30／土曜 9:00–13:00</p>
+        <p class="r"><span>アクセス</span>◯◯駅 南口より徒歩3分</p>
+      </div>
+      <div class="cta">
+        <a href="#access" class="btn">WEBで予約する <span class="arw">→</span></a>
+        <a href="#depts" class="btn ghost">診療案内を見る</a>
+      </div>
+    </div>
+    <div class="imgwrap">
+      <img src="images/clinic.png" alt="明るく清潔なクリニックの待合室">
+    </div>
+  </div>
+  <div class="stripe">
+    <div class="wrap"><div class="row">
+      <div class="c"><p class="t">Reservation</p><p class="d">WEB予約・当日受付可</p></div>
+      <div class="c"><p class="t">Saturday</p><p class="d">土曜も午前診療</p></div>
+      <div class="c"><p class="t">Access</p><p class="d">駅南口より徒歩3分</p></div>
+    </div></div>
+  </div>
+</header>
+
+<!-- 理念 -->
+<section class="creed reveal">
+  <div class="wrap">
+    <div class="head"><span class="en">Our Belief</span></div>
+    <p class="big">小さな不安を、<span class="u">小さいうちに。</span><br>それが、地域のかかりつけ医の役目だと考えています。</p>
+    <p>体調のことは、誰かに話すだけで少し軽くなるもの。だからこそ私たちは、検査や診断の前に、まず「話しやすい空気」を大切にしています。気になることは、どんな小さなことでも構いません。</p>
+  </div>
+</section>
+
+<!-- 約束 -->
+<section class="promise reveal">
+  <div class="wrap">
+    <div class="head"><span class="en">Our Promise</span><h2>通いやすさへの、三つの約束</h2></div>
+    <div class="pgrid">
+      <div class="pc"><div class="ico"><svg class="ic"><use href="#i-talk"/></svg></div><p class="no">01</p><h3>ていねいな説明</h3><p>むずかしい言葉は使いません。検査の意味も、これからの見通しも、ご納得いただけるまでお話しします。</p></div>
+      <div class="pc"><div class="ico"><svg class="ic"><use href="#i-clock"/></svg></div><p class="no">02</p><h3>待ち時間への配慮</h3><p>WEB予約と受付状況の共有で、待合の時間をできるだけ短く。体調のつらい日の負担を減らします。</p></div>
+      <div class="pc"><div class="ico"><svg class="ic"><use href="#i-shield"/></svg></div><p class="no">03</p><h3>清潔な院内環境</h3><p>発熱の方の動線を分け、こまめな消毒を徹底。お子さまやご高齢の方にも安心の環境を整えています。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 診療案内 -->
+<section class="depts reveal" id="depts">
+  <div class="wrap">
+    <div class="head"><span class="en">Medical Services</span><h2>診療のご案内</h2><p class="lead">日常のあらゆる不調の、はじめの相談先として。</p></div>
+    <div class="dgrid">
+      <div class="dept"><div class="ico"><svg class="ic"><use href="#i-stetho"/></svg></div><div><h4>一般内科</h4><p>かぜ・発熱・せき・腹痛などの急な不調から、健診結果のご相談まで。</p></div></div>
+      <div class="dept"><div class="ico"><svg class="ic"><use href="#i-child"/></svg></div><div><h4>小児科</h4><p>お子さまの発熱・体調不良、育児やご家庭でのご心配ごとにも。</p></div></div>
+      <div class="dept"><div class="ico"><svg class="ic"><use href="#i-syringe"/></svg></div><div><h4>予防接種・健診</h4><p>各種ワクチン、健康診断、生活習慣のチェックに対応します。</p></div></div>
+      <div class="dept"><div class="ico"><svg class="ic"><use href="#i-heart"/></svg></div><div><h4>生活習慣病</h4><p>血圧・血糖・コレステロールなど、継続的な管理をお手伝いします。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 院内のご案内（事実ベース・体験談は載せない） -->
+<section class="facility reveal">
+  <div class="wrap">
+    <div class="head"><span class="en">Our Facility</span><h2>院内のご案内</h2><p class="lead">はじめての方にも、安心してお過ごしいただくために。</p></div>
+    <div class="fgrid">
+      <div class="fc"><div class="ico"><svg class="ic"><use href="#i-shield"/></svg></div><h4>発熱外来の動線分離</h4><p>発熱・感染症状のある方の待機スペースと動線を分け、院内感染に配慮しています。</p></div>
+      <div class="fc"><div class="ico"><svg class="ic"><use href="#i-child"/></svg></div><h4>キッズスペース</h4><p>お子さま連れでも安心。待合には、静かに過ごせる小さなスペースをご用意しています。</p></div>
+      <div class="fc"><div class="ico"><svg class="ic"><use href="#i-access"/></svg></div><h4>バリアフリー設計</h4><p>段差のない院内と広めのお手洗い。車椅子・ベビーカーでもご利用いただけます。</p></div>
+    </div>
+    <p class="note">※院内設備の内容はレイアウトを見せるための架空サンプルです。実在の医療機関ではありません。</p>
+  </div>
+</section>
+
+<!-- 受診の流れ -->
+<section class="flow reveal">
+  <div class="wrap">
+    <div class="head"><span class="en">First Visit</span><h2>受診の流れ</h2></div>
+    <div class="steps">
+      <div class="fstep"><p class="k">Step 01</p><div class="ico"><svg class="ic"><use href="#i-form"/></svg></div><h4>WEB予約</h4><p>24時間いつでも。保険証をご準備ください。</p></div>
+      <div class="fstep"><p class="k">Step 02</p><div class="ico"><svg class="ic"><use href="#i-talk"/></svg></div><h4>受付・問診</h4><p>気になることを、遠慮なくお書きください。</p></div>
+      <div class="fstep"><p class="k">Step 03</p><div class="ico"><svg class="ic"><use href="#i-stetho"/></svg></div><h4>診察</h4><p>お話をよく伺い、必要な検査を行います。</p></div>
+      <div class="fstep"><p class="k">Step 04</p><div class="ico"><svg class="ic"><use href="#i-leaf"/></svg></div><h4>お会計・お薬</h4><p>次回の目安もお伝えします。おだいじに。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 院長 -->
+<section class="doctor reveal">
+  <div class="wrap">
+    <div class="head"><span class="en">Message</span><h2>院長ごあいさつ</h2></div>
+    <div class="dbox">
+      <div style="text-align:center;">
+        <div class="avatar" role="img" aria-label="院長イメージ"><svg class="ic"><use href="#i-stetho"/></svg></div>
+        <p class="name">Director</p>
+        <p class="jname">院長・架空 花子（内科医）</p>
+      </div>
+      <div class="card">
+        <h3>「話しやすさ」を、<br>いちばん大切に。</h3>
+        <p>病院は、緊張する場所かもしれません。だからこそ当院では、<b>まず不安を言葉にできる雰囲気づくり</b>を心がけています。</p>
+        <p>気になることは、どんな小さなことでも構いません。地域の「はじめに相談できる場所」であること。それが、私たちの変わらない願いです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- アクセス -->
+<section class="access reveal" id="access">
+  <div class="wrap">
+    <div class="head"><span class="en">Access &amp; Hours</span><h2>診療時間・アクセス</h2></div>
+    <div class="abox">
+      <div class="col">
+        <p class="ttl">Consultation Hours</p>
+        <div class="row"><span class="d">月・火・木・金</span><span>9:00–12:30 ／ 15:00–18:30</span></div>
+        <div class="row"><span class="d">水曜</span><span>9:00–12:30</span></div>
+        <div class="row"><span class="d">土曜</span><span>9:00–13:00</span></div>
+        <div class="row"><span class="d">休診</span><span>日曜・祝日</span></div>
+      </div>
+      <div class="col">
+        <p class="ttl">Location</p>
+        <p class="addr"><span class="p">みどりクリニック</span>〒000-0000<br>◯◯県◯◯市◯◯町1-2-3　◯◯ビル2F<br>◯◯線「◯◯駅」南口より徒歩3分<br>提携駐車場あり（8台）</p>
+      </div>
+    </div>
+    <div class="cta"><a href="#" class="btn light">WEBで予約する <span class="arw">→</span></a></div>
+    <p class="note" style="color:#a9cec6;">※所在地・診療時間・連絡先はすべて架空のサンプルです。実在の医療機関ではありません。</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq reveal">
+  <div class="wrap">
+    <div class="head"><span class="en">Q &amp; A</span><h2>受診の前に</h2></div>
+    <dl class="qa">
+      <dt><span class="q">Q.</span>予約なしでも受診できますか？</dt>
+      <dd>はい、受付は可能です。WEB予約をご利用いただくと、待ち時間を短くできます。</dd>
+      <dt><span class="q">Q.</span>どんな症状で行っていいか分かりません。</dt>
+      <dd>「これくらいで…」とためらう必要はありません。判断に迷うときこそ、気軽にご相談ください。</dd>
+      <dt><span class="q">Q.</span>子どもと一緒に受診できますか？</dt>
+      <dd>もちろんです。小児科も診ておりますので、ご家族そろってのご来院を歓迎します。</dd>
+      <dt><span class="q">Q.</span>お薬はどこでもらえますか？</dt>
+      <dd>近隣の調剤薬局をご案内します。院内処方をご希望の場合は受付でお尋ねください。</dd>
+    </dl>
+  </div>
+</section>
+
+<footer>
+  <p class="fbrand">MIDORI CLINIC</p>
+  ※これは「なべとも」のデザイン見本です。医院名・写真・診療内容・診療時間・所在地は、すべてレイアウトを見せるための架空サンプルであり、実在の医療機関・実在の実績ではありません。<br>
+  信頼・安心系｜白×深緑・明朝／線画アイコン｜来院導線型（患者体験談は不掲載・医療広告に配慮）
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
