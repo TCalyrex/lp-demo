@@ -196,6 +196,21 @@
   .fv .rank sup{font-size:.6em;}
   .fv .fvnote{margin-top:12px;font-size:9.5px;line-height:1.7;color:#8a7f72;letter-spacing:0;}
   .fv .fvnote b{color:#5c5147;}
+
+  /* 不調の瞬間を絵で見せる（ヒザテクトの「あッ!!」の型） */
+  .worry .moment{position:relative;max-width:600px;margin:0 auto;line-height:0;
+    border-radius:12px;overflow:hidden;box-shadow:0 16px 38px rgba(120,70,20,.22);}
+  .worry .moment img{width:100%!important;max-width:none!important;height:auto;
+    margin:0!important;filter:none!important;display:block;}
+  .worry .bubble{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-weight:600;
+    font-size:clamp(40px,10.5vw,68px);color:#fff;letter-spacing:.06em;line-height:1;
+    text-shadow:0 2px 18px rgba(0,0,0,.9);white-space:nowrap;}
+  .worry .bubble::before{content:"";position:absolute;left:50%;top:50%;
+    transform:translate(-50%,-50%);width:230%;height:280%;z-index:-1;
+    background:radial-gradient(ellipse at center,rgba(0,0,0,.86) 0%,rgba(0,0,0,.66) 42%,rgba(0,0,0,.22) 66%,transparent 78%);}
+  .worry .imgnote{max-width:600px;margin:6px auto 30px;text-align:right;
+    font-size:10.5px;color:#9a8d7e;}
 </style>
 </head>
 <body>
@@ -241,6 +256,14 @@
       <span class="lab">CHECK</span>
       <h2>こんな“朝のだるさ”、<br><span class="o">あきらめていませんか？</span></h2>
     </div>
+
+    <!-- 不調の瞬間を絵で見せる（ヒザテクトの「あッ!!」の型） -->
+    <div class="moment">
+      <img src="images/sup-moment.png" alt="午後、どっと疲れが押し寄せる">
+      <div class="bubble">はぁ…</div>
+    </div>
+    <p class="imgnote">※イメージです。</p>
+
     <div class="checks">
       <div class="chk"><span class="bx">✓</span>目覚ましが鳴っても、布団から出られない</div>
       <div class="chk"><span class="bx">✓</span>午後になると、どっと疲れが押し寄せる</div>
