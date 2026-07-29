@@ -13,6 +13,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
+  body{padding-bottom:22px;}
   body{
     font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
     color:var(--ink); background:var(--cream);
@@ -23,7 +24,7 @@
   .mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
   .en{font-family:"Optima","Didot","Times New Roman",serif;}
 
-  .sample-bar{position:fixed;top:0;left:0;right:0;z-index:300;background:var(--ink);color:#f3e9df;
+  .sample-bar{position:fixed;bottom:0;top:auto;left:0;right:0;z-index:300;background:rgba(61,51,46,.94);color:#f3e9df;backdrop-filter:blur(6px);
     font-size:10px;letter-spacing:.06em;text-align:center;padding:4px 12px;line-height:1.2;}
 
   .wrap{max-width:1000px;margin:0 auto;padding:0 30px;}
@@ -45,7 +46,7 @@
   /* ===== FV（商品を見せる／キャッチが主役／バッジは丸で下） ===== */
   /* 文字群は画面のできるだけ上へ。上余白はサンプルバー(33px)を避ける最小限だけ */
   .fv{position:relative;min-height:100svh;display:flex;align-items:flex-start;overflow:hidden;
-    padding:25px 0 40px;background:var(--rose-pale);}
+    padding:14px 0 40px;background:var(--rose-pale);}
   .fv .ph{position:absolute;inset:0;}
   .fv .ph img{width:100%;height:100%;object-fit:cover;object-position:18% center;}
   /* テキストは左、商品は右。画像は sips で左右反転済み（商品が右・余白が左）。
@@ -64,7 +65,7 @@
   @media(max-width:860px){
     /* 上に商品をはっきり見せ、下でテキスト。境目はグラデーションで溶かして
        「写真の上に文字を載せている」一体感は保つ */
-    .fv{min-height:100svh;padding:22px 0 24px;align-items:flex-end;background:var(--cream);}
+    .fv{min-height:100svh;padding:12px 0 22px;align-items:flex-end;background:var(--cream);}
     .fv .ph{top:0;bottom:auto;height:54svh;}
     .fv .ph img{object-position:76% 44%;filter:saturate(1.1) contrast(1.08);}
     .fv .ph::after{background:linear-gradient(0deg,
