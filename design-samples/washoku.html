@@ -3,263 +3,1082 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>デザイン見本｜高級和食・割烹（和モダン）</title>
+<title>デザイン見本｜高級割烹・料亭（来店予約型）</title>
 <style>
+  /* ===== 実測3本の型（瓢喜／つきじ治作）=====
+     ①料理と空間の写真が主役。人物は写さない
+     ②電話番号をヘッダーに大きく（電話予約が主導線）
+     ③「公式サイトからの予約が最安値」を明示（一休・食べログ対策）
+     ④FV直下に予約フォーム（日付・時間・人数）
+     ⑤利用シーン別の導線
+     ⑥「全席完全個室」を強調
+     ⑦コース料金は「◯,◯◯◯円から」と下限だけ出す
+     ─ 配色は墨×和紙×朱。煽りゼロ。値引きなし。明朝が主役 */
+
   :root{
-    --paper:#f4efe3; --paper2:#ebe4d4; --sumi:#241f19; --sumi-lt:#544b3e;
-    --shu:#a8402c; --shu-dk:#8a3220; --kin:#8f7331; --line:#d8cfba;
+    --wa:#f5f0e8;   /* 和紙 */
+    --wa2:#ece5d3;  /* 和紙・濃 */
+    --sumi:#1e1a14; /* 墨 */
+    --sumi-lt:#534b3e; /* 墨・薄 */
+    --shu:#9c3a22;  /* 朱 */
+    --shu-dk:#7d2e1c;
+    --kin:#7a6228;  /* 金 */
+    --line:#d5ccb8;
+    --max:540px;
   }
+
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
+    font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+    color:var(--sumi);
+    background:#2a2520;  /* 外側は暗い墨色 */
+    line-height:2.1;
+    letter-spacing:.06em;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:40px; /* サンプルバー分 */
+  }
+
+  /* ===== センターフレーム（スマホ幅） ===== */
+  .frame{
+    max-width:var(--max);
+    margin:0 auto;
+    background:var(--wa);
+    position:relative;
+  }
+
+  /* ===== サンプルバー（下部固定） ===== */
+  .sample-bar{
+    position:fixed;bottom:0;left:0;right:0;z-index:300;
+    background:rgba(30,26,20,.93);color:#e8e0cc;
+    backdrop-filter:blur(6px);
+    font-size:10px;letter-spacing:.06em;text-align:center;
+    padding:5px 12px;line-height:1.3;
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;
+  }
+
+  /* ===== ヘッダー：電話番号＋ネット予約の2導線（型②） ===== */
+  .lp-head{
+    background:var(--sumi);
+    color:#e8e0cc;
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+  .lp-head .shop-name{
+    font-size:13px;
+    letter-spacing:.28em;
+    color:#d0c8b4;
+    line-height:1.4;
+    font-family:"Hiragino Sans",sans-serif;
+  }
+  .lp-head .shop-name b{
+    display:block;
+    font-size:17px;
+    letter-spacing:.22em;
+    color:#e8e0cc;
+    font-weight:700;
     font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
-    color:var(--sumi); background:var(--paper); line-height:2.1; letter-spacing:.06em;
   }
-  .sample-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--sumi);color:#efe7d6;font-size:12px;letter-spacing:.1em;text-align:center;padding:8px 12px;font-family:sans-serif;}
-  .wrap{max-width:940px;margin:0 auto;padding:0 30px;}
-  section{padding:118px 0;}
-
-  /* 見出し（落款印＋上余白） */
-  .head{text-align:center;margin:0 auto 58px;padding-top:14px;}
-  .head .seal{display:inline-block;width:46px;height:46px;line-height:46px;background:var(--shu);color:#fff;border-radius:4px;font-size:21px;margin-bottom:24px;box-shadow:0 4px 14px rgba(168,64,44,.28);}
-  .head h2{font-weight:600;font-size:clamp(25px,4.2vw,35px);letter-spacing:.12em;}
-  .head .en{font-family:sans-serif;font-size:11px;letter-spacing:.4em;color:var(--kin);margin-top:14px;}
-
-  /* ===== FV：1画面・写真上・テキスト＋CTAまで収める ===== */
-  .fv{height:100svh;min-height:600px;display:flex;flex-direction:column;}
-  .fv-img{width:100%;height:42vh;min-height:230px;object-fit:cover;flex:none;}
-  .fv-txt{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 26px 40px;background:
-    radial-gradient(circle at 50% 0%,rgba(255,255,255,.6),transparent 60%),var(--paper);}
-  .fv .en{font-family:sans-serif;font-size:12px;letter-spacing:.42em;color:var(--kin);margin-bottom:20px;}
-  .fv h1{font-weight:600;font-size:clamp(31px,6.6vw,54px);line-height:1.55;letter-spacing:.1em;}
-  .fv h1 .shu{color:var(--shu);}
-  .fv .sub{margin-top:22px;font-size:clamp(15.5px,2.4vw,18px);color:var(--sumi-lt);line-height:1.95;font-weight:400;}
-  .fv .sub b{font-weight:700;color:var(--sumi);}
-
-  /* ===== 上質なボタン ===== */
-  .btn{
-    display:inline-flex;align-items:center;gap:12px;
-    font-family:sans-serif;font-size:16px;font-weight:600;letter-spacing:.14em;
-    color:#fff;background:var(--shu);text-decoration:none;
-    padding:20px 46px;border-radius:3px;
-    box-shadow:0 10px 26px rgba(168,64,44,.3);
-    transition:.35s cubic-bezier(.2,.7,.2,1);
+  .lp-head .head-right{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-shrink:0;
   }
-  .btn .arw{transition:.35s;font-family:serif;}
-  .btn:hover{background:var(--shu-dk);transform:translateY(-3px);box-shadow:0 16px 34px rgba(168,64,44,.42);}
-  .btn:hover .arw{transform:translateX(5px);}
-  .fv .btn{margin-top:30px;}
+  .tel-box{
+    text-align:right;
+    font-family:"Hiragino Sans",sans-serif;
+    line-height:1.3;
+  }
+  .tel-box .tel-num{
+    display:block;
+    font-size:17px;
+    font-weight:800;
+    letter-spacing:.04em;
+    color:#e8c87a;
+  }
+  .tel-box .tel-label{
+    display:block;
+    font-size:8.5px;
+    color:#a8a090;
+    letter-spacing:.1em;
+  }
+  .head-rsv-btn{
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.1em;
+    color:var(--sumi);
+    background:#e8c87a;
+    text-decoration:none;
+    padding:9px 14px;
+    border-radius:2px;
+    white-space:nowrap;
+    transition:.3s;
+  }
+  .head-rsv-btn:hover{background:#d4b460;}
 
-  .lead{font-size:clamp(23px,3.8vw,32px);line-height:2;text-align:center;letter-spacing:.09em;max-width:22em;margin:0 auto;font-weight:600;}
-  .body{font-size:clamp(16px,2.2vw,17.5px);color:var(--sumi-lt);max-width:34em;margin:34px auto 0;line-height:2.25;text-align:center;}
-  .body b{font-weight:700;color:var(--sumi);}
-  b{font-weight:700;color:var(--sumi);}
-  p.body + p.body{margin-top:24px;}
+  /* ===== 告知帯：公式予約が最安値（型③） ===== */
+  .notice-bar{
+    background:var(--shu);
+    color:#fff;
+    text-align:center;
+    padding:9px 16px;
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:clamp(12px,3.2vw,13.5px);
+    font-weight:700;
+    letter-spacing:.06em;
+    line-height:1.5;
+  }
+  .notice-bar span{
+    background:#fff;
+    color:var(--shu);
+    padding:1px 7px;
+    font-size:.88em;
+    margin-right:6px;
+    border-radius:1px;
+  }
 
-  /* 悩み */
-  .concerns{background:var(--paper2);}
-  .concerns .items{max-width:640px;margin:0 auto;}
-  .concerns .it{padding:24px 0;border-bottom:1px solid var(--line);font-size:clamp(16.5px,2.4vw,18.5px);position:relative;padding-left:36px;font-weight:500;}
-  .concerns .it::before{content:"◦";position:absolute;left:8px;color:var(--shu);font-size:22px;top:20px;}
+  /* ===== FV（型①：料理・空間の写真が主役） ===== */
+  .fv{
+    position:relative;
+    line-height:0;
+    background:var(--sumi);
+  }
+  .fv-img{
+    width:100%;
+    height:min(68vw,380px);
+    object-fit:cover;
+    object-position:center 60%;
+    display:block;
+    /* FVはCSSだけで最初から見えている。opacity:0 は使わない */
+  }
+  .fv-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+      to bottom,
+      rgba(20,16,10,.12) 0%,
+      rgba(20,16,10,.38) 55%,
+      rgba(20,16,10,.72) 100%
+    );
+  }
+  .fv-text{
+    position:absolute;
+    bottom:0;left:0;right:0;
+    padding:28px 26px 32px;
+    color:#fff;
+    line-height:1;
+  }
+  .fv-catch{
+    font-size:clamp(26px,7vw,32px);
+    font-weight:600;
+    letter-spacing:.14em;
+    line-height:1.55;
+    text-shadow:0 2px 10px rgba(20,16,10,.5);
+  }
+  .fv-catch .shu{color:#e8a87a;}
+  .fv-sub{
+    margin-top:12px;
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:clamp(12px,3.2vw,13.5px);
+    color:#d8d0bc;
+    letter-spacing:.1em;
+    line-height:1.6;
+  }
 
-  /* 理由 */
-  .reason{display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:74px;align-items:center;}
-  .reason:last-child{margin-bottom:0;}
-  .reason img{width:100%;aspect-ratio:5/4;object-fit:cover;border:7px solid #fff;box-shadow:0 12px 34px rgba(36,31,25,.14);}
-  .reason .vno{font-family:sans-serif;font-size:12px;letter-spacing:.3em;color:var(--kin);font-weight:700;}
-  .reason h3{font-weight:600;font-size:clamp(22px,3.2vw,27px);margin:14px 0 16px;letter-spacing:.06em;line-height:1.7;}
-  .reason p{font-size:clamp(15.5px,2.2vw,17px);color:var(--sumi-lt);line-height:2.2;}
+  /* ===== FV直下：予約フォーム（型④） ===== */
+  .rsv-form{
+    background:var(--sumi);
+    padding:20px 20px 22px;
+    line-height:1;
+  }
+  .rsv-form .form-title{
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:11px;
+    letter-spacing:.18em;
+    color:#a8a090;
+    margin-bottom:14px;
+    text-align:center;
+  }
+  .rsv-form .fields{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:8px;
+    margin-bottom:12px;
+  }
+  .rsv-form select{
+    width:100%;
+    padding:11px 10px;
+    border:1px solid #3c3830;
+    background:#2c2820;
+    color:#e8e0cc;
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:13px;
+    border-radius:2px;
+    appearance:none;
+    -webkit-appearance:none;
+    cursor:pointer;
+    text-align:center;
+  }
+  .rsv-form .rsv-submit{
+    display:block;
+    width:100%;
+    padding:15px;
+    background:var(--shu);
+    color:#fff;
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:.18em;
+    text-align:center;
+    text-decoration:none;
+    border-radius:2px;
+    border:none;
+    cursor:pointer;
+    transition:.3s;
+  }
+  .rsv-form .rsv-submit:hover{background:var(--shu-dk);}
+  .rsv-form .tel-line{
+    text-align:center;
+    margin-top:12px;
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:12px;
+    color:#a8a090;
+    letter-spacing:.06em;
+  }
+  .rsv-form .tel-line a{
+    color:#e8c87a;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:800;
+    letter-spacing:.04em;
+    margin-left:6px;
+  }
 
-  /* コース */
-  .courses{display:grid;grid-template-columns:1fr;gap:24px;}
-  .course{background:#fbf8f0;border:1px solid var(--line);padding:50px 34px;text-align:center;position:relative;transition:.4s;}
-  .course::before{content:"";position:absolute;top:13px;left:13px;right:13px;bottom:13px;border:1px solid var(--line);pointer-events:none;transition:.4s;}
-  .course:hover{transform:translateY(-5px);box-shadow:0 16px 38px rgba(36,31,25,.12);}
-  .course:hover::before{border-color:var(--shu);}
-  .course .kanji{font-size:36px;color:var(--shu);}
-  .course h3{font-weight:600;font-size:clamp(22px,3vw,25px);margin:8px 0 16px;letter-spacing:.2em;}
-  .course p{font-size:clamp(15.5px,2.1vw,16.5px);color:var(--sumi-lt);line-height:2;}
-  .course .price{margin-top:20px;font-family:sans-serif;font-size:17px;color:var(--kin);letter-spacing:.04em;font-weight:600;}
+  /* ===== 共通：セクション ===== */
+  section{padding:72px 0;}
+  .sec-inner{padding:0 26px;}
 
-  /* 流れ */
-  .flow{max-width:600px;margin:0 auto;}
-  .flow .s{display:flex;gap:26px;padding:28px 0;border-bottom:1px dashed var(--line);align-items:flex-start;}
-  .flow .s .k{font-family:serif;font-size:28px;color:#fff;background:var(--shu);flex:none;width:46px;height:46px;line-height:46px;text-align:center;border-radius:50%;}
-  .flow .s h4{font-weight:600;font-size:clamp(17px,2.4vw,19px);margin-bottom:6px;letter-spacing:.06em;}
-  .flow .s p{font-size:clamp(15px,2vw,16px);color:var(--sumi-lt);line-height:1.95;}
+  /* ===== 共通：見出し ===== */
+  .sec-head{
+    text-align:center;
+    margin-bottom:44px;
+  }
+  .sec-head .kana{
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:10px;
+    letter-spacing:.44em;
+    color:var(--kin);
+    margin-bottom:12px;
+    display:block;
+  }
+  .sec-head h2{
+    font-weight:600;
+    font-size:clamp(22px,5.4vw,27px);
+    letter-spacing:.14em;
+    line-height:1.7;
+  }
+  .sec-head .rule{
+    width:32px;
+    height:1px;
+    background:var(--shu);
+    margin:16px auto 0;
+  }
 
-  /* 数字 */
-  .stats{background:var(--sumi);color:var(--paper);}
-  .stats .grid{display:grid;grid-template-columns:1fr;gap:48px;text-align:center;}
-  .stats .num{font-size:clamp(48px,7.4vw,58px);color:#e7c46a;font-weight:600;}
-  .stats .num .u{font-size:24px;}
-  .stats .lbl{font-family:sans-serif;font-size:14px;letter-spacing:.14em;color:#c9c0ab;margin-top:12px;font-weight:600;}
+  /* ===== 利用シーン（型⑤） ===== */
+  .scenes{background:var(--wa2);}
+  .scene-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
+  .scene-card{
+    background:var(--wa);
+    padding:22px 16px;
+    text-align:center;
+    position:relative;
+  }
+  .scene-card::after{
+    content:"";
+    position:absolute;
+    inset:5px;
+    border:1px solid var(--line);
+    pointer-events:none;
+  }
+  .scene-num{
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:10px;
+    letter-spacing:.24em;
+    color:var(--kin);
+    display:block;
+    margin-bottom:10px;
+    font-weight:700;
+  }
+  .scene-kanji{
+    font-size:28px;
+    color:var(--shu);
+    display:block;
+    margin-bottom:8px;
+    line-height:1;
+  }
+  .scene-card h3{
+    font-size:clamp(14px,3.4vw,16px);
+    font-weight:600;
+    letter-spacing:.1em;
+    line-height:1.6;
+    margin-bottom:8px;
+  }
+  .scene-card p{
+    font-size:clamp(12px,2.8vw,13px);
+    color:var(--sumi-lt);
+    line-height:1.9;
+  }
+  .scene-img{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    display:block;
+    margin-top:12px;
+  }
 
-  /* 声 */
-  .voices{display:grid;grid-template-columns:1fr;gap:28px;}
-  .voice{background:#fbf8f0;border:1px solid var(--line);padding:44px 36px 40px;position:relative;}
-  .voice::before{content:"\201C";position:absolute;top:16px;left:22px;font-size:54px;color:var(--line);font-family:serif;line-height:1;}
-  .voice p{font-size:clamp(16px,2.2vw,17.5px);color:var(--sumi);line-height:2.3;position:relative;padding-top:10px;}
-  .voice .who{font-family:sans-serif;font-size:13.5px;letter-spacing:.08em;color:var(--kin);margin-top:20px;font-weight:600;}
+  /* ===== 個室（型⑥） ===== */
+  .private-room{background:var(--sumi);color:#e8e0cc;}
+  .private-room .sec-head h2{color:#e8e0cc;}
+  .private-room .sec-head .kana{color:#8a8070;}
+  .private-room .sec-head .rule{background:#e8c87a;}
+  .room-badge{
+    background:var(--shu);
+    color:#fff;
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:clamp(13px,3.6vw,15px);
+    font-weight:700;
+    letter-spacing:.18em;
+    text-align:center;
+    padding:12px 20px;
+    margin:0 26px 28px;
+    border-radius:2px;
+  }
+  .room-img{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    display:block;
+    margin-bottom:28px;
+  }
+  .room-specs{
+    padding:0 26px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-bottom:20px;
+  }
+  .room-spec{
+    border:1px solid #3c3830;
+    padding:16px 12px;
+    text-align:center;
+    border-radius:2px;
+  }
+  .room-spec .rs-label{
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:10px;
+    letter-spacing:.2em;
+    color:#8a8070;
+    display:block;
+    margin-bottom:6px;
+  }
+  .room-spec .rs-val{
+    font-size:clamp(15px,3.8vw,17px);
+    font-weight:600;
+    color:#e8e0cc;
+    letter-spacing:.1em;
+  }
+  .room-body{
+    padding:0 26px;
+    font-size:clamp(14.5px,3.6vw,16px);
+    color:#c0b8a4;
+    line-height:2.1;
+  }
+  .counter-img{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    display:block;
+    margin-top:28px;
+  }
+  .counter-label{
+    text-align:center;
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:11px;
+    letter-spacing:.2em;
+    color:#8a8070;
+    padding:10px 0 0;
+  }
 
-  /* FAQ */
-  .faq{max-width:720px;margin:0 auto;}
-  .faq dt{font-size:clamp(17px,2.5vw,19px);color:var(--sumi);padding:26px 0 10px;border-top:1px solid var(--line);font-weight:700;}
-  .faq dt::before{content:"問　";color:var(--shu);font-size:15px;}
-  .faq dd{font-size:clamp(15.5px,2.2vw,16.5px);color:var(--sumi-lt);padding-bottom:8px;line-height:2.1;}
+  /* ===== コース（型⑦） ===== */
+  .courses-sec{background:var(--wa2);}
+  .course-img{
+    width:calc(100% - 52px);
+    margin:0 26px 36px;
+    aspect-ratio:16/7;
+    object-fit:cover;
+    display:block;
+  }
+  .course-list{
+    padding:0 26px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+  .course-item{
+    background:var(--wa);
+    padding:26px 22px;
+    display:flex;
+    align-items:flex-start;
+    gap:18px;
+    position:relative;
+  }
+  .course-item::before{
+    content:"";
+    position:absolute;
+    inset:5px;
+    border:1px solid var(--line);
+    pointer-events:none;
+  }
+  .course-no{
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:10px;
+    letter-spacing:.22em;
+    color:var(--kin);
+    font-weight:700;
+    flex-shrink:0;
+    padding-top:4px;
+  }
+  .course-info{flex:1;}
+  .course-info h3{
+    font-weight:600;
+    font-size:clamp(16px,4vw,18px);
+    letter-spacing:.14em;
+    margin-bottom:6px;
+  }
+  .course-info p{
+    font-size:clamp(13px,3.2vw,14px);
+    color:var(--sumi-lt);
+    line-height:1.95;
+    margin-bottom:10px;
+  }
+  .course-price{
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:clamp(14px,3.6vw,16px);
+    color:var(--kin);
+    font-weight:700;
+    letter-spacing:.04em;
+  }
+  .course-note{
+    padding:16px 26px 0;
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:11.5px;
+    color:var(--sumi-lt);
+    letter-spacing:.04em;
+    line-height:1.7;
+  }
 
-  /* オファー */
-  .offer{background:var(--paper2);text-align:center;padding:96px 34px;}
-  .offer h2{font-weight:600;font-size:clamp(26px,4.2vw,38px);margin:20px 0;letter-spacing:.1em;}
-  .offer .price{font-family:sans-serif;font-size:clamp(16px,2.3vw,18px);color:var(--kin);letter-spacing:.05em;font-weight:600;}
+  /* ===== 料理写真 ===== */
+  .dish-sec{background:var(--wa);}
+  .dish-img{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    display:block;
+    margin-bottom:32px;
+  }
+  .dish-text{
+    padding:0 26px;
+    font-size:clamp(15px,3.8vw,17px);
+    color:var(--sumi-lt);
+    line-height:2.2;
+    text-align:center;
+  }
+  .dish-text b{color:var(--sumi);font-weight:700;}
 
-  .note{text-align:center;font-family:sans-serif;font-size:12.5px;color:#948b78;margin-top:34px;letter-spacing:.04em;line-height:1.7;}
-  footer{padding:64px 30px;text-align:center;color:#948b78;font-size:12.5px;font-family:sans-serif;letter-spacing:.05em;line-height:1.9;border-top:1px solid var(--line);}
+  /* ===== ご利用の流れ ===== */
+  .flow-sec{background:var(--wa2);}
+  .flow-list{padding:0 26px;}
+  .flow-step{
+    display:flex;
+    gap:18px;
+    padding:22px 0;
+    border-bottom:1px dashed var(--line);
+    align-items:flex-start;
+  }
+  .flow-step:last-child{border-bottom:none;}
+  .flow-num{
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:22px;
+    font-weight:800;
+    color:var(--shu);
+    flex-shrink:0;
+    width:36px;
+    line-height:1;
+    padding-top:3px;
+  }
+  .flow-step h4{
+    font-weight:600;
+    font-size:clamp(16px,4vw,17.5px);
+    letter-spacing:.08em;
+    margin-bottom:5px;
+  }
+  .flow-step p{
+    font-size:clamp(13.5px,3.4vw,15px);
+    color:var(--sumi-lt);
+    line-height:1.95;
+  }
 
-  .reveal{opacity:0;transform:translateY(30px);transition:1s cubic-bezier(.2,.7,.2,1);}
+  /* ===== お客様の声 ===== */
+  .voices-sec{background:var(--wa);}
+  .voice-list{padding:0 26px;}
+  .voice-card{
+    background:var(--wa2);
+    padding:30px 24px;
+    margin-bottom:14px;
+    position:relative;
+  }
+  .voice-card:last-child{margin-bottom:0;}
+  .voice-quote{
+    font-size:54px;
+    color:var(--line);
+    font-family:serif;
+    line-height:.8;
+    margin-bottom:8px;
+    display:block;
+  }
+  .voice-card p{
+    font-size:clamp(14.5px,3.6vw,16px);
+    color:var(--sumi);
+    line-height:2.2;
+  }
+  .voice-who{
+    display:block;
+    margin-top:14px;
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:12px;
+    letter-spacing:.1em;
+    color:var(--kin);
+    font-weight:700;
+  }
+  .voice-note{
+    padding:16px 26px 0;
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:11px;
+    color:var(--sumi-lt);
+    letter-spacing:.04em;
+  }
+
+  /* ===== FAQ ===== */
+  .faq-sec{background:var(--wa2);}
+  .faq-list{padding:0 26px;}
+  .faq-item{border-top:1px solid var(--line);padding:22px 0;}
+  .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-q{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    margin-bottom:10px;
+  }
+  .faq-q .q-mark{
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:15px;
+    font-weight:800;
+    color:var(--shu);
+    flex-shrink:0;
+    padding-top:2px;
+    width:20px;
+  }
+  .faq-q .q-text{
+    font-size:clamp(15px,3.8vw,16.5px);
+    font-weight:600;
+    letter-spacing:.06em;
+    line-height:1.7;
+  }
+  .faq-a{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+  }
+  .faq-a .a-mark{
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:15px;
+    font-weight:800;
+    color:var(--kin);
+    flex-shrink:0;
+    padding-top:2px;
+    width:20px;
+  }
+  .faq-a .a-text{
+    font-size:clamp(13.5px,3.4vw,15px);
+    color:var(--sumi-lt);
+    line-height:2;
+  }
+
+  /* ===== 予約CTA ===== */
+  .offer-sec{
+    background:var(--sumi);
+    color:#e8e0cc;
+    text-align:center;
+    padding:72px 26px;
+    scroll-margin-top:40px;
+  }
+  .offer-sec .sec-head h2{color:#e8e0cc;}
+  .offer-sec .sec-head .kana{color:#8a8070;}
+  .offer-sec .sec-head .rule{background:#e8c87a;}
+  .offer-price{
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:clamp(14px,3.6vw,16px);
+    color:#e8c87a;
+    letter-spacing:.08em;
+    margin:8px 0 28px;
+    font-weight:700;
+  }
+  .offer-body{
+    font-size:clamp(14px,3.6vw,16px);
+    color:#c0b8a4;
+    line-height:2.1;
+    margin-bottom:28px;
+    max-width:400px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .cta-btn{
+    display:block;
+    background:var(--shu);
+    color:#fff;
+    text-decoration:none;
+    padding:18px 28px;
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:clamp(15px,4vw,17px);
+    font-weight:700;
+    letter-spacing:.18em;
+    border-radius:2px;
+    margin-bottom:18px;
+    transition:.3s;
+  }
+  .cta-btn:hover{background:var(--shu-dk);}
+  .cta-tel-wrap{
+    border:1px solid #3c3830;
+    padding:18px;
+    border-radius:2px;
+    margin-top:4px;
+  }
+  .cta-tel-label{
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:11px;
+    letter-spacing:.18em;
+    color:#8a8070;
+    display:block;
+    margin-bottom:8px;
+  }
+  .cta-tel-num{
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:clamp(22px,6vw,26px);
+    font-weight:800;
+    letter-spacing:.04em;
+    color:#e8c87a;
+    text-decoration:none;
+    display:block;
+  }
+  .cta-tel-hour{
+    font-family:"Hiragino Sans",sans-serif;
+    font-size:11.5px;
+    color:#8a8070;
+    letter-spacing:.08em;
+    margin-top:6px;
+    display:block;
+  }
+
+  /* ===== フッター ===== */
+  footer{
+    background:var(--sumi);
+    border-top:1px solid #3c3830;
+    padding:36px 26px 30px;
+    text-align:center;
+    color:#6a6258;
+    font-size:11px;
+    font-family:"Hiragino Sans",sans-serif;
+    letter-spacing:.05em;
+    line-height:1.85;
+  }
+  footer .shop{
+    font-size:13px;
+    color:#8a8070;
+    letter-spacing:.22em;
+    margin-bottom:10px;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+  }
+
+  /* ===== スクロールアニメーション（FV以外） ===== */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease;}
   .reveal.on{opacity:1;transform:none;}
-
-  @media(min-width:820px){
-    .fv{flex-direction:row;}
-    .fv-img{width:50%;height:auto;flex:none;}
-    .fv-txt{flex:1;padding:40px 56px;}
-    .reason{grid-template-columns:1fr 1fr;gap:48px;}
-    .reason.rev .txt{order:2;}
-    .courses{grid-template-columns:repeat(3,1fr);}
-    .stats .grid{grid-template-columns:repeat(3,1fr);}
-    .voices{grid-template-columns:repeat(2,1fr);}
-  }
 </style>
 </head>
 <body>
-<div class="sample-bar">デザイン見本（サンプル）｜和モダン ── 文言・写真・料金・数字・お客様の声はすべて架空のサンプルです</div>
 
-<!-- FV：写真＋テキスト＋CTAを1画面に -->
-<header class="fv">
-  <img class="fv-img" src="images/washoku.jpg" alt="">
-  <div class="fv-txt">
-    <p class="en">KAPPO CUISINE &nbsp;&#8226;&nbsp; TOKYO</p>
-    <h1>その夜を、<br><span class="shu">一生の記憶</span>に。</h1>
-    <p class="sub"><b>一日一組、カウンター八席だけ。</b><br>旬の食材で組む、その日だけのおまかせ料理。</p>
-    <a href="#offer" class="btn">お席を予約する <span class="arw">→</span></a>
-  </div>
-</header>
+<div class="sample-bar">デザイン見本（サンプル）｜高級割烹・来店予約型 ── 店名・文言・料金・お客様の声はすべて架空のサンプルです</div>
 
-<!-- コンセプト -->
-<section class="wrap reveal">
-  <div class="head"><span class="seal">献</span><h2>料理は、記憶に残る</h2><p class="en">CONCEPT</p></div>
-  <p class="body">その日の朝に届いた食材だけで、その日の献立を組みます。<b>だから同じ夜は、二度とありません。</b>カウンター越しに、季節の移ろいと、職人の手の動きを間近で。器の温度、出汁の香り、間の取り方まで。ひと皿ごとに流れる時間そのものを、味わっていただく場所です。</p>
-  <p class="body">記念日に、接待に、そして自分へのご褒美に。<b>その夜が、長く記憶に残るように。</b></p>
-</section>
+<div class="frame">
 
-<!-- 悩み -->
-<section class="concerns reveal">
-  <div class="wrap">
-    <div class="head"><span class="seal">選</span><h2>こんな夜に、選ばれています</h2><p class="en">FOR SUCH A NIGHT</p></div>
-    <div class="items">
-      <div class="it">大切な方との記念日を、特別な場所で過ごしたい</div>
-      <div class="it">接待で、相手に恥をかかせない店を探している</div>
-      <div class="it">騒がしくない、落ち着いた空間で食事をしたい</div>
-      <div class="it">その季節にしか味わえないものを、丁寧に楽しみたい</div>
+  <!-- ===== ヘッダー：電話番号＋ネット予約（型②） ===== -->
+  <header class="lp-head">
+    <div class="shop-name">
+      <small>KAPPO</small>
+      <b>割烹 榧</b>
     </div>
-    <p class="body" style="margin-top:40px;"><b>ひとつでも当てはまるなら、</b>一度、席をご用意させてください。</p>
-  </div>
-</section>
-
-<!-- 理由 -->
-<section class="wrap reveal">
-  <div class="head"><span class="seal">理</span><h2>選ばれ続ける、理由</h2><p class="en">OUR REASON</p></div>
-  <div class="reason rev">
-    <div class="txt"><p class="vno">其の一</p><h3>その日の食材で、その日だけの献立</h3><p>市場と生産者から届く旬の食材を、その日のうちに。決まったメニューをなぞるのではなく、<b>素材が一番おいしい瞬間に合わせて献立を組みます。</b></p></div>
-    <img src="images/washoku.jpg" alt="">
-  </div>
-  <div class="reason">
-    <div class="txt"><p class="vno">其の二</p><h3>カウンター八席の、贅沢な距離</h3><p>職人の手元を間近に、<b>料理が生まれる瞬間を味わっていただけます。</b>静かに、しかし心のこもった応対で、あなたの夜に寄り添います。</p></div>
-    <img src="images/washoku.jpg" alt="">
-  </div>
-  <div class="reason rev">
-    <div class="txt"><p class="vno">其の三</p><h3>個室と、接待へのご配慮</h3><p>大切な会食のために、<b>完全個室もご用意しております。</b>お相手の苦手な食材、記念日の演出など、事前にご相談ください。</p></div>
-    <img src="images/washoku.jpg" alt="">
-  </div>
-</section>
-
-<!-- コース -->
-<section class="wrap reveal">
-  <div class="head"><span class="seal">膳</span><h2>おまかせ、3つのお献立</h2><p class="en">OMAKASE</p></div>
-  <div class="courses">
-    <div class="course"><p class="kanji">花</p><h3>はな</h3><p>季節の味を気軽に。はじめての方や、軽めにお楽しみになりたい夜へ。</p><p class="price">全8品　¥11,000</p></div>
-    <div class="course"><p class="kanji">月</p><h3>つき</h3><p>当店の定番。旬の魅力をひと通り味わえる、贅沢なおまかせ。</p><p class="price">全11品　¥16,500</p></div>
-    <div class="course"><p class="kanji">雪</p><h3>ゆき</h3><p>特別な夜のための最上のお献立。厳選した食材を、心ゆくまで。</p><p class="price">全14品　¥24,000</p></div>
-  </div>
-</section>
-
-<!-- 流れ -->
-<section class="wrap reveal">
-  <div class="head"><span class="seal">順</span><h2>ご予約から、当日まで</h2><p class="en">RESERVATION FLOW</p></div>
-  <div class="flow">
-    <div class="s"><div class="k">一</div><div><h4>ご予約</h4><p>ネットまたはお電話で。ご希望の日時と人数をお伝えください。</p></div></div>
-    <div class="s"><div class="k">二</div><div><h4>ご要望の確認</h4><p>苦手な食材、アレルギー、記念日の演出などを事前に伺います。</p></div></div>
-    <div class="s"><div class="k">三</div><div><h4>ご来店</h4><p>おしぼりと一杯から。その日の献立とともに、ごゆっくり。</p></div></div>
-    <div class="s"><div class="k">四</div><div><h4>お見送り</h4><p>余韻を大切に。次の季節にも、またお待ちしております。</p></div></div>
-  </div>
-</section>
-
-<!-- 数字 -->
-<section class="stats reveal">
-  <div class="wrap">
-    <div class="head"><span class="seal">数</span><h2 style="color:#efe7d6;">かずのはなし</h2><p class="en">OUR NUMBERS</p></div>
-    <div class="grid">
-      <div><div class="num">18<span class="u">年</span></div><div class="lbl">創業 2007年</div></div>
-      <div><div class="num">8<span class="u">席</span></div><div class="lbl">カウンター</div></div>
-      <div><div class="num">85<span class="u">%</span></div><div class="lbl">再訪率</div></div>
+    <div class="head-right">
+      <div class="tel-box">
+        <b class="tel-num">0000-00-0000</b>
+        <span class="tel-label">11:30-22:00（不定休）</span>
+      </div>
+      <a href="#offer" class="head-rsv-btn">ご予約</a>
     </div>
-    <p class="note" style="color:#a89f8c;">※ここに入る数字は架空のサンプルです。実際は、確認できた事実の数字だけを入れます。</p>
+  </header>
+
+  <!-- ===== 告知帯：公式予約が最安値（型③） ===== -->
+  <div class="notice-bar">
+    <span>公式</span>公式サイトからのご予約が最安値でご案内しています
   </div>
-</section>
 
-<!-- 声 -->
-<section class="wrap reveal">
-  <div class="head"><span class="seal">声</span><h2>お越しになった方の、声</h2><p class="en">VOICE</p></div>
-  <div class="voices">
-    <div class="voice"><p>大事な接待で使わせていただきました。<b>個室の落ち着きと、苦手な食材への気配りが行き届いていて、相手にも大変喜ばれました。</b>料理はもちろん、間の取り方まで美しく、また使わせていただきます。</p><p class="who">50代・男性　個室・月コース</p></div>
-    <div class="voice"><p>記念日に伺いました。<b>カウンターで料理ができあがっていく様子を見ているだけで、特別な時間でした。</b>旬のものを丁寧に、という言葉の意味が、食べて初めて分かりました。</p><p class="who">30代・女性　雪コース</p></div>
+  <!-- ===== FV：玄関の写真（型①） ===== -->
+  <!-- FVはCSSのみで表示。opacity:0からのアニメーションは使わない -->
+  <div class="fv">
+    <img class="fv-img" src="images/wa-hero.jpg" alt="割烹 榧 玄関">
+    <div class="fv-overlay"></div>
+    <div class="fv-text">
+      <p class="fv-catch">大切な席を、<br><span class="shu">最良の一夜</span>に。</p>
+      <p class="fv-sub">完全個室6室　コース 5,500円から（税込）</p>
+    </div>
   </div>
-  <p class="note">※お客様の声も架空のサンプルです。実際は、許可をいただいた本物の声だけを掲載します。</p>
-</section>
 
-<!-- FAQ -->
-<section class="wrap reveal">
-  <div class="head"><span class="seal">問</span><h2>よくあるご質問</h2><p class="en">Q &amp; A</p></div>
-  <dl class="faq">
-    <dt>個室はありますか？</dt>
-    <dd>はい。接待やご記念日のための完全個室をご用意しております。ご予約時にお申し付けください。</dd>
-    <dt>苦手な食材やアレルギーに対応できますか？</dt>
-    <dd>可能な限り対応いたします。ご予約時に事前にお知らせいただけますと幸いです。</dd>
-    <dt>お子様連れでも大丈夫ですか？</dt>
-    <dd>落ち着いた空間を大切にしているため、恐れ入りますが、お子様のご来店はご遠慮いただいております。</dd>
-    <dt>支払い方法は？</dt>
-    <dd>各種クレジットカード、電子マネー、現金がご利用いただけます。</dd>
-  </dl>
-</section>
-
-<!-- オファー -->
-<section class="offer reveal" id="offer">
-  <div class="wrap">
-    <div class="head"><span class="seal">予</span><h2 style="margin-top:0;">席を、ご用意します</h2></div>
-    <p class="body" style="margin-top:0;">席数に限りがございますので、<b>ご予約をおすすめしております。</b>記念日や接待など、特別なご要望も、どうぞお気軽にご相談ください。あなたの大切な夜を、心を込めてお迎えします。</p>
-    <p class="price" style="margin-top:26px;">おまかせコース　¥11,000〜（税込・要予約）</p>
-    <a href="#" class="btn" style="margin-top:30px;">お席を予約する <span class="arw">→</span></a>
+  <!-- ===== FV直下：予約フォーム（型④） ===== -->
+  <div class="rsv-form">
+    <p class="form-title">RESERVATION　ご予約</p>
+    <div class="fields">
+      <select aria-label="日付">
+        <option>日付</option>
+        <option>7月31日（木）</option>
+        <option>8月1日（金）</option>
+        <option>8月2日（土）</option>
+      </select>
+      <select aria-label="時間">
+        <option>時間</option>
+        <option>11:30</option>
+        <option>18:00</option>
+        <option>19:00</option>
+        <option>20:00</option>
+      </select>
+      <select aria-label="人数">
+        <option>人数</option>
+        <option>2名</option>
+        <option>3名</option>
+        <option>4名</option>
+        <option>6名</option>
+        <option>8名以上</option>
+      </select>
+    </div>
+    <a href="#offer" class="rsv-submit">空席を確認してご予約</a>
+    <p class="tel-line">お電話でのご予約：<a href="tel:0000000000">0000-00-0000</a></p>
   </div>
-</section>
 
-<footer>
-  ※これは「なべとも」のデザイン見本です。店名・文言・写真・料金・数字・お客様の声は、すべてレイアウトを見せるための架空サンプルであり、実在のサービス・実在の実績ではありません。<br>
-  和モダン｜生成り×墨×朱・明朝｜デザイン言語カタログ 言語05
-</footer>
+  <!-- ===== 利用シーン（型⑤） ===== -->
+  <section class="scenes reveal">
+    <div class="sec-inner">
+      <div class="sec-head">
+        <span class="kana">SCENE</span>
+        <h2>こんな席に、<br>お使いいただいています</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="scene-grid">
+        <div class="scene-card">
+          <span class="scene-num">01</span>
+          <span class="scene-kanji">接</span>
+          <h3>ご接待・<br>ご会食に</h3>
+          <p>相手に恥をかかせない静かな個室で、大切な取引先をお迎えください。</p>
+          <img class="scene-img" src="images/wa-room.jpg" alt="個室の座敷">
+        </div>
+        <div class="scene-card">
+          <span class="scene-num">02</span>
+          <span class="scene-kanji">宴</span>
+          <h3>ご宴会・<br>歓送迎会に</h3>
+          <p>2名から12名まで対応の個室で、落ち着いた会食をお楽しみください。</p>
+          <img class="scene-img" src="images/wa-counter.jpg" alt="カウンター席">
+        </div>
+        <div class="scene-card">
+          <span class="scene-num">03</span>
+          <span class="scene-kanji">祝</span>
+          <h3>お顔合わせ・<br>お祝いに</h3>
+          <p>記念日・誕生日・お顔合わせなど、一期一会の大切なシーンをご用意します。</p>
+          <img class="scene-img" src="images/wa-dish.jpg" alt="先付の盛り付け">
+        </div>
+        <div class="scene-card">
+          <span class="scene-num">04</span>
+          <span class="scene-kanji">膳</span>
+          <h3>すべての<br>コースから</h3>
+          <p>5,500円から22,000円まで4つのコース。目的と人数に合わせてお選びください。</p>
+          <img class="scene-img" src="images/wa-course.jpg" alt="コース全体">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 完全個室（型⑥） ===== -->
+  <section class="private-room reveal">
+    <div class="sec-inner">
+      <div class="sec-head">
+        <span class="kana">PRIVATE ROOM</span>
+        <h2>全席　完全個室</h2>
+        <div class="rule"></div>
+      </div>
+    </div>
+    <div class="room-badge">個室6室　2名様から12名様まで</div>
+    <img class="room-img" src="images/wa-room.jpg" alt="完全個室の座敷">
+    <div class="room-specs">
+      <div class="room-spec">
+        <span class="rs-label">個室数</span>
+        <span class="rs-val">6室</span>
+      </div>
+      <div class="room-spec">
+        <span class="rs-label">収容人数</span>
+        <span class="rs-val">2〜12名</span>
+      </div>
+      <div class="room-spec">
+        <span class="rs-label">カウンター</span>
+        <span class="rs-val">8席</span>
+      </div>
+      <div class="room-spec">
+        <span class="rs-label">個室形式</span>
+        <span class="rs-val">掘りごたつ</span>
+      </div>
+    </div>
+    <p class="room-body">接待やご会食では、<b style="color:#e8e0cc;">個室であること自体が決め手</b>になります。割烹 榧のすべての個室は完全に仕切られており、他のお客様の気配を感じることなく、お席でのひとときをお楽しみいただけます。</p>
+    <img class="counter-img" src="images/wa-counter.jpg" alt="白木のカウンター席">
+    <p class="counter-label">白木のカウンター席　8席</p>
+  </section>
+
+  <!-- ===== 料理 ===== -->
+  <section class="dish-sec reveal">
+    <img class="dish-img" src="images/wa-dish.jpg" alt="先付の盛り付け">
+    <div class="sec-inner">
+      <div class="sec-head">
+        <span class="kana">CUISINE</span>
+        <h2>季節の食材で組む、<br>その日だけの献立</h2>
+        <div class="rule"></div>
+      </div>
+      <p class="dish-text">その日の朝に届いた食材で、その日の先付から締めまでを組みます。<b>同じ夜は、二度とありません。</b>旬の味わいを丁寧に引き出した一品一品を、ゆっくりとお楽しみください。</p>
+    </div>
+  </section>
+
+  <!-- ===== コース（型⑦：下限のみ表示） ===== -->
+  <section class="courses-sec reveal">
+    <div class="sec-inner">
+      <div class="sec-head">
+        <span class="kana">COURSE</span>
+        <h2>4つのコース</h2>
+        <div class="rule"></div>
+      </div>
+    </div>
+    <img class="course-img" src="images/wa-course.jpg" alt="コース全体の俯瞰">
+    <div class="course-list">
+      <div class="course-item">
+        <span class="course-no">01</span>
+        <div class="course-info">
+          <h3>梅（うめ）</h3>
+          <p>はじめてのお客様や、気軽にお楽しみになりたい夜に。旬の先付から食事まで全8品。</p>
+          <span class="course-price">5,500円（税込・1名）</span>
+        </div>
+      </div>
+      <div class="course-item">
+        <span class="course-no">02</span>
+        <div class="course-info">
+          <h3>竹（たけ）</h3>
+          <p>接待・会食で最もご利用いただくコース。旬の食材を一通り味わえる全10品。</p>
+          <span class="course-price">8,800円（税込・1名）</span>
+        </div>
+      </div>
+      <div class="course-item">
+        <span class="course-no">03</span>
+        <div class="course-info">
+          <h3>松（まつ）</h3>
+          <p>顔合わせ・記念日・大切な会食に。厳選した季節の素材で組む全12品。</p>
+          <span class="course-price">13,200円（税込・1名）</span>
+        </div>
+      </div>
+      <div class="course-item">
+        <span class="course-no">04</span>
+        <div class="course-info">
+          <h3>特別（とくべつ）</h3>
+          <p>特別なご接待・ご宴席に。その季節の最良の素材だけで組む、最上のおまかせ全15品。</p>
+          <span class="course-price">22,000円（税込・1名）</span>
+        </div>
+      </div>
+    </div>
+    <p class="course-note">コース料理は5,500円からご用意しています。飲み物は別途。ご予約時にコースをお選びください。</p>
+  </section>
+
+  <!-- ===== ご利用の流れ ===== -->
+  <section class="flow-sec reveal">
+    <div class="sec-inner">
+      <div class="sec-head">
+        <span class="kana">FLOW</span>
+        <h2>ご予約から、当日まで</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="flow-list">
+        <div class="flow-step">
+          <span class="flow-num">01</span>
+          <div>
+            <h4>ご予約</h4>
+            <p>このページのフォームまたはお電話で。ご希望の日時・人数・コースをお知らせください。</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <span class="flow-num">02</span>
+          <div>
+            <h4>ご要望の確認</h4>
+            <p>苦手な食材・アレルギー・記念日の演出など、事前にお伺いします。</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <span class="flow-num">03</span>
+          <div>
+            <h4>ご来店</h4>
+            <p>暖簾をくぐり、お席へご案内します。おしぼりと先付からゆっくりとどうぞ。</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <span class="flow-num">04</span>
+          <div>
+            <h4>お帰りまで</h4>
+            <p>料理と会話を心ゆくまで。余韻もお席でお楽しみください。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== お客様の声 ===== -->
+  <section class="voices-sec reveal">
+    <div class="sec-inner">
+      <div class="sec-head">
+        <span class="kana">VOICE</span>
+        <h2>お越しになった方の、声</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="voice-list">
+        <div class="voice-card">
+          <span class="voice-quote">&ldquo;</span>
+          <p>大事な接待で利用しました。完全個室で話が弾み、苦手な食材への気配りも行き届いていて、相手にも大変喜ばれました。料理だけでなく、間の取り方まで丁寧で、また使わせていただきます。</p>
+          <span class="voice-who">50代・男性　竹コース・個室</span>
+        </div>
+        <div class="voice-card">
+          <span class="voice-quote">&ldquo;</span>
+          <p>記念日に伺いました。旬の食材を一品ずつ丁寧に出していただき、特別な時間でした。個室なので連れとゆっくり話せて、来てよかったと思えるお店でした。</p>
+          <span class="voice-who">30代・女性　松コース・個室</span>
+        </div>
+      </div>
+      <p class="voice-note">※お客様の声は架空のサンプルです。実際には許可をいただいた本物の声だけを掲載します。</p>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq-sec reveal">
+    <div class="sec-inner">
+      <div class="sec-head">
+        <span class="kana">Q &amp; A</span>
+        <h2>よくあるご質問</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="q-mark">Q</span>
+            <span class="q-text">個室はどのくらいありますか？</span>
+          </div>
+          <div class="faq-a">
+            <span class="a-mark">A</span>
+            <span class="a-text">完全個室が6室あります。2名様から12名様まで対応しております。ご予約時にご希望をお知らせください。</span>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="q-mark">Q</span>
+            <span class="q-text">苦手な食材やアレルギーに対応できますか？</span>
+          </div>
+          <div class="faq-a">
+            <span class="a-mark">A</span>
+            <span class="a-text">可能な範囲で対応いたします。ご予約時に事前にお知らせいただけますと幸いです。</span>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="q-mark">Q</span>
+            <span class="q-text">一休.comや食べログからも予約できますか？</span>
+          </div>
+          <div class="faq-a">
+            <span class="a-mark">A</span>
+            <span class="a-text">ご利用いただけます。ただし、公式サイトからのご予約が最安値でのご案内となります。</span>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="q-mark">Q</span>
+            <span class="q-text">キャンセルはいつまで可能ですか？</span>
+          </div>
+          <div class="faq-a">
+            <span class="a-mark">A</span>
+            <span class="a-text">ご予約日の3日前まで、お電話またはメールにてお申し付けください。それ以降はキャンセル料が発生する場合があります。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 予約CTA ===== -->
+  <section class="offer-sec reveal" id="offer">
+    <div class="sec-head">
+      <span class="kana">RESERVATION</span>
+      <h2>席を、ご用意します</h2>
+      <div class="rule"></div>
+    </div>
+    <p class="offer-price">コース料理 5,500円から（税込）</p>
+    <p class="offer-body">席数に限りがございますので、ご予約をおすすめしております。記念日・接待など、特別なご要望もどうぞお気軽にご相談ください。</p>
+    <a href="#" class="cta-btn">ネットで空席を確認・ご予約</a>
+    <div class="cta-tel-wrap">
+      <span class="cta-tel-label">お電話でのご予約</span>
+      <a href="tel:0000000000" class="cta-tel-num">0000-00-0000</a>
+      <span class="cta-tel-hour">営業時間 11:30〜22:00（不定休）</span>
+    </div>
+  </section>
+
+  <!-- ===== フッター ===== -->
+  <footer>
+    <p class="shop">割烹 榧（かや）</p>
+    <p>〇〇県〇〇市〇〇町（架空）</p>
+    <p>TEL：0000-00-0000　11:30〜22:00（不定休）</p>
+    <p style="margin-top:18px;">
+      ※これは「なべとも」のデザイン見本です。店名・文言・写真・料金・お客様の声は、すべてレイアウトを見せるための架空サンプルであり、実在のサービス・実在の実績ではありません。<br>
+      高級割烹・料亭｜墨×朱×金・明朝｜来店予約型｜デザイン言語カタログ
+    </p>
+  </footer>
+
+</div><!-- /frame -->
 
 <script>
-  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  /* FV以外のセクションのみスクロールアニメーション */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+  }, {threshold: .1});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
