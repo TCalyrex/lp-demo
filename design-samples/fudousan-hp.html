@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>あおば不動産株式会社｜相続・空き家の買取｜川越市</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #F7F4EE;
+  --dark: #16233A;
+  --mid: #2E4A6B;
+  --gold: #B08D3F;
+  --text: #2A2A2A;
+  --sub: #6B6B6B;
+  --serif: "Noto Serif JP", "游明朝", "Yu Mincho", serif;
+  --sans: "Noto Sans JP", sans-serif;
+  --fw: 560px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--dark);
+  font-family: var(--sans);
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.8;
+}
+
+/* ============================================
+   WRAPPER
+   ============================================ */
+#wrapper {
+  max-width: var(--fw);
+  margin: 0 auto;
+  background: var(--bg);
+  position: relative;
+}
+
+/* ============================================
+   TYPOGRAPHY UTILITIES
+   ============================================ */
+.section-label {
+  display: block;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.section-label::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin-top: 6px;
+}
+
+.section-heading {
+  font-family: var(--serif);
+  font-size: clamp(22px, 5vw, 28px);
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.gold-rule {
+  border: none;
+  border-top: 1px solid var(--gold);
+  margin: 0;
+}
+
+/* ============================================
+   SECTION BASE
+   ============================================ */
+.section {
+  padding: 64px 28px;
+}
+
+.section--dark {
+  background: var(--dark);
+  color: var(--bg);
+}
+
+.section--dark .section-heading {
+  color: var(--bg);
+}
+
+/* ============================================
+   ANIMATION (2nd screen+)
+   ============================================ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   S0. HEADER
+   ============================================ */
+#site-header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--fw);
+  background: rgba(22, 35, 58, 0.97);
+  backdrop-filter: blur(4px);
+  z-index: 900;
+  padding: 10px 16px 0;
+  border-bottom: 1px solid rgba(176, 141, 63, 0.3);
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 8px;
+}
+
+.header-logo {
+  flex: 1;
+  min-width: 0;
+}
+
+.header-logo .company-name {
+  font-family: var(--serif);
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.05em;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-logo .company-sub {
+  font-size: 10px;
+  color: rgba(247, 244, 238, 0.6);
+  display: block;
+  letter-spacing: 0.05em;
+  margin-top: 1px;
+}
+
+.header-btns {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.header-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+  font-family: var(--sans);
+}
+
+.header-btn--tel {
+  background: var(--gold);
+  color: #fff;
+}
+
+.header-btn--line {
+  background: #06C755;
+  color: #fff;
+}
+
+/* SVG icon in header */
+.header-btn svg {
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.header-nav {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.header-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.header-nav a {
+  display: inline-block;
+  font-size: 11px;
+  color: rgba(247, 244, 238, 0.7);
+  text-decoration: none;
+  padding: 2px 10px;
+  border-right: 1px solid rgba(176, 141, 63, 0.3);
+  transition: color 0.2s;
+}
+
+.header-nav a:first-child {
+  padding-left: 0;
+}
+
+.header-nav a:last-child {
+  border-right: none;
+}
+
+.header-nav a:hover {
+  color: var(--gold);
+}
+
+/* ============================================
+   S1. FIRST VIEW
+   ============================================ */
+#fv {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.fv-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('images/hp-hero.jpg');
+  background-size: cover;
+  background-position: center top;
+  z-index: 0;
+}
+
+.fv-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(22, 35, 58, 0.45) 0%,
+    rgba(22, 35, 58, 0.70) 50%,
+    rgba(22, 35, 58, 0.90) 100%
+  );
+  z-index: 1;
+}
+
+.fv-content {
+  position: relative;
+  z-index: 2;
+  padding: 48px 28px 32px;
+}
+
+.fv-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  border-top: 1px solid var(--gold);
+  padding-top: 6px;
+  margin-bottom: 20px;
+}
+
+.fv-catch {
+  font-family: var(--serif);
+  font-size: clamp(26px, 7vw, 34px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  margin-bottom: 20px;
+}
+
+.fv-sub {
+  font-size: 15px;
+  color: rgba(247, 244, 238, 0.88);
+  line-height: 1.85;
+  margin-bottom: 32px;
+}
+
+.fv-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 24px;
+  background: var(--dark);
+  color: #fff;
+  border: 1.5px solid var(--gold);
+  border-radius: 4px;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.35), 0 0 0 1px rgba(176,141,63,0.15);
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  background: var(--gold);
+  color: var(--dark);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+}
+
+.btn-primary::after {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.2s;
+}
+
+.btn-primary:hover::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316233A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'/%3E%3C/svg%3E");
+  transform: translateX(3px);
+}
+
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 24px;
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.5);
+  border-radius: 4px;
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.btn-secondary small {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.65);
+}
+
+.btn-secondary:hover {
+  border-color: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.08);
+}
+
+.fv-disclaimer {
+  font-size: 10px;
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ============================================
+   S2. TROUBLE
+   ============================================ */
+#trouble {
+  background: #fff;
+  padding: 64px 28px 56px;
+}
+
+.trouble-img {
+  width: calc(100% + 56px);
+  margin: 0 -28px 36px;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.trouble-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.trouble-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(176, 141, 63, 0.25);
+}
+
+.trouble-item:first-child {
+  border-top: 1px solid rgba(176, 141, 63, 0.25);
+}
+
+.trouble-num {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  min-width: 28px;
+  margin-top: 2px;
+}
+
+.trouble-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.trouble-close {
+  margin-top: 36px;
+  text-align: center;
+  font-family: var(--serif);
+  font-size: clamp(17px, 4vw, 20px);
+  color: var(--dark);
+  line-height: 1.7;
+}
+
+/* ============================================
+   S3. WE CAN BUY
+   ============================================ */
+#wecan {
+  background: var(--dark);
+  padding: 64px 28px;
+}
+
+#wecan .section-label {
+  color: var(--gold);
+}
+
+#wecan .section-label::after {
+  background: var(--gold);
+}
+
+#wecan .section-heading {
+  color: var(--bg);
+}
+
+.wecan-lead {
+  font-size: 15px;
+  color: rgba(247, 244, 238, 0.8);
+  line-height: 1.85;
+  margin-bottom: 32px;
+}
+
+.wecan-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.wecan-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid rgba(176, 141, 63, 0.5);
+  border-radius: 3px;
+  font-size: 13px;
+  color: rgba(247, 244, 238, 0.9);
+  background: rgba(176, 141, 63, 0.07);
+}
+
+.wecan-tag svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.wecan-close {
+  font-size: 14px;
+  color: rgba(247, 244, 238, 0.65);
+  line-height: 1.7;
+  padding-top: 12px;
+  border-top: 1px solid rgba(176, 141, 63, 0.25);
+}
+
+/* ============================================
+   S4. STRENGTH
+   ============================================ */
+#strength {
+  background: var(--bg);
+  padding: 64px 28px;
+}
+
+.strength-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.strength-item {
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(176, 141, 63, 0.3);
+}
+
+.strength-item:first-child {
+  padding-top: 0;
+}
+
+.strength-number {
+  font-family: var(--serif);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+
+.strength-title {
+  font-family: var(--serif);
+  font-size: clamp(17px, 4vw, 20px);
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.strength-body {
+  font-size: 14px;
+  color: var(--sub);
+  line-height: 1.85;
+}
+
+/* ============================================
+   S5. COMPARISON TABLE
+   ============================================ */
+#comparison {
+  background: #fff;
+  padding: 64px 28px;
+}
+
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 28px;
+  font-size: 15px;
+}
+
+.comp-table th,
+.comp-table td {
+  padding: 12px 6px;
+  text-align: center;
+  border-bottom: 1px solid rgba(22, 35, 58, 0.1);
+  vertical-align: middle;
+  line-height: 1.5;
+}
+
+.comp-table th {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: rgba(22, 35, 58, 0.04);
+  color: var(--dark);
+}
+
+.comp-table thead th:first-child {
+  background: transparent;
+}
+
+.comp-table th.th-kaitori {
+  background: var(--dark);
+  color: #fff;
+}
+
+.comp-table td:first-child {
+  text-align: left;
+  font-weight: 500;
+  color: var(--text);
+  font-size: 14px;
+  padding-left: 0;
+}
+
+.comp-table td.td-kaitori {
+  background: rgba(22, 35, 58, 0.05);
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.comp-table tr:last-child th,
+.comp-table tr:last-child td {
+  border-bottom: none;
+}
+
+.comp-close {
+  border: 1px solid var(--gold);
+  padding: 24px 20px;
+  background: rgba(176, 141, 63, 0.05);
+}
+
+.comp-close p {
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--dark);
+}
+
+.comp-close p strong {
+  display: block;
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+
+/* ============================================
+   S6. FLOW
+   ============================================ */
+#flow {
+  background: var(--bg);
+  padding: 64px 28px;
+}
+
+.flow-img {
+  width: calc(100% + 56px);
+  margin: 0 -28px 40px;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.flow-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.flow-list::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 20px;
+  bottom: 20px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--gold) 0%, rgba(176,141,63,0.2) 100%);
+}
+
+.flow-item {
+  display: flex;
+  gap: 20px;
+  padding: 0 0 32px;
+  position: relative;
+}
+
+.flow-item:last-child {
+  padding-bottom: 0;
+}
+
+.flow-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--dark);
+  border: 1.5px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold);
+  position: relative;
+  z-index: 1;
+}
+
+.flow-body {
+  padding-top: 6px;
+  flex: 1;
+}
+
+.flow-title {
+  font-family: var(--serif);
+  font-size: clamp(16px, 4vw, 18px);
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.flow-desc {
+  font-size: 14px;
+  color: var(--sub);
+  line-height: 1.8;
+}
+
+/* ============================================
+   S7. RECORDS
+   ============================================ */
+#records {
+  background: #fff;
+  padding: 64px 28px;
+}
+
+.record-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 28px;
+}
+
+.record-card {
+  border: 1px solid rgba(176, 141, 63, 0.3);
+  overflow: hidden;
+}
+
+.record-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.record-body {
+  padding: 18px 18px 20px;
+}
+
+.record-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.record-area-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+.record-text {
+  font-size: 14px;
+  color: var(--sub);
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+
+.record-days {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark);
+  padding-top: 10px;
+  border-top: 1px solid rgba(176, 141, 63, 0.3);
+}
+
+.disclaimer-box {
+  border: 1px solid rgba(107, 107, 107, 0.25);
+  padding: 16px 16px;
+  background: rgba(107, 107, 107, 0.04);
+}
+
+.disclaimer-box p {
+  font-size: 11px;
+  color: var(--sub);
+  line-height: 1.8;
+}
+
+/* ============================================
+   S8. VOICE
+   ============================================ */
+#voice {
+  background: var(--bg);
+  padding: 64px 28px;
+}
+
+.voice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 28px;
+}
+
+.voice-card {
+  background: #fff;
+  padding: 28px 24px;
+  border-left: 3px solid var(--gold);
+  position: relative;
+}
+
+.voice-quote-mark {
+  font-family: var(--serif);
+  font-size: 60px;
+  line-height: 0.7;
+  color: var(--gold);
+  opacity: 0.25;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  user-select: none;
+  font-style: normal;
+}
+
+.voice-text {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--text);
+  padding-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.voice-attr {
+  display: block;
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--sub);
+  letter-spacing: 0.05em;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   S9. AREA
+   ============================================ */
+#area {
+  background: #fff;
+  padding: 64px 28px;
+}
+
+.area-main {
+  font-family: var(--serif);
+  font-size: clamp(17px, 4vw, 20px);
+  font-weight: 600;
+  color: var(--dark);
+  text-align: center;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.area-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.area-tag {
+  padding: 6px 16px;
+  border: 1px solid var(--gold);
+  color: var(--dark);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  border-radius: 2px;
+  background: rgba(176, 141, 63, 0.05);
+}
+
+.area-close {
+  font-size: 13px;
+  color: var(--sub);
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* ============================================
+   S10. Q&A
+   ============================================ */
+#qa {
+  background: var(--bg);
+  padding: 64px 28px;
+}
+
+.qa-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.qa-item {
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(176, 141, 63, 0.25);
+}
+
+.qa-item:first-child {
+  border-top: 1px solid rgba(176, 141, 63, 0.25);
+}
+
+.qa-q {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.qa-q-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 1px;
+}
+
+.qa-q-text {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.qa-a {
+  font-size: 14px;
+  color: var(--sub);
+  line-height: 1.9;
+  padding-left: 42px;
+}
+
+.qa-a em {
+  font-style: italic;
+  font-size: 12px;
+  color: rgba(107, 107, 107, 0.8);
+  display: block;
+  margin-top: 8px;
+}
+
+/* ============================================
+   S11. MESSAGE
+   ============================================ */
+#message {
+  background: #fff;
+  padding: 64px 28px;
+}
+
+.message-photo-placeholder {
+  width: 120px;
+  height: 140px;
+  border: 1px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 32px;
+  background: rgba(176, 141, 63, 0.04);
+}
+
+.message-photo-placeholder span {
+  font-size: 11px;
+  color: var(--sub);
+  text-align: center;
+  line-height: 1.7;
+  padding: 8px;
+}
+
+.message-body {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 2;
+}
+
+.message-body p + p {
+  margin-top: 20px;
+}
+
+.message-name {
+  display: block;
+  margin-top: 28px;
+  font-family: var(--serif);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark);
+  border-top: 1px solid rgba(176, 141, 63, 0.4);
+  padding-top: 16px;
+}
+
+/* ============================================
+   S12. COMPANY
+   ============================================ */
+#company {
+  background: var(--bg);
+  padding: 64px 28px;
+}
+
+.company-img {
+  width: calc(100% + 56px);
+  margin: 0 -28px 36px;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.company-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.company-table tr {
+  border-bottom: 1px solid rgba(176, 141, 63, 0.2);
+}
+
+.company-table tr:last-child {
+  border-bottom: none;
+}
+
+.company-table th {
+  padding: 12px 8px 12px 0;
+  text-align: left;
+  font-weight: 700;
+  color: var(--dark);
+  vertical-align: top;
+  width: 38%;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.company-table td {
+  padding: 12px 0 12px 8px;
+  color: var(--sub);
+  vertical-align: top;
+  line-height: 1.7;
+}
+
+/* ============================================
+   S13. CONTACT
+   ============================================ */
+#contact {
+  background: var(--dark);
+  padding: 72px 28px;
+  text-align: center;
+}
+
+#contact .section-label {
+  display: block;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+#contact .section-label::after {
+  margin: 6px auto 0;
+}
+
+#contact .section-heading {
+  color: var(--bg);
+  text-align: center;
+  font-size: clamp(24px, 6vw, 30px);
+}
+
+.contact-lead {
+  font-size: 15px;
+  color: rgba(247, 244, 238, 0.75);
+  line-height: 1.9;
+  margin-bottom: 40px;
+}
+
+.contact-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-channel {
+  border: 1px solid rgba(176, 141, 63, 0.4);
+  padding: 20px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  transition: border-color 0.25s, background 0.25s;
+  cursor: pointer;
+  background: rgba(176, 141, 63, 0.05);
+}
+
+.contact-channel:hover {
+  border-color: var(--gold);
+  background: rgba(176, 141, 63, 0.12);
+}
+
+.contact-channel-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-channel-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.contact-channel-info {
+  flex: 1;
+  text-align: left;
+}
+
+.contact-channel-title {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.contact-channel-sub {
+  font-size: 12px;
+  color: rgba(247, 244, 238, 0.55);
+}
+
+/* ============================================
+   S14. FOOTER
+   ============================================ */
+#footer {
+  background: #0c1827;
+  padding: 48px 28px 120px;
+}
+
+.footer-company {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(247, 244, 238, 0.9);
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(176, 141, 63, 0.25);
+}
+
+.footer-info {
+  font-size: 12px;
+  color: rgba(247, 244, 238, 0.5);
+  line-height: 1.9;
+  margin-bottom: 24px;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-bottom: 28px;
+}
+
+.footer-nav a {
+  font-size: 12px;
+  color: rgba(247, 244, 238, 0.5);
+  text-decoration: none;
+  padding: 4px 12px 4px 0;
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+  color: var(--gold);
+}
+
+.footer-copy {
+  font-size: 11px;
+  color: rgba(247, 244, 238, 0.3);
+  line-height: 1.8;
+}
+
+/* ============================================
+   S15. FIXED BOTTOM BAR
+   ============================================ */
+#fixed-bar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  width: 100%;
+  max-width: var(--fw);
+  display: flex;
+  z-index: 950;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 -2px 16px rgba(0,0,0,0.3);
+}
+
+#fixed-bar.visible {
+  transform: translateX(-50%) translateY(0);
+}
+
+.fixed-bar-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 12px 4px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  font-family: var(--sans);
+  transition: background 0.2s;
+}
+
+.fixed-bar-btn:nth-child(1) {
+  background: var(--gold);
+  color: #fff;
+}
+
+.fixed-bar-btn:nth-child(2) {
+  background: #06C755;
+  color: #fff;
+}
+
+.fixed-bar-btn:nth-child(3) {
+  background: var(--dark);
+  color: #fff;
+  border: none;
+  border-left: 1px solid rgba(176, 141, 63, 0.5);
+  border-right: 1px solid rgba(176, 141, 63, 0.5);
+  border-top: 1px solid rgba(176, 141, 63, 0.5);
+}
+
+.fixed-bar-btn:nth-child(1):hover { background: #9a7a35; }
+.fixed-bar-btn:nth-child(2):hover { background: #05b04b; }
+.fixed-bar-btn:nth-child(3):hover { background: #1d3358; }
+
+.fixed-bar-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.fixed-bar-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+</style>
+</head>
+<body>
+
+<div id="wrapper">
+
+  <!-- ============================================
+       S0. HEADER
+       ============================================ -->
+  <header id="site-header">
+    <div class="header-top">
+      <div class="header-logo">
+        <span class="company-name">あおば不動産株式会社</span>
+        <span class="company-sub">埼玉県川越市｜相続・空き家買取</span>
+      </div>
+      <div class="header-btns">
+        <a href="tel:0120000000" class="header-btn header-btn--tel">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          0120-000-000
+        </a>
+        <a href="#contact" class="header-btn header-btn--line">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z"/></svg>
+          LINE
+        </a>
+      </div>
+    </div>
+    <nav class="header-nav">
+      <a href="#wecan">買取について</a>
+      <a href="#strength">選ばれる理由</a>
+      <a href="#records">買取実績</a>
+      <a href="#qa">よくある質問</a>
+      <a href="#company">会社概要</a>
+    </nav>
+  </header>
+
+  <!-- ============================================
+       S1. FIRST VIEW
+       ============================================ -->
+  <section id="fv">
+    <div class="fv-bg"></div>
+    <div class="fv-overlay"></div>
+    <div class="fv-content">
+      <span class="fv-label">埼玉県川越市｜相続・空き家の買取</span>
+      <h1 class="fv-catch">川越の空き家と、<br>相続した実家の<br>相談窓口です。</h1>
+      <p class="fv-sub">片づけないまま、そのままの状態で構いません。<br>ご相談から最短5日でお買い取りします。仲介手数料はいただきません。</p>
+      <div class="fv-ctas">
+        <a href="#contact" class="btn-primary">無料査定を依頼する</a>
+        <a href="tel:0120000000" class="btn-secondary">
+          0120-000-000 に電話する
+          <small>受付 9:00〜18:00／土日祝も対応</small>
+        </a>
+      </div>
+      <p class="fv-disclaimer">※本ページはデザイン見本です。社名・数字・実績はすべて架空のサンプルです。</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       S2. TROUBLE
+       ============================================ -->
+  <section id="trouble" class="fade-up">
+    <span class="section-label">YOUR TROUBLE</span>
+    <h2 class="section-heading">こんなところで、<br>止まっていませんか。</h2>
+    <img src="images/hp-nayami.jpg" alt="悩む様子" class="trouble-img">
+    <ul class="trouble-list">
+      <li class="trouble-item">
+        <span class="trouble-num">01</span>
+        <span class="trouble-text">実家を相続したが、誰も住まないまま何年も過ぎた</span>
+      </li>
+      <li class="trouble-item">
+        <span class="trouble-num">02</span>
+        <span class="trouble-text">家財も仏壇もそのまま。片づける時間も、体力もない</span>
+      </li>
+      <li class="trouble-item">
+        <span class="trouble-num">03</span>
+        <span class="trouble-text">兄弟の共有名義になっていて、話が前に進まない</span>
+      </li>
+      <li class="trouble-item">
+        <span class="trouble-num">04</span>
+        <span class="trouble-text">遠方に住んでいて、年に一度見に行くのが精一杯</span>
+      </li>
+    </ul>
+    <p class="trouble-close">どれも、川越では珍しい話ではありません。</p>
+  </section>
+
+  <!-- ============================================
+       S3. WE CAN BUY
+       ============================================ -->
+  <section id="wecan" class="fade-up">
+    <span class="section-label">WE CAN BUY</span>
+    <h2 class="section-heading">こういう物件こそ、<br>ご相談ください。</h2>
+    <p class="wecan-lead">「うちは特殊だから、どうせ断られる」と思って動けずにいる方が、とても多いです。<br>下のどれかに当てはまるなら、まだ手はあります。</p>
+    <div class="wecan-tags">
+
+      <!-- Check SVG inline -->
+      <span class="wecan-tag">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7.25" stroke="#B08D3F" stroke-width="1.5"/><polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#B08D3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        家財がそのまま残っている
+      </span>
+      <span class="wecan-tag">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7.25" stroke="#B08D3F" stroke-width="1.5"/><polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#B08D3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        仏壇・神棚がある
+      </span>
+      <span class="wecan-tag">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7.25" stroke="#B08D3F" stroke-width="1.5"/><polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#B08D3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        長年放置して傷んでいる
+      </span>
+      <span class="wecan-tag">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7.25" stroke="#B08D3F" stroke-width="1.5"/><polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#B08D3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        雨漏りがある
+      </span>
+      <span class="wecan-tag">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7.25" stroke="#B08D3F" stroke-width="1.5"/><polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#B08D3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        シロアリの被害がある
+      </span>
+      <span class="wecan-tag">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7.25" stroke="#B08D3F" stroke-width="1.5"/><polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#B08D3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        再建築ができない土地
+      </span>
+      <span class="wecan-tag">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7.25" stroke="#B08D3F" stroke-width="1.5"/><polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#B08D3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        接道が2m未満
+      </span>
+      <span class="wecan-tag">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7.25" stroke="#B08D3F" stroke-width="1.5"/><polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#B08D3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        傾斜地・崖地にある
+      </span>
+      <span class="wecan-tag">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7.25" stroke="#B08D3F" stroke-width="1.5"/><polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#B08D3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        境界がはっきりしない
+      </span>
+      <span class="wecan-tag">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7.25" stroke="#B08D3F" stroke-width="1.5"/><polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#B08D3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        未登記の増築部分がある
+      </span>
+      <span class="wecan-tag">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7.25" stroke="#B08D3F" stroke-width="1.5"/><polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#B08D3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        兄弟・親族の共有名義
+      </span>
+      <span class="wecan-tag">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7.25" stroke="#B08D3F" stroke-width="1.5"/><polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#B08D3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        相続登記が済んでいない
+      </span>
+      <span class="wecan-tag">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7.25" stroke="#B08D3F" stroke-width="1.5"/><polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#B08D3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        借地権付きの建物
+      </span>
+      <span class="wecan-tag">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7.25" stroke="#B08D3F" stroke-width="1.5"/><polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#B08D3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        賃借人が住んでいる
+      </span>
+      <span class="wecan-tag">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7.25" stroke="#B08D3F" stroke-width="1.5"/><polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#B08D3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        農地や山林が混ざっている
+      </span>
+      <span class="wecan-tag">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7.25" stroke="#B08D3F" stroke-width="1.5"/><polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#B08D3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        庭木や物置が大量にある
+      </span>
+    </div>
+    <p class="wecan-close">ここに無いものでも、まずは電話で状況をお聞かせください。</p>
+  </section>
+
+  <!-- ============================================
+       S4. STRENGTH
+       ============================================ -->
+  <section id="strength" class="section fade-up">
+    <span class="section-label">OUR STRENGTH</span>
+    <h2 class="section-heading">川越で、相続と空き家だけを<br>見てきました。</h2>
+    <div class="strength-list">
+      <div class="strength-item">
+        <div class="strength-number">01</div>
+        <div class="strength-title">現状のまま、片づけずにお引き取りします</div>
+        <p class="strength-body">家財も、庭木も、物置の中身も、そのままで構いません。処分は当社の負担で行います。</p>
+      </div>
+      <div class="strength-item">
+        <div class="strength-number">02</div>
+        <div class="strength-title">司法書士・税理士と組んで、登記と税金まで</div>
+        <p class="strength-body">相続は不動産だけでは終わりません。提携の司法書士・税理士と一緒に、窓口ひとつで進めます。</p>
+      </div>
+      <div class="strength-item">
+        <div class="strength-number">03</div>
+        <div class="strength-title">近隣に知られないよう進めます</div>
+        <p class="strength-body">看板は立てません。チラシも広告も出しません。ご希望があれば、社名の入った車で伺うこともしません。</p>
+      </div>
+      <div class="strength-item">
+        <div class="strength-number">04</div>
+        <div class="strength-title">川越で【◯年】。相場を、足で知っています</div>
+        <p class="strength-body">【ここに御社の創業年・地域での年数を入れてください】机の上の相場ではなく、その通りの実際の取引を見て価格をお出しします。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       S5. COMPARISON TABLE
+       ============================================ -->
+  <section id="comparison" class="fade-up">
+    <div style="padding: 64px 28px 0;">
+      <span class="section-label">WHICH IS BETTER</span>
+      <h2 class="section-heading">仲介と買取、<br>どちらが向いているか。</h2>
+    </div>
+    <div style="padding: 0 16px 0;">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th style="width:28%;text-align:left;"></th>
+            <th style="width:36%;">仲介</th>
+            <th class="th-kaitori" style="width:36%;">買取</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>売れるまで</td>
+            <td>3か月〜1年以上</td>
+            <td class="td-kaitori">最短5日</td>
+          </tr>
+          <tr>
+            <td>価格</td>
+            <td>市場価格に近い</td>
+            <td class="td-kaitori">市場価格より低くなります</td>
+          </tr>
+          <tr>
+            <td>仲介手数料</td>
+            <td>かかります</td>
+            <td class="td-kaitori">かかりません</td>
+          </tr>
+          <tr>
+            <td>片づけ</td>
+            <td>必要</td>
+            <td class="td-kaitori">そのままで結構です</td>
+          </tr>
+          <tr>
+            <td>内覧の立ち会い</td>
+            <td>何度も必要</td>
+            <td class="td-kaitori">ありません</td>
+          </tr>
+          <tr>
+            <td>近隣に知られるか</td>
+            <td>広告を出すため知られます</td>
+            <td class="td-kaitori">知られません</td>
+          </tr>
+          <tr>
+            <td>引き渡し後の責任</td>
+            <td>契約不適合責任を負います</td>
+            <td class="td-kaitori">当社が引き受けます</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="padding: 0 28px 64px;">
+      <div class="comp-close">
+        <p>
+          <strong>急がないなら仲介、早く確実に終えたいなら買取です。</strong>
+          当社は両方できますので、お話を伺ったうえで、向いていないほうを正直にお伝えします。<br>
+          買取のほうが価格は下がります。そこを隠してお勧めすることはしません。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       S6. FLOW
+       ============================================ -->
+  <section id="flow" class="fade-up">
+    <div style="padding: 64px 28px 0;">
+      <span class="section-label">FLOW</span>
+      <h2 class="section-heading">ご相談から、<br>お引き渡しまで。</h2>
+    </div>
+    <img src="images/hp-soudan.jpg" alt="相談の様子" class="flow-img">
+    <div style="padding: 0 28px 64px;">
+      <div class="flow-list">
+        <div class="flow-item">
+          <div class="flow-circle">01</div>
+          <div class="flow-body">
+            <div class="flow-title">ご相談</div>
+            <p class="flow-desc">電話・フォーム・LINEのどれでも。「まだ売ると決めていない」段階で構いません。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-circle">02</div>
+          <div class="flow-body">
+            <div class="flow-title">現地の確認</div>
+            <p class="flow-desc">立ち会いは不要です。鍵をお預かりできれば、当社だけで伺います。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-circle">03</div>
+          <div class="flow-body">
+            <div class="flow-title">買取価格のご提示</div>
+            <p class="flow-desc">3営業日以内に、書面でお出しします。金額の根拠もあわせてご説明します。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-circle">04</div>
+          <div class="flow-body">
+            <div class="flow-title">ご契約</div>
+            <p class="flow-desc">ご自宅・当社・お近くの場所、どこへでも伺います。遠方の方は郵送でも対応します。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-circle">05</div>
+          <div class="flow-body">
+            <div class="flow-title">お引き渡しとご入金</div>
+            <p class="flow-desc">最短5日。家財の片づけは当社で行いますので、何もしていただく必要はありません。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       S7. RECORDS
+       ============================================ -->
+  <section id="records" class="fade-up">
+    <div style="padding: 64px 28px 0;">
+      <span class="section-label">RECORDS</span>
+      <h2 class="section-heading">川越とその周辺で、<br>お引き受けした物件です。</h2>
+    </div>
+    <div style="padding: 0 28px 64px;">
+      <div class="record-list">
+        <div class="record-card">
+          <img src="images/hp-jisseki-01.jpg" alt="買取実績01" class="record-img">
+          <div class="record-body">
+            <div class="record-area">
+              <span class="record-area-label">埼玉県川越市</span>
+            </div>
+            <p class="record-text">築48年の木造戸建て。相続から4年、家財がそのまま残っていた物件。</p>
+            <div class="record-days">ご相談から引き渡しまで11日。</div>
+          </div>
+        </div>
+        <div class="record-card">
+          <img src="images/hp-jisseki-02.jpg" alt="買取実績02" class="record-img">
+          <div class="record-body">
+            <div class="record-area">
+              <span class="record-area-label">埼玉県坂戸市</span>
+            </div>
+            <p class="record-text">築35年の木造アパート。賃借人が2世帯入居中のまま、そのままお引き受け。</p>
+            <div class="record-days">ご相談から引き渡しまで21日。</div>
+          </div>
+        </div>
+        <div class="record-card">
+          <img src="images/hp-jisseki-03.jpg" alt="買取実績03" class="record-img">
+          <div class="record-body">
+            <div class="record-area">
+              <span class="record-area-label">埼玉県鶴ヶ島市</span>
+            </div>
+            <p class="record-text">再建築のできない土地。境界が確定しておらず、隣地の方との調整も当社で行いました。</p>
+            <div class="record-days">ご相談から引き渡しまで34日。</div>
+          </div>
+        </div>
+      </div>
+      <div class="disclaimer-box">
+        <p>※上記はデザイン見本用の架空のサンプルです。実際の掲載では、事実のみを記載します。<br>【ここに御社の実際の買取事例を入れてください。地名・築年数・状態・日数の4点があると効きます】</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       S8. VOICE
+       ============================================ -->
+  <section id="voice" class="fade-up">
+    <div style="padding: 64px 28px 0;">
+      <span class="section-label">VOICE</span>
+      <h2 class="section-heading">ご依頼くださった方から。</h2>
+    </div>
+    <div style="padding: 0 28px 64px;">
+      <div class="voice-list">
+        <div class="voice-card">
+          <span class="voice-quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="voice-text">「兄と二人で持っていた実家を、10年放っておきました。話を切り出すのが怖かったんです。<br>
+　　結局、こちらで兄にも説明してくださって、それで動きました。」</p>
+          <span class="voice-attr">—— 60代・女性／川越市</span>
+        </div>
+        <div class="voice-card">
+          <span class="voice-quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="voice-text">「片づけないと売れないと思い込んでいて、それで何年も止まっていました。<br>
+　　そのままでいいと言われたときは、正直、拍子抜けしました。」</p>
+          <span class="voice-attr">—— 70代・男性／坂戸市</span>
+        </div>
+      </div>
+      <div class="disclaimer-box">
+        <p>※上記はデザイン見本用の架空のサンプルです。実際の掲載では、ご本人の許可を得た実際のお声のみを載せます。<br>【ここに御社のお客様の声を入れてください】</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       S9. AREA
+       ============================================ -->
+  <section id="area" class="fade-up">
+    <div style="padding: 64px 28px;">
+      <span class="section-label">AREA</span>
+      <h2 class="section-heading">対応しているエリア</h2>
+      <p class="area-main"><strong>埼玉県川越市を中心に、車で1時間以内の地域</strong></p>
+      <div class="area-tags">
+        <span class="area-tag">川越市</span>
+        <span class="area-tag">坂戸市</span>
+        <span class="area-tag">鶴ヶ島市</span>
+        <span class="area-tag">ふじみ野市</span>
+        <span class="area-tag">富士見市</span>
+        <span class="area-tag">狭山市</span>
+        <span class="area-tag">所沢市</span>
+        <span class="area-tag">東松山市</span>
+        <span class="area-tag">日高市</span>
+        <span class="area-tag">毛呂山町</span>
+        <span class="area-tag">川島町</span>
+        <span class="area-tag">さいたま市（一部）</span>
+      </div>
+      <p class="area-close">上記以外の地域も、まずはご相談ください。遠方の物件はご相談のうえ対応します。</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       S10. Q&A
+       ============================================ -->
+  <section id="qa" class="fade-up">
+    <div style="padding: 64px 28px;">
+      <span class="section-label">Q &amp; A</span>
+      <h2 class="section-heading">よくいただくご質問</h2>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-q">
+            <span class="qa-q-badge">Q</span>
+            <span class="qa-q-text">まだ売ると決めていません。相談だけでもいいですか。</span>
+          </div>
+          <div class="qa-a">もちろんです。実際、ご相談の半分以上は「まず話を聞きたい」という段階の方です。その場でお決めいただく必要はありませんし、こちらから後日しつこくご連絡することもしません。</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-q">
+            <span class="qa-q-badge">Q</span>
+            <span class="qa-q-text">家の中が物であふれています。片づけてからでないと見てもらえませんか。</span>
+          </div>
+          <div class="qa-a">そのままで結構です。片づけは当社で行いますので、鍵だけお預かりできれば伺えます。仏壇や神棚がある場合は、お寺・神社との調整もご相談ください。</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-q">
+            <span class="qa-q-badge">Q</span>
+            <span class="qa-q-text">相続の登記がまだ済んでいません。この状態でも買い取ってもらえますか。</span>
+          </div>
+          <div class="qa-a">未登記のままご相談いただいて構いません。提携の司法書士と一緒に進めます。なお相続登記は2024年4月から義務化されており、正当な理由なく3年以内に済ませない場合は過料の対象になることがあります。<em>（2026年8月時点の制度です。適用の可否は法務局・司法書士にご確認ください）</em></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-q">
+            <span class="qa-q-badge">Q</span>
+            <span class="qa-q-text">兄弟の共有名義で、全員の意見がまとまっていません。</span>
+          </div>
+          <div class="qa-a">よくあるご相談です。共有者全員のご同意がないと売却はできませんが、ご希望があれば、他の共有者の方へのご説明に当社が同席します。</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-q">
+            <span class="qa-q-badge">Q</span>
+            <span class="qa-q-text">近所に知られたくないのですが。</span>
+          </div>
+          <div class="qa-a">買取であれば、広告も看板も出しません。当社の車も社名の入っていないもので伺えます。ご近所への配慮は、事前におっしゃっていただければそのとおりにします。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       S11. MESSAGE
+       ============================================ -->
+  <section id="message" class="fade-up">
+    <div style="padding: 64px 28px;">
+      <span class="section-label">MESSAGE</span>
+      <h2 class="section-heading">ごあいさつ</h2>
+      <div class="message-photo-placeholder">
+        <span>【ここに代表者の<br>お写真を入れて<br>ください】</span>
+      </div>
+      <div class="message-body">
+        <p>空き家のご相談は、たいてい「困ってから」ではなく、「困っていることに気づいてから」始まります。</p>
+        <p>親が亡くなって、家がそのまま残る。しばらくは、誰も何も言いません。<br>
+        一年経ち、三年経ち、固定資産税の通知が届くたびに少し気が重くなる。<br>
+        それでも、実家を売るという話は、なかなか自分から切り出せないものです。</p>
+        <p>私たちがしているのは、その一歩目を、代わりに背負う仕事だと思っています。</p>
+        <p>売る・売らないを決めるのは、ご家族です。<br>
+        決める前の段階で、何ができて何ができないのかを、正直にお伝えする。<br>
+        それだけは、川越で仕事をしてきた年数のぶん、きちんとやりたいと思っています。</p>
+        <strong class="message-name">あおば不動産株式会社　代表取締役　【お名前】</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       S12. COMPANY
+       ============================================ -->
+  <section id="company" class="fade-up">
+    <div style="padding: 64px 28px 0;">
+      <span class="section-label">COMPANY</span>
+      <h2 class="section-heading">会社概要</h2>
+    </div>
+    <img src="images/hp-office.jpg" alt="事務所の様子" class="company-img">
+    <div style="padding: 0 28px 64px;">
+      <table class="company-table">
+        <tr>
+          <th>商号</th>
+          <td>あおば不動産株式会社</td>
+        </tr>
+        <tr>
+          <th>代表者</th>
+          <td>【代表者名】</td>
+        </tr>
+        <tr>
+          <th>所在地</th>
+          <td>埼玉県川越市【以下、番地まで】</td>
+        </tr>
+        <tr>
+          <th>電話</th>
+          <td>0120-000-000</td>
+        </tr>
+        <tr>
+          <th>営業時間</th>
+          <td>9:00〜18:00（土日祝も対応／水曜定休）</td>
+        </tr>
+        <tr>
+          <th>設立</th>
+          <td>【設立年】</td>
+        </tr>
+        <tr>
+          <th>資本金</th>
+          <td>【資本金】</td>
+        </tr>
+        <tr>
+          <th>事業内容</th>
+          <td>不動産の買取・売買・仲介／空き家の管理／相続不動産のご相談</td>
+        </tr>
+        <tr>
+          <th>宅地建物取引業免許</th>
+          <td>埼玉県知事免許（0）第000000号</td>
+        </tr>
+        <tr>
+          <th>所属団体</th>
+          <td>（公社）埼玉県宅地建物取引業協会／（公社）全国宅地建物取引業保証協会</td>
+        </tr>
+        <tr>
+          <th>提携</th>
+          <td>司法書士法人【名称】／税理士法人【名称】</td>
+        </tr>
+      </table>
+      <div class="disclaimer-box">
+        <p>※本ページはデザイン見本です。商号・所在地・免許番号はすべて架空のものです。<br>実際の掲載では、宅地建物取引業法にもとづき、商号・免許番号・事務所所在地を正確に記載します。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       S13. CONTACT
+       ============================================ -->
+  <section id="contact" class="fade-up">
+    <span class="section-label">CONTACT</span>
+    <h2 class="section-heading">まず、話を聞くところから。</h2>
+    <p class="contact-lead">売る・売らないは、あとで決めていただいて構いません。<br>匿名のままのご相談でも、お答えできることはたくさんあります。</p>
+    <div class="contact-channels">
+      <a href="tel:0120000000" class="contact-channel">
+        <div class="contact-channel-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="#B08D3F"/></svg>
+        </div>
+        <div class="contact-channel-info">
+          <span class="contact-channel-title">電話する</span>
+          <span class="contact-channel-sub">0120-000-000　　9:00〜18:00／土日祝も対応</span>
+        </div>
+      </a>
+      <a href="#contact" class="contact-channel">
+        <div class="contact-channel-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" fill="#06C755"/></svg>
+        </div>
+        <div class="contact-channel-info">
+          <span class="contact-channel-title">LINEで相談</span>
+          <span class="contact-channel-sub">写真を送るだけでも構いません</span>
+        </div>
+      </a>
+      <a href="#contact" class="contact-channel">
+        <div class="contact-channel-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#B08D3F" stroke-width="1.8"/><polyline points="3,5 12,13 21,5" stroke="#B08D3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="contact-channel-info">
+          <span class="contact-channel-title">査定フォーム</span>
+          <span class="contact-channel-sub">24時間受付／翌営業日までに返信</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================
+       S14. FOOTER
+       ============================================ -->
+  <footer id="footer">
+    <div class="footer-company">あおば不動産株式会社</div>
+    <div class="footer-info">
+      埼玉県川越市【以下、番地まで】　電話：0120-000-000<br>
+      宅地建物取引業免許　埼玉県知事免許（0）第000000号
+    </div>
+    <nav class="footer-nav">
+      <a href="#wecan">買取について</a>
+      <a href="#strength">選ばれる理由</a>
+      <a href="#records">買取実績</a>
+      <a href="#qa">よくある質問</a>
+      <a href="#company">会社概要</a>
+      <a href="#">個人情報保護方針</a>
+    </nav>
+    <div class="footer-copy">
+      <p>© あおば不動産株式会社</p>
+      <p>本ページはデザイン見本（サンプル）です。実在する企業・実績とは関係ありません。</p>
+    </div>
+  </footer>
+
+</div><!-- /#wrapper -->
+
+<!-- ============================================
+     S15. FIXED BOTTOM BAR
+     ============================================ -->
+<div id="fixed-bar">
+  <a href="tel:0120000000" class="fixed-bar-btn">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    <span class="fixed-bar-label">電話</span>
+  </a>
+  <a href="#contact" class="fixed-bar-btn">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+    <span class="fixed-bar-label">LINE</span>
+  </a>
+  <a href="#contact" class="fixed-bar-btn">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#B08D3F" stroke-width="2"/><polyline points="3,5 12,13 21,5" stroke="#B08D3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="fixed-bar-label">無料査定</span>
+  </a>
+</div>
+
+<!-- ============================================
+     JAVASCRIPT
+     ============================================ -->
+<script>
+// Fixed bar: show after 1 viewport height scrolled
+(function () {
+  var bar = document.getElementById('fixed-bar');
+  var contact = document.getElementById('contact');
+  var vh = window.innerHeight;
+
+  function onScroll() {
+    // 最初の1画面はスクロールしてから表示。
+    // お問い合わせ（S13）に到達したら、同じ導線が二重に見えないよう非表示にする。
+    var contactTop = contact.getBoundingClientRect().top;
+    var pastFirstScreen = window.scrollY > vh;
+    var reachedContact = contactTop < vh;
+    if (pastFirstScreen && !reachedContact) {
+      bar.classList.add('visible');
+    } else {
+      bar.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function () { vh = window.innerHeight; }, { passive: true });
+  onScroll();
+})();
+
+// IntersectionObserver: threshold 0 for fade-up on 2nd screen+
+(function () {
+  var els = document.querySelectorAll('.fade-up');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('in-view'); });
+    return;
+  }
+
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0 });
+
+  els.forEach(function (el) { obs.observe(el); });
+})();
+</script>
+
+</body>
+</html>
