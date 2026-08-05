@@ -357,11 +357,15 @@ ul, ol { list-style: none; }
    ============================================================ */
 .statement { background: var(--col-bg-pale); }
 
+/* SP・タブレットは左寄せ＋自然な折り返し（中央寄せ＋強制改行は行が散らかるため）。
+   PC（1024px〜）でだけ、設計どおりの中央寄せ＋改行位置の指定に戻す */
 .statement-body {
   max-width: 680px;
   margin-inline: auto;
-  text-align: center;
+  text-align: left;
 }
+
+.statement-body br { display: none; }
 
 .statement-body p {
   line-height: 2;
@@ -369,6 +373,11 @@ ul, ol { list-style: none; }
 }
 
 .statement-body p + p { margin-top: 24px; }
+
+@media (min-width: 1024px) {
+  .statement-body { text-align: center; }
+  .statement-body br { display: inline; }
+}
 
 /* ============================================================
    S3 事業内容カード
@@ -653,6 +662,14 @@ ul, ol { list-style: none; }
   margin-inline: auto;
   line-height: 2;
   margin-bottom: 40px;
+  text-align: left;
+}
+
+.cta-lead br { display: none; }
+
+@media (min-width: 1024px) {
+  .cta-lead { text-align: center; }
+  .cta-lead br { display: inline; }
 }
 
 .cta-channels {
